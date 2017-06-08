@@ -1,0 +1,15 @@
+{
+  "id": "{D6944F56-56FB-4405-95AD-8B9AC2093123}",
+  "name": "AnalogIn4Channel",
+  "type": 3,
+  "vendor": "ESERA-Automation",
+  "aliases":
+  [
+    "4-Channel Analog Input",
+    "Art.Nr. 11230"
+  ],
+  "parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
+  "childRequirements": [],
+  "implemented": ["{E3BB8703-6388-48DA-AA85-8852CDEE152D}"],
+  "prefix": "ESERA"
+}

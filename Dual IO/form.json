@@ -1,0 +1,6 @@
+{
+  "elements":
+  [
+    { "type": "NumberSpinner", "name": "OWDID", "caption": "OWD" }
+  ]
+}

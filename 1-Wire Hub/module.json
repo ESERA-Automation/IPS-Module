@@ -1,0 +1,21 @@
+{
+  "id": "{9D0715E0-D4AE-4AA7-ACA2-7A71B456162F}",
+  "name": "Esera1WireHub",
+  "type": 3,
+  "vendor": "ESERA-Automation",
+  "aliases":
+  [
+    "1-Wire Hub",
+    "1-Wire Hub II",
+    "1-Wire Hub III",
+    "Art.Nr. 11300",
+    "Art.Nr. 11306",
+    "Art.Nr. 11314",
+    "Art.Nr. 11316",
+    "Art.Nr. 11322"
+  ],
+  "parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
+  "childRequirements": [],
+  "implemented": ["{E3BB8703-6388-48DA-AA85-8852CDEE152D}"],
+  "prefix": "ESERA"
+}

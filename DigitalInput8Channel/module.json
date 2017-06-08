@@ -1,0 +1,15 @@
+{
+	"id": "{1DBCCDA7-3A57-657D-95FD-9324738A88CC}",
+	"name": "EseraDigitalInput8Channel",
+	"type": 3,
+	"vendor": "ESERA-Automation",
+	"aliases": 
+	[
+		"Digital Input 8 Channel",
+		"Art.Nr. 11216"
+	],
+	"parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
+	"childRequirements": [],
+	"implemented": ["{E3BB8703-6388-48DA-AA85-8852CDEE152D}"],
+	"prefix": "ESERA"
+}

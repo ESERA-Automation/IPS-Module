@@ -1,0 +1,16 @@
+{
+  "id": "{AFEC1D6E-36FF-405C-91B5-D0F9F5F9A04D}",
+  "name": "AnalogIn3Channel",
+  "type": 3,
+  "vendor": "ESERA-Automation",
+  "aliases":
+  [
+    "3-Channel Analog In",
+    "Art.Nr. 11202",
+    "Art.Nr. 11203"
+  ],
+  "parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
+  "childRequirements": [],
+  "implemented": ["{E3BB8703-6388-48DA-AA85-8852CDEE152D}"],
+  "prefix": "ESERA"
+}

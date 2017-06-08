@@ -1,0 +1,26 @@
+{
+  "id": "{18E93442-276F-4234-A266-78EEF3C0C6DC}",
+  "name": "EseraTemperatur",
+  "type": 3,
+  "vendor": "ESERA-Automation",
+  "aliases":
+  [
+    "Temperatur Sensor",
+    "Art.Nr. 42000",
+    "Art.Nr. 11133",
+    "Art.Nr. 11100",
+    "Art.Nr. 11131",
+    "Art.Nr. 11130",
+    "Art.Nr. 11107",
+    "Art.Nr. 11105",
+    "Art.Nr. 11139",
+    "Art.Nr. 11137",
+    "Art.Nr. 11106",
+    "Art.Nr. 11119"
+
+  ],
+  "parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
+  "childRequirements": [],
+  "implemented": ["{E3BB8703-6388-48DA-AA85-8852CDEE152D}"],
+  "prefix": "ESERA"
+}
