@@ -3,7 +3,7 @@
   [
     { "type": "NumberSpinner", "name": "OWDID", "caption": "OWD" }
 	{ "type": "Label", "label": "Weisen Sie hier bitte die entsprechende OWD-Nummer des 1-Wire Controller/1-Wire Gateway zu" }
-	{} "type": "Label", "label": "Als Service biete ESERA-Automation How to und Support Videos an. Sie finden diese unter https://www.eservice-online.de/service-support/how-to-support-videos/" }
+	{ "type": "Label", "label": "Als Service biete ESERA-Automation How to und Support Videos an. Sie finden diese unter https://www.eservice-online.de/service-support/how-to-support-videos/" }
 
 
   ]
