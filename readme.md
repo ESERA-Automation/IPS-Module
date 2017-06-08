@@ -1,6 +1,6 @@
 # ESERA-Automation
 
-Folgende Module beinhaltet das ESERA-Automation Repository:
+Folgende Module für IP-Symcon beinhaltet das ESERA-Automation Repository:
 
 - __1-Wire Controller / 1-Wire Gateway__ ([Dokumentation](OneWireController))  
 
