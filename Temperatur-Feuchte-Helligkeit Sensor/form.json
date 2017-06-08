@@ -2,6 +2,7 @@
   "elements":
   [
     { "type": "NumberSpinner", "name": "OWDID", "caption": "OWD" }
-	{ "type": "Label", "label": "Weisen Sie hier bitte die entsprechende OWD-Nummer des 1-Wire Controller/1-Wire Gateway zu" }
+	{ "type": "Label", "label": "Weisen Sie hier bitte die entsprechende OWD-Nummer des 1-Wire Controller - 1-Wire Gateway zu" }
+	{ "type": "Label", "label": "Drücken Die Einlernen, nachdem Sie das Gerät in den Lernmodus versetzt haben" }
   ]
 }
