@@ -2,5 +2,7 @@
   "elements":
   [
     { "type": "NumberSpinner", "name": "OWDID", "caption": "OWD" }
+	{ "type": "Label", "label": "Drücken Die Einlernen, nachdem Sie das Gerät in den Lernmodus versetzt haben" }
+	
   ]
 }
