@@ -8,11 +8,11 @@
     "1-Wire Hub",
     "1-Wire Hub II",
     "1-Wire Hub III",
-    "Art.Nr. 11300",
-    "Art.Nr. 11306",
-    "Art.Nr. 11314",
-    "Art.Nr. 11316",
-    "Art.Nr. 11322"
+    "11300 HUB I",
+    "11306 HUB I",
+    "11314 HUB II",
+    "11316 HUB II",
+    "11322 HUB III"
   ],
   "parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
   "childRequirements": [],

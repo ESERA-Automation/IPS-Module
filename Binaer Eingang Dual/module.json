@@ -6,8 +6,8 @@
   "aliases":
   [
     "Binäreingang Dual",
-    "11214 ESERA Art. Nr.",
-	"11217 ESERA Art. Nr."
+    "11214 DUAL DIN",
+	"11217 DUAL DIN"
   ],
   "parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
   "childRequirements": [],

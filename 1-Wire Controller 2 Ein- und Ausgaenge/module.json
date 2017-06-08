@@ -5,8 +5,10 @@
   "vendor": "ESERA-Automation",
   "aliases":
   [
-    "1-Wire Controller 2 Ein- und Ausgaenge",
-    "Art. Nr. 11340"
+    "1-Wire Controller 2 DIN, DOUT + ANALOG",
+	"1-Wire Gateway 20 2 DIN, DOUT + ANALOG",
+    "11340 Controller 2",
+	"11337 Gateway 20"
   ],
   "parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
   "childRequirements": [],
