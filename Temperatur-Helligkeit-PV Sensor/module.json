@@ -5,8 +5,8 @@
   "vendor": "ESERA-Automation",
   "aliases":
   [
-    "Temperatur-Helligkeit-PV Sensor",
-    "11112 ESERA Art. Nr."
+    "Solar Temperatur Helligkeit Sensor",
+    "11112 Solar Helligkeit Temperatur Sensor AP"
   ],
   "parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
   "childRequirements": [],

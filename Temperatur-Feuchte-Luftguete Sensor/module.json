@@ -6,9 +6,9 @@
   "aliases":
   [
     "Temperatur-Feuchte-Luftgüte Sensor",
-    "11127 ESERA Art. Nr.",
-    "11110 ESERA Art. Nr.",
-	"11151 ESERA Art. Nr. "
+    "11127 Luftgüte Temperatur Luftfeuchte Sensor AP",
+    "11110 Luftgüte Temperatur Luftfeuchte Sensor AP",
+	"11151 Luftgüte Temperatur Luftfeuchte Sensor AP"
   ],
   "parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
   "childRequirements": [],

@@ -5,11 +5,11 @@
   "vendor": "ESERA-Automation",
   "aliases":
   [
-    "Temperatur-Feuchte-Helligkeit Sensor",
-    "11121 ESERA Art. Nr.",
-    "11132 ESERA Art. Nr.",
-    "11134 ESERA Art. Nr.",
-    "11135 ESERA Art. Nr."
+    "Temperatur Luftfeuchte Helligkeit Sensor",
+    "11121 Temperatur Luftfeuchte Sensor UP",
+    "11132 Temperatur Luftfeuchte Sensor UP",
+    "11134 Temperatur Luftfeuchte Sensor AP",
+    "11135 Temperatur Luftfeuchte Sensor Outdoor"
   ],
   "parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
   "childRequirements": [],
