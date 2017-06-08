@@ -6,18 +6,20 @@
   "aliases":
   [
     "Temperatur Sensor",
-    "Art.Nr. 42000",
-    "Art.Nr. 11133",
-    "Art.Nr. 11100",
-    "Art.Nr. 11131",
-    "Art.Nr. 11130",
-    "Art.Nr. 11107",
-    "Art.Nr. 11105",
-    "Art.Nr. 11139",
-    "Art.Nr. 11137",
-    "Art.Nr. 11106",
-    "Art.Nr. 11119"
 
+    "Art.Nr. 11133 ESERA Art. Nr.",
+    "Art.Nr. 11100 ESERA Art. Nr.",
+    "Art.Nr. 11131 ESERA Art. Nr.",
+    "Art.Nr. 11130 ESERA Art. Nr.",
+    "Art.Nr. 11107 ESERA Art. Nr.",
+    "Art.Nr. 11105 ESERA Art. Nr.",
+    "Art.Nr. 11139 ESERA Art. Nr.",
+    "Art.Nr. 11137 ESERA Art. Nr.",
+    "Art.Nr. 11106 ESERA Art. Nr.",
+    "Art.Nr. 11119 ESERA Art. Nr.",
+    "DS 18B20",
+    "DS 18S20",
+    "DS 1820"	
   ],
   "parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
   "childRequirements": [],

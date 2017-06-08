@@ -6,7 +6,9 @@
 	"aliases": 
 	[
 		"Digital Out 8-Channel",
-		"11220 Art.Nr. "
+		"11220 8x8A ESERA Art. Nr.",
+		"11228 8x16A ESERA Art. Nr.",
+		
 	],
 	"parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
 	"childRequirements": [],

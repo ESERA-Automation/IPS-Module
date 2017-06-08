@@ -6,8 +6,9 @@
   "aliases":
   [
     "Temperatur-Feuchte-Luftgüte Sensor",
-    "Art.Nr. 11127",
-    "Art.Nr. 11110"
+    "11127 ESERA Art. Nr.",
+    "11110 ESERA Art. Nr.",
+	"11151 ESERA Art. Nr. "
   ],
   "parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
   "childRequirements": [],

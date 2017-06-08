@@ -5,8 +5,8 @@
   "vendor": "ESERA-Automation",
   "aliases":
   [
-    "Dual 32 Bit Counter",
-    "Art.Nr. 42005"
+    "Dual S0 Counter 32 Bit",
+    "11211  ESERA Art. Nr."
   ],
   "parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
   "childRequirements": [],

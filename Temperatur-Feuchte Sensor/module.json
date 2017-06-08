@@ -6,9 +6,10 @@
   "aliases":
   [
     "Temperatur-Feuchte Sensor",
-    "Art.Nr. 11102",
-    "Art.Nr. 11113",
-    "Art.Nr. 11120"
+    "11102 ESERA Art. Nr.",
+    "11113 ESERA Art. Nr.",
+    "11120 ESERA Art. Nr.",
+	"11160 ESERA Art. Nr."
   ],
   "parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
   "childRequirements": [],
