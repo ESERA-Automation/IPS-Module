@@ -6,7 +6,7 @@
 	"aliases": 
 	[
 		"Digital Input 8 Channel",
-		"11216 8-Channel DIN"
+		"11216 8-CHANNEL DIN 10-30VDC"
     ],
 	"parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
 	"childRequirements": [],

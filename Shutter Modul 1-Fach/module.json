@@ -5,7 +5,7 @@
   "vendor": "ESERA-Automation",
   "aliases":
   [
-    "Shutter Modul 1-Fach",
+    "Shutter Modul One Channel",
     "11209 SHUTTER SINGLE"
   ],
   "parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],

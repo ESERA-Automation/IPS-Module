@@ -5,8 +5,8 @@
   "vendor": "ESERA-Automation",
   "aliases":
   [
-    "Analog PWM Out",
-    11225 PWM OUTPUT"
+    "PWM Output",
+    "11225 PWM OUTPUT"
    ],
   "parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
   "childRequirements": [],

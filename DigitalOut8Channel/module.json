@@ -6,8 +6,8 @@
 	"aliases": 
 	[
 		"Digital Out 8-Channel",
-		"11220 8x8A 8-Channel DOUT+Manuel Input",
-		"11228 8x10A 8-Channel DOUT+Manuel Input"		
+		"11220 8x8A 8-CHANNEL DOUT+MANUAL INPUT",
+		"11228 8x16A 8-CHANNEL DOUT+MANUAL INPUT"		
 	],
 	"parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
 	"childRequirements": [],

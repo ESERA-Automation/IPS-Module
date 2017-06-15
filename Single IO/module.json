@@ -5,8 +5,8 @@
   "vendor": "ESERA-Automation",
   "aliases":
   [
-    "SingleIO",
-	"DS2405 I/O"
+    "Single IO",
+	"DS 2405 I/O"
   ],
   "parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
   "childRequirements": [],
