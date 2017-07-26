@@ -5,8 +5,8 @@
   "vendor": "ESERA-Automation",
   "aliases":
   [
-    "Analog Out 0-10V",
-    "11208 ANALOG OUT 0-10V"
+    "Analog Output 0-10V",
+    "11208 Analog Output 0-10V"
   ],
   "parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
   "childRequirements": [],

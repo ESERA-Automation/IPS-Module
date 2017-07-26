@@ -5,9 +5,9 @@
 	"vendor": "ESERA-Automation",
 	"aliases": 
 	[
-		"Digital Out 8-Channel",
-		"11220 8x8A 8-Channel Binaer Output +Manuel Input",
-		"11228 8x10A 8-Channel Binaer Output +Manuel Input"		
+		"Binaer 8-Channel Output, DOUT",
+		"11220 8x8A 8-Channel Binaer Output + Manuel Input",
+		"11228 8x10A 8-Channel Binaer Output + Manuel Input"		
 	],
 	"parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
 	"childRequirements": [],

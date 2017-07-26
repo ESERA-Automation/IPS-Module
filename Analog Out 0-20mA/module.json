@@ -5,8 +5,8 @@
   "vendor": "ESERA-Automation",
   "aliases":
   [
-    "Analog Out 0-20mA",
-    "11219 ANALOG OUT 0-20mA"
+    "Analog Output 0-20mA",
+    "11219 Aanalog Output 0-20mA"
   ],
   "parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
   "childRequirements": [],

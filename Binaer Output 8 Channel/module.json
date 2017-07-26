@@ -5,9 +5,9 @@
 	"vendor": "ESERA-Automation",
 	"aliases": 
 	[
-		"Digital Output 8-Channel",
+		"Binär 8-Channel Output, DOUT",
 		"11229 8x8A 8-Channel Binaer Output, DOUT",
-		"DS2408 8-Channel I/O",
+		"DS 2408 8-Channel Digital Output"
 	
 	],
 	"parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],

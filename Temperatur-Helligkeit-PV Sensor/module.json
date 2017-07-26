@@ -5,7 +5,7 @@
   "vendor": "ESERA-Automation",
   "aliases":
   [
-    "Solar Temperatur Helligkeit Sensor",
+    "Solar Temperature Brightness Sensor",
     "11112 Solar Helligkeit Temperatur Sensor AP"
   ],
   "parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],

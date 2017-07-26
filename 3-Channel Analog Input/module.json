@@ -8,7 +8,6 @@
     "3-Channel Analog In",
     "11202 Analog Input 3-Channel",
     "11203 Analog Input 3-Channel",
-	"DS2450 4-Channel Analog Input",
   ],
   "parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
   "childRequirements": [],
