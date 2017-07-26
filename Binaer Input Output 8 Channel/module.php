@@ -1,5 +1,5 @@
 <?
-class EseraDigitalOut8Channel extends IPSModule {
+class EseraDigitalOutIn8Channel extends IPSModule {
 
 	public function Create(){
 		//Never delete this line!
@@ -51,7 +51,6 @@ class EseraDigitalOut8Channel extends IPSModule {
 				}
 			}
 		}
-
 	}
 	public function RequestAction($Ident, $Value) {
 		switch($Ident) {

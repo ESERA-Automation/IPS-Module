@@ -1,10 +1,6 @@
 {
   "elements":
   [
-    { "type": "Label", "label": "Hier gibts nichts zu konfigurieren." },
-	{ "type": "Label", "label": "" },	
-	{ "type": "Label", "label": "Videos finden Sie auf der Webseite von ESERA-Automation unter How to & Support Videos" },
-	{ "type": "Label", "label": "Weitergehende Informationen zu dem ESERA Produkt finden Sie auf www.esera-automation.de" }
-	
+    { "type": "Label", "label": "Hier gibts nix zu gucken." },  
   ]
 }

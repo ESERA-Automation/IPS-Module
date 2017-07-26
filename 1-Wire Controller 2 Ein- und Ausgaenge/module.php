@@ -32,18 +32,21 @@ class EseraOneWireController2SYS extends IPSModule {
     public function ApplyChanges(){
         //Never delete this line!
         parent::ApplyChanges();
+       
+	   //Apply filter
+        $this->SetReceiveDataFilter(".*\"DeviceNumber\":". $this->ReadPropertyInteger("OWDID") .".*");
 
     }
     public function ReceiveData($JSONString) {
 
         $data = json_decode($JSONString);
         $this->SendDebug("ESERA-EseraOneWireController2SYS", "DeviceNumber:" . $data->DeviceNumber . " | DataPoint:" . $data->DataPoint . " | Value: " . $data->Value, 0);
-	/*
+
 				if ($data->DeviceNumber == 0){
 					$value = $data->Value;
 					SetValue($this->GetIDForIdent("SYS0"), $value);
 				}
-	*/
+
         if ($data->DeviceNumber == 1){
           if ($data->DataPoint == 1){
             $value = intval($data->Value, 10);

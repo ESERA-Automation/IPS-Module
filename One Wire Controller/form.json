@@ -1,0 +1,27 @@
+{
+  "elements":
+  [
+	{ "type": "Label", "label": "Connection" },
+	{ "type": "Select", "name": "ConnectionType", "caption": "Type of connection",
+		"options": [
+			{ "label": "TCP/IP", "value": 10 },
+			{ "label": "Serial", "value": 20 }
+		]
+	},
+	{ "type": "Select", "name": "DataOutputType", "caption": "Type of dataoutput",
+		"options": [
+			{ "label": "OWD", "value": "OWD" },
+			{ "label": "ID", "value": "ID" }
+		]
+	},
+	{ "type": "NumberSpinner", "name": "ControllerID", "caption": "Controller ID" },
+	{ "type": "CheckBox", "name": "SendKeepAlive", "caption": "Send KeepAlive" },
+	{ "type": "IntervalBox", "name": "SendKeepAliveInterval", "caption": "Seconds" },
+	{ "type": "CheckBox", "name": "ReceiveKeepAlive", "caption": "Receive KeepAlive" },
+	{ "type": "IntervalBox", "name": "ReceiveKeepAliveInterval", "caption": "Seconds" }
+  ],
+  "actions":
+  [
+	{ "type": "Button", "label": "Configure device", "onClick": "ESERA_ConfigureDevice($id);" }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+	"id": "{1DBCCDA7-3A57-657D-95FD-9324738A88CA}",
+	"name": "EseraDigitalOut8Channel",
+	"type": 3,
+	"vendor": "ESERA-Automation",
+	"aliases": 
+	[
+		"Digital Out 8-Channel",
+		"11229 8x8A 8-Channel DOUT",
+	
+	],
+	"parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
+	"childRequirements": [],
+	"implemented": ["{E3BB8703-6388-48DA-AA85-8852CDEE152D}"],
+	"prefix": "ESERA"
+}

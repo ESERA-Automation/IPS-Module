@@ -55,14 +55,5 @@ class AnalogIn4Channel extends IPSModule {
             }
         }
     }
-    private function CreateVariableProfile($ProfileName, $ProfileType, $Suffix, $MinValue, $MaxValue, $StepSize, $Digits, $Icon) {
-		    if (!IPS_VariableProfileExists($ProfileName)) {
-			       IPS_CreateVariableProfile($ProfileName, $ProfileType);
-			       IPS_SetVariableProfileText($ProfileName, "", $Suffix);
-			       IPS_SetVariableProfileValues($ProfileName, $MinValue, $MaxValue, $StepSize);
-			       IPS_SetVariableProfileDigits($ProfileName, $Digits);
-			       IPS_SetVariableProfileIcon($ProfileName, $Icon);
-		    }
-	  }
 }
 ?>

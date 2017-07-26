@@ -1,13 +1,12 @@
 {
-  "id": "{AFEC1D6E-36FF-405C-91B5-D0F9F5F9A04D}",
-  "name": "AnalogIn3Channel",
+  "id": "{A8850010-7345-4C45-954D-F0E0E790492C}",
+  "name": "EseraBinaerAusgangDual",
   "type": 3,
   "vendor": "ESERA-Automation",
   "aliases":
   [
-    "3-Channel Analog In",
-    "11202 ESERA Art. Nr.",
-    "11203 ESERA Art. Nr."
+    "Binärausgang Dual",
+    "11218 Dual DOUT"
   ],
   "parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
   "childRequirements": [],

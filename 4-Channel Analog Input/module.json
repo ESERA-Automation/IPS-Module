@@ -6,7 +6,7 @@
   "aliases":
   [
     "4-Channel Analog Input",
-    "11230 4-Kanal Analog Input"
+    "11230 4-Channel ANALOG IN 0-10V"
   ],
   "parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
   "childRequirements": [],

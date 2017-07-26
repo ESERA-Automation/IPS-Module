@@ -1,13 +1,14 @@
 {
-  "id": "{AFEC1D6E-36FF-405C-91B5-D0F9F5F9A04D}",
-  "name": "AnalogIn3Channel",
+  "id": "{463BF8A0-8A83-45C0-8986-9C02EA9BD9E7}v",
+  "name": "EseraiButton",
   "type": 3,
   "vendor": "ESERA-Automation",
   "aliases":
   [
-    "3-Channel Analog In",
-    "11202 ESERA Art. Nr.",
-    "11203 ESERA Art. Nr."
+    "iButton",
+    "11621 ESERA Art. Nr.",
+	"DS 1990 iButton",
+	"DS 1963 iButton"
   ],
   "parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
   "childRequirements": [],

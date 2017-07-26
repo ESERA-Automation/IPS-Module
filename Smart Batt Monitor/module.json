@@ -1,15 +1,12 @@
 {
-  "id": "{463BF8A0-8A83-45C0-8986-9C02EA9BD9E7}v",
-  "name": "EseraiButton",
+  "id": "{E03E02A1-3370-4C2D-951B-B1BFDA61B1EC}",
+  "name": "EseraSmartBattMonitor",
   "type": 3,
   "vendor": "ESERA-Automation",
   "aliases":
   [
-    "iButton",
-    "11621 iBUTTON",
-	"DS 2401 iButton",
-	"DS 1990 iButton",
-	"DS 1963 iButton"
+    "SmartBattMonitor",
+    "DS 2438 "
   ],
   "parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
   "childRequirements": [],

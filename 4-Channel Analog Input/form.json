@@ -1,10 +1,6 @@
 {
   "elements":
   [
-    { "type": "NumberSpinner", "name": "OWDID", "caption": "OWD" },
-	{ "type": "Label", "label": "Fügen Sie hier die OWD-Nummer aus der 1-Wire Controller / 1-Wire Gateway OWD-Übersicht ein." },
-	{ "type": "Label", "label": "" },	
-	{ "type": "Label", "label": "Videos finden Sie auf der Webseite von ESERA-Automation unter How to & Support Videos" },
-	{ "type": "Label", "label": "Weitergehende Informationen zu dem ESERA Produkt finden Sie auf www.esera-automation.de" }
+    { "type": "NumberSpinner", "name": "OWDID", "caption": "OWD" }
   ]
 }
