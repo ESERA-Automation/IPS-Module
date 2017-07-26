@@ -5,7 +5,7 @@
   "vendor": "ESERA-Automation",
   "aliases":
   [
-    "Temperatur Sensor",
+    "Temperature Sensor",
     "11133 Temperatur Sensor AP ",
     "11100 Temperatur Sensor AP ",
     "11131 Temperatur Sensor UP ",
@@ -17,9 +17,9 @@
     "11137 Temperatur Sensor Pro Cable",
     "11106 Temperatur Sensor Pro Cable",
     "11119 Temperatur Sensor Cable",
-    "DS 18B20",
-    "DS 18S20",
-    "DS 1820"	
+    "DS 18B20 Temperature Sensor",
+    "DS 18S20 Temperature Sensor",
+    "DS 1820 Temperature Sensor"	
   ],
   "parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
   "childRequirements": [],

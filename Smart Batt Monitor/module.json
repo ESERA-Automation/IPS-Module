@@ -5,8 +5,8 @@
   "vendor": "ESERA-Automation",
   "aliases":
   [
-    "SmartBattMonitor",
-    "DS 2438 "
+    "SmartBattMonitor DS2438",
+    "DS 2438 Smart Batt Monitor"
   ],
   "parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
   "childRequirements": [],

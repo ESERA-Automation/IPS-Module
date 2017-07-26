@@ -6,9 +6,10 @@
   "aliases":
   [
     "iButton 0-1",
-    "11621 ESERA Art. Nr.",
-	"DS 1990 iButton",
-	"DS 1963 iButton"
+    "11621 iButton ESERA 0-1 Output",
+	"DS 2410 iButton 0-1 Output",
+	"DS 1990 iButton 0-1 Output",
+	"DS 1963 iButton 0-1 Output"
   ],
   "parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
   "childRequirements": [],

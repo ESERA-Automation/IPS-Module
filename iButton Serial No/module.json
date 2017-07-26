@@ -6,9 +6,9 @@
   "aliases":
   [
     "iButton",
-    "11621 ESERA Art. Nr.",
-	"DS 1990 iButton",
-	"DS 1963 iButton"
+    "11621 iButton ESERA SN Output",
+	"DS 1990 iButton SN Output",
+	"DS 1963 iButton SN Output"
   ],
   "parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
   "childRequirements": [],

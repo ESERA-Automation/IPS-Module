@@ -5,8 +5,9 @@
 	"vendor": "ESERA-Automation",
 	"aliases": 
 	[
-		"Digital Input 8 Channel",
-		"11216 8-Channel DIN"
+		"Digital Input 8-Channel",
+		"11216 8-Channel Binaer Input,DIN",
+		"DS2408 8-Channel Input"
     ],
 	"parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
 	"childRequirements": [],
