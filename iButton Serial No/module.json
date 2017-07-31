@@ -1,17 +1,17 @@
 {
-  "id": "{463BF8A0-8A83-45C0-8986-9C02EA9BD9E7}v",
-  "name": "EseraiButton",
-  "type": 3,
-  "vendor": "ESERA-Automation",
-  "aliases":
-  [
-    "11621 iButton SN Output",
-	"DS 2401 iButton SN Output",
-	"DS 1990 iButton SN Output",
-	"DS 1963 iButton SN Output"
-  ],
-  "parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
-  "childRequirements": [],
-  "implemented": ["{E3BB8703-6388-48DA-AA85-8852CDEE152D}"],
-  "prefix": "ESERA"
+	"id": "{8ec9226d-d458-4ce4-b82a-5e3d0583ff50}",
+	"name": "EseraiButton",
+	"type": 3,
+	"vendor": "ESERA-Automation",
+	"aliases":
+	[
+		"11621 iButton SN Output",
+		"DS 2401 iButton SN Output",
+		"DS 1990 iButton SN Output",
+		"DS 1963 iButton SN Output"
+	],
+	"parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
+	"childRequirements": [],
+	"implemented": ["{E3BB8703-6388-48DA-AA85-8852CDEE152D}"],
+	"prefix": "ESERA"
 }
