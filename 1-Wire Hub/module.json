@@ -5,14 +5,14 @@
   "vendor": "ESERA-Automation",
   "aliases":
   [
-    "1-Wire Hub",
-    "1-Wire Hub II",
-    "1-Wire Hub III",
-    "11300 HUB I",
-    "11306 HUB I",
-    "11314 HUB II",
-    "11316 HUB II",
-    "11322 HUB III"
+    "1-Wire Hub I System PSU",
+    "1-Wire Hub II System PSU",
+    "1-Wire Hub III 24V System PSU",
+    "11300 HUB I 230V System PSU",
+    "11306 HUB I 230V System PSU",
+    "11314 HUB II 24V System PSU",
+    "11316 HUB II 230V System PSU",
+    "11322 HUB III 24V System PSU"
   ],
   "parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
   "childRequirements": [],

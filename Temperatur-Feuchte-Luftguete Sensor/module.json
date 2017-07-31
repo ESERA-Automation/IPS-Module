@@ -6,9 +6,9 @@
   "aliases":
   [
     "Temperature Humidity Air-Quality Sensor",
-    "11127 Luftgüte Temperatur Luftfeuchte Sensor AP",
-    "11110 Luftgüte Temperatur Luftfeuchte Sensor AP",
-	"11151 Luftgüte Temperatur Luftfeuchte Sensor AP"
+    "11127 Temperature Humidity Air-Quality Sensor AP",
+    "11110 Temperature Humidity Air-Quality Sensor AP",
+	"11151 Temperature Humidity Air-Quality Sensor AP"
   ],
   "parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
   "childRequirements": [],

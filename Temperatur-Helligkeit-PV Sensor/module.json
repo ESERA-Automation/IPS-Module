@@ -6,7 +6,7 @@
   "aliases":
   [
     "Solar Temperature Brightness Sensor",
-    "11112 Solar Helligkeit Temperatur Sensor AP"
+    "11112 Solar Brightness Temperature Sensor Outdoor"
   ],
   "parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
   "childRequirements": [],
