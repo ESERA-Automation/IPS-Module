@@ -6,7 +6,7 @@
   "aliases":
   [
     "Dual IO",
-	"DS2413 Digital I/O"
+	"DS 2413 Digital I/O"
   ],
   "parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
   "childRequirements": [],

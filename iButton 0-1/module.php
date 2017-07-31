@@ -1,5 +1,5 @@
 <?
-class EseraiButton extends IPSModule {
+class EseraiButton01 extends IPSModule {
 
     public function Create(){
         //Never delete this line!

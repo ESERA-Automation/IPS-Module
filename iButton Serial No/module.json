@@ -5,8 +5,8 @@
   "vendor": "ESERA-Automation",
   "aliases":
   [
-    "iButton",
     "11621 iButton ESERA SN Output",
+	"DS 2401 iButton SN Output",
 	"DS 1990 iButton SN Output",
 	"DS 1963 iButton SN Output"
   ],
