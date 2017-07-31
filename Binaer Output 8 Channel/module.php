@@ -36,7 +36,6 @@ class EseraDigitalOut8Channel extends IPSModule {
 
 		if ($this->ReadPropertyInteger("OWDID") == $data->DeviceNumber) {
 			if ($data->DataPoint == 3) {
-
 				$value = intval($data->Value, 10);
 				for ($i = 1; $i <= 8; $i++){
 					SetValue($this->GetIDForIdent("Output".$i), ($value >> ($i-1)) & 0x1);
