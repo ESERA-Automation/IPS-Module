@@ -16,7 +16,7 @@ Das Modul bindet das Digital Out 8 Channel von ESERA-Automation ein. Es werden a
 * Stellt via ESERA-Automation 1-Wire Controller / 1-Wire Gateway Verbindung zum Gerät her.
 * Einstellbarkeit der OWDID
 * Schaltbarkeit von Ausgängen
-* Automatische Aktualisierung der Ein-/Ausgänge
+* Automatische Aktualisierung der Ausgänge
 
 ### 2. Voraussetzungen
 

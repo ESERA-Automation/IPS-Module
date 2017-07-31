@@ -15,7 +15,7 @@ Das Modul bindet den iButton von ESERA-Automation ein. Es werden automatisch Var
 
 * Stellt via ESERA-Automation 1-Wire Controller / 1-Wire Gateway Verbindung zum iButton her.
 * OWDID einstellbar
-* Automatische Aktualisierung der Werte
+* Automatische Aktualisierung des Statuswert
 
 ### 2. Voraussetzungen
 
@@ -29,7 +29,7 @@ Das Modul bindet den iButton von ESERA-Automation ein. Es werden automatisch Var
 
 ### 4. Einrichten der Instanzen in IP-Symcon
 
-- Unter "Instanz hinzufügen" ist das 'iButton'-Modul unter dem Hersteller 'ESERA-Automation' aufgeführt.  
+- Unter "Instanz hinzufügen" ist das 'iButton 0-1'-Modul unter dem Hersteller 'ESERA-Automation' aufgeführt.  
 
 __Konfigurationsseite__:
 
@@ -43,8 +43,7 @@ Die Statusvariablen werden automatisch angelegt. Das Löschen einzelner kann zu 
 
 ##### Statusvariablen
 
-Es werden automatisch alle übermittelten Werte angelegt.
-- Seriennummer des erkannten iButtons
+Es wird automatisch der übermittelte Wert angezeigt.
 - 0 / 1 des iButtons
 (Abhängig von der Konfiguration des 1-Wire Controllers / 1-Wire Gateways)
 
