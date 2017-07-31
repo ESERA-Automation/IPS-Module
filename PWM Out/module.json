@@ -6,7 +6,7 @@
   "aliases":
   [
     "PWM Outut",
-    11225 PWM Output"
+    "11225 PWM Output"
    ],
   "parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
   "childRequirements": [],
