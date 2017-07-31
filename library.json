@@ -3,9 +3,7 @@
     "author": "ESERA-Automation, E-Service GmbH",
     "name": "ESERA-Automation",
     "url": "https://www.esera-automation.de/",
-    "compatibility": {
-         "version": "4.2",
-	},
+    "version": "4.0",
     "build": 0,
     "date": 0
 }
