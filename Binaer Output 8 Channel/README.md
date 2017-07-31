@@ -43,7 +43,7 @@ Die Statusvariablen/Kategorien werden automatisch angelegt. Das Löschen einzeln
 
 ##### Statusvariablen
 
-Es werden automatisch alle 16 Ein-/Ausgänge eingerichtet.
+Es werden automatisch alle 8 Ausgänge eingerichtet.
 
 __Unterstützte Datenpakete__
 
