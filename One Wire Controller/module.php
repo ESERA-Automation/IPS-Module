@@ -168,19 +168,16 @@ class EseraOneWireController extends IPSModule {
 			case "OWD":
 				$headArray = explode("_", $head);
 				$deviceNumber = intval(substr($headArray[1], 3));
-        
-		if (sizeof($headArray) >= 3){
+      		
+				if (sizeof($headArray) >= 3){
 					$dataPoint = intval($headArray[2]);
 				}
 				else{
 					$dataPoint = 0;
 				}
-				$this->SendDebug("SendToDevice", json_encode(Array("DataID" => "{6B6E9D9E-4541-48CD-9F01-EFE52ACB2530}", "DeviceType" => "SYS", "DeviceNumber" => $deviceNumber, "DataPoint" => $dataPoint, "Value" => $value)), 0);
-				$this->SendDataToChildren(json_encode(Array("DataID" => "{6B6E9D9E-4541-48CD-9F01-EFE52ACB2530}", "DeviceType" => "SYS", "DeviceNumber" => $deviceNumber, "DataPoint" => $dataPoint, "Value" => $value)));
 				
-				//geändert 10.08.2017 andrge
-				//$this->SendDebug("SendToDevice", json_encode(Array("DataID" => "{E3BB8703-6388-48DA-AA85-8852CDEE152D}", "DeviceNumber" => $deviceNumber, "DataPoint" => $dataPoint, "Value" => $value)), 0);
-				//$this->SendDataToChildren(json_encode(Array("DataID" => "{E3BB8703-6388-48DA-AA85-8852CDEE152D}", "DeviceNumber" => $deviceNumber, "DataPoint" => $dataPoint, "Value" => $value)));
+				$this->SendDebug("SendToDevice", json_encode(Array("DataID" => "{E3BB8703-6388-48DA-AA85-8852CDEE152D}", "DeviceNumber" => $deviceNumber, "DataPoint" => $dataPoint, "Value" => $value)), 0);
+				$this->SendDataToChildren(json_encode(Array("DataID" => "{E3BB8703-6388-48DA-AA85-8852CDEE152D}", "DeviceNumber" => $deviceNumber, "DataPoint" => $dataPoint, "Value" => $value)));
 				return;
 
 			case "SYS":
@@ -192,8 +189,13 @@ class EseraOneWireController extends IPSModule {
 				else{
 					$dataPoint = 0;
 				}
-				$this->SendDebug("SendToDevice", json_encode(Array("DataID" => "{6B6E9D9E-4541-48CD-9F01-EFE52ACB2530}", "DeviceNumber" => $deviceNumber, "DataPoint" => $dataPoint, "Value" => $value)), 0);
-				$this->SendDataToChildren(json_encode(Array("DataID" => "{6B6E9D9E-4541-48CD-9F01-EFE52ACB2530}", "DeviceNumber" => $deviceNumber, "DataPoint" => $dataPoint, "Value" => $value)));
+				
+				//geändert 10.08.2017 andrge (hinweis von ch. schrader)
+				$this->SendDebug("SendToDevice", json_encode(Array("DataID" => "{6B6E9D9E-4541-48CD-9F01-EFE52ACB2530}", "DeviceType" => "SYS", "DeviceNumber" => $deviceNumber, "DataPoint" => $dataPoint, "Value" => $value)), 0);
+				$this->SendDataToChildren(json_encode(Array("DataID" => "{6B6E9D9E-4541-48CD-9F01-EFE52ACB2530}", "DeviceType" => "SYS", "DeviceNumber" => $deviceNumber, "DataPoint" => $dataPoint, "Value" => $value)));
+				
+				//$this->SendDebug("SendToDevice", json_encode(Array("DataID" => "{6B6E9D9E-4541-48CD-9F01-EFE52ACB2530}", "DeviceNumber" => $deviceNumber, "DataPoint" => $dataPoint, "Value" => $value)), 0);
+				//$this->SendDataToChildren(json_encode(Array("DataID" => "{6B6E9D9E-4541-48CD-9F01-EFE52ACB2530}", "DeviceNumber" => $deviceNumber, "DataPoint" => $dataPoint, "Value" => $value)));
 				return;
 
 			default:
