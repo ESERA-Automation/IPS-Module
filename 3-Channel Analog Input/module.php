@@ -7,7 +7,7 @@ class EseraAnalogIn3Channel extends IPSModule {
 
         //These lines are parsed on Symcon Startup or Instance creation
         //You cannot use variables here. Just static values.
-		$this->CreateVariableProfile("ESERA.Spannung10V", 2, " V", 0, 10, 0.1, 2, "Intensity");
+		$this->CreateVariableProfile("ESERA.Spannung10V", 2, " V", 0, 10, 0.1, 2, "");
 
         $this->RegisterPropertyInteger("OWDID", 1);
 
