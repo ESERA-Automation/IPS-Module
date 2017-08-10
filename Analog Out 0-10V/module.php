@@ -11,7 +11,7 @@ class EseraAnalogOut010V extends IPSModule {
 
         $this->RegisterPropertyInteger("OWDID", 1);
 
-        $this->RegisterVariableFloat("AnalogOut", "Analog Out", "ESERA.Spannung010", 2);
+        $this->RegisterVariableFloat("AnalogOut", "Analog Out", "ESERA.Spannung10V", 2);
         $this->EnableAction("AnalogOut");
 
         $this->ConnectParent("{FCABCDA7-3A57-657D-95FD-9324738A77B9}"); //1Wire Controller

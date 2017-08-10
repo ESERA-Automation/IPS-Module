@@ -7,11 +7,11 @@ class EseraAnalogOut020mA extends IPSModule {
 
         //These lines are parsed on Symcon Startup or Instance creation
         //You cannot use variables here. Just static values.
-        $this->CreateVariableProfile("ESERA.StrommA020", 2, " mA", 0, 20, 0.1, 2, "Intensity");
+        $this->CreateVariableProfile("ESERA.Strom20mA", 2, " mA", 0, 20, 0.1, 2, "Intensity");
 
         $this->RegisterPropertyInteger("OWDID", 1);
 
-        $this->RegisterVariableFloat("AnalogOut", "Analog Out", "ESERA.StrommA020", 2);
+        $this->RegisterVariableFloat("AnalogOut", "Analog Out", "ESERA.Strom20mA", 2);
         $this->EnableAction("AnalogOut");
 
         $this->ConnectParent("{FCABCDA7-3A57-657D-95FD-9324738A77B9}"); //1Wire Controller

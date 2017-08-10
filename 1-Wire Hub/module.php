@@ -12,10 +12,10 @@ class Esera1WireHub extends IPSModule {
 
         $this->RegisterPropertyInteger("OWDID", 1);
 
-        $this->RegisterVariableFloat("Strom12V", "Strom 12V", "ESERA.StrommA", 1);
-        $this->RegisterVariableFloat("Spannung5V", "Spannung 5V", "ESERA.SpannungV", 2);
-        $this->RegisterVariableFloat("Strom5V", "Strom 5V", "ESERA.StrommA", 3);
-        $this->RegisterVariableFloat("Spannung12V", "Spannung 12V", "ESERA.SpannungV", 4);
+        $this->RegisterVariableFloat("Strom12V", "Strom 12V", "ESERA.Strom1500mA", 1);
+        $this->RegisterVariableFloat("Spannung5V", "Spannung 5V", "ESERA.Spannung15V", 2);
+        $this->RegisterVariableFloat("Strom5V", "Strom 5V", "ESERA.Strom1500mA", 3);
+        $this->RegisterVariableFloat("Spannung12V", "Spannung 12V", "ESERA.Spannung15V", 4);
 
         $this->ConnectParent("{FCABCDA7-3A57-657D-95FD-9324738A77B9}"); //1Wire Controller
     }

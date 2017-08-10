@@ -11,9 +11,9 @@ class EseraAnalogIn3Channel extends IPSModule {
 
         $this->RegisterPropertyInteger("OWDID", 1);
 
-        $this->RegisterVariableFloat("Spannung1", "Spannung 1", "ESERA.SpannungV", 1);
-        $this->RegisterVariableFloat("Spannung2", "Spannung 2", "ESERA.SpannungV", 2);
-        $this->RegisterVariableFloat("Spannung3", "Spannung 3", "ESERA.SpannungV", 3);
+        $this->RegisterVariableFloat("Spannung1", "Spannung 1", "ESERA.Spannung10V", 1);
+        $this->RegisterVariableFloat("Spannung2", "Spannung 2", "ESERA.Spannung10V", 2);
+        $this->RegisterVariableFloat("Spannung3", "Spannung 3", "ESERA.Spannung10V", 3);
 
         $this->ConnectParent("{FCABCDA7-3A57-657D-95FD-9324738A77B9}"); //1Wire Controller
     }
