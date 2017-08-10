@@ -5,11 +5,11 @@
 	"vendor": "ESERA-Automation",
 	"aliases":
 	[
-		"11319 Controller 1",
-		"11340 Controller 2",
-		"11324 Gateway 10",
-		"11336 Gateway 11",
-		"11337 Gateway 20"		
+		"11319 Controller 1 Interface",
+		"11340 Controller 2 Interface",
+		"11324 Gateway 10 Interface",
+		"11336 Gateway 11 Interface",
+		"11337 Gateway 20 Interface"		
 	],
 	"parentRequirements": ["{79827379-F36E-4ADA-8A95-5F8D1DC92FA9}"],
 	"childRequirements": ["{E3BB8703-6388-48DA-AA85-8852CDEE152D}", "{6B6E9D9E-4541-48CD-9F01-EFE52ACB2530}"],
