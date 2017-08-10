@@ -1,5 +1,5 @@
 <?
-class AnalogIn3Channel extends IPSModule {
+class EseraAnalogIn3Channel extends IPSModule {
 
     public function Create(){
         //Never delete this line!
