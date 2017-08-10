@@ -8,9 +8,9 @@ class EseraOneWireController2SYS extends IPSModule {
         //These lines are parsed on Symcon Startup or Instance creation
         //You cannot use variables here. Just static values.
         //$this->RegisterPropertyInteger("OWDID", 1);
-        $this->CreateVariableProfile("ESERA.SpannungV", 2, " V", 0, 15, 0, 2, "");
+        $this->CreateVariableProfile("ESERA.Spannung10V", 2, " V", 0, 10, 0.1, 2, "");
 
-        $this->RegisterVariableFloat("AnalogOut", "Analog Out", "ESERA.SpannungV");
+        $this->RegisterVariableFloat("AnalogOut", "Analog Out", "ESERA.Spannung10V");
         $this->RegisterVariableInteger("SYS0", "SYS0", "");
 
         for($i = 1; $i <= 4; $i++){
