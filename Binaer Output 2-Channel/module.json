@@ -7,7 +7,7 @@
   [
     "Dual Binaer Output, DOUT",
     "11218 Dual Binaer Output, DOUT",
-	"DS 2413 Digital Output"
+	"DS 2413 Digital Output, DOUT"
   ],
   "parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
   "childRequirements": [],

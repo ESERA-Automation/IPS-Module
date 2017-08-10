@@ -5,7 +5,7 @@
 	"vendor": "ESERA-Automation",
 	"aliases": 
 	[
-		"Binaer 8-Channel Output, DOUT",
+		"8-Channel Binaer Output, DOUT + Manuel Input",
 		"11220 8x8A 8-Channel Binaer Output + Manuel Input",
 		"11228 8x10A 8-Channel Binaer Output + Manuel Input"		
 	],

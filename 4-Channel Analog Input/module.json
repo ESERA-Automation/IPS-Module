@@ -5,9 +5,9 @@
   "vendor": "ESERA-Automation",
   "aliases":
   [
-    "4-Channel Analog Input",
-	"DS2450 4-Channel Analog Input",
-    "11230 4-Channel Analog Input"
+    "4-Channel Analog Input, AIN",
+	"DS 2450 4-Channel Analog Input, AIN",
+    "11230 4-Channel Analog Input, AIN"
   ],
   "parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
   "childRequirements": [],
