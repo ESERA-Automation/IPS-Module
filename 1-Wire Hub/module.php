@@ -7,8 +7,8 @@ class Esera1WireHub extends IPSModule {
 
         //These lines are parsed on Symcon Startup or Instance creation
         //You cannot use variables here. Just static values.
-        $this->CreateVariableProfile("ESERA.Spannung15V", 2, " V", 0, 15, 0.1, 2, "");
-        $this->CreateVariableProfile("ESERA.Strom1500mA", 2, " mA", 0, 1500, 0, 0, "");
+        $this->CreateVariableProfile("ESERA.Spannung15V", 2, " V", 0, 15, 0.1, 2, "");		//Type, Beschriftung, Min-Wert, Max Wert, Schrittweite, Stellen
+        $this->CreateVariableProfile("ESERA.Strom1500mA", 2, " mA", 0, 1500, 1, 0, "");
 
         $this->RegisterPropertyInteger("OWDID", 1);
 
