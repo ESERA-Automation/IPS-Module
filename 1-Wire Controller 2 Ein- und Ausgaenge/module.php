@@ -11,8 +11,7 @@ class EseraOneWireController2SYS extends IPSModule {
         $this->CreateVariableProfile("ESERA.Spannung10V", 2, " V", 0, 10, 0.1, 2, "");
 
         $this->RegisterVariableFloat("AnalogOut", "Analog Out", "ESERA.Spannung10V");
-
-        $this->RegisterVariableInteger("SYS", "SYS", "");
+        //$this->RegisterVariableInteger("SYS0", "SYS0", "");
 
         for($i = 1; $i <= 4; $i++){
           $this->RegisterVariableBoolean("Input".$i, "Input".$i, "~Switch");
@@ -30,14 +29,18 @@ class EseraOneWireController2SYS extends IPSModule {
         parent::Destroy();
 
     }
-    public function ApplyChanges(){
-        //Never delete this line!
-        parent::ApplyChanges();
-       
-	   //Apply filter
-        $this->SetReceiveDataFilter(".*\"DeviceNumber\":". $this->ReadPropertyInteger("SYS") .".*");
 
-    }
+	
+	public function ApplyChanges(){
+     //Never delete this line!
+     parent::ApplyChanges();
+
+     $this->SetReceiveDataFilter(".*\"DeviceType\":\"SYS\".*");
+
+	}
+
+	
+	
     public function ReceiveData($JSONString) {
 
         $data = json_decode($JSONString);
