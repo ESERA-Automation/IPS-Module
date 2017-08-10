@@ -7,7 +7,7 @@ class EseraAnalogIn3Channel extends IPSModule {
 
         //These lines are parsed on Symcon Startup or Instance creation
         //You cannot use variables here. Just static values.
-        $this->CreateVariableProfile("ESERA.SpannungV", 2, " V", 0, 15, 0, 2, "");
+		$this->CreateVariableProfile("ESERA.Spannung10V", 2, " V", 0, 10, 1, 2, "");
 
         $this->RegisterPropertyInteger("OWDID", 1);
 
@@ -50,5 +50,14 @@ class EseraAnalogIn3Channel extends IPSModule {
             }
         }
     }
+	private function CreateVariableProfile($ProfileName, $ProfileType, $Suffix, $MinValue, $MaxValue, $StepSize, $Digits, $Icon) {
+	  if (!IPS_VariableProfileExists($ProfileName)) {
+	      IPS_CreateVariableProfile($ProfileName, $ProfileType);
+	      IPS_SetVariableProfileText($ProfileName, "", $Suffix);
+	      IPS_SetVariableProfileValues($ProfileName, $MinValue, $MaxValue, $StepSize);
+	      IPS_SetVariableProfileDigits($ProfileName, $Digits);
+	      IPS_SetVariableProfileIcon($ProfileName, $Icon);
+	    }
+	}
 }
 ?>
