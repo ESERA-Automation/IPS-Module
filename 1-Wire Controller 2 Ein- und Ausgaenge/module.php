@@ -7,7 +7,7 @@ class EseraOneWireController2SYS extends IPSModule {
 
         //These lines are parsed on Symcon Startup or Instance creation
         //You cannot use variables here. Just static values.
-        //$this->RegisterPropertyInteger("OWDID", 1);
+        //$this->RegisterPropertyInteger("SYS", 0);
         $this->CreateVariableProfile("ESERA.Spannung10V", 2, " V", 0, 10, 0.1, 2, "");
 
         $this->RegisterVariableFloat("AnalogOut", "Analog Out", "ESERA.Spannung10V");
@@ -35,7 +35,7 @@ class EseraOneWireController2SYS extends IPSModule {
         parent::ApplyChanges();
        
 	   //Apply filter
-        $this->SetReceiveDataFilter(".*\"DeviceNumber\":". $this->ReadPropertyInteger("OWDID") .".*");
+        $this->SetReceiveDataFilter(".*\"DeviceNumber\":". $this->ReadPropertyInteger("SYS") .".*");
 
     }
     public function ReceiveData($JSONString) {
