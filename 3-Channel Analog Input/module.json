@@ -1,13 +1,13 @@
 {
-  "id": "{AFEC1D6E-36FF-405C-91B5-D0F9F5F9A04D}",
+  "id": "{5486a506-433a-486a-9216-1ba388d0e58b}",
   "name": "AnalogIn3Channel",
   "type": 3,
   "vendor": "ESERA-Automation",
   "aliases":
   [
-    "3-Channel Analog Input, AIN",
-    "11202 Analog Input 3-Channel, AIN",
-    "11203 Analog Input 3-Channel, AIN"
+    "3-Channel Analog Input",
+    "11202 3-Channel Analog Input",
+    "11203 3-Channel Analog Input"
   ],
   "parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
   "childRequirements": [],
