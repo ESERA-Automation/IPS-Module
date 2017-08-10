@@ -12,7 +12,7 @@ class EseraOneWireController2SYS extends IPSModule {
 
         $this->RegisterVariableFloat("AnalogOut", "Analog Out", "ESERA.Spannung10V");
 
-        //$this->RegisterVariableInteger("SYS0_1", "SYS0_2", "ESERA.Spannung10V");
+        $this->RegisterVariableInteger("SYS", "SYS", "");
 
         for($i = 1; $i <= 4; $i++){
           $this->RegisterVariableBoolean("Input".$i, "Input".$i, "~Switch");
