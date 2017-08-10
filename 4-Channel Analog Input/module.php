@@ -7,7 +7,7 @@ class EseraAnalogIn4Channel extends IPSModule {
 
         //These lines are parsed on Symcon Startup or Instance creation
         //You cannot use variables here. Just static values.
-        $this->CreateVariableProfile("ESERA.SpannungV", 2, " V", 0, 15, 0, 2, "");
+        $this->CreateVariableProfile("ESERA.SpannungV", 2, " V", 0, 10, 0.2, 2, "");
 
         $this->RegisterPropertyInteger("OWDID", 1);
 
@@ -16,7 +16,7 @@ class EseraAnalogIn4Channel extends IPSModule {
         $this->RegisterVariableFloat("Spannung3", "Spannung 3", "ESERA.SpannungV", 3);
         $this->RegisterVariableFloat("Spannung4", "Spannung 4", "ESERA.SpannungV", 4);
 
-        $this->ConnectParent("{FCABCDA7-3A57-657D-95FD-9324738A77B9}"); //1Wire Controller
+        $this->ConnectParent("{FCABCDA7-3A57-657D-95FD-9324738A77B9}"); 				//1Wire Controller
     }
     public function Destroy(){
         //Never delete this line!
