@@ -29,7 +29,7 @@ Das Modul bindet den Temperatur-Feuchte Sensor von ESERA-Automation ein. Es werd
 
 ### 4. Einrichten der Instanzen in IP-Symcon
 
-- Unter "Instanz hinzufügen" ist das 'Temperatur-Helligkeit'-Modul unter dem Hersteller 'ESERA-Automation' aufgeführt.  
+- Unter "Instanz hinzufügen" ist das 'Temperatur-Feuchte'-Modul unter dem Hersteller 'ESERA-Automation' aufgeführt.  
 
 __Konfigurationsseite__:
 
@@ -46,7 +46,8 @@ Die Statusvariablen werden automatisch angelegt. Das Löschen einzelner kann zu 
 Es werden automatisch alle übermittelten Werte angelegt.
 - Temperatur
 - Spannung
-- Helligkeit
+- Luftfeuchte
+- Taupunkt
 
 __Unterstützte Datenpakete__
 
@@ -56,7 +57,7 @@ OWD       | Integer
 
 ##### Profile:
 
-Es werden die Variablenprofile "ESERA.Temperatur", "ESERA.Helligkeit" und "ESERA.SpannungV" hinzugefügt.
+Es werden die Variablenprofile "ESERA.Temperatur", "ESERA.Luftfeuchte" und "ESERA.SpannungV" hinzugefügt.
 
 ### 6. WebFront
 
