@@ -13,7 +13,7 @@ class EseraTemperaturHelligkeitPV extends IPSModule {
 		$this->CreateVariableProfile("ESERA.Spannung10V", 2, " V", 0, 10, 0.1, 2, "");
 
         $this->RegisterPropertyInteger("OWDID", 1);
-        $this->RegisterPropertyInteger("OWDFORMAT", 1);	    
+        $this->RegisterPropertyInteger("OWD-FORMAT", 1);	    
 
         $this->RegisterVariableFloat("Temperatur", "Temperatur", "ESERA.Temperatur", 1);
         $this->RegisterVariableFloat("Spannung", "Spannung", "ESERA.Spannung10V", 2);
