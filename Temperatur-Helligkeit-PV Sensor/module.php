@@ -41,7 +41,19 @@ class EseraTemperaturHelligkeitPV extends IPSModule {
 
         if ($this->ReadPropertyInteger("OWDID") == $data->DeviceNumber) {
             if ($data->DataPoint == 1) {
-                $value = $data->Value / 100;
+                switch ($this->ReadPropertyInteger("OWD_FORMAT")){
+			case 0:
+				$value = $data->Value;
+				break;
+
+			case 1:
+			 	$value = $data->Value / 10;
+				break;
+				
+			case 2:
+			 	$value = $data->Value / 100;
+				break;
+		 }
                 SetValue($this->GetIDForIdent("Temperatur"), $value);
             }
 
