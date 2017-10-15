@@ -10,6 +10,7 @@ class EseraTemperatur extends IPSModule {
         $this->CreateVariableProfile("ESERA.Temperatur", 2, " °C", -30, 150, 0, 2, "Temperature");
 
         $this->RegisterPropertyInteger("OWDID", 1);
+        $this->RegisterPropertyInteger("OWDFORMAT", 1);
 
         $this->RegisterVariableFloat("Temperatur", "Temperatur", "ESERA.Temperatur", 1);
 
@@ -35,7 +36,18 @@ class EseraTemperatur extends IPSModule {
 
         if ($this->ReadPropertyInteger("OWDID") == $data->DeviceNumber) {
             if ($data->DataPoint == 0) {
-                $value = $data->Value / 100;
+                switch ($this->ReadPropertyInteger("OWDFORMAT")){
+			case 0:
+				$value = $data->Value;
+				break;
+			case 1:
+			 	$value = $data->Value / 10;
+				break;
+				
+			case 2:
+			 	$value = $data->Value / 100;
+				break;
+		 } 
                 SetValue($this->GetIDForIdent("Temperatur"), $value);
             }
         }
