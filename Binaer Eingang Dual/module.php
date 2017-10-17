@@ -11,7 +11,7 @@ class EseraBinaerEingangDual extends IPSModule {
 
         //$this->RegisterVariableInteger("EingangA", "Eingang A", "", 1);
         //$this->RegisterVariableInteger("EingangB", "Eingang B", "", 1);
-		this->RegisterVariableBoolean("InputA", "Input A", "~Switch");
+		$this->RegisterVariableBoolean("InputA", "Input A", "~Switch");
 		$this->RegisterVariableBoolean("InputB", "Input B", "~Switch");
 
         $this->ConnectParent("{FCABCDA7-3A57-657D-95FD-9324738A77B9}"); //1Wire Controller
