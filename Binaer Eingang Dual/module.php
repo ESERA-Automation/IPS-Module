@@ -35,11 +35,11 @@ class EseraBinaerEingangDual extends IPSModule {
         $this->SendDebug("EseraBinaerEingangDual", "DataPoint:" . $data->DataPoint . " | Value: " . $data->Value, 0);
 
         if ($this->ReadPropertyInteger("OWDID") == $data->DeviceNumber) {
-            if ($data->DataPoint == 3) {
+            if ($data->DataPoint == 1) {
                 $value = $data->Value;
                 SetValue($this->GetIDForIdent("InputA"), $value);
             }
-            if ($data->DataPoint == 4) {
+            if ($data->DataPoint == 2) {
                 $value = $data->Value;
                 SetValue($this->GetIDForIdent("InputB"), $value);
             }
