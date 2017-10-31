@@ -146,7 +146,8 @@ class EseraOneWireController extends IPSModule {
 			case "COU":
 				$type = SubStr($head, 2, 5);
 				break;
-
+			
+			case "FOR":
 			case "CON":
 				$type = SubStr($head, 2, 6);
 				break;
@@ -156,6 +157,7 @@ class EseraOneWireController extends IPSModule {
 				$type = SubStr($head, 2, 2);
 				break;
 
+			case "POL":
 			case "DAT":
 			case "TIM":
 				$type = SubStr($head, 2, 4);
@@ -277,6 +279,8 @@ class EseraOneWireController extends IPSModule {
 			case "DEBUG":
 			case "COUNT":
 			case "DS2408INV":
+			case "POLL":
+			case "FORMAT":
 			case "ERR":
 			case "OWDID":
 				return 1;
