@@ -10,7 +10,7 @@ class EseraTemperatur extends IPSModule {
         $this->CreateVariableProfile("ESERA.Temperatur", 2, " °C", -30, 150, 0, 2, "Temperature");
 
         $this->RegisterPropertyInteger("OWDID", 1);
-        $this->RegisterPropertyInteger("OWDFORMAT", 1);
+        //$this->RegisterPropertyInteger("OWDFORMAT", 1);
 
         $this->RegisterVariableFloat("Temperatur", "Temperatur", "ESERA.Temperatur", 1);
 
@@ -36,7 +36,11 @@ class EseraTemperatur extends IPSModule {
 
         if ($this->ReadPropertyInteger("OWDID") == $data->DeviceNumber) {
             if ($data->DataPoint == 0) {
-                switch ($this->ReadPropertyInteger("OWDFORMAT")){
+		//Format der Temperaturen im 1-Wire Ethernetcontroller auslesen
+		$ParentID = (IPS_GetInstance($this->InstanceID)['ConnectionID']);  
+		$FORMAT=GetValueInteger(IPS_GetObjectIDByIdent("1_FORMAT", $ParentID));
+		$this->SendDebug("ESERA-Temperatur", "1_FORMAT:".$FORMAT, 0);
+		switch ($FORMAT){
 			case 0:
 				$value = $data->Value;
 				break;
