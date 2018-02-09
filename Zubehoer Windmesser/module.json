@@ -5,8 +5,7 @@
   "vendor": "ESERA-Automation",
   "aliases":
   [
-    "Dual S0 Counter 32 Bit Windmesser",
-	"Auswertung Windsensor"
+	"Windsensor Auswertung"
   ],
   "parentRequirements": [],
   "childRequirements": [],
