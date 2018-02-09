@@ -1,0 +1,12 @@
+{
+  "elements":
+  [
+    { "type": "Label", "label": "General Settings" },
+    { "type": "SelectVariable", "name": "CounterID", "caption": "Counter" },
+    { "type": "Select", "name": "Impulses", "caption": "Impulses",
+            "options": [
+                { "label": "2", "value": 2 },
+                { "label": "4", "value": 4 }
+        ]}
+  ]
+}
