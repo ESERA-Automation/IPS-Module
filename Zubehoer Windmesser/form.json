@@ -2,11 +2,11 @@
   "elements":
   [
     { "type": "Label", "label": "General Settings" },
-    { "type": "SelectVariable", "name": "CounterID", "caption": "Counter" },
+    { "type": "SelectVariable", "name": "CounterID", "caption": "OWD Counter" },
     { "type": "Select", "name": "Impulses", "caption": "Type / Impulses",
             "options": [
-                { "label": "Windsensor Pro100, 2", "value": 2 },
-                { "label": "Windsensor Pro200, 4", "value": 4 }
+                { "label": "Windsensor Pro100, 2 pro Umdrehung", "value": 2 },
+                { "label": "Windsensor Pro200, 4 pro Umdrehung", "value": 4 }
         ]}
   ]
 }

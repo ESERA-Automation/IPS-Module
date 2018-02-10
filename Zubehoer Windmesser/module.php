@@ -9,8 +9,8 @@ class EseraWindmesser extends IPSModule {
         $this->RegisterPropertyInteger("Impulses", 4);
 
         $this->RegisterVariableInteger("Counter", "Counter", "", 1);
-        $this->RegisterVariableFloat("Wind_kmh", "Wind km/h", "~WindSpeed.kmh", 2);
-        $this->RegisterVariableFloat("Wind_ms", "Wind m/s", "~WindSpeed.ms", 3);
+        $this->RegisterVariableFloat("Wind_kmh", "Windspeed km/h", "~WindSpeed.kmh", 2);
+        $this->RegisterVariableFloat("Wind_ms", "Windspeed m/s", "~WindSpeed.ms", 3);
 
         $this->RegisterTimer("Refresh", 0, 'ESERA_RefreshCounter($_IPS[\'TARGET\']);');
 
