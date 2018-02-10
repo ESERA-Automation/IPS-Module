@@ -3,7 +3,7 @@
   [
     { "type": "Label", "label": "General Settings" },
     { "type": "SelectVariable", "name": "CounterID", "caption": "Counter" },
-    { "type": "Select", "name": "Impulses", "caption": "Impulses",
+    { "type": "Select", "name": "Type / Impulses", "caption": "Impulses",
             "options": [
                 { "label": "Windsensor Pro100, 2", "value": 2 },
                 { "label": "Windsensor Pro200, 4", "value": 4 }
