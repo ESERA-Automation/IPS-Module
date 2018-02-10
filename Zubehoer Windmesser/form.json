@@ -5,8 +5,8 @@
     { "type": "SelectVariable", "name": "CounterID", "caption": "Select OWD Counter" },
     { "type": "Select", "name": "Impulses", "caption": "Type / Impulses",
             "options": [
-                { "label": "Windsensor Pro 100, 2 Inp. pro Umdrehung.", "value": 2 },
-                { "label": "Windsensor Pro 200, 4 Imp. pro Umdrehung.", "value": 4 }
+                { "label": "Windsensor Pro 100, 2 Imp./Umdr.", "value": 2 },
+                { "label": "Windsensor Pro 200, 4 Imp./Umdr.", "value": 4 }
         ]}
   ]
 }
