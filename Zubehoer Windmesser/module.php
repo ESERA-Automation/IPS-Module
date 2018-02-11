@@ -13,7 +13,12 @@ class EseraWindmesser extends IPSModule {
         $this->RegisterVariableFloat("Wind_ms", "Windspeed m/s", "~WindSpeed.ms", 3);
 
         $this->RegisterTimer("Refresh", 0, 'ESERA_RefreshCounter($_IPS[\'TARGET\']);');
-
+		
+        $this->RegisterVariableFloat("Wind_kmh_max", "Windspeed km/h max Day", "~WindSpeed.kmh", 5);
+        $this->RegisterVariableInteger("Wind_kmh_max_Zeit", "Windspeed km/h max, Time", "~UnixTimestamp", 6);
+		
+		$this->RegisterTimer("DailyReset", 0, 'ResetWindspeedmaxDaily($_IPS[\'TARGET\']);');
+		
     }
     public function Destroy(){
         //Never delete this line!
@@ -30,7 +35,15 @@ class EseraWindmesser extends IPSModule {
     public function RefreshCounter(){
        $this->calculate();
     }
+	
+	public function ResetPowerMeterDaily(){
+        $this->SetDailyTimerInterval();
+        SetValue($this->GetIDForIdent("Wind_kmh_max"), 0);
+        SetValue($this->GetIDForIdent("Wind_kmh_max_Zeit"), 0);
+    }
+	
     private function Calculate(){
+		//Windspeed berechnung
         $CounterOld = GetValue($this->GetIDForIdent("Counter"));
         $CounterNew = GetValue($this->ReadPropertyInteger("CounterID"));
         $delta = $CounterNew - $CounterOld;
@@ -42,6 +55,13 @@ class EseraWindmesser extends IPSModule {
         SetValue($this->GetIDForIdent("Wind_kmh"), $delta_Wind);
         SetValue($this->GetIDForIdent("Wind_ms"), $delta_Wind_ms);
 
+		// Windspeed max
+        $windspeedmax = GetValue($this->GetIDForIdent("Wind_kmh_max"));
+        if ($delta_Wind > $windspeedmax){
+            SetValue($this->GetIDForIdent("Wind_kmh_max"), $delta_Wind);
+            SetValue($this->GetIDForIdent("Wind_kmh_max_Zeit"), time());
+        }
+		
         // Only for debugging
         $this->DebugMessage("Counter", "CounterOld: " . $CounterOld);
         $this->DebugMessage("Counter", "CounterNew: " . $CounterNew);
