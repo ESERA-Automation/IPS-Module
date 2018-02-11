@@ -9,15 +9,23 @@ class EseraWindmesser extends IPSModule {
         $this->RegisterPropertyInteger("Impulses", 4);
 
         $this->RegisterVariableInteger("Counter", "Counter", "", 1);
-        $this->RegisterVariableFloat("Wind_kmh", "Windspeed km/h", "~WindSpeed.kmh", 2);
-        $this->RegisterVariableFloat("Wind_ms", "Windspeed m/s", "~WindSpeed.ms", 3);
-
-        $this->RegisterTimer("Refresh", 0, 'ESERA_RefreshCounter($_IPS[\'TARGET\']);');
+        $this->RegisterVariableFloat("Wind_kmh", "Windspeed km/h", "~WindSpeed.kmh", 10);
+        $this->RegisterVariableFloat("Wind_ms", "Windspeed m/s", "~WindSpeed.ms", 20);
 		
-        $this->RegisterVariableFloat("Wind_kmh_max", "Windspeed km/h max Day", "~WindSpeed.kmh", 5);
-        $this->RegisterVariableInteger("Wind_kmh_max_Zeit", "Windspeed km/h max, Time", "~UnixTimestamp", 6);
+        $this->RegisterTimer("Refresh", 0, 'ESERA_RefreshCounter($_IPS[\'TARGET\']);');		//Modultimer
 		
+		//Windspeed max
+        $this->RegisterVariableFloat("Wind_kmh_max", "Windspeed km/h max Day", "~WindSpeed.kmh", 30);
+        $this->RegisterVariableInteger("Wind_kmh_max_Zeit", "Windspeed km/h max Time", "~UnixTimestamp", 40);
 		$this->RegisterTimer("DailyReset", 0, 'ResetWindspeedmaxDaily($_IPS[\'TARGET\']);');
+		
+		//Mittelwertberechnung
+        $this->RegisterVariableFloat("Wind_kmh_slow", "Windspeed km/h average", "~WindSpeed.kmh", 11);
+		$this->RegisterVariableFloat("interncount", "interncount", "", 100);		
+		$this->RegisterVariableFloat("intern1", "intern1", "", 101);
+		$this->RegisterVariableFloat("intern2", "intern2", "", 102);
+		$this->RegisterVariableFloat("intern3", "intern3", "", 103);
+		
 		
     }
     public function Destroy(){
@@ -62,12 +70,29 @@ class EseraWindmesser extends IPSModule {
             SetValue($this->GetIDForIdent("Wind_kmh_max_Zeit"), time());
         }
 		
+		//Mittelwertberechnung
+		//$windspeedslow = GetValue($this->GetIDForIdent("Wind_kmh_slow"));
+		$intern_0 = $delta_Wind
+		$intern_1 = GetValue($this->GetIDForIdent("intern1"));
+		$intern_2 = GetValue($this->GetIDForIdent("intern2"));
+		$intern_3 = GetValue($this->GetIDForIdent("intern3"));
+		
+		$windspeedslow = $intern_0+$intern_1+$intern_2+$intern_3			//Mittelwert berechnen
+		$interncount = $interncount +1
+		if ($interncount == 4 ){
+			SetValue($this->GetIDForIdent("Wind_kmh_slow"), $windspeedslow);	//Mittelwert in Variable schreiben
+		}
+		SetValue($this->GetIDForIdent("intern1"), $intern_0);				//Wert 0 nach Wert 1 schieben
+		SetValue($this->GetIDForIdent("intern2"), $intern_1);				//Wert 1 nach Wert 2 schieben
+		SetValue($this->GetIDForIdent("intern3"), $intern_2);				//Wert 2 nach Wert 3 schieben
+		
+		
         // Only for debugging
-        $this->DebugMessage("Counter", "CounterOld: " . $CounterOld);
-        $this->DebugMessage("Counter", "CounterNew: " . $CounterNew);
-        $this->DebugMessage("Counter", "Delta: " . $delta);
-        $this->DebugMessage("Counter", "Delta Wind: " . $delta_Wind);
-        $this->DebugMessage("Counter", "Delta Wind ms: " . $delta_Wind_ms);
+        //$this->DebugMessage("Counter", "CounterOld: " . $CounterOld);
+        //$this->DebugMessage("Counter", "CounterNew: " . $CounterNew);
+        //$this->DebugMessage("Counter", "Delta: " . $delta);
+        //$this->DebugMessage("Counter", "Delta Wind: " . $delta_Wind);
+        //$this->DebugMessage("Counter", "Delta Wind ms: " . $delta_Wind_ms);
     }
     private function GetFactor($Impulses){
         switch ($Impulses){
