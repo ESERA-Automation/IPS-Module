@@ -72,13 +72,13 @@ class EseraWindmesser extends IPSModule {
 		
 		//Mittelwertberechnung
 		//$windspeedslow = GetValue($this->GetIDForIdent("Wind_kmh_slow"));
-		$intern_0 = $delta_Wind
+		$intern_0 = $delta_Wind;
 		$intern_1 = GetValue($this->GetIDForIdent("intern1"));
 		$intern_2 = GetValue($this->GetIDForIdent("intern2"));
 		$intern_3 = GetValue($this->GetIDForIdent("intern3"));
 		
-		$windspeedslow = $intern_0+$intern_1+$intern_2+$intern_3			//Mittelwert berechnen
-		$interncount = $interncount +1
+		$windspeedslow = $intern_0+$intern_1+$intern_2+$intern_3;			//Mittelwert berechnen
+		$interncount = $interncount +1;
 		if ($interncount == 4 ){
 			SetValue($this->GetIDForIdent("Wind_kmh_slow"), $windspeedslow);	//Mittelwert in Variable schreiben
 		}
