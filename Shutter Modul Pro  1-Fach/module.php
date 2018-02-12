@@ -37,13 +37,13 @@ class EseraShutterPro1Fach extends IPSModule {
         if ($this->ReadPropertyInteger("OWDID") == $data->DeviceNumber) {
             if ($data->DataPoint == 3) {
 				$value = intval($data->Value, 10);
-                if ($value = 1){
+                if ($value == 1){
 					SetValue($this->GetIDForIdent("Shutter"), 1);
                 }
-				if ($value = 2){
+				if ($value == 2){
 					SetValue($this->GetIDForIdent("Shutter"), 2);
 				}
-				if (Value = 0 or Value = 3){
+				if (Value == 3){
 					SetValue($this->GetIDForIdent("Shutter"), 3);
 				}
             }
