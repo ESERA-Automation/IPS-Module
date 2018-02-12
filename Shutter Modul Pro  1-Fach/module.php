@@ -43,7 +43,7 @@ class EseraShutterPro1Fach extends IPSModule {
 				if ($value == 2){
 					SetValue($this->GetIDForIdent("Shutter"), 2);
 				}
-				if (Value == 3 or 0){
+				if (Value == 3){
 					SetValue($this->GetIDForIdent("Shutter"), 3);
 				}
 				if (Value == 0){
