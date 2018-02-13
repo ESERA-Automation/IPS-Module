@@ -9,7 +9,8 @@
 	{ "type": "Label", "label": "Eine Beschreibung der Einbindung des ESERA Systems in IP-Symcon finden Sie unter www.esera.de, kompatible Steuerungen, IP-Symcon" },
 	{ "type": "Label", "label": "Weitergehende Informationen zu dem ESERA Produkt finden Sie auf www.esera.de" },	
 	{ "type": "Label", "label": "" },
-	{ "type": "Label", "label": "Skript Steuerbefehl: ESERA_MoveShutter(InstanceID,Value) Value: 1=down 2=Up, 3=Stopp" }
+	{ "type": "Label", "label": "Skript Steuerbefehl: ESERA_MoveShutter(InstanceID,Value) Value: 1=down 2=Up, 3=Stopp" },
+	{ "Type": "Label", "Label": "Bitte fügen Sie zwischen zwei Steuerbefehlen eine Pause von min. 150ms (IPS_Sleep(150)) für die Datenrückgabe ein." }
 
   ]
 }
