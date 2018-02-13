@@ -10,6 +10,6 @@
 	{ "type": "Label", "label": "Weitergehende Informationen zu dem ESERA Produkt finden Sie auf www.esera.de" },
 	{ "type": "Label", "label": "" },
 	{ "type": "Label", "label": "Skript Steuerbefehl: ESERA_MoveShutter(InstanceID,Value) Value: 1=down 2=Up, 3=Stopp" },
-	{ "Type": "Label", "Label": "Bitte fügen Sie zwischen zwei Steuerbefehlen eine Pause von min. 150ms, IPS_Sleep 150, für die Datenrückgabe ein." }
+	{ "type": "Label", "Label": "Bitte fügen Sie zwischen zwei Steuerbefehlen eine Pause von min. 150ms, IPS_Sleep 150, für die Datenrückgabe ein." }
   ]
 }
