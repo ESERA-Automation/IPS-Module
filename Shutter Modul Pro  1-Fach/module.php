@@ -32,7 +32,6 @@ class EseraShutterPro1Fach extends IPSModule {
 
         $data = json_decode($JSONString);       
 		$this->SendDebug("ESERA-Shutter1Fach", "DataPoint:" . $data->DataPoint . " | Value: " . $data->Value, 0);	// Only for Debug
-
         
         if ($this->ReadPropertyInteger("OWDID") == $data->DeviceNumber) {
           if ($data->DataPoint == 3) {
