@@ -21,7 +21,7 @@ class EseraWindmesser extends IPSModule {
 		
 		//Mittelwertberechnung
         $this->RegisterVariableFloat("Wind_kmh_slow", "Windspeed km/h average", "~WindSpeed.kmh", 30);
-		$this->RegisterVariableInteger("interncount", "interncount", "", 100);		
+		//$this->RegisterVariableInteger("interncount", "interncount", "", 100);		
 		//$this->RegisterVariableFloat("intern1", "intern1", "", 101);
 		//$this->RegisterVariableFloat("intern2", "intern2", "", 102);
 		//$this->RegisterVariableFloat("intern3", "intern3", "", 103);
@@ -61,7 +61,7 @@ class EseraWindmesser extends IPSModule {
     private function Calculate(){
 		//Windspeed berechnung
         $CounterOld = GetValue($this->GetIDForIdent("Counter"));
-        //$CounterNew = GetValue($this->ReadPropertyInteger("CounterID"));
+        $CounterNew = GetValue($this->ReadPropertyInteger("CounterID"));
         $delta = $CounterNew - $CounterOld;
         $Factor = $this->GetFactor($this->ReadPropertyInteger("Impulses"));
         $delta_Wind = ((($delta / $Factor) * 3600) / 1000);
