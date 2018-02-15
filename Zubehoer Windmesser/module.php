@@ -22,11 +22,19 @@ class EseraWindmesser extends IPSModule {
 		//Mittelwertberechnung
         $this->RegisterVariableFloat("Wind_kmh_slow", "Windspeed km/h average", "~WindSpeed.kmh", 11);
 		$this->RegisterVariableInteger("interncount", "interncount", "", 100);		
-		$this->RegisterVariableFloat("intern1", "intern1", "", 101);
-		$this->RegisterVariableFloat("intern2", "intern2", "", 102);
-		$this->RegisterVariableFloat("intern3", "intern3", "", 103);
+		//$this->RegisterVariableFloat("intern1", "intern1", "", 101);
+		//$this->RegisterVariableFloat("intern2", "intern2", "", 102);
+		//$this->RegisterVariableFloat("intern3", "intern3", "", 103);
 		
-		
+		$this->SetBuffer("intern1", "intern1");
+		Setbuffer("intern1"), 0);
+		$this->SetBuffer("intern2", "intern2");
+		Setbuffer("intern2"), 0);
+		$this->SetBuffer("intern3", "intern3");
+		Setbuffer("intern3"), 0);
+		$this->SetBuffer("interncount", "interncount");
+		Setbuffer("interncount"), 0);		
+
     }
     public function Destroy(){
         //Never delete this line!
@@ -73,10 +81,12 @@ class EseraWindmesser extends IPSModule {
 		//Mittelwertberechnung
 		//$windspeedslow = GetValue($this->GetIDForIdent("Wind_kmh_slow"));
 		$intern_0 = $delta_Wind;
-		$intern_1 = GetValue($this->GetIDForIdent("intern1"));
-		$intern_2 = GetValue($this->GetIDForIdent("intern2"));
-		$intern_3 = GetValue($this->GetIDForIdent("intern3"));
-		$interncount = GetValue($this->GetIDForIdent("interncount"));
+		$intern_1 = Getbuffer("intern1"));
+		$intern_2 = Getbuffer("intern2"));
+		$intern_3 = Getbuffer("intern3"));
+		//$intern_2 = GetValue($this->GetIDForIdent("intern2"));
+		//$intern_3 = GetValue($this->GetIDForIdent("intern3"));
+		$interncount = Getbuffer("interncount"));
 		$windspeedslow = $intern_0+$intern_1+$intern_2+$intern_3;			//Mittelwert berechnen
 		
 		$interncount = $interncount +1;
