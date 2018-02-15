@@ -55,11 +55,15 @@ class EseraWindmesser extends IPSModule {
 		//Windspeed berechnung
 		$CounterOld = GetValue($this->GetIDForIdent("Counter"));
         $CounterNew = GetValue($this->ReadPropertyInteger("CounterID"));
-        $delta = $CounterNew - $CounterOld;
-        $Factor = $this->GetFactor($this->ReadPropertyInteger("Impulses"));
-        $delta_Wind = ((($delta / $Factor) * 3600) / 1000);
-        $delta_Wind_ms = $delta / $Factor;
-
+        if ($CounterNew > $CounterOld){
+			$delta = $CounterNew - $CounterOld;
+			$Factor = $this->GetFactor($this->ReadPropertyInteger("Impulses"));
+			$delta_Wind = ((($delta / $Factor) * 3600) / 1000);
+			$delta_Wind_ms = $delta / $Factor;
+		}
+		else{
+			SetValue($this->GetIDForIdent("Counter"), $CounterNew);	//wenn der alte counterwert grösser als der neue counterwert ist, überschreibe den alten Counterwert
+		}
 		//$this->SetBuffer("counter", $CounterNew);
         SetValue($this->GetIDForIdent("Counter"), $CounterNew);
         SetValue($this->GetIDForIdent("Wind_kmh"), $delta_Wind);
