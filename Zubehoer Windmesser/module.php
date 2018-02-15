@@ -94,10 +94,12 @@ class EseraWindmesser extends IPSModule {
 			$interncount =4;
 			SetValue($this->GetIDForIdent("Wind_kmh_slow"), $windspeedslow);	//Mittelwert in Variable schreiben	
 		}
+		
 		//SetValue($this->GetIDForIdent("interncount"), $interncount);
 		//SetValue($this->GetIDForIdent("intern1"), $intern_0);				//Wert 0 nach Wert 1 schieben
 		//SetValue($this->GetIDForIdent("intern2"), $intern_1);				//Wert 1 nach Wert 2 schieben
 		//SetValue($this->GetIDForIdent("intern3"), $intern_2);				//Wert 2 nach Wert 3 schieben
+		$this->SetBuffer("$interncount", $interncount);
 		$this->SetBuffer("intern1", $intern_0);
 		$this->SetBuffer("intern2", $intern_1);
 		$this->SetBuffer("intern3", $intern_2);
