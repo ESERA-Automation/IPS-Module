@@ -87,6 +87,7 @@ class EseraWindmesser extends IPSModule {
 		$interncount = $this->Getbuffer("interncount");
 	
 		$windspeedslow = $intern_0+$intern_1+$intern_2+$intern_3;			//Mittelwert berechnen
+		$windspeedslow = $windspeedslow / 4;
 		
 		$interncount = $interncount +1;
 		if ($interncount >= 4 ){
