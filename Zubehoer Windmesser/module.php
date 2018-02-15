@@ -26,14 +26,14 @@ class EseraWindmesser extends IPSModule {
 		//$this->RegisterVariableFloat("intern2", "intern2", "", 102);
 		//$this->RegisterVariableFloat("intern3", "intern3", "", 103);
 		
-		$this->SetBuffer("intern1", "intern1");
-		Setbuffer("intern1"), 0);
-		$this->SetBuffer("intern2", "intern2");
-		Setbuffer("intern2"), 0);
-		$this->SetBuffer("intern3", "intern3");
-		Setbuffer("intern3"), 0);
-		$this->SetBuffer("interncount", "interncount");
-		Setbuffer("interncount"), 0);		
+		$this->SetBuffer("intern1", 0);
+		//Setbuffer("intern1"), 0);
+		$this->SetBuffer("intern2", 0");
+		//Setbuffer("intern2"), 0);
+		$this->SetBuffer("intern3", 0");
+		//Setbuffer("intern3"), 0);
+		$this->SetBuffer("interncount", 0);
+		//Setbuffer("interncount"), 0);		
 
     }
     public function Destroy(){
@@ -81,9 +81,9 @@ class EseraWindmesser extends IPSModule {
 		//Mittelwertberechnung
 		//$windspeedslow = GetValue($this->GetIDForIdent("Wind_kmh_slow"));
 		$intern_0 = $delta_Wind;
-		$intern_1 = Getbuffer("intern1"));
-		$intern_2 = Getbuffer("intern2"));
-		$intern_3 = Getbuffer("intern3"));
+		$intern_1 = Getbuffer("intern1");
+		$intern_2 = Getbuffer("intern2");
+		$intern_3 = Getbuffer("intern3");
 		//$intern_2 = GetValue($this->GetIDForIdent("intern2"));
 		//$intern_3 = GetValue($this->GetIDForIdent("intern3"));
 		$interncount = Getbuffer("interncount"));
@@ -94,11 +94,13 @@ class EseraWindmesser extends IPSModule {
 			$interncount =4;
 			SetValue($this->GetIDForIdent("Wind_kmh_slow"), $windspeedslow);	//Mittelwert in Variable schreiben	
 		}
-		SetValue($this->GetIDForIdent("interncount"), $interncount);
-		SetValue($this->GetIDForIdent("intern1"), $intern_0);				//Wert 0 nach Wert 1 schieben
-		SetValue($this->GetIDForIdent("intern2"), $intern_1);				//Wert 1 nach Wert 2 schieben
-		SetValue($this->GetIDForIdent("intern3"), $intern_2);				//Wert 2 nach Wert 3 schieben
-		
+		//SetValue($this->GetIDForIdent("interncount"), $interncount);
+		//SetValue($this->GetIDForIdent("intern1"), $intern_0);				//Wert 0 nach Wert 1 schieben
+		//SetValue($this->GetIDForIdent("intern2"), $intern_1);				//Wert 1 nach Wert 2 schieben
+		//SetValue($this->GetIDForIdent("intern3"), $intern_2);				//Wert 2 nach Wert 3 schieben
+		$this->SetBuffer("intern1"), $intern_0);
+		$this->SetBuffer("intern2"), $intern_1);
+		$this->SetBuffer("intern3"), $intern_2);
 		
         // Only for debugging
         //$this->DebugMessage("Counter", "CounterOld: " . $CounterOld);
