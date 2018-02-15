@@ -103,11 +103,11 @@ class EseraWindmesser extends IPSModule {
 		$this->SetBuffer("intern3"), $intern_2);
 		
         // Only for debugging
-        //$this->DebugMessage("Counter", "CounterOld: " . $CounterOld);
-        //$this->DebugMessage("Counter", "CounterNew: " . $CounterNew);
-        //$this->DebugMessage("Counter", "Delta: " . $delta);
-        //$this->DebugMessage("Counter", "Delta Wind: " . $delta_Wind);
-        //$this->DebugMessage("Counter", "Delta Wind ms: " . $delta_Wind_ms);
+        $this->DebugMessage("Counter", "CounterOld: " . $CounterOld);
+        $this->DebugMessage("Counter", "CounterNew: " . $CounterNew);
+        $this->DebugMessage("Counter", "Delta: " . $delta);
+        $this->DebugMessage("Counter", "Delta Wind: " . $delta_Wind);
+        $this->DebugMessage("Counter", "Delta Wind ms: " . $delta_Wind_ms);
     }
     private function GetFactor($Impulses){
         switch ($Impulses){
