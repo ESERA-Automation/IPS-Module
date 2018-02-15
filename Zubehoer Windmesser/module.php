@@ -109,7 +109,7 @@ class EseraWindmesser extends IPSModule {
 		$this->DebugMessage("Counter", "interncount: " . $interncount);
 
     }
-	private function resetwindspeed()
+	private function ResetWindspeed()
 	{
 		SetValue($this->GetIDForIdent("Wind_kmh_max"), 0);
 	}
