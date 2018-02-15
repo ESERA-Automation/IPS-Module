@@ -28,9 +28,9 @@ class EseraWindmesser extends IPSModule {
 		
 		$this->SetBuffer("intern1", 0);
 		//Setbuffer("intern1"), 0);
-		$this->SetBuffer("intern2", 0");
+		$this->SetBuffer("intern2", 0);
 		//Setbuffer("intern2"), 0);
-		$this->SetBuffer("intern3", 0");
+		$this->SetBuffer("intern3", 0);
 		//Setbuffer("intern3"), 0);
 		$this->SetBuffer("interncount", 0);
 		//Setbuffer("interncount"), 0);		
