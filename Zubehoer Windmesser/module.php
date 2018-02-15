@@ -15,12 +15,12 @@ class EseraWindmesser extends IPSModule {
         $this->RegisterTimer("Refresh", 0, 'ESERA_RefreshCounter($_IPS[\'TARGET\']);');		//Modultimer
 		
 		//Windspeed max
-        $this->RegisterVariableFloat("Wind_kmh_max", "Windspeed km/h max Day", "~WindSpeed.kmh", 30);
-        $this->RegisterVariableInteger("Wind_kmh_max_Zeit", "Windspeed km/h max Time", "~UnixTimestamp", 40);
+        $this->RegisterVariableFloat("Wind_kmh_max", "Windspeed km/h max Day", "~WindSpeed.kmh", 40);
+        $this->RegisterVariableInteger("Wind_kmh_max_Zeit", "Windspeed km/h max Time", "~UnixTimestamp", 50);
 		$this->RegisterTimer("DailyReset", 0, 'ResetWindspeedmaxDaily($_IPS[\'TARGET\']);');
 		
 		//Mittelwertberechnung
-        $this->RegisterVariableFloat("Wind_kmh_slow", "Windspeed km/h average", "~WindSpeed.kmh", 11);
+        $this->RegisterVariableFloat("Wind_kmh_slow", "Windspeed km/h average", "~WindSpeed.kmh", 30);
 		$this->RegisterVariableInteger("interncount", "interncount", "", 100);		
 		//$this->RegisterVariableFloat("intern1", "intern1", "", 101);
 		//$this->RegisterVariableFloat("intern2", "intern2", "", 102);
@@ -61,7 +61,7 @@ class EseraWindmesser extends IPSModule {
     private function Calculate(){
 		//Windspeed berechnung
         $CounterOld = GetValue($this->GetIDForIdent("Counter"));
-        $CounterNew = GetValue($this->ReadPropertyInteger("CounterID"));
+        //$CounterNew = GetValue($this->ReadPropertyInteger("CounterID"));
         $delta = $CounterNew - $CounterOld;
         $Factor = $this->GetFactor($this->ReadPropertyInteger("Impulses"));
         $delta_Wind = ((($delta / $Factor) * 3600) / 1000);
@@ -108,6 +108,8 @@ class EseraWindmesser extends IPSModule {
         $this->DebugMessage("Counter", "Delta: " . $delta);
         $this->DebugMessage("Counter", "Delta Wind: " . $delta_Wind);
         $this->DebugMessage("Counter", "Delta Wind ms: " . $delta_Wind_ms);
+		$this->DebugMessage("Counter", "interncount: " . $interncount);
+		$this->DebugMessage("Counter", "intern_0: " . $intern_0);
     }
     private function GetFactor($Impulses){
         switch ($Impulses){
