@@ -17,7 +17,7 @@
   	{ "type": "Button", "label": "ESERA Webside", "onClick": "echo 'https://www.esera.de/kompatible-steuerungen-zentralen/ip-symcon-integration/'" },
 	{ "type": "Button", "label": "How To Videos", "onClick": "echo 'https://www.esera.de/service-support/how-to-support-videos/'" },
 	
-	{ "type": "Button", "label": "Clear Windspeed maximum", "onClick": "echo $reset_windspeed;" }
+	{ "type": "Button", "label": "Clear Windspeed maximum", "onClick": "$reset_windspeed" }
 	
   ]
 }
