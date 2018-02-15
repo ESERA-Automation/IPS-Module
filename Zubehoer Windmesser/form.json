@@ -8,7 +8,9 @@
                 { "label": "Windsensor Pro 100, 2 Imp./Umdr.", "value": 2 },
                 { "label": "Windsensor Pro 200, 4 Imp./Umdr.", "value": 4 },
         ]}
-
-	{ "type": "Button", "label": "Symcon", "onClick": "echo 'https://www.symcon.de'" }
+  ],
+  "actions":
+  [
+  	{ "type": "Button", "label": "ESERA IPS Info", "onClick": "echo 'https://www.esera.de/kompatible-steuerungen-zentralen/ip-symcon-integration/'" }
   ]
 }
