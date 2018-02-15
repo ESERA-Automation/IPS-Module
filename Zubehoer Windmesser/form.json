@@ -9,9 +9,8 @@
                 { "label": "Windsensor Pro 200, 4 Imp./Umdr.", "value": 4 },
         ]},
 		
-	{ "type": "Label", "label": "Eine Beschreibung der Einbindung des ESERA Systems in IP-Symcon "},
-	{ "type": "Label", "label": "finden Sie unter www.esera.de, kompatible Steuerungen, IP-Symcon." },
-	{ "type": "Label", "label": "Nachfolgend ein Link zur ESERA Website." },
+	{ "type": "Label", "label": "Eine Beschreibung der Einbindung des ESERA Systems in IP-Symcon finden Sie unter www.esera.de, kompatible Steuerungen, IP-Symcon." },
+	{ "type": "Label", "label": "Nachfolgend ein Link zur ESERA Website und How To Videos." },
   ],
   "actions":
   [
