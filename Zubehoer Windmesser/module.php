@@ -25,6 +25,7 @@ class EseraWindmesser extends IPSModule {
 		$this->SetBuffer("intern1", 0);
 		$this->SetBuffer("intern2", 0);
 		$this->SetBuffer("intern3", 0);
+		$this->SetBuffer("intern4", 0);
 		$this->SetBuffer("interncount", 0);
 
     }
@@ -77,10 +78,11 @@ class EseraWindmesser extends IPSModule {
 		$intern_1 = $this->Getbuffer("intern1");
 		$intern_2 = $this->Getbuffer("intern2");
 		$intern_3 = $this->Getbuffer("intern3");
+		$intern_4 = $this->Getbuffer("intern4");
 		$interncount = $this->Getbuffer("interncount");
 	
-		$windspeedslow = $intern_0+$intern_1+$intern_2+$intern_3;			//Mittelwert berechnen
-		$windspeedslow = $windspeedslow / 4;
+		$windspeedslow = $intern_0+$intern_1+$intern_2+$intern_3+$intern_4;			//Mittelwert berechnen
+		$windspeedslow = $windspeedslow / 5;
 		
 		$interncount = $interncount +1;
 		if ($interncount >= 4 ){
@@ -91,7 +93,7 @@ class EseraWindmesser extends IPSModule {
 		$this->SetBuffer("intern1", $intern_0);
 		$this->SetBuffer("intern2", $intern_1);
 		$this->SetBuffer("intern3", $intern_2);			
-
+		$this->SetBuffer("intern4", $intern_3);
 
 		
         // Only for debugging
@@ -101,9 +103,7 @@ class EseraWindmesser extends IPSModule {
         $this->DebugMessage("Counter", "Delta Wind: " . $delta_Wind);
         $this->DebugMessage("Counter", "Delta Wind ms: " . $delta_Wind_ms);
 		$this->DebugMessage("Counter", "interncount: " . $interncount);
-		$this->DebugMessage("Counter", "intern_0: " . $intern_0);
-		$this->DebugMessage("Counter", "intern_1: " . $intern_1);
-		$this->DebugMessage("Counter", "intern_2: " . $intern_2);
+
     }
     private function GetFactor($Impulses){
         switch ($Impulses){
