@@ -11,7 +11,7 @@ class EseraWindmesser extends IPSModule {
         $this->RegisterVariableInteger("Counter", "Counter", "", 1);
         $this->RegisterVariableFloat("Wind_kmh", "Windspeed km/h", "~WindSpeed.kmh", 10);
         $this->RegisterVariableFloat("Wind_ms", "Windspeed m/s", "~WindSpeed.ms", 20);
-		
+
         $this->RegisterTimer("Refresh", 0, 'ESERA_RefreshCounter($_IPS[\'TARGET\']);');		//Modultimer
 		
 		//Windspeed max
