@@ -7,7 +7,7 @@
 	[
 		"8-Channel Binaer Output, DOUT + Manual Input",
 		"11220 8x8A 8-Channel Binaer Output + Manual Input",
-		"11228 8x10/16A 8-Channel Binaer Output + Manual Input"		
+		"11228 8x16A 8-Channel Binaer Output + Manual Input"		
 	],
 	"parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
 	"childRequirements": [],
