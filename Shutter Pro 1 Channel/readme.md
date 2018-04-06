@@ -13,14 +13,14 @@ Das Modul bindet das Shutter Pro 1-Fach von ESERA-Automation ein. Es werden auto
 
 ### 1. Funktionsumfang
 
-* Stellt via ESERA-Automation 1-Wire Controller / 1-Wire Gateway Verbindung zum Shutter Pro 1-Fach her.
+* Stellt via ESERA-Automation 1-Wire Controller / 1-Wire Gateway / ESERA-Station Verbindung zum Shutter Pro 1-Fach her.
 * OWDID einstellbar
-* Automatische Aktualisierung der Werte
+* Automatische Aktualisierung der Werte für Output- und Input Status
 
 ### 2. Voraussetzungen
 
 - IP-Symcon ab Version 4.2
-- ESERA-Automation 1-Wire Controller / 1-Wire Gateway ab Firmware 1.18_72
+- ESERA-Automation 1-Wire Controller / 1-Wire Gateway / ESERA-Station 200 ab Firmware 1.18_72
 
 
 ### 3. Software-Installation
@@ -44,9 +44,11 @@ Die Statusvariablen werden automatisch angelegt. Das Löschen einzelner kann zu 
 
 ##### Statusvariablen
 
-Es werden automatisch alle übermittelten Werte angelegt.
+Es werden automatisch alle übermittelten Werte für Output- und Input Status angelegt.
 - Down
 - Up
+- Stop
+- Standby
 
 __Unterstützte Datenpakete__
 
@@ -56,14 +58,14 @@ OWD       | Integer
 
 ##### Profile:
 
-Es werden keine zusätzlichen Profile hinzugefügt
+Es werden zusätzliche Variablenprofile für Webfront hinzugefügt
 
 ### 6. WebFront
 
 Über das WebFront und die mobilen Apps werden die Variablen angezeigt. Es ist keine weitere Steuerung oder gesonderte Darstellung integriert.
 
 ### 7. PHP-Befehlsreferenz
-`boolean ESERA_MoveShutter(integer $InstanzID, integer $Value);`  
+`boolean ESERA_SetShutter(integer $InstanzID, integer fix 1, integer $Value);`  
 Fährt einen Rollladen hoch/runter oder stoppt.
 Die Funktion liefert keinerlei Rückgabewert.  
 Beispiel:  
