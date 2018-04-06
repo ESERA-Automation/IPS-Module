@@ -66,8 +66,8 @@ class EseraShutterPro extends IPSModule {
 			IPS_SetVariableProfileDigits("ESERA.ShutterPro", 0);
 			IPS_SetVariableProfileIcon("ESERA.ShutterPro", "Shutter");
 			IPS_SetVariableProfileAssociation("ESERA.ShutterPro", 0, "StandBy", "", -1);
-			IPS_SetVariableProfileAssociation("ESERA.ShutterPro", 1, "Down", "HollowLargeArrowDown", 0x0DA100);
-			IPS_SetVariableProfileAssociation("ESERA.ShutterPro", 2, "Up", "HollowLargeArrowUp", 0x0DA100);
+			IPS_SetVariableProfileAssociation("ESERA.ShutterPro", 1, "Down", "HollowLargeArrowDown", 0x10BA00);
+			IPS_SetVariableProfileAssociation("ESERA.ShutterPro", 2, "Up", "HollowLargeArrowUp", 0x10BA00);
 			IPS_SetVariableProfileAssociation("ESERA.ShutterPro", 3, "Stop", "", 0x0000FF);
 		}
 	}
