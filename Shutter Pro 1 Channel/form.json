@@ -3,7 +3,6 @@
   [
 	{ "type": "NumberSpinner", "name": "OWDID", "caption": "OWD" },
 	{ "type": "Label", "label": "Fügen Sie hier die OWD-Nummer aus der 1-Wire Controller / 1-Wire Gateway OWD-Übersicht ein." },
-	{ "type": "Label", "label": "" },
 	{ "type": "Label", "label": "" },	
 	{ "type": "Label", "label": "Service Videos finden Sie auf der Webseite von ESERA-Automation unter Service/Support, Service Video https://www.esera.de/service-support/how-to-support-videos/." },
 	{ "type": "Label", "label": "Eine Beschreibung der Einbindung des ESERA Systems in IP-Symcon finden Sie unter www.esera.de, kompatible Steuerungen, IP-Symcon" },
