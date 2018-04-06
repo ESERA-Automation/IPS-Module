@@ -6,10 +6,10 @@ class EseraShutterPro extends IPSModule {
 		parent::Create();
 		//These lines are parsed on Symcon Startup or Instance creation
 		//You cannot use variables here. Just static values.
-		$this->CreateVariableProfileShutterV4();
+		$this->CreateVariableProfileShutterPro();
 		$this->RegisterPropertyInteger("OWDID", 1);
-    $this->RegisterVariableInteger("Input", "Input", "ESERA.ShutterV4"); // ESERA-Shutter
-		$this->RegisterVariableInteger("Output", "Output", "ESERA.ShutterV4");
+        $this->RegisterVariableInteger("Input", "Input", "ESERA.ShutterPro"); // ESERA-Shutter
+		$this->RegisterVariableInteger("Output", "Output", "ESERA.ShutterPro");
 		$this->EnableAction("Output");
 		$this->ConnectParent("{FCABCDA7-3A57-657D-95FD-9324738A77B9}"); //1Wire Controller
 	}
@@ -25,14 +25,14 @@ class EseraShutterPro extends IPSModule {
 	}
 	public function ReceiveData($JSONString) {
 		$data = json_decode($JSONString);
-		$this->SendDebug("ESERA-SHTV4", $data->DataPoint . " | " . $data->Value, 0);
+		$this->SendDebug("ESERA-SHTPro", $data->DataPoint . " | " . $data->Value, 0);
 		if ($this->ReadPropertyInteger("OWDID") == $data->DeviceNumber) {
 			if ($data->DataPoint == 1) {
 				$value = intval($data->Value, 10);
 				SetValue($this->GetIDForIdent("Input"), $value);
 				if ($value != 0){
 					$this->SetBuffer("ManualMove", time());
-					$this->SendDebug("ESERA-SHTV4", "SetBuffer ManualMove");
+					$this->SendDebug("ESERA-SHTPro", "SetBuffer ManualMove");
 				}
 			}
 			else if ($data->DataPoint == 3) {
@@ -59,16 +59,16 @@ class EseraShutterPro extends IPSModule {
 		//Zur 1Wire Coontroller Instanz senden
 		return $this->SendDataToParent(json_encode(Array("DataID" => "{EA53E045-B4EF-4035-B0CD-699B8731F193}", "Command" => $Command . chr(13))));
 	}
-	private function CreateVariableProfileShutterV4() {
-		if (!IPS_VariableProfileExists("ESERA.ShutterV4")) {
-			IPS_CreateVariableProfile("ESERA.ShutterV4", 1);
-			IPS_SetVariableProfileValues("ESERA.ShutterV4", 1, 3, 0);
-			IPS_SetVariableProfileDigits("ESERA.ShutterV4", 0);
-			IPS_SetVariableProfileIcon("ESERA.ShutterV4", "Shutter");
-			IPS_SetVariableProfileAssociation("ESERA.ShutterV4", 0, "StandBy", "", -1);
-			IPS_SetVariableProfileAssociation("ESERA.ShutterV4", 1, "Down", "HollowLargeArrowDown", -1);
-			IPS_SetVariableProfileAssociation("ESERA.ShutterV4", 2, "Up", "HollowLargeArrowUp", -1);
-			IPS_SetVariableProfileAssociation("ESERA.ShutterV4", 3, "Stop", "", 0x0000FF);
+	private function CreateVariableProfileShutterPro() {
+		if (!IPS_VariableProfileExists("ESERA.ShutterPro")) {
+			IPS_CreateVariableProfile("ESERA.ShutterPro", 1);
+			IPS_SetVariableProfileValues("ESERA.ShutterPro", 1, 3, 0);
+			IPS_SetVariableProfileDigits("ESERA.ShutterPro", 0);
+			IPS_SetVariableProfileIcon("ESERA.ShutterPro", "Shutter");
+			IPS_SetVariableProfileAssociation("ESERA.ShutterPro", 0, "StandBy", "", -1);
+			IPS_SetVariableProfileAssociation("ESERA.ShutterPro", 1, "Down", "HollowLargeArrowDown", 0x0DA100);
+			IPS_SetVariableProfileAssociation("ESERA.ShutterPro", 2, "Up", "HollowLargeArrowUp", 0x0DA100);
+			IPS_SetVariableProfileAssociation("ESERA.ShutterPro", 3, "Stop", "", 0x0000FF);
 		}
 	}
 }
