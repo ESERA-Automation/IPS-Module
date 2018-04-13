@@ -32,7 +32,7 @@ class EseraShutterPro extends IPSModule {
 				SetValue($this->GetIDForIdent("Input"), $value);
 				if ($value != 0){
 					$this->SetBuffer("ManualMove", time());
-					$this->SendDebug("ESERA-SHTPro", "SetBuffer ManualMove");
+					$this->SendDebug("ESERA-SHTPro", "SetBuffer ManualMove", 0);
 				}
 			}
 			else if ($data->DataPoint == 3) {
