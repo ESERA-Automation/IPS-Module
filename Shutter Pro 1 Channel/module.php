@@ -21,8 +21,10 @@ class EseraShutterPro extends IPSModule {
 		//Never delete this line!
 		parent::ApplyChanges();
 		//Apply filter
-		$this->SetReceiveDataFilter(".*\"DeviceNumber\":". $this->ReadPropertyInteger("OWDID") .".*");
+		//$this->SetReceiveDataFilter(".*\"DeviceNumber\":". $this->ReadPropertyInteger("OWDID") .".*");
+		$this->SetReceiveDataFilter(".*\"DeviceNumber\":". $this->ReadPropertyInteger("OWDID") .",.*");
 	}
+	
 	public function ReceiveData($JSONString) {
 		$data = json_decode($JSONString);
 		$this->SendDebug("ESERA-SHTPro", $data->DeviceNumber . " | " . $data->DataPoint . " | " . $data->Value, 0);
