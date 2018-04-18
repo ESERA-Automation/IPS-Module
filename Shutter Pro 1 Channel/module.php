@@ -25,7 +25,8 @@ class EseraShutterPro extends IPSModule {
 	}
 	public function ReceiveData($JSONString) {
 		$data = json_decode($JSONString);
-		$this->SendDebug("ESERA-SHTPro", $data->DataPoint . " | " . $data->Value, 0);
+		$this->SendDebug("ESERA-SHTPro", $data->DeviceNumber . " | " . $data->DataPoint . " | " . $data->Value, 0);
+		//$this->SendDebug("ESERA-SHTPro", $data->DataPoint . " | " . $data->Value, 0);
 		if ($this->ReadPropertyInteger("OWDID") == $data->DeviceNumber) {
 			if ($data->DataPoint == 1) {
 				$value = intval($data->Value, 10);
