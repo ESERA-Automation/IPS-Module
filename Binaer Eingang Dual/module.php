@@ -26,7 +26,7 @@ class EseraBinaerEingangDual extends IPSModule {
         parent::ApplyChanges();
 
         //Apply filter
-        $this->SetReceiveDataFilter(".*\"DeviceNumber\":". $this->ReadPropertyInteger("OWDID") .".*");
+        $this->SetReceiveDataFilter(".*\"DeviceNumber\":". $this->ReadPropertyInteger("OWDID") .",.*");
 
     }
     public function ReceiveData($JSONString) {
