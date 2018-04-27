@@ -56,23 +56,27 @@ class EseraWindmesser extends IPSModule {
 		//Windspeed berechnung
 		$CounterOld = GetValue($this->GetIDForIdent("Counter"));
         $CounterNew = GetValue($this->ReadPropertyInteger("CounterID"));
-        if ($CounterNew > $CounterOld){
+        if ($CounterNew > $CounterOld)
+		{
 			$delta = $CounterNew - $CounterOld;
 			$Factor = $this->GetFactor($this->ReadPropertyInteger("Impulses"));
 			$delta_Wind = ((($delta / $Factor) * 3600) / 1000);
 			$delta_Wind_ms = $delta / $Factor;
 		}
-		else{
+		else
+		{
 			SetValue($this->GetIDForIdent("Counter"), $CounterNew);	//wenn der alte counterwert grösser als der neue counterwert ist, überschreibe den alten Counterwert
 		}
-		//$this->SetBuffer("counter", $CounterNew);
+		
+
         SetValue($this->GetIDForIdent("Counter"), $CounterNew);
         SetValue($this->GetIDForIdent("Wind_kmh"), $delta_Wind);
         SetValue($this->GetIDForIdent("Wind_ms"), $delta_Wind_ms);
 
 		// Windspeed max
         $windspeedmax = GetValue($this->GetIDForIdent("Wind_kmh_max"));
-        if ($delta_Wind > $windspeedmax){
+        if ($delta_Wind > $windspeedmax)
+		{
             SetValue($this->GetIDForIdent("Wind_kmh_max"), $delta_Wind);
             SetValue($this->GetIDForIdent("Wind_kmh_max_Zeit"), time());
         }
@@ -90,10 +94,12 @@ class EseraWindmesser extends IPSModule {
 		$windspeedslow = $windspeedslow / 5;										//Mittelwert berechnen
 		
 		$interncount = $interncount +1;												//Zähler für Mittelwertausgabe
+		
 		if ($interncount >= 5 ){													//Datenausgabe Mittelwert nach 5 neuen Werten
 			$interncount = 5;
 			SetValue($this->GetIDForIdent("Wind_kmh_slow"), $windspeedslow);	    //Mittelwert ausgebe in Variable	
 		}
+		
 		$this->SetBuffer("interncount", $interncount);
 		$this->SetBuffer("intern1", $intern_0);
 		$this->SetBuffer("intern2", $intern_1);
