@@ -87,5 +87,12 @@ class EseraTemperaturHelligkeitPV extends IPSModule {
 			       IPS_SetVariableProfileIcon($ProfileName, $Icon);
 		    }
 	  }
+	//ParentID ermitteln
+	public function GetParentID() {
+		$ParentID = (IPS_GetInstance($this->InstanceID)['ConnectionID']);  
+		$FORMAT=GetValueInteger(IPS_GetObjectIDByIdent("1_FORMAT", $ParentID));
+        $this->SendDebug("ESERA-Temperatur-Helligkeit-PV", "ParentID:".$ParentID, 0);
+        $this->SendDebug("ESERA-Temperatur-Helligkeit-PV", "1_FORMAT:".$FORMAT, 0);
+	}
 }
 ?>
