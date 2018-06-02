@@ -9,8 +9,10 @@ class EseraBinaerEingangDual extends IPSModule {
         //You cannot use variables here. Just static values.
         $this->RegisterPropertyInteger("OWDID", 1);
 
-        $this->RegisterVariableInteger("EingangA", "Eingang A", "", 1);
-        $this->RegisterVariableInteger("EingangB", "Eingang B", "", 1);
+        //$this->RegisterVariableInteger("EingangA", "Eingang A", "", 1);
+        //$this->RegisterVariableInteger("EingangB", "Eingang B", "", 1);
+		$this->RegisterVariableBoolean("InputA", "Input A", "~Switch");
+		$this->RegisterVariableBoolean("InputB", "Input B", "~Switch");
 
         $this->ConnectParent("{FCABCDA7-3A57-657D-95FD-9324738A77B9}"); //1Wire Controller
     }
@@ -24,7 +26,7 @@ class EseraBinaerEingangDual extends IPSModule {
         parent::ApplyChanges();
 
         //Apply filter
-        $this->SetReceiveDataFilter(".*\"DeviceNumber\":". $this->ReadPropertyInteger("OWDID") .".*");
+        $this->SetReceiveDataFilter(".*\"DeviceNumber\":". $this->ReadPropertyInteger("OWDID") .",.*");
 
     }
     public function ReceiveData($JSONString) {
@@ -33,13 +35,13 @@ class EseraBinaerEingangDual extends IPSModule {
         $this->SendDebug("EseraBinaerEingangDual", "DataPoint:" . $data->DataPoint . " | Value: " . $data->Value, 0);
 
         if ($this->ReadPropertyInteger("OWDID") == $data->DeviceNumber) {
-            if ($data->DataPoint == 3) {
+            if ($data->DataPoint == 1) {
                 $value = $data->Value;
-                SetValue($this->GetIDForIdent("EingangA"), $value);
+                SetValue($this->GetIDForIdent("InputA"), $value);
             }
-            if ($data->DataPoint == 4) {
+            if ($data->DataPoint == 2) {
                 $value = $data->Value;
-                SetValue($this->GetIDForIdent("EingangB"), $value);
+                SetValue($this->GetIDForIdent("InputB"), $value);
             }
         }
     }

@@ -1,0 +1,7 @@
+{
+  "elements":
+  [
+    { "type": "Label", "label": "Hier ist nicht zu Konfigurieren." },
+	{ "type": "Label", "label": "Modul verbindet sich automatisch mit dem 1-Wire Gateway der ESERA-Station 200." }
+  ]
+}
