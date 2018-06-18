@@ -180,6 +180,7 @@ class EseraOneWireController extends IPSModule {
 				
 				$this->SendDebug("SendToDevice", json_encode(Array("DataID" => "{E3BB8703-6388-48DA-AA85-8852CDEE152D}", "DeviceNumber" => $deviceNumber, "DataPoint" => $dataPoint, "Value" => $value)), 0);
 				$this->SendDataToChildren(json_encode(Array("DataID" => "{E3BB8703-6388-48DA-AA85-8852CDEE152D}", "DeviceNumber" => $deviceNumber, "DataPoint" => $dataPoint, "Value" => $value)));
+				IPS_LogMessage('One Wire Controller', "DeviceNumber: ".$deviceNumber." ,DataPoint: ".$dataPoint." ,Value: ".$value);
 				return;
 
 			case "SYS":
