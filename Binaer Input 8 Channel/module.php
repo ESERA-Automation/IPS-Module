@@ -38,7 +38,8 @@ class EseraDigitalInput8Channel extends IPSModule {
 
 		if ($this->ReadPropertyInteger("OWDID") == $data->DeviceNumber) {
 			if ($data->DataPoint == 1) {
-				$value = intval($data->Value, 10);
+			    IPS_LogMessage('Binär Input 8 Kanal', "DeviceNumber: ".$data->DeviceNumber." ,DataPoint: ".$data->DataPoint." ,Value: ".$data->Value);
+			    			    $value = intval($data->Value, 10);
 				for ($i = 1; $i <= 8; $i++){
 					SetValue($this->GetIDForIdent("Input".$i), ($value >> ($i-1)) & 0x01);
 				}
