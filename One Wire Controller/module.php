@@ -132,10 +132,13 @@ class EseraOneWireController extends IPSModule {
 	}
 	private function AnalyseData($DataString) {
 
+	    IPS_LogMessage('One Wire Controller', "DataString: ".$DataString);
 		$dataArray = explode("|", $DataString);
 
 		$head = $dataArray[0]; //Name der übergebenen Variable
+		IPS_LogMessage('One Wire Controller', "dataArray[0]: ".$dataArray[0]);
 		$value = $dataArray[1]; //Daten der übergebenen Variable
+		IPS_LogMessage('One Wire Controller', "dataArray[0]: ".$dataArray[1]);
 		$type = SubStr($head, 2, 3);
 
 		switch ($type) {
