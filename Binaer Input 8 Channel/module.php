@@ -46,7 +46,8 @@ class EseraDigitalInput8Channel extends IPSModule {
     				}
 			    }
 			    else{
-			        IPS_LogMessage('Binär Input 8 Kanal', "Übertragungsfehler erkannt. DeviceNumber: ".$data->DeviceNumber." ,DataPoint: ".$data->DataPoint." ,Value: ".$data->Value);     
+			        IPS_LogMessage('Binär Input 8 Kanal', "Übertragungsfehler erkannt. DeviceNumber: ".$data->DeviceNumber." ,DataPoint: ".$data->DataPoint." ,Value: ".$data->Value);
+			        $this->SendDebug("ESERA-DI8C", 'Übertragungsfehler erkannt');
 			    }
 			}
 		}
