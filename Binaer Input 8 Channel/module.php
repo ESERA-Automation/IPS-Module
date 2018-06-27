@@ -34,8 +34,9 @@ class EseraDigitalInput8Channel extends IPSModule {
 	public function ReceiveData($JSONString) {
 
 		$data = json_decode($JSONString);
-		$this->SendDebug("ESERA-DI8C", $data->Value, 0);
-
+		//$this->SendDebug("ESERA-DI8C", $data->Value, 0);
+		$this->SendDebug("ESERA-DI8C", "OWDID: ".$data->DeviceNumber." Datapoint: ".$data->DataPoint." Value: ".$data->Value, 0);
+		
 		if ($this->ReadPropertyInteger("OWDID") == $data->DeviceNumber) {
 			if ($data->DataPoint == 1) {
 			    IPS_LogMessage('Binär Input 8 Kanal', "DeviceNumber: ".$data->DeviceNumber." ,DataPoint: ".$data->DataPoint." ,Value: ".$data->Value);
@@ -47,7 +48,7 @@ class EseraDigitalInput8Channel extends IPSModule {
 			    }
 			    else{
 			        IPS_LogMessage('Binär Input 8 Kanal', "Übertragungsfehler erkannt. DeviceNumber: ".$data->DeviceNumber." ,DataPoint: ".$data->DataPoint." ,Value: ".$data->Value);
-			        $this->SendDebug("ESERA-DI8C", 'Übertragungsfehler erkannt');
+			        $this->SendDebug("ESERA-DI8C", "Übertragungsfehler erkannt", 0);
 			    }
 			}
 		}

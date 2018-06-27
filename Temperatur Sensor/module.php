@@ -36,23 +36,29 @@ class EseraTemperatur extends IPSModule {
 
         if ($this->ReadPropertyInteger("OWDID") == $data->DeviceNumber) {
             if ($data->DataPoint == 0) {
-		//Format der Temperaturen im 1-Wire Ethernetcontroller auslesen
-		$ParentID = (IPS_GetInstance($this->InstanceID)['ConnectionID']);  
-		$FORMAT=GetValueInteger(IPS_GetObjectIDByIdent("1_FORMAT", $ParentID));
-		$this->SendDebug("ESERA-Temperatur", "1_FORMAT:".$FORMAT, 0);
-		switch ($FORMAT){
-			case 0:
-				$value = $data->Value;
-				break;
-			case 1:
-			 	$value = $data->Value / 10;
-				break;
-				
-			case 2:
-			 	$value = $data->Value / 100;
-				break;
-		 } 
-                SetValue($this->GetIDForIdent("Temperatur"), $value);
+                //Format der Temperaturen im 1-Wire Ethernetcontroller auslesen
+                $ParentID = (IPS_GetInstance($this->InstanceID)['ConnectionID']);  
+                $FORMAT=GetValueInteger(IPS_GetObjectIDByIdent("1_FORMAT", $ParentID));
+                $this->SendDebug("ESERA-Temperatur", "1_FORMAT:".$FORMAT, 0);
+                if ($data->Value<8500){
+                    switch ($FORMAT){
+                    case 0:
+                        $value = $data->Value;
+				        break;
+                    case 1:
+        			 	$value = $data->Value / 10;
+        				break;
+                    case 2:
+        			 	$value = $data->Value / 100;
+        				break;
+                    } 
+                    SetValue($this->GetIDForIdent("Temperatur"), $value);
+                }
+                else{
+                    //Fehlerhafte Übertragung
+                    IPS_LogMessage(ESERA-Temperatur', "Übertragungsfehler erkannt. DeviceNumber: ".$data->DeviceNumber." ,DataPoint: ".$data->DataPoint." ,Value: ".$data->Value);
+                    $this->SendDebug("ESERA-Temperatur", "Übertragungsfehler erkannt");
+                }
             }
         }
     }
