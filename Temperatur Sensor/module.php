@@ -56,7 +56,7 @@ class EseraTemperatur extends IPSModule {
                 }
                 else{
                     //Fehlerhafte Übertragung
-                    IPS_LogMessage(ESERA-Temperatur', "Übertragungsfehler erkannt. DeviceNumber: ".$data->DeviceNumber." ,DataPoint: ".$data->DataPoint." ,Value: ".$data->Value);
+                    IPS_LogMessage('ESERA-Temperatur', "Übertragungsfehler erkannt. DeviceNumber: ".$data->DeviceNumber." ,DataPoint: ".$data->DataPoint." ,Value: ".$data->Value);
                     $this->SendDebug("ESERA-Temperatur", "Übertragungsfehler erkannt");
                 }
             }
