@@ -7,17 +7,17 @@ class EseraTemperaturFeuchteHelligkeit extends IPSModule {
 
         //These lines are parsed on Symcon Startup or Instance creation
         //You cannot use variables here. Just static values.
-        $this->CreateVariableProfile("ESERA.Temperatur", 2, " °C", -45, 130, 0.1, 2, "Temperature");
+        $this->CreateVariableProfile("ESERA.Temperatur_indoor", 2, " °C", 5, 50, 0.1, 2, "Temperature");
         $this->CreateVariableProfile("ESERA.Luftfeuchte", 2, " %", 0, 100, 0, 2, "Gauge");
         $this->CreateVariableProfile("ESERA.Helligkeit", 2, " lx", 0, 7000, 0, 2, "Sun");
 		$this->CreateVariableProfile("ESERA.Spannung10V", 2, " V", 0, 10, 0.1, 2, "");
 
         $this->RegisterPropertyInteger("OWDID", 1);
 
-        $this->RegisterVariableFloat("Temperatur", "Temperatur", "ESERA.Temperatur", 1);
+        $this->RegisterVariableFloat("Temperatur", "Temperatur", "ESERA.Temperatur_indoor", 1);
         $this->RegisterVariableFloat("Spannung", "Spannung", "ESERA.Spannung10V", 2);
         $this->RegisterVariableFloat("Luftfeuchte", "Luftfeuchte", "ESERA.Luftfeuchte", 3);
-        $this->RegisterVariableFloat("Taupunkt", "Taupunkt", "ESERA.Temperatur", 4);
+        $this->RegisterVariableFloat("Taupunkt", "Taupunkt", "ESERA.Temperatur_indoor", 4);
         $this->RegisterVariableFloat("Helligkeit", "Helligkeit", "ESERA.Helligkeit", 5);
 
         $this->ConnectParent("{FCABCDA7-3A57-657D-95FD-9324738A77B9}"); //1Wire Controller
