@@ -7,7 +7,7 @@ class EseraTemperaturFeuchteLuftguete extends IPSModule {
 
         //These lines are parsed on Symcon Startup or Instance creation
         //You cannot use variables here. Just static values.
-        $this->CreateVariableProfile("ESERA.Temperatur_indoor", 2, " °C", 5, 50, 0.1, 2, "Temperature");
+        $this->CreateVariableProfile("ESERA.Temperatur_indoor", 2, " °C", 5, 40, 0.1, 2, "Temperature");
         $this->CreateVariableProfile("ESERA.Luftfeuchte", 2, " %", 0, 100, 0, 2, "Gauge");
 		$this->CreateVariableProfile("ESERA.Spannung10V", 2, " V", 0, 10, 0.1, 2, "");
         $this->CreateVariableProfile("ESERA.Luftguete", 1, " ppm", 400, 1800, 0, 2, "");

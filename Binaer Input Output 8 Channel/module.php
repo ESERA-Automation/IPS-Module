@@ -73,6 +73,12 @@ class EseraDigitalOutIn8Channel extends IPSModule {
 		$OutputNumber = $OutputNumber - 1;
 		$this->Send("SET,OWD,OUT,". $this->ReadPropertyInteger("OWDID") .",". $OutputNumber .",". $Value ."");
 	}
+
+	public function SetDigitalOutputPort(int $Value) {
+		$OutputNumber = $OutputNumber - 1;
+		$this->Send("SET,OWD,OUTH,". $this->ReadPropertyInteger("OWDID") .",". $Value ."");
+	}
+	
 	private function Send($Command) {
 
 		//Zur 1Wire Coontroller Instanz senden
