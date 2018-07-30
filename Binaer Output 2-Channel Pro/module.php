@@ -8,16 +8,7 @@ class EseraDigitalOutIn2Channel extends IPSModule {
 		//These lines are parsed on Symcon Startup or Instance creation
 		//You cannot use variables here. Just static values.
 		$this->RegisterPropertyInteger("OWDID", 1);
-
-		$this->RegisterVariableBoolean("Output1", "Output 1", "~Switch", 1);
-        $this->EnableAction("Output1");
-        $this->RegisterVariableBoolean("Output2", "Output 2", "~Switch", 1);
-        $this->EnableAction("Output2");
 		
-		$this->RegisterVariableBoolean("Input1", "Input 1", "~Switch", 1);
-		$this->RegisterVariableBoolean("Input2", "Input 2", "~Switch", 1);
-		
-		/*
 		for($i = 1; $i <= 2; $i++){
 			$this->RegisterVariableBoolean("Input".$i, "Input ".$i, "~Switch",1);
 		}
@@ -26,7 +17,7 @@ class EseraDigitalOutIn2Channel extends IPSModule {
 			$this->RegisterVariableBoolean("Output".$i, "Output ".$i, "~Switch",1);
 			$this->EnableAction("Output".$i);
 		}
-*/
+
 		$this->ConnectParent("{FCABCDA7-3A57-657D-95FD-9324738A77B9}"); //1Wire Controller
 	}
 	public function Destroy(){
@@ -45,7 +36,7 @@ class EseraDigitalOutIn2Channel extends IPSModule {
 	public function ReceiveData($JSONString) {
 
 		$data = json_decode($JSONString);
-		$this->SendDebug("ESERA-DI2C", $data->Value, 0);
+		$this->SendDebug("EseraDigitalOutIn2Channel", $data->Value, 0);
 
 		if ($this->ReadPropertyInteger("OWDID") == $data->DeviceNumber) {			
 			if ($data->DataPoint == 1) {
@@ -66,13 +57,6 @@ class EseraDigitalOutIn2Channel extends IPSModule {
 		switch($Ident) {
 			case "Output1":
 			case "Output2":
-			/*case "Output3":
-			case "Output4":
-			case "Output5":
-			case "Output6":
-			case "Output7":
-			case "Output8":
-			*/
 				$this->SetDigitalOutput(SubStr($Ident, 6, 1), $Value);
 				break;
 			default:

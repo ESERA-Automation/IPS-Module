@@ -1,4 +1,4 @@
-# ESERA Digital Out 8 Channel
+# ESERA Digital Out 2 Channel
 Das Modul bindet das Dual Digital Out Pro von ESERA-Automation ein. Es werden automatisch Variablen angelegt und eingelesen.
 
 ### Inhaltverzeichnis
