@@ -36,23 +36,23 @@ class EseraDigitalOutIn2Channel extends IPSModule {
 	public function ReceiveData($JSONString) {
 
 		$data = json_decode($JSONString);
-		$this->SendDebug("EseraDigitalOutIn2Channel", $data->Value, 0);
+		$this->SendDebug("ESERA-DualDoutDI", $data->Value, 0);
 
-		if ($this->ReadPropertyInteger("OWDID") == $data->DeviceNumber) {			
+		if ($this->ReadPropertyInteger("OWDID") == $data->DeviceNumber) {
 			if ($data->DataPoint == 1) {
 				$value = intval($data->Value, 10);
 				for ($i = 1; $i <= 2; $i++){
-					SetValue($this->GetIDForIdent("Input".$i), $value >> ($i-1)) & 0x01);
+					SetValue($this->GetIDForIdent("Input".$i), ($value >> ($i-1)) & 0x01);
 				}
-			} 
-			else if ($data->DataPoint == 3) {
+			} else if ($data->DataPoint == 3) {
 				$value = intval($data->Value, 10);
-				for ($i = 1; $i <= 8; $i++){
+				for ($i = 1; $i <= 2; $i++){
 					SetValue($this->GetIDForIdent("Output".$i), ($value >> ($i-1)) & 0x1);
 				}
 			}
 		}
 	}
+	
 	public function RequestAction($Ident, $Value) {
 		switch($Ident) {
 			case "Output1":
