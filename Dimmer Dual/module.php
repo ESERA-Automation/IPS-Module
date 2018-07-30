@@ -8,12 +8,12 @@ class EseraDualDimmer extends IPSModule {
 		//You cannot use variables here. Just static values.
 		$this->CreateVariableProfileDimmer1();
 		$this->RegisterPropertyInteger("OWDID", 1);
-		$this->RegisterVariableBoolean("Channel1PushButton", "Channel 1 Push Button", "~Switch");
-		$this->RegisterVariableBoolean("Channel2PushButton", "Channel 2 Push Button", "~Switch");
+		$this->RegisterVariableBoolean("Channel1PushButton", "Channel 1 Input", "~Switch");
+		$this->RegisterVariableBoolean("Channel2PushButton", "Channel 2 Input", "~Switch");
 		$this->RegisterVariableBoolean("Channel1ModuleButton", "Channel 1 Module Button", "~Switch");
 		$this->RegisterVariableBoolean("Channel2ModuleButton", "Channel 2 Module Button", "~Switch");
-    $this->RegisterVariableInteger("Channel1Value", "Channel 1", "ESERA.Dimmer1");
-		$this->RegisterVariableInteger("Channel2Value", "Channel 2", "ESERA.Dimmer1");
+        $this->RegisterVariableInteger("Channel1Value", "Channel 1 Output", "ESERA.Dimmer1");
+		$this->RegisterVariableInteger("Channel2Value", "Channel 2 Output", "ESERA.Dimmer1");
 		$this->EnableAction("Channel1Value");
 		$this->EnableAction("Channel2Value");
 		$this->ConnectParent("{FCABCDA7-3A57-657D-95FD-9324738A77B9}"); // 1Wire Controller
