@@ -5,11 +5,11 @@
 	{ "type": "Label", "label": "Fügen Sie hier die OWD-Nummer aus der 1-Wire Controller / 1-Wire Gateway OWD-Übersicht ein." },
 	{ "type": "Label", "label": "" },
 	{ "type": "Label", "label": "" },	
-	{ "type": "Label", "label": "Support Videos finden Sie auf der Webseite von ESERA-Automation unter www.esera.de " },
+	{ "type": "Label", "label": "Support Videos finden Sie auf der Webseite von ESERA-Automation unter https://www.esera.de/service-support/support-videos/ " },
 	
-	{ "type": "Label", "label": "Eine Beschreibung der Einbindung des ESERA Systems finden Sie unter www.esera.de" },
+	{ "type": "Label", "label": "Eine Beschreibung zu dem Softwaremodul finden Sie unter https://github.com/ESERA-Automation/IPS-Module/tree/master/Luftguete%20Sensor" },
 
-	{ "type": "Label", "label": "Weitergehende Informationen zu dem ESERA Produkt finden Sie auf www.esera.de" }
+	{ "type": "Label", "label": "Weitergehende Informationen zu dem Produkt finden Sie auf www.esera.de/produkte" }
 
   ]
 }

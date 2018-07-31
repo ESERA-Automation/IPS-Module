@@ -5,11 +5,11 @@
 	{ "type": "Label", "label": "Fügen Sie hier die OWD-Nummer aus der 1-Wire Controller / 1-Wire Gateway OWD-Übersicht ein." },
 	{ "type": "Label", "label": "" },
 	{ "type": "Label", "label": "" },	
-	{ "type": "Label", "label": "How to und Service Videos finden Sie auf der Webseite von ESERA-Automation unter Service/Support, How to und Service Video  https://www.eservice-online.de/service-support/how-to-support-videos/." },
+	{ "type": "Label", "label": "Support Videos finden Sie auf der Webseite von ESERA-Automation unter https://www.esera.de/service-support/support-videos/ " },
 	
-	{ "type": "Label", "label": "Eine Beschreibung der Einbindung des ESERA Systems in IP-Symcon finden Sie unter www.eservice-online.de/kompatible-steuerungen-zentralen/ip-symcon-integration" },
+	{ "type": "Label", "label": "Eine Beschreibung zu dem Softwaremodul finden Sie unter https://github.com/ESERA-Automation/IPS-Module/tree/master/Temperatur-Feuchte%20Sensor" },
 
-	{ "type": "Label", "label": "Weitergehende Informationen zu dem ESERA Produkt finden Sie auf www.esera-automation.de" }
+	{ "type": "Label", "label": "Weitergehende Informationen zu dem Produkt finden Sie auf www.esera.de/produkte" }
 
   ]
 }
