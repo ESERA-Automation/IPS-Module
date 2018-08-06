@@ -23,18 +23,16 @@ class OWDGroupCommand extends IPSModule {
      //Never delete this line!
      parent::ApplyChanges();
 
-     $this->SetReceiveDataFilter(".*\"DeviceType\":\"GRP\".*");
+     //$this->SetReceiveDataFilter(".*\"DeviceType\":\"GRP\".*");
 	}
 	
 	
     public function ReceiveData($JSONString) {
 
         $data = json_decode($JSONString);
-        $this->SendDebug("OWDGroupCommand", "Number:" . $data->GrpNumber . " | DataPoint:" . $data->DataPoint . " | Value: " . $data->Value, 0);
+        //$this->SendDebug("OWDGroupCommand", "Number:" . $data->GrpNumber . " | DataPoint:" . $data->DataPoint . " | Value: " . $data->Value, 0);
 
 		/*
-
-
 		if ($data->DeviceNumber == 3){
 		   $value = $data->Value / 100;
 		   SetValue($this->GetIDForIdent("AnalogOut"), $value);
@@ -60,9 +58,25 @@ class OWDGroupCommand extends IPSModule {
 	public function SetGroupOut(int $GRPNumber, int $Value) {
 		$this->Send("SET,OWD,GRP,". $GRPNumber .",". $Value ."");
 		//$this->Send("SET,OWD,GRP,". $GroupNumber .","."SHT".",". $Value ."");
-		//$this->SendDebug("OWDGroupCommand", "GruppenNumber:" . $data->$GRPNumber . " | Function: SHT| Value: " . $data->Value, 0);
+		$this->SendDebug("OWDGroupCommand", "GruppenNumber:" . $data->$GRPNumber . " | Function: | Value: " . $data->Value, 0);
+	}
+	
+	//Controller Befehle
+	public function SetCommandOut(string $commanddata) {
+		$this->Send($commanddata);
+		//$this->Send("SET,OWD,GRP,". $GroupNumber .","."SHT".",". $Value ."");
+		$this->SendDebug("Command to Controller: ", .$commanddata."");
 	}
 
+    private function CreateVariableProfile($ProfileName, $ProfileType, $Suffix, $MinValue, $MaxValue, $StepSize, $Digits, $Icon) {
+		    if (!IPS_VariableProfileExists($ProfileName)) {
+			       IPS_CreateVariableProfile($ProfileName, $ProfileType);
+			       IPS_SetVariableProfileText($ProfileName, "", $Suffix);
+			       IPS_SetVariableProfileValues($ProfileName, $MinValue, $MaxValue, $StepSize);
+			       IPS_SetVariableProfileDigits($ProfileName, $Digits);
+			       IPS_SetVariableProfileIcon($ProfileName, $Icon);
+		    }
+	  }
 
     private function Send($Command) {
 
