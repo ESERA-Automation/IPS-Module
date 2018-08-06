@@ -8,9 +8,13 @@ class OWDGroupCommand extends IPSModule {
         //These lines are parsed on Symcon Startup or Instance creation
         //You cannot use variables here. Just static values.
         //$this->RegisterPropertyInteger("SYS", 0);
-   
+        $this->CreateVariableProfile("ESERA.group", 2, " ", 1, 240, 1, 1, "");
+
+        $this->RegisterVariableInteger("group", "Group Adress", "ESERA.group");
+
+
+
         $this->ConnectParent("{FCABCDA7-3A57-657D-95FD-9324738A77B9}"); //1Wire Controller
-		
     }
     public function Destroy(){
         //Never delete this line!
@@ -23,49 +27,35 @@ class OWDGroupCommand extends IPSModule {
      //Never delete this line!
      parent::ApplyChanges();
 
-     //$this->SetReceiveDataFilter(".*\"DeviceType\":\"GRP\".*");
+     $this->SetReceiveDataFilter(".*\"DeviceType\":\"GRP\".*");
 	}
 	
 	
     public function ReceiveData($JSONString) {
 
         $data = json_decode($JSONString);
-        //$this->SendDebug("OWDGroupCommand", "Number:" . $data->GrpNumber . " | DataPoint:" . $data->DataPoint . " | Value: " . $data->Value, 0);
+        $this->SendDebug("OWDGroupCommand", "GRPNumber:" . $data->Number . " | Function:" . $data->DataPoint . " | Value: " . $data->Value, 0);
 
 		/*
-		if ($data->DeviceNumber == 3){
-		   $value = $data->Value / 100;
-		   SetValue($this->GetIDForIdent("AnalogOut"), $value);
-		}
-		*/
+				if ($data->DeviceNumber == 0){
+					$value = $data->Value;
+					SetValue($this->GetIDForIdent("SYS0"), $value);
+				}
+        */
+		
+		SetValue($this->GetIDForIdent("group"), $value);
+		
     }
 
-	
     public function RequestAction($Ident, $Value) {
-
-  			default:
-  				throw new Exception("Invalid ident");
-  		}
+  		
   	}
 
-/*
-    public function SetSysOutput(int $OutputNumber, int $Value) {
-  		$OutputNumber = $OutputNumber;
-  		$this->Send("SET,SYS,OUT,". $OutputNumber .",". $Value ."");
-  	}
-*/
 	//Gruppenbefehle
 	public function SetGroupOut(int $GRPNumber, int $Value) {
 		$this->Send("SET,OWD,GRP,". $GRPNumber .",". $Value ."");
 		//$this->Send("SET,OWD,GRP,". $GroupNumber .","."SHT".",". $Value ."");
 		$this->SendDebug("OWDGroupCommand", "GruppenNumber:" . $data->$GRPNumber . " | Function: | Value: " . $data->Value, 0);
-	}
-	
-	//Controller Befehle
-	public function SetCommandOut(string $commanddata) {
-		$this->Send($commanddata);
-		//$this->Send("SET,OWD,GRP,". $GroupNumber .","."SHT".",". $Value ."");
-		$this->SendDebug("Command to Controller: ", .$commanddata."");
 	}
 
     private function CreateVariableProfile($ProfileName, $ProfileType, $Suffix, $MinValue, $MaxValue, $StepSize, $Digits, $Icon) {
