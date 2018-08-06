@@ -12,6 +12,7 @@
 		
     //{ "type": "Button", "label": "Reset Windspeed max.", "onClick": "EWM_CallFloat($id, 3.14);" },
 	{ "type": "Button", "label": "Reset Windspeed max.", "onClick": "ESERA_CallFloat($id, 0);" },
+	{ "type": "Button", "label": "Reset Windspeed average.", "onClick": "ESERA_CallAVERAGE($id, 1);" },
 	
 	{ "type": "Label", "label": "Eine Beschreibung der Einbindung des ESERA Systems in IP-Symcon finden Sie unter www.esera.de, kompatible Steuerungen, IP-Symcon." },
 	{ "type": "Label", "label": "Nachfolgend ein Link zur ESERA Website und How To Videos." },

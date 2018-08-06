@@ -54,6 +54,7 @@ class EseraWindmesser extends IPSModule {
         $this->SetDailyTimerInterval();
         SetValue($this->GetIDForIdent("Wind_kmh_max"), 0);
         SetValue($this->GetIDForIdent("Wind_kmh_max_Zeit"), 0);
+		
     }
 
     private function Calculate(){
@@ -132,6 +133,14 @@ class EseraWindmesser extends IPSModule {
 			//echo "Reset Windspeed max";
 		}
 	
+		public function CallAVERAGE(float $Value) {
+			$this->SetBuffer("intern1", 0);
+			$this->SetBuffer("intern2", 0);
+			$this->SetBuffer("intern3", 0);			
+			$this->SetBuffer("intern4", 0);
+			SetValue($this->GetIDForIdent("Wind_kmh_slow"), 0);	    //Mittelwert ausgebe in Variable
+		}
+		
     private function GetFactor($Impulses){
         switch ($Impulses){
             case 2:
