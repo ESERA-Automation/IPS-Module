@@ -54,10 +54,20 @@ class EseraShutterPro extends IPSModule {
 				throw new Exception("Invalid ident");
 		}
 	}
+	
+	//Steuerbefehle
 	public function SetShutter(int $OutputNumber, int $Value) {
 		$OutputNumber = $OutputNumber - 1;
 		$this->Send("SET,OWD,SHT,". $this->ReadPropertyInteger("OWDID") .",". $Value ."");
 	}
+	
+	//Gruppenbefehle
+	public function SetGroup(int $GroupNumber, string $Function,int $Value) {
+		$OutputNumber = $OutputNumber - 1;
+		$this->Send("SET,OWD,GRP,". $GroupNumber .",". $Function.",".$Value ."");
+	}
+	
+	
 	private function Send($Command) {
 		//Zur 1Wire Coontroller Instanz senden
 		return $this->SendDataToParent(json_encode(Array("DataID" => "{EA53E045-B4EF-4035-B0CD-699B8731F193}", "Command" => $Command . chr(13))));

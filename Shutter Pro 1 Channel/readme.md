@@ -65,15 +65,35 @@ Es werden zusätzliche Variablenprofile für Webfront hinzugefügt
 Über das WebFront und die mobilen Apps werden die Variablen angezeigt. Es ist keine weitere Steuerung oder gesonderte Darstellung integriert.
 
 ### 7. PHP-Befehlsreferenz
-`boolean ESERA_SetShutter(integer $InstanzID, integer fix 1, integer $Value);`  
+ 
+Befehle für direkte Ansteuerung eines 1-Wire Shutter Modul:
+----------------------------------------------------------
+`boolean ESERA_SetShutter(integer $InstanzID, integer fix 1, integer $Value);` 
+
 Fährt einen Rollladen hoch/runter oder stoppt.
 Die Funktion liefert keinerlei Rückgabewert.  
 Beispiel:  
 `ESERA_SetShutter(12345,1,1);`  
-Fährt den Rolladen runter.
+Fährt den Rolladen runter
 
 `ESERA_SetShutter(12345,1,2);`  
-Fährt den Rolladen hoch.
+Fährt den Rolladen hoch
 
 `ESERA_SetShutter(12345,1,3);`  
-Stoppt den Rolladen.
+Stoppt den Rolladen
+
+Gruppenbefehle
+----------------------------------------------------------
+`boolean ESERA_SetGroup(integer $GroupNumber, string $Function, integer $Value);`
+
+Wie der Name Gruppenbefehle schon sagt, kann nun mit einem Befehl eine große Anzahl (=> Gruppe) von
+1-Wire Aktoren mit der gleichen Funktion gesteuert werden. Vorteil ist, es ist nicht für jeden einzelnen 1-Wire
+Aktor (OWD) ein einzelner Befehl notwendig.
+Alle 1-Wire Aktoren (OWD´s) die in dieser Gruppe hinzugefügt wurden, reagieren auf den Befehl. Von den
+Gruppenbefehlen bleiben die bisherigen einzelnen Befehle völlig unberührt. Sie können einzelne 1-Wire Shutter direkt per Befehl und/oder über den Gruppenbefehl steuern.
+Jedem 1-Wire Aktor (OWD) können bis zu 8 Gruppenadressen in einem Bereich von 1-240 zugeordnet werden.
+Doppelte Gruppenadressen werden automatisch vom 1-Wire Controller / 1-Wire Gateway ausgefiltert.
+Weitergehden Informationen entnehmen Sie bitte der Dokumentation (Programmierhandbuch), innerhalb des Config Tool 3.
+
+`ESERA_SetGroup(12345,SHT,x);`
+Steuert eine Gruppe an
