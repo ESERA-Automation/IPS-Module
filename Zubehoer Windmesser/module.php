@@ -134,9 +134,9 @@ class EseraWindmesser extends IPSModule {
 			//echo "Reset Windspeed max";
 		}
 	public function CallSPEED(float $Value) {
-		SetValue($this->GetIDForIdent("Counter_delta"), $delta);      
-        SetValue($this->GetIDForIdent("Wind_kmh"), $delta_Wind);
-        SetValue($this->GetIDForIdent("Wind_ms"), $delta_Wind_ms);
+		SetValue($this->GetIDForIdent("Counter_delta"), 0);      
+        SetValue($this->GetIDForIdent("Wind_kmh"), 0);
+        SetValue($this->GetIDForIdent("Wind_ms"), 0);
 		}
 		
 	public function CallAVERAGE(float $Value) {
