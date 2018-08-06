@@ -8,9 +8,10 @@ class OWDGroupCommand extends IPSModule {
         //These lines are parsed on Symcon Startup or Instance creation
         //You cannot use variables here. Just static values.
         //$this->RegisterPropertyInteger("SYS", 0);
-        $this->CreateVariableProfile("ESERA.group", 2, " ", 1, 240, 1, 1, "");
+        
+		$this->CreateVariableProfile("ESERA.group", 2, " ", 1, 240, 1, 1, "");
 
-        $this->RegisterVariableInteger("group", "Group Adress", "ESERA.group");
+        $this->RegisterVariableFloat("group", "Group Adress", "ESERA.group");
 
 
 
@@ -52,10 +53,10 @@ class OWDGroupCommand extends IPSModule {
   	}
 
 	//Gruppenbefehle
-	public function SetGroupOut(int $GRPNumber, int $Value) {
-		$this->Send("SET,OWD,GRP,". $GRPNumber .",". $Value ."");
+	public function SetGroupOut(int $Number, int $Value) {
+		$this->Send("SET,OWD,GRP,". $Number .",". $Value ."");
 		//$this->Send("SET,OWD,GRP,". $GroupNumber .","."SHT".",". $Value ."");
-		$this->SendDebug("OWDGroupCommand", "GruppenNumber:" . $data->$GRPNumber . " | Function: | Value: " . $data->Value, 0);
+		$this->SendDebug("OWDGroupCommand", "GruppenNumber:" . $data->$Number . " | Function: | Value: " . $data->Value, 0);
 	}
 
     private function CreateVariableProfile($ProfileName, $ProfileType, $Suffix, $MinValue, $MaxValue, $StepSize, $Digits, $Icon) {
