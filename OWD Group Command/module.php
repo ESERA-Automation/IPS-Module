@@ -55,9 +55,9 @@ class OWDGroupCommand extends IPSModule {
 
 	//Gruppenbefehle
 	public function SetGroupShtOut(int $Number, int $Value) {
-		$this->Send("SET,OWD,GRP,SHT". $Number .",". $Value ."" );
+		$this->Send("SET,OWD,GRP,SHT,". $Number .",". $Value ."" );
 		//$this->SendDebug("GruppenNumber:" . $Number . "|SHT |Value: ". $Value);
-	
+
 	}
 
     private function CreateVariableProfile($ProfileName, $ProfileType, $Suffix, $MinValue, $MaxValue, $StepSize, $Digits, $Icon) {
