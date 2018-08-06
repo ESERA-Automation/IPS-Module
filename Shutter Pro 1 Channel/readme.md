@@ -66,7 +66,7 @@ Es werden zusätzliche Variablenprofile für Webfront hinzugefügt
 
 ### 7. PHP-Befehlsreferenz
  
-Befehle für direkte Ansteuerung eines 1-Wire Shutter Modul:
+Befehle für direkte Ansteuerung eines 1-Wire Shutter Modul
 ----------------------------------------------------------
 `boolean ESERA_SetShutter(integer $InstanzID, integer fix 1, integer $Value);` 
 

@@ -63,7 +63,7 @@ Es werden keine zusätzlichen Profile hinzugefügt
 
 ### 7. PHP-Befehlsreferenz
 
-Befehle für direkte Ansteuerung eines 1-Wire Shutter Modul:
+Befehle für direkte Ansteuerung eines 1-Wire Shutter Modul
 ----------------------------------------------------------
 `boolean ESERA_MoveShutter(integer $InstanzID, integer $Value);`
   
