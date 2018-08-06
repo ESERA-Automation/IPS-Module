@@ -9,8 +9,8 @@ class EseraWindmesser extends IPSModule {
         $this->RegisterPropertyInteger("CounterID", 0);
         $this->RegisterPropertyInteger("Impulses", 4);
 
-        $this->RegisterVariableInteger("Counter", "Counter", "", 1);
-		$this->RegisterVariableInteger("Counter_alt", "Counter_alt", "", 2);
+        $this->RegisterVariableInteger("Counter_delta", "Counter_Delta", "", 1);
+		$this->RegisterVariableInteger("Counter_alt", "Counter_Alt", "", 2);
         $this->RegisterVariableFloat("Wind_kmh", "Windspeed km/h", "~WindSpeed.kmh", 10);
         $this->RegisterVariableFloat("Wind_ms", "Windspeed m/s", "~WindSpeed.ms", 20);
 
@@ -59,7 +59,7 @@ class EseraWindmesser extends IPSModule {
     private function Calculate(){
 		//Windspeed-Berechnung
 		//$CounterOld = GetValue(Counter_alt);
-		$CounterOld = GetValue($this->ReadPropertyInteger("Counter_alt"));
+		$CounterOld = GetValue($this->ReadPropertyInteger("Counter_Alt"));
         $CounterNew = GetValue($this->ReadPropertyInteger("CounterID"));
         
 		if ($CounterNew > $CounterOld)
@@ -79,7 +79,7 @@ class EseraWindmesser extends IPSModule {
 		}
 		
 		SetValue($this->GetIDForIdent("Counter_alt"), $CounterNew);
-		SetValue($this->GetIDForIdent("Counter"), $delta);      
+		SetValue($this->GetIDForIdent("Counter_delta"), $delta);      
         SetValue($this->GetIDForIdent("Wind_kmh"), $delta_Wind);
         SetValue($this->GetIDForIdent("Wind_ms"), $delta_Wind_ms);
 
