@@ -66,16 +66,21 @@ class EseraShutter1Fach extends IPSModule {
     public function RequestAction($Ident, $Value) {
       $this->MoveShutter($Value);
     }
+
     public function MoveShutter(int $Value) {
+
       $this->Send("SET,OWD,SHT,". $this->ReadPropertyInteger("OWDID") .",". $Value ."");
+
     }
 	
 	//Gruppenbefehle	
 	public function RequestAction($GroupNumber, $Value) {
       $this->SetGroupShutter($GroupNumber, $Value);
     }
+	
 	public function SetGroupShutter(int $GroupNumber, int $Value) {
-	  $this->Send("SET,OWD,GRP,". $GroupNumber .",".SHT.",". $Value ."");
+		
+	  $this->Send("SET,OWD,GRP,". $GroupNumber .",". SHT .",". $Value ."");
 	}
 
 	
@@ -92,9 +97,9 @@ class EseraShutter1Fach extends IPSModule {
 			       IPS_SetVariableProfileValues("ESERA.Shutter", 1, 3, 0);
 			       IPS_SetVariableProfileDigits("ESERA.Shutter", 0);
 			       IPS_SetVariableProfileIcon("ESERA.Shutter", "Shutter");
-             IPS_SetVariableProfileAssociation("ESERA.Shutter", 1, "Down", "HollowLargeArrowDown", -1);
-             IPS_SetVariableProfileAssociation("ESERA.Shutter", 2, "Up", "HollowLargeArrowUp", -1);
-             IPS_SetVariableProfileAssociation("ESERA.Shutter", 3, "Stop", "", 0x0000FF);
+                   IPS_SetVariableProfileAssociation("ESERA.Shutter", 1, "Down", "HollowLargeArrowDown", -1);
+                   IPS_SetVariableProfileAssociation("ESERA.Shutter", 2, "Up", "HollowLargeArrowUp", -1);
+                   IPS_SetVariableProfileAssociation("ESERA.Shutter", 3, "Stop", "", 0x0000FF);
 		    }
 	  }
 }
