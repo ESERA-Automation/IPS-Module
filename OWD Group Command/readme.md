@@ -1,4 +1,5 @@
-# 1-Wire Controller 2 - Ein- und Ausgänge
+# OWD Gruppen Befehle für 1-Wire Aktoren 
+(Aktuell nur 1-Wire Shutter Module!)
 Das Modul ermögicht das Senden von Gruppenbefehlen an ESERA 1-Wire Aktoren.
 
 ### Inhaltverzeichnis
@@ -13,13 +14,25 @@ Das Modul ermögicht das Senden von Gruppenbefehlen an ESERA 1-Wire Aktoren.
 
 ### 1. Funktionsumfang
 
-* Stellt eine Verbindung zu die in den  1-Wire Controller 2 für Gruppenbefehle, z.B, Shutter Aktoren her.
-* Automatische Aktualisierung der Werte
+Senden von Gruppen Befehlen für 1-Wire Shutter Module
+
+Wie der Name Gruppenbefehle schon sagt, kann nun mit einem Befehl eine große Anzahl (=> Gruppe) von
+1-Wire Aktoren mit der gleichen Funktion gesteuert werden. Vorteil ist, es ist nicht für jeden einzelnen 1-Wire
+Aktor (OWD) ein einzelner Befehl notwendig.
+Alle 1-Wire Aktoren (OWD´s) die in dieser Gruppe hinzugefügt wurden, reagieren auf den Befehl. Von den
+Gruppenbefehlen bleiben die bisherigen einzelnen Befehle völlig unberührt. Sie können einzelne 1-Wire Aktoren,
+z.B. 1-Wire Shutter direkt per Befehl und/oder über den Gruppenbefehl steuern.
+Jedem 1-Wire Aktor (OWD) können bis zu 8 Gruppenadressen in einem Bereich von 1-240 zugeordnet werden.
+Doppelte Gruppenadressen werden automatisch vom 1-Wire Controller / 1-Wire Gateway ausgefiltert.
+
+Es können aktuell die Gruppenbefehle nur für 1-Wire Shutter Module verwendet werden. Weitere Aktoren in Planung
+
 
 ### 2. Voraussetzungen
 
 - IP-Symcon ab Version 4.2
-- ESERA-Automation 1-Wire Controller
+- ESERA-Automation per 1-Wire Controller (alle Ausführungen mit aktueller Firmware)
+- ESERA-Automation 1-Wire Shutter Module
 
 ### 3. Software-Installation
 
@@ -28,37 +41,27 @@ Das Modul ermögicht das Senden von Gruppenbefehlen an ESERA 1-Wire Aktoren.
 
 ### 4. Einrichten der Instanzen in IP-Symcon
 
-- Unter "Instanz hinzufügen" ist das 'OWD Group Command aufgeführt.  
+- Unter "Instanz hinzufügen" ist das 'Zubehoer OWD Group Command aufgeführt.  
 
 __Konfigurationsseite__:
-
 Es müssen keine Einstellungen vorgenommen werden.
 
 ### 5. Statusvariablen und Profile
 
-Die Statusvariablen/Kategorien werden automatisch angelegt. Das Löschen einzelner kann zu Fehlfunktionen führen.
-
-##### Statusvariablen
-
-Die Statusvariablen werden automatisch vom Controller gesendet und von IP-Symcon bei Empfang erstellt und aktualisiert.
-Dabei wird der Variablenname automatisch als Name und Ident genutzt.
-
-__Unterstützte Datenpakete__
-
--
-
-##### Profile:
-
-Es werden keine zusätzlichen Profile hinzugefügt
+Es werden keine Variablen oder Profile angelegt 
 
 ### 6. WebFront
 
 Über das WebFront und die mobilen Apps werden die Variablen angezeigt. Es ist keine weitere Steuerung oder gesonderte Darstellung integriert.
 
+
 ### 7. PHP-Befehlsreferenz
-`boolean ESERA_SetOwdGRP(integer $InstanzID, string $OutputTyp, int $Value);`  
+`boolean ESERA_SetGroupShtOut(integer $InstanzID, int $Gruppe, int $Value);`  
+ Es muss nur die Gruppenadresse und Steuerbefehl gesendet werden.
+ Value für Shutter: 1=Down, 2=Up, 3=Stopp
  
 Beispiel:  
-`ESERA_SetOWDGRP(123,SHT,1);`  
+`ESERA_SetGroupShtOut(12345,10,1);`
+
 
 
