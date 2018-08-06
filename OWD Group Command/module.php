@@ -58,6 +58,7 @@ class OWDGroupCommand extends IPSModule {
 		$this->Send("SET,OWD,GRP,". $Number .",". $Value ."");
 		//$this->Send("SET,OWD,GRP,". $GroupNumber .","."SHT".",". $Value ."");
 		$this->SendDebug("OWDGroupCommand", "GruppenNumber:" . $data->$Number . " | Function: | Value: " . $data->Value, 0);
+	
 	}
 
     private function CreateVariableProfile($ProfileName, $ProfileType, $Suffix, $MinValue, $MaxValue, $StepSize, $Digits, $Icon) {
