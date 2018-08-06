@@ -8,8 +8,8 @@ class OWDGroupCommand extends IPSModule {
         //These lines are parsed on Symcon Startup or Instance creation
         //You cannot use variables here. Just static values.
       
-		$this->RegisterVariableString("Grp", "Gruppen Nr.");
-		$this->RegisterPropertyString("Grp", "Gruppen Nr."); 
+		//$this->RegisterVariableString("Grp", "Gruppen Nr.");
+		//$this->RegisterPropertyString("Grp", "Gruppen Nr."); 
         
 		$this->ConnectParent("{FCABCDA7-3A57-657D-95FD-9324738A77B9}"); //1Wire Controller
     }
@@ -33,7 +33,7 @@ class OWDGroupCommand extends IPSModule {
         $data = json_decode($JSONString);
 		
 		// Datenverarbeitung und schreiben der Werte in die Statusvariablen
-        SetValue($this->GetIDForIdent("Grp"), $data->Buffer);
+        //SetValue($this->GetIDForIdent("Grp"), $data->Buffer);
         //$this->SendDebug("OWDGroupCommand", "GRPNumber:" . $data->Number . " | Function:" . $data->DataPoint . " | Value: " . $data->Value, 0);
         $this->SendDebug("OWDGroupCommand", "GRPNumber:" . $data);
 		
