@@ -92,5 +92,5 @@ Jedem 1-Wire Aktor (OWD) können bis zu 8 Gruppenadressen in einem Bereich von 1
 Doppelte Gruppenadressen werden automatisch vom 1-Wire Controller / 1-Wire Gateway ausgefiltert.
 Weitergehden Informationen entnehmen Sie bitte der Dokumentation (Programmierhandbuch), innerhalb des Config Tool 3.
 
-`ESERA_SetGroup(12345,SHT,x);`
+`ESERA_SetGroup(12345, SHT, x);`
 Steuert eine Gruppe an
