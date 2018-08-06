@@ -1,5 +1,5 @@
-# ESERA Digital Out 2 Channel
-Das Modul bindet das Dual Digital Out Pro 11233 von ESERA-Automation ein. Es werden automatisch Variablen angelegt und eingelesen.
+# ESERA Dual Dimmer
+Das Modul bindet die Dual Dimmer Phasenanschnitt und Phasenabschnitt von ESERA-Automation ein. Es werden automatisch Variablen angelegt und eingelesen.
 
 ### Inhaltverzeichnis
 
@@ -16,7 +16,7 @@ Das Modul bindet das Dual Digital Out Pro 11233 von ESERA-Automation ein. Es wer
 * Stellt via ESERA-Automation 1-Wire Controller / 1-Wire Gateway Verbindung zum Gerät her.
 * Einstellbarkeit der OWDID
 * Schaltbarkeit von Ausgängen
-* Automatische Aktualisierung der Ein-/Ausgänge
+* Automatische Aktualisierung der Ausgänge
 
 ### 2. Voraussetzungen
 
@@ -29,7 +29,7 @@ Das Modul bindet das Dual Digital Out Pro 11233 von ESERA-Automation ein. Es wer
 
 ### 4. Einrichten der Instanzen in IP-Symcon
 
-- Unter "Instanz hinzufügen" ist das 'Dual Digital Out Pro'-Modul unter dem Hersteller 'ESERA-Automation' aufgeführt.  
+- Unter "Instanz hinzufügen" ist das 'Digital Out 8 Channel'-Modul unter dem Hersteller 'ESERA-Automation' aufgeführt.  
 
 __Konfigurationsseite__:
 
@@ -43,7 +43,7 @@ Die Statusvariablen/Kategorien werden automatisch angelegt. Das Löschen einzeln
 
 ##### Statusvariablen
 
-Es werden automatisch alle 4 Ein-/Ausgänge eingerichtet.
+Es werden automatisch alle 8 Ausgänge eingerichtet.
 
 __Unterstützte Datenpakete__
 
@@ -60,14 +60,7 @@ Es werden keine zusätzlichen Profile hinzugefügt
 Über das WebFront und die mobilen Apps werden die Variablen angezeigt. Es ist keine weitere Steuerung oder gesonderte Darstellung integriert.
 
 ### 7. PHP-Befehlsreferenz
-`boolean ESERA_SetDigitalOutput(integer $InstanzID, integer $OutputNumber, integer $Value);`  
-Schaltet einen Ausgang An/Aus.
-Die Funktion liefert keinerlei Rückgabewert.  
+`boolean ESERA_SetDimmer(integer $InstanzID, integer $OutputNumber, integer $Value);`  
+Steuert jeweils einen Ausgang An/Aus/Dimmen. 
 Beispiel:  
-`ESERA_SetDigitalOutput(12345, 1, 1);`
-
-`boolean ESERA_SetDigitalOutputPort(integer $InstanzID, integer $Value);`  
-Schaltet alle Ausgänge mit einem Befehl An/Aus.
-Die Funktion liefert keinerlei Rückgabewert.  
-Beispiel:  
-`ESERA_SetDigitalOutputH(12345, 1);`  
+`ESERA_SetDimmer(12345, 1, 31);`
