@@ -7,20 +7,16 @@ class OWDGroupCommand extends IPSModule {
 
         //These lines are parsed on Symcon Startup or Instance creation
         //You cannot use variables here. Just static values.
-        //$this->RegisterPropertyInteger("SYS", 0);
+      
+		$this->RegisterVariableString("Grp", "Gruppen Nr.");
+		$this->RegisterPropertyString("Grp", "Gruppen Nr."); 
         
-		$this->CreateVariableProfile("ESERA.group", 2, " ", 1, 240, 1, 1, "");
-
-        $this->RegisterVariableFloat("group", "Group Adress", "ESERA.group");
-
-
-
-        $this->ConnectParent("{FCABCDA7-3A57-657D-95FD-9324738A77B9}"); //1Wire Controller
+		$this->ConnectParent("{FCABCDA7-3A57-657D-95FD-9324738A77B9}"); //1Wire Controller
     }
+	
     public function Destroy(){
         //Never delete this line!
         parent::Destroy();
-
     }
 
 	
@@ -35,21 +31,26 @@ class OWDGroupCommand extends IPSModule {
     public function ReceiveData($JSONString) {
 
         $data = json_decode($JSONString);
-        $this->SendDebug("OWDGroupCommand", "GRPNumber:" . $data->Number . " | Function:" . $data->DataPoint . " | Value: " . $data->Value, 0);
-
-		/*
-				if ($data->DeviceNumber == 0){
-					$value = $data->Value;
-					SetValue($this->GetIDForIdent("SYS0"), $value);
-				}
-        */
 		
-		SetValue($this->GetIDForIdent("group"), $value);
+		// Datenverarbeitung und schreiben der Werte in die Statusvariablen
+        SetValue($this->GetIDForIdent("Grp"), $data->Buffer);
+        //$this->SendDebug("OWDGroupCommand", "GRPNumber:" . $data->Number . " | Function:" . $data->DataPoint . " | Value: " . $data->Value, 0);
+        $this->SendDebug("OWDGroupCommand", "GRPNumber:" . $data);
 		
     }
 
     public function RequestAction($Ident, $Value) {
-  		
+  	    switch($Ident) {
+        case "grp":
+            //Hier würde normalerweise eine Aktion z.B. das Schalten ausgeführt werden
+            //Ausgaben über 'echo' werden an die Visualisierung zurückgeleitet
+ 
+            //Neuen Wert in die Statusvariable schreiben
+            SetValue($this->GetIDForIdent($Ident), $Value);
+            break;
+        default:
+            throw new Exception("Invalid Ident");
+    }	
   	}
 
 	//Gruppenbefehle
