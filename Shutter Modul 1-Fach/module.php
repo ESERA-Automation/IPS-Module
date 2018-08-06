@@ -75,12 +75,12 @@ class EseraShutter1Fach extends IPSModule {
 	
 	//Gruppenbefehle	
 	public function RequestAction($GroupNumber, $Value) {
-      $this->SetGroupShutter($GroupNumber, $Value);
+      $this->GroupSht($GroupNumber, $Value);
     }
 	
-	public function SetGroupShutter(int $GroupNumber, int $Value) {
+	public function GroupSht(int $GroupNumber, int $Value) {
 		
-	  $this->Send("SET,OWD,GRP,". $GroupNumber .",". SHT .",". $Value ."");
+	  $this->Send("SET,OWD,GRP,". $GroupNumber .",". "SHT" .",". $Value ."");
 	}
 
 	
