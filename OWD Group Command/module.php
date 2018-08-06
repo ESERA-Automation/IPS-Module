@@ -8,9 +8,9 @@ class OWDGroupCommand extends IPSModule {
         //These lines are parsed on Symcon Startup or Instance creation
         //You cannot use variables here. Just static values.
         //$this->RegisterPropertyInteger("SYS", 0);
-        
-
+   
         $this->ConnectParent("{FCABCDA7-3A57-657D-95FD-9324738A77B9}"); //1Wire Controller
+		
     }
     public function Destroy(){
         //Never delete this line!
@@ -86,9 +86,9 @@ class OWDGroupCommand extends IPSModule {
   		$this->Send("SET,SYS,OUT,". $OutputNumber .",". $Value ."");
   	}
 */
-		//Gruppenbefehle
-	public function SetGroupCommand(int $GroupNumber, string $Function, int $Value) {
-		$this->Send("SET,OWD,GRP,". $GroupNumber .",". $Function .",". $Value ."");
+	//Gruppenbefehle
+	public function SetGroupCommand(int $GroupNumber, int $Value) {
+		$this->Send("SET,OWD,GRP,". $GroupNumber .","."SHT".",". $Value ."");
 		$this->SendDebug("OWDGroupCommand", "GruppenNumber:" . $data->$GroupNumber . " | Function:" . $data->$Function . " | Value: " . $data->Value, 0);
 	}
 
