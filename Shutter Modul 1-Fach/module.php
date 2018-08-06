@@ -74,6 +74,7 @@ class EseraShutter1Fach extends IPSModule {
     }
 	
 	//Gruppenbefehle	
+	/*
 	public function RequestAction($GroupNumber, $Value) {
       $this->GroupSht($GroupNumber, $Value);
     }
@@ -82,7 +83,7 @@ class EseraShutter1Fach extends IPSModule {
 		
 	  $this->Send("SET,OWD,GRP,". $GroupNumber .",". "SHT" .",". $Value ."");
 	}
-
+*/
 	
     private function Send($Command) {
 
