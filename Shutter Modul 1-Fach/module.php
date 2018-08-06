@@ -66,7 +66,6 @@ class EseraShutter1Fach extends IPSModule {
     public function RequestAction($Ident, $Value) {
       $this->MoveShutter($Value);
     }
-	
     public function MoveShutter(int $Value) {
       $this->Send("SET,OWD,SHT,". $this->ReadPropertyInteger("OWDID") .",". $Value ."");
     }
