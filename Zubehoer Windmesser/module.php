@@ -35,14 +35,17 @@ class EseraWindmesser extends IPSModule {
         //Never delete this line!
         parent::Destroy();
     }
+	
     public function ApplyChanges(){
         //Never delete this line!
         parent::ApplyChanges();
         $this->SetTimerInterval("Refresh", 30 * 1000);
     }
+	
     public function ReceiveData($JSONString) {
         // not implemented
     }
+	
     public function RefreshCounter(){
        $this->calculate();
     }
@@ -72,8 +75,7 @@ class EseraWindmesser extends IPSModule {
 			//SetValue($this->GetIDForIdent("Counter"), $delta);	//wenn der alte counterwert grösser als der neue counterwert ist, überschreibe den alten Counterwert
 			$delta = 0;
 			$delta_Wind = 0;
-			$delta_Wind_ms = 0;
-						
+			$delta_Wind_ms = 0;				
 		}
 		
 		SetValue($this->GetIDForIdent("Counter_alt"), $CounterNew);
@@ -113,7 +115,6 @@ class EseraWindmesser extends IPSModule {
 		$this->SetBuffer("intern2", $intern_1);
 		$this->SetBuffer("intern3", $intern_2);			
 		$this->SetBuffer("intern4", $intern_3);
-
 		
         // Only for debugging
         $this->DebugMessage("Counter", "CounterOld: " . $CounterOld);
@@ -122,7 +123,6 @@ class EseraWindmesser extends IPSModule {
         $this->DebugMessage("Counter", "Delta Wind: " . $delta_Wind);
         $this->DebugMessage("Counter", "Delta Wind ms: " . $delta_Wind_ms);
 		$this->DebugMessage("Counter", "interncount: " . $interncount);
-
     }
 	
 	public function CallFloat(float $Value) {
@@ -142,6 +142,7 @@ class EseraWindmesser extends IPSModule {
             break;
         }
     }
+	
     private function DebugMessage($Sender, $Message){
         $this->SendDebug($Sender, $Message, 0);
     }
