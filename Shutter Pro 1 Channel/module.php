@@ -63,7 +63,6 @@ class EseraShutterPro extends IPSModule {
 	
 	//Gruppenbefehle
 	public function SetGroup(int $GroupNumber, string $Function,int $Value) {
-		$OutputNumber = $OutputNumber - 1;
 		$this->Send("SET,OWD,GRP,". $GroupNumber .",". $Function.",".$Value ."");
 	}
 	
