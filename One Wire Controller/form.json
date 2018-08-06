@@ -18,7 +18,7 @@
 	{ "type": "CheckBox", "name": "SendKeepAlive", "caption": "Send KeepAlive" },
 	{ "type": "IntervalBox", "name": "SendKeepAliveInterval", "caption": "Seconds" },
 	{ "type": "CheckBox", "name": "ReceiveKeepAlive", "caption": "Receive KeepAlive" },
-	{ "type": "IntervalBox", "name": "ReceiveKeepAliveInterval", "caption": "Seconds" }
+	{ "type": "IntervalBox", "name": "ReceiveKeepAliveInterval", "caption": "Seconds" },
 	{ "type": "Label", "label": "" },
     { "type": "Label", "label": "" },	
 	{ "type": "Label", "label": "Eine Beschreibung der Einbindung des ESERA Systems in IP-Symcon finden Sie unter www.esera.de, kompatible Steuerungen, IP-Symcon." },
