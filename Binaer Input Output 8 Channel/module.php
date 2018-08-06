@@ -75,7 +75,6 @@ class EseraDigitalOutIn8Channel extends IPSModule {
 	}
 
 	public function SetDigitalOutputPort(int $Value) {
-		$OutputNumber = $OutputNumber - 1;
 		$this->Send("SET,OWD,OUTH,". $this->ReadPropertyInteger("OWDID") .",". $Value ."");
 	}
 	
