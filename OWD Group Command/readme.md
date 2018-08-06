@@ -57,7 +57,7 @@ Es werden keine Variablen oder Profile angelegt
 
 ### 7. PHP-Befehlsreferenz
 `boolean ESERA_SetGroupShtOut(integer $InstanzID, int $Gruppe, int $Value);`  
- Es muss nur die Gruppenadresse und Steuerbefehl gesendet werden.
+ Es muss nur die Gruppenadresse ($Gruppe) und Steuerbefehl ($Value) gesendet werden.
  Value für Shutter: 1=Down, 2=Up, 3=Stopp
  
 Beispiel:  
