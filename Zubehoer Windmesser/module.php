@@ -6,6 +6,8 @@ class EseraWindmesser extends IPSModule {
         parent::Create();
         //These lines are parsed on Symcon Startup or Instance creation
         //You cannot use variables here. Just static values.
+		//Variablen anlegen
+		//----------------------------------------------------------------------
         $this->RegisterPropertyInteger("CounterID", 0);
         $this->RegisterPropertyInteger("Impulses", 4);
 
@@ -23,7 +25,6 @@ class EseraWindmesser extends IPSModule {
 		
 		//Mittelwertberechnung
         $this->RegisterVariableFloat("Wind_kmh_slow", "Windspeed km/h average", "~WindSpeed.kmh", 30);
-		
 		$this->SetBuffer("intern1", 0);
 		$this->SetBuffer("intern2", 0);
 		$this->SetBuffer("intern3", 0);
@@ -59,8 +60,7 @@ class EseraWindmesser extends IPSModule {
 
     private function Calculate(){
 		//Windspeed-Berechnung
-		//$CounterOld = GetValue(Counter_alt);
-		//$CounterOld = GetValue($this->GetIDForIdent("Counter"));
+	    //----------------------------------------------------------------------
 		$CounterOld = GetValue($this->GetIDForIdent("Counter_alt"));
         $CounterNew = GetValue($this->ReadPropertyInteger("CounterID"));
         
@@ -69,12 +69,10 @@ class EseraWindmesser extends IPSModule {
 			$delta = $CounterNew - $CounterOld;
 			$Factor = $this->GetFactor($this->ReadPropertyInteger("Impulses"));
 			$delta_Wind = ((($delta / $Factor) * 3600) / 1000);
-			$delta_Wind_ms = $delta / $Factor;
-			
+			$delta_Wind_ms = $delta / $Factor;			
 		}
 		else
 		{
-			//SetValue($this->GetIDForIdent("Counter"), $delta);	//wenn der alte counterwert grösser als der neue counterwert ist, überschreibe den alten Counterwert
 			$delta = 0;
 			$delta_Wind = 0;
 			$delta_Wind_ms = 0;				
@@ -86,6 +84,7 @@ class EseraWindmesser extends IPSModule {
         SetValue($this->GetIDForIdent("Wind_ms"), $delta_Wind_ms);
 
 		// Windspeed max
+		//----------------------------------------------------------------------
         $windspeedmax = GetValue($this->GetIDForIdent("Wind_kmh_max"));
         if ($delta_Wind > $windspeedmax)
 		{
@@ -94,7 +93,7 @@ class EseraWindmesser extends IPSModule {
         }
 		
 		//Mittelwertberechnung
-		//$windspeedslow = GetValue($this->GetIDForIdent("Wind_kmh_slow"));
+		//----------------------------------------------------------------------
 		$intern_0 = $delta_Wind;
 		$intern_1 = $this->Getbuffer("intern1");
 		$intern_2 = $this->Getbuffer("intern2");
@@ -127,19 +126,27 @@ class EseraWindmesser extends IPSModule {
 		$this->DebugMessage("Counter", "interncount: " . $interncount);
     }
 	
+	// Reset-Button Softwaremodul
+	//----------------------------------------------------------------------
 	public function CallFloat(float $Value) {
 		    SetValue($this->GetIDForIdent("Wind_kmh_max"), 0);
 			SetValue($this->GetIDForIdent("Wind_kmh_max_Zeit"), 0);
 			//echo "Reset Windspeed max";
 		}
-	
-		public function CallAVERAGE(float $Value) {
+	public function CallSPEED(float $Value) {
+		SetValue($this->GetIDForIdent("Counter_delta"), $delta);      
+        SetValue($this->GetIDForIdent("Wind_kmh"), $delta_Wind);
+        SetValue($this->GetIDForIdent("Wind_ms"), $delta_Wind_ms);
+		}
+		
+	public function CallAVERAGE(float $Value) {
 			$this->SetBuffer("intern1", 0);
 			$this->SetBuffer("intern2", 0);
 			$this->SetBuffer("intern3", 0);			
 			$this->SetBuffer("intern4", 0);
 			SetValue($this->GetIDForIdent("Wind_kmh_slow"), 0);	    //Mittelwert ausgebe in Variable
 		}
+	//----------------------------------------------------------------------			
 		
     private function GetFactor($Impulses){
         switch ($Impulses){
