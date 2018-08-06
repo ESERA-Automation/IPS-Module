@@ -75,7 +75,7 @@ class EseraShutter1Fach extends IPSModule {
 	public function SetGroup(int $GroupNumber, string $Function, int $Value) {
 		$this->Send("SET,OWD,GRP,". $GroupNumber .",". $Function .",". $Value ."");
 	}
-	
+
 	
     private function Send($Command) {
 
