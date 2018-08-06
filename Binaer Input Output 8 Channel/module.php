@@ -79,7 +79,6 @@ class EseraDigitalOutIn8Channel extends IPSModule {
 	}
 	
 	private function Send($Command) {
-
 		//Zur 1Wire Coontroller Instanz senden
 		return $this->SendDataToParent(json_encode(Array("DataID" => "{EA53E045-B4EF-4035-B0CD-699B8731F193}", "Command" => $Command . chr(13))));
 
