@@ -31,7 +31,7 @@ Es können aktuell die Gruppenbefehle nur für 1-Wire Shutter Module verwendet w
 ### 2. Voraussetzungen
 
 - IP-Symcon ab Version 4.2
-- ESERA-Automation per 1-Wire Controller (alle Ausführungen mit aktueller Firmware)
+- ESERA-Automation per 1-Wire Controller / 1-Wire Gateway (alle Ausführungen mit aktueller Firmware)
 - ESERA-Automation 1-Wire Shutter Module
 
 ### 3. Software-Installation
