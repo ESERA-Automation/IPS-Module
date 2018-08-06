@@ -30,32 +30,10 @@ class OWDGroupCommand extends IPSModule {
     public function ReceiveData($JSONString) {
 
         $data = json_decode($JSONString);
-        //$this->SendDebug("OWDGroupCommand", "GruppenNumber:" . $data->GrpNumber . " | DataPoint:" . $data->DataPoint . " | Value: " . $data->Value, 0);
+        $this->SendDebug("OWDGroupCommand", "Number:" . $data->GrpNumber . " | DataPoint:" . $data->DataPoint . " | Value: " . $data->Value, 0);
 
 		/*
-				if ($data->DeviceNumber == 0){
-					$value = $data->Value;
-					SetValue($this->GetIDForIdent("SYS0"), $value);
-				}
-        */
-		/*
-        if ($data->DeviceNumber == 1){
-          if ($data->DataPoint == 1){
-            $value = intval($data->Value, 10);
-            for ($i = 1; $i <= 4; $i++){
-              SetValue($this->GetIDForIdent("Input".$i), ($value >> ($i-1)) & 0x01);
-            }
-          }
-        }
 
-		if ($data->DeviceNumber == 2){
-           if ($data->DataPoint == 1){
-             $value = intval($data->Value, 10);
-              for ($i = 1; $i <= 5; $i++){
-        	    SetValue($this->GetIDForIdent("Output".$i), ($value >> ($i-1)) & 0x01);
-        	 }
-           }
-		}
 
 		if ($data->DeviceNumber == 3){
 		   $value = $data->Value / 100;
@@ -64,22 +42,14 @@ class OWDGroupCommand extends IPSModule {
 		*/
     }
 
-	/*
+	
     public function RequestAction($Ident, $Value) {
-  		switch($Ident) {
-  			case "Output1":
-  			case "Output2":
-  			case "Output3":
-  			case "Output4":
-  			case "Output5":
 
-  				$this->SetSysOutput(SubStr($Ident, 6, 1), $Value);
-  				break;
   			default:
   				throw new Exception("Invalid ident");
   		}
   	}
-*/
+
 /*
     public function SetSysOutput(int $OutputNumber, int $Value) {
   		$OutputNumber = $OutputNumber;
@@ -87,22 +57,12 @@ class OWDGroupCommand extends IPSModule {
   	}
 */
 	//Gruppenbefehle
-	public function SetGroupOut(int $Number, int $Value) {
-		$this->Send("SET,OWD,GRP,". $Number .",". $Value ."");
+	public function SetGroupOut(int $GRPNumber, int $Value) {
+		$this->Send("SET,OWD,GRP,". $GRPNumber .",". $Value ."");
 		//$this->Send("SET,OWD,GRP,". $GroupNumber .","."SHT".",". $Value ."");
-		$this->SendDebug("OWD Group Command", "GruppenNumber:" . $data->$Number . " | Function:" . $data->$Function . " | Value: " . $data->Value, 0);
+		//$this->SendDebug("OWDGroupCommand", "GruppenNumber:" . $data->$GRPNumber . " | Function: SHT| Value: " . $data->Value, 0);
 	}
 
-
-    private function CreateVariableProfile($ProfileName, $ProfileType, $Suffix, $MinValue, $MaxValue, $StepSize, $Digits, $Icon) {
-		    if (!IPS_VariableProfileExists($ProfileName)) {
-			       IPS_CreateVariableProfile($ProfileName, $ProfileType);
-			       IPS_SetVariableProfileText($ProfileName, "", $Suffix);
-			       IPS_SetVariableProfileValues($ProfileName, $MinValue, $MaxValue, $StepSize);
-			       IPS_SetVariableProfileDigits($ProfileName, $Digits);
-			       IPS_SetVariableProfileIcon($ProfileName, $Icon);
-		    }
-	  }
 
     private function Send($Command) {
 
