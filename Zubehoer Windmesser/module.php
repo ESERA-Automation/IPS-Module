@@ -10,6 +10,7 @@ class EseraWindmesser extends IPSModule {
         $this->RegisterPropertyInteger("Impulses", 4);
 
         $this->RegisterVariableInteger("Counter", "Counter", "", 1);
+		$this->RegisterVariableInteger("Counter_alt", "Counter_alt", "", 2);
         $this->RegisterVariableFloat("Wind_kmh", "Windspeed km/h", "~WindSpeed.kmh", 10);
         $this->RegisterVariableFloat("Wind_ms", "Windspeed m/s", "~WindSpeed.ms", 20);
 
@@ -53,8 +54,9 @@ class EseraWindmesser extends IPSModule {
     }
 
     private function Calculate(){
-		//Windspeed berechnung
-		$CounterOld = GetValue($this->GetIDForIdent("Counter"));
+		//Windspeed-Berechnung
+		//$CounterOld = GetValue(Counter_alt);
+		$Counter_alt = GetValue($this->ReadPropertyInteger("Counter_alt"));
         $CounterNew = GetValue($this->ReadPropertyInteger("CounterID"));
         if ($CounterNew > $CounterOld)
 		{
@@ -62,17 +64,19 @@ class EseraWindmesser extends IPSModule {
 			$Factor = $this->GetFactor($this->ReadPropertyInteger("Impulses"));
 			$delta_Wind = ((($delta / $Factor) * 3600) / 1000);
 			$delta_Wind_ms = $delta / $Factor;
+			
 		}
 		else
 		{
 			//SetValue($this->GetIDForIdent("Counter"), $delta);	//wenn der alte counterwert grösser als der neue counterwert ist, überschreibe den alten Counterwert
 			$delta = 0;
 			$delta_Wind = 0;
-			$delta_Wind_ms = 0;		
+			$delta_Wind_ms = 0;
+						
 		}
 		
-
-        SetValue($this->GetIDForIdent("Counter"), $delta);
+		SetValue($this->GetIDForIdent("Counter_alt"), $CounterNew);
+		SetValue($this->GetIDForIdent("Counter"), $delta);      
         SetValue($this->GetIDForIdent("Wind_kmh"), $delta_Wind);
         SetValue($this->GetIDForIdent("Wind_ms"), $delta_Wind_ms);
 
