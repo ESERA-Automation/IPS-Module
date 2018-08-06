@@ -54,10 +54,10 @@ class OWDGroupCommand extends IPSModule {
   	}
 
 	//Gruppenbefehle
-	public function SetGroupOut(int $Number, string $function, int $Value) {
-		$this->Send("SET,OWD,GRP,". $Number .",". $Function .",". $Value ."");
+	public function SetGroupOut(int $Number, int $Value) {
+		$this->Send("SET,OWD,GRP,". $Number .",". "SHT". ",". $Value ."");
 		//$this->Send("SET,OWD,GRP,". $GroupNumber .","."SHT".",". $Value ."");
-		$this->SendDebug("OWDGroupCommand", "GruppenNumber:" . $data->$Number . " | Function: " . $data->$function .  "| Value: " . $data->Value);
+		$this->SendDebug("OWDGroupCommand", "GruppenNumber:" . $data->$Number . " | Function: " . $data->$function .  "|SHT" ." | Value: ". $data->Value);
 	
 	}
 
