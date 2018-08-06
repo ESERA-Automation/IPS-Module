@@ -62,18 +62,21 @@ class EseraShutter1Fach extends IPSModule {
         }
     }
 
+	//Steuerbefehl
     public function RequestAction($Ident, $Value) {
       $this->MoveShutter($Value);
     }
-
-	//Steuerbefehl
+	
     public function MoveShutter(int $Value) {
       $this->Send("SET,OWD,SHT,". $this->ReadPropertyInteger("OWDID") .",". $Value ."");
     }
 	
-	//Gruppenbefehle
-	public function SetGroup(int $GroupNumber, string $Function, int $Value) {
-		$this->Send("SET,OWD,GRP,". $GroupNumber .",". $Function .",". $Value ."");
+	//Gruppenbefehle	
+	public function RequestAction($GroupNumber, $Value) {
+      $this->SetGroupShutter($GroupNumber, $Value);
+    }
+	public function SetGroupShutter(int $GroupNumber, int $Value) {
+	  $this->Send("SET,OWD,GRP,". $GroupNumber .",".SHT.",". $Value ."");
 	}
 
 	
