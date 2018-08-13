@@ -48,9 +48,7 @@ class AudioMaxServer extends IPSModule {
 	public function ForwardData($JSONString){
 
 		$data = json_decode($JSONString);
-
 		$this->SendDebug("FWD", $data->Command, 0);
-
 		$this->SendDataToParent(json_encode(Array("DataID" => "{79827379-F36E-4ADA-8A95-5F8D1DC92FA9}", "Buffer" => $data->Command .chr(13))));
 
 	}
@@ -163,11 +161,11 @@ class AudioMaxServer extends IPSModule {
 				return;
 
 			default:
-			/*
+			
 				if(SubStr($head, 18, 1) == '_' || StrLen($head) == 18) {
 					$type = "OWDID";
 				}
-			*/
+			
 		}
 
 		$variableType = $this->GetVariableType($type);
@@ -208,27 +206,27 @@ class AudioMaxServer extends IPSModule {
 	}
 	
 	//System Debug Mode abfragen
-	public function GetSysDebug() {
+	public function GetSysAMDebug() {
 		$this->Send("GET,SYS,DEBUG");
 	}
 	//System Echo Mode abfragen
-	public function GetSysEcho() {
+	public function GetSysAMEcho() {
 		$this->Send("GET,SYS,ECHO");
 	}
 	//System Pushbuttom Mode abfragen
-	public function GetSysPushbutton() {
+	public function GetSysAMPushbutton() {
 		$this->Send("SET,SYS,PUSHBUTTON");
 	}
 	//System Autostart Mode abfragen
-	public function GetSysAutostart() {
+	public function GetSysAMAutostart() {
 		$this->Send("GET,SYS,AUTOSTART");
 	}
 	//System Power Status abfragen
-	public function GetSysPwr() {
+	public function GetSysAMPwr() {
 		$this->Send("GET,SYS,PWR");
 	}
 	//System KAL Mode abfragen
-	public function GetSysKal() {
+	public function GetSysAMKal() {
 		$this->Send("GET,KAL");
 	}	
 	
