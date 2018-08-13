@@ -157,8 +157,8 @@ class AudioMaxServer extends IPSModule {
 					$dataPoint = 0;
 				}
 
-				$this->SendDebug("SendToDevice", json_encode(Array("DataID" => "{4DF6D73D-8592-40DD-87FD-54D14F36692A}", "DeviceType" => "AUDIO", "DataSource:" . $data->DataSource . " | DataRoom:" . $data->DataRoom . " | DataType:" . $data->DataType . " | Value: " . $data->Value););
-				$this->SendDataToChildren(json_encode(Array("DataID" => "{4DF6D73D-8592-40DD-87FD-54D14F36692A}", "DeviceType" => "AUDIO", "DataSource:" . $data->DataSource . " | DataRoom:" . $data->DataRoom . " | DataType:" . $data->DataType . " | Value: " . $data->Value);)));
+				$this->SendDebug("SendToDevice", json_encode(Array("DataID" => "{4DF6D73D-8592-40DD-87FD-54D14F36692A}", "DeviceType" => "AUDIO", "DataSource:" . $data->DataSource . " | DataRoom:" . $data->DataRoom . " | DataType:" . $data->DataType . " | Value: " . $data->Value)), 0);
+				$this->SendDataToChildren(json_encode(Array("DataID" => "{4DF6D73D-8592-40DD-87FD-54D14F36692A}", "DeviceType" => "AUDIO", "DataSource:" . $data->DataSource . " | DataRoom:" . $data->DataRoom . " | DataType:" . $data->DataType . " | Value: " . $data->Value)));
 				
 				return;
 
