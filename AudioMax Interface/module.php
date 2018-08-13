@@ -90,7 +90,7 @@ class AudioMaxServer extends IPSModule {
 		}
 */
 		
-		$this->SaveToSRAM();
+		//$this->SaveToSRAM();
 	}
 	
 	
