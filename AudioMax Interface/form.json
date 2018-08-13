@@ -9,7 +9,6 @@
 		]
 	},
 	
-	//{ "type": "NumberSpinner", "name": "audiomaxID", "caption": "Audio Max Server ID" },
 	{ "type": "CheckBox", "name": "SendKeepAlive", "caption": "Send KeepAlive" },
 	{ "type": "IntervalBox", "name": "SendKeepAliveInterval", "caption": "Seconds" },
 	{ "type": "CheckBox", "name": "ReceiveKeepAlive", "caption": "Receive KeepAlive" },
