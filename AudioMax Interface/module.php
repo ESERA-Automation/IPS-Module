@@ -117,7 +117,6 @@ class AudioMaxServer extends IPSModule {
 
 		//Übriggebliebene Daten auf den Buffer schreiben
 		$this->SetBuffer("DataBuffer", $bufferData);
-
 		$this->SendDebug("BufferOut", $bufferData, 0);
 
 	}
