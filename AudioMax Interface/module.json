@@ -3,7 +3,7 @@
 	"name": "AudioMaxServer",
 	"type": 2,
 	"vendor": "ESERA-Automation",
-	"aliases": "AudioMax";,
+	"aliases": 
 	[
 		"50001 AudioMax Server Interface",
 		"AudioMax Server Interface"
