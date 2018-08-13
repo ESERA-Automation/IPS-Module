@@ -224,7 +224,7 @@ class AudioMaxServer extends IPSModule {
 		$this->Send("GET,SYS,AUTOSTART");
 	}
 	//System Power Status abfragen
-	public function GetSysKal() {
+	public function GetSysPwr() {
 		$this->Send("GET,SYS,PWR");
 	}
 	//System KAL Mode abfragen
