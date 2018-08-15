@@ -9,7 +9,7 @@
 		"AudioMax Server Interface"
 	],
 	"parentRequirements": ["{79827379-F36E-4ADA-8A95-5F8D1DC92FA9}"],
-	"childRequirements": ["{4DF6D73D-8592-40DD-87FD-54D14F36692A}"],
-	"implemented": ["{8B7C8214-6F7E-4A60-8743-A1E53A972282}"],
+	"childRequirements": ["{E3BB8703-6388-48DA-AA85-8852CDEE152D}", "{6B6E9D9E-4541-48CD-9F01-EFE52ACB2530}"],
+	"implemented": ["{018EF6B5-AB94-40C6-AA53-46943E824ACF}", "{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
 	"prefix": "ESERA"
 }

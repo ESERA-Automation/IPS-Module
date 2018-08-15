@@ -48,7 +48,9 @@ class AudioMaxServer extends IPSModule {
 	public function ForwardData($JSONString){
 
 		$data = json_decode($JSONString);
+
 		$this->SendDebug("FWD", $data->Command, 0);
+
 		$this->SendDataToParent(json_encode(Array("DataID" => "{79827379-F36E-4ADA-8A95-5F8D1DC92FA9}", "Buffer" => $data->Command .chr(13))));
 
 	}
@@ -64,12 +66,12 @@ class AudioMaxServer extends IPSModule {
 			} else if ($KeepAliveInterval > 240) {
 				$KeepAliveInterval = 240;
 			}
-			$this->Send("SET,KAL,1");										//Befehlsstring des AudioMax Server
+			$this->Send("SET,SYS,KALSEND,1");
 			//$this->Send("SET,SYS,KALSENDTIME,$KeepAliveInterval");
 		} else {
-			$this->Send("SET,KAL,0");										//Befehlsstring des AudioMax Server
+			$this->Send("SET,SYS,KALSEND,0");
 		}
-/*
+
 		//ReceiveKeepAlive ein-/ausschalten
 		if ($this->ReadPropertyBoolean("ReceiveKeepAlive")) {
 			$KeepAliveInterval = $this->ReadPropertyInteger("ReceiveKeepAliveInterval");
@@ -80,19 +82,27 @@ class AudioMaxServer extends IPSModule {
 				$KeepAliveInterval = 240;
 			}
 			$this->SetTimerInterval("KeepAliveHeartbeatTimer", $KeepAliveInterval * 1000);
-			$this->Send("SET;SYS;KALREC;1");
-			$this->Send("SET;SYS;KALRECTIME;$KeepAliveInterval");
+			$this->Send("SET,SYS,KALREC,1");
+			//$this->Send("SET,SYS,KALRECTIME,$KeepAliveInterval");
 		} else {
-			$this->Send("SET;SYS;KALREC;0");
+			$this->Send("SET,SYS,KALREC,0");
 			$this->SetTimerInterval("KeepAliveHeartbeatTimer", 0);
 		}
+
+		//Datenausgabe konfigurieren
+		/*switch($this->ReadPropertyString("DataOutputType")) {
+			case 'OWD':
+				$this->Send("SET,OWB,OWDID,0");
+				break;
+
+			case 'ID':
+				$this->Send("SET,OWB,OWDID,1");
+				break;
+		}
+
+		$this->SaveToSRAM();
 */
-		
-		//$this->SaveToSRAM();
 	}
-	
-	
-	
 	public function ReceiveData($JSONString) {
 
 		$data = json_decode($JSONString);
@@ -117,11 +127,10 @@ class AudioMaxServer extends IPSModule {
 
 		//Übriggebliebene Daten auf den Buffer schreiben
 		$this->SetBuffer("DataBuffer", $bufferData);
+
 		$this->SendDebug("BufferOut", $bufferData, 0);
 
 	}
-	
-	//Daten von Schnittstelle auswerten und auf interne IPS Variablen schreiben
 	private function AnalyseData($DataString) {
 
 		$dataArray = explode("|", $DataString);
@@ -138,33 +147,47 @@ class AudioMaxServer extends IPSModule {
 			case "AUTOSTART":
 				$type = SubStr($head, 2, 5);
 				break;
-
+/*
+			case "CON":
+				$type = SubStr($head, 2, 6);
+				break;
+*/
 			case "FW":
 			case "HW":
 				$type = SubStr($head, 2, 2);
 				break;
+/*
+			case "DAT":
+			case "TIM":
+				$type = SubStr($head, 2, 4);
+				break;
 
+			case "DS2":
+				$type = SubStr($head, 2, 9);
+				break;
+*/
 			case "AUDIO":
 				$headArray = explode("_", $head);
 				$deviceNumber = intval(substr($headArray[1], 3));
+      		
 				if (sizeof($headArray) >= 3){
 					$dataPoint = intval($headArray[2]);
 				}
 				else{
 					$dataPoint = 0;
 				}
-
-				$this->SendDebug("SendToDevice", json_encode(Array("DataID" => "{4DF6D73D-8592-40DD-87FD-54D14F36692A}", "DeviceType" => "AUDIO", "DataSource:" . $data->DataSource . " | DataRoom:" . $data->DataRoom . " | DataType:" . $data->DataType . " | Value: " . $data->Value)), 0);
-				$this->SendDataToChildren(json_encode(Array("DataID" => "{4DF6D73D-8592-40DD-87FD-54D14F36692A}", "DeviceType" => "AUDIO", "DataSource:" . $data->DataSource . " | DataRoom:" . $data->DataRoom . " | DataType:" . $data->DataType . " | Value: " . $data->Value)));
 				
+				
+				//geändert 10.08.2017 andrge (hinweis von ch. schrader)
+				$this->SendDebug("SendToDevice", json_encode(Array("DataID" => "{6B6E9D9E-4541-48CD-9F01-EFE52ACB2530}", "DeviceType" => "AUDIO", "DataSource:" . $data->DataSource . " | DataRoom:" . $data->DataRoom . " | DataType:" . $data->DataType . " | Value: " . $data->Value)), 0);
+				$this->SendDataToChildren(json_encode(Array("DataID" => "{6B6E9D9E-4541-48CD-9F01-EFE52ACB2530}", "DeviceType" => "AUDIO", "DataSource:" . $data->DataSource . " | DataRoom:" . $data->DataRoom . " | DataType:" . $data->DataType . " | Value: " . $data->Value)));
+
 				return;
 
 			default:
-			
 				if(SubStr($head, 18, 1) == '_' || StrLen($head) == 18) {
 					$type = "OWDID";
 				}
-			
 		}
 
 		$variableType = $this->GetVariableType($type);
@@ -195,15 +218,13 @@ class AudioMaxServer extends IPSModule {
 		}
 
 	}
-	
-	//ab hier Kommunikation zwischen IPS und AudioMax Server
-	//------------------------------------------------------
-	
-	//System Herzschlag senden
+	//KAL Senden
 	public function SendKeepAliveHeartbeat() {
-		$this->Send("".$this->ReadPropertyInteger("AudioMaxID")."_KAL|1");
+		$this->Send("SET,KAL|1");
 	}
 	
+	//GET Funktionen
+	//--------------------------------------------	
 	//System Debug Mode abfragen
 	public function GetSysAMDebug() {
 		$this->Send("GET,SYS,DEBUG");
@@ -214,7 +235,7 @@ class AudioMaxServer extends IPSModule {
 	}
 	//System Pushbuttom Mode abfragen
 	public function GetSysAMPushbutton() {
-		$this->Send("SET,SYS,PUSHBUTTON");
+		$this->Send("GET,SYS,PUSHBUTTON");
 	}
 	//System Autostart Mode abfragen
 	public function GetSysAMAutostart() {
@@ -224,12 +245,36 @@ class AudioMaxServer extends IPSModule {
 	public function GetSysAMPwr() {
 		$this->Send("GET,SYS,PWR");
 	}
-	//System KAL Mode abfragen
-	public function GetSysAMKal() {
-		$this->Send("GET,KAL");
-	}	
-	
+		
+	//SET Funktionen
+	//--------------------------------------------
+	//System Debug Mode setzen
+	public function SetSysAMDebug() {
+		$this->Send("SET,SYS,DEBUG");
+	}
+	//System Echo Mode setzen
+	public function SetSysAMEcho() {
+		$this->Send("SET,SYS,ECHO");
+	}
+	//System Pushbuttom Mode setzen
+	public function SetSysAMPushbutton() {
+		$this->Send("SET,SYS,PUSHBUTTON");
+	}
+	//System Autostart Mode setzen
+	public function SetSysAMAutostart() {
+		$this->Send("SET,SYS,AUTOSTART");
+	}
+	//System Power Status setzen
+	public function SetSysAMPwr() {
+		$this->Send("SET,SYS,PWR");
+	}
+	//System KAL Mode setzen
+	public function SetSysAMKal() {
+		$this->Send("SET,SYS,KAL");
 
+	}
+
+	
 	//Liefert den Typ der Variable abhängig von der empfangenen Daten
 	private function GetVariableType($Type) {
 
@@ -240,12 +285,11 @@ class AudioMaxServer extends IPSModule {
 			case "ECHO":
 			case "PUSHBUTTON":
 			case "AUTOSTART":
-			case "PWR":
 				return 1;
 
 			//String
-			case "ARTIKELNUMMER":
 			case "HW":
+			case "SERNO":
 			case "FW":
 				return 3;
 
@@ -255,7 +299,6 @@ class AudioMaxServer extends IPSModule {
 				return false;
 		}
 	}
-	
 	public function GetConfigurationForParent() {
 
 		//Vordefiniertes Setup der seriellen Schnittstelle
