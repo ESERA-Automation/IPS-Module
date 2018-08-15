@@ -162,6 +162,7 @@ class AudioMaxServer extends IPSModule {
 			   
 				switch ($value1) {
 					case "KAL":
+					case "PWR":
 					case "DEBUG":
 					case "ECHO":
 					case "PUSHBUTTON":
@@ -169,13 +170,14 @@ class AudioMaxServer extends IPSModule {
 					$variableType = 1;
 					break;
 					
-					case "FW":
+					case "SW":
 					case "HW":
+					case "FW":
 					$variableType = 3;
 					break;
 				}
 				
-				$variableType = $this->GetVariableType($type);
+				//$variableType = $this->GetVariableType($type);
 				$variablenID = 0;
 
 				//Erstellen der Variablen
@@ -280,6 +282,7 @@ class AudioMaxServer extends IPSModule {
 		switch($Type){
 			//Integer
 			case "KAL":
+			case "PWR":
 			case "DEBUG":
 			case "ECHO":
 			case "PUSHBUTTON":
@@ -289,7 +292,7 @@ class AudioMaxServer extends IPSModule {
 			//String
 			case "HW":
 			case "SERNO":
-			case "FW":
+			case "SW":
 				return 3;
 
 			//Unbestimmt
