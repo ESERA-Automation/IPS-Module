@@ -127,17 +127,19 @@ class AudioMaxServer extends IPSModule {
 
 		//Übriggebliebene Daten auf den Buffer schreiben
 		$this->SetBuffer("DataBuffer", $bufferData);
-
 		$this->SendDebug("BufferOut", $bufferData, 0);
 
 	}
+	
 	private function AnalyseData($DataString) {
-
 		$dataArray = explode("|", $DataString);
 
-		$head = $dataArray[0]; //Name der übergebenen Variable
-		$value = $dataArray[1]; //Daten der übergebenen Variable
-		$type = SubStr($head, 2, 3);
+		$head = $dataArray[0]; 			//Name der übergebenen Variable
+		   $this->SendDebug("head", $head, 0);
+		$value = $dataArray[1]; 		//Daten der übergebenen Variable
+		   $this->SendDebug("value", $value, 0);
+		
+		$type = SubStr($head, 0, 3);			//vorher 2,3
 
 		switch ($type) {
 			case "KAL":
