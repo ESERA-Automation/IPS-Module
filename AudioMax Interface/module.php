@@ -132,7 +132,7 @@ class AudioMaxServer extends IPSModule {
 	}
 	
 	private function AnalyseData($DataString) {
-		$dataArray = explode("|", $DataString);
+		$dataArray = explode(",", $DataString);
 
 		$head = $dataArray[0]; 			//Name der übergebenen Variable
 		   $this->SendDebug("head", $head, 0);
