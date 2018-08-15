@@ -154,10 +154,10 @@ class AudioMaxServer extends IPSModule {
 		   
 		switch ($head) {
 			case "KAL":	
-			    $this->SendDebug("type", $type, 0);
-			    $this->SendDebug("data", $data, 0);
+			    $this->SendDebug("type", $type, 0);	  			//Wert für KAL-Meldung 
 			    
-				$variablenID = $this->RegisterVariableboolean($head,"Hardbeat AudioMax-Server","",100);
+				$variablenID = 0;
+				$variablenID = $this->RegisterVariableboolean($head,"Heartbeat AudioMax-Server","",100);
 			   	if ($variablenID !== 0) {
 					SetValue($variablenID, type);
 				}
