@@ -185,7 +185,7 @@ class AudioMaxServer extends IPSModule {
 						break;
 					case 2:
 						//$variablenID = $this->RegisterVariableboolean($type, $type);
-						$variablenID = $this->RegisterVariableboolean("AudioMax Power","$type","~Switch",0);
+						$variablenID = $this->RegisterVariableboolean($type,"AudioMax Power","~Switch",1);
 						break;
 					case 3:
 						$variablenID = $this->RegisterVariableString($type, $type);
