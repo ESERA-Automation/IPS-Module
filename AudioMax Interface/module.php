@@ -160,7 +160,7 @@ class AudioMaxServer extends IPSModule {
 				switch ($type) {
 					case "KAL":		
 					break;			
-				
+				}
 				$variableType = $this->GetVariableType($type);
 				$variablenID = 0;
 
