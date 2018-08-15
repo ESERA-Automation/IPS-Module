@@ -168,22 +168,20 @@ class AudioMaxServer extends IPSModule {
 */
 			case "AUDIO":
 				$headArray = explode("_", $head);
-				$deviceNumber = intval(substr($headArray[1], 3));
-      		
+				$RoomNumber = intval(substr($headArray[1], 3));
 				if (sizeof($headArray) >= 3){
-					$dataPoint = intval($headArray[2]);
+					$dataType = intval($headArray[2]);
 				}
 				else{
 					$dataPoint = 0;
 				}
 				
-				
-				//geändert 10.08.2017 andrge (hinweis von ch. schrader)
-				$this->SendDebug("SendToDevice", json_encode(Array("DataID" => "{6B6E9D9E-4541-48CD-9F01-EFE52ACB2530}", "DeviceType" => "AUDIO", "DataSource:" . $data->DataSource . " | DataRoom:" . $data->DataRoom . " | DataType:" . $data->DataType . " | Value: " . $data->Value)), 0);
-				$this->SendDataToChildren(json_encode(Array("DataID" => "{6B6E9D9E-4541-48CD-9F01-EFE52ACB2530}", "DeviceType" => "AUDIO", "DataSource:" . $data->DataSource . " | DataRoom:" . $data->DataRoom . " | DataType:" . $data->DataType . " | Value: " . $data->Value)));
-
+				//geändert 10.08.2017 andrge (hinweis von ch. schrader)		
+				$this->SendDebug("SendToDevice", json_encode(Array("DataID" => "{6B6E9D9E-4541-48CD-9F01-EFE52ACB2530}", "DeviceType" => "AUDIO", "RoomNumber" => $RoomNumber, "DataType" => $dataType, "Value" => $value)), 0);
+				$this->SendDataToChildren(json_encode(Array("DataID" => "{6B6E9D9E-4541-48CD-9F01-EFE52ACB2530}", "DeviceType" => "AUDIO", "RoomNumber" => $RoomNumber, "DataType" => $dataType, "Value" => $value)));
 				return;
 
+				
 			default:
 				if(SubStr($head, 18, 1) == '_' || StrLen($head) == 18) {
 					$type = "OWDID";
