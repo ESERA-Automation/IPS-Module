@@ -158,7 +158,8 @@ class AudioMaxServer extends IPSModule {
 			    
 				$variablenID = 0;
 				$variablenID = $this->RegisterVariableboolean($head,"Heartbeat AudioMax-Server","",100);
-			   	if ($variablenID !== 0) {
+			   	   $this->SendDebug("ID", $variablenID , 0);
+				if ($variablenID !== 0) {
 					SetValue($variablenID, type);
 				}
 			return;
