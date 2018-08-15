@@ -136,12 +136,8 @@ class AudioMaxServer extends IPSModule {
 
 		$head = $dataArray[0]; 			//Name der übergebenen Variable
 		   $this->SendDebug("head", $head, 0);
-/*		
-		$value = $dataArray[1]; 		//Daten der übergebenen Variable
-		   $this->SendDebug("value", $value, 0);
-		$data = $dataArray[2]; 		//Daten der übergebenen Variable
-		   $this->SendDebug("data", $data, 0);
-*/		
+	
+		
 		/*
 		$type = SubStr($head, 1, 3);			//vorher 2,3
            $this->SendDebug("type", $type, 0);
@@ -149,15 +145,16 @@ class AudioMaxServer extends IPSModule {
 		   
 		switch ($head) {
 			case "KAL":	
-				
+				break;
 			
 			case "SYS": 	   
-			   $type = $dataArray[1]; 		//Daten der übergebenen Variable
-		           this->SendDebug("value", $value, 0);
-		       $value = $dataArray[2]; 		//Daten der übergebenen Variable
-		           $this->SendDebug("data", $data, 0);
+				$type = $dataArray[1]; 		//Daten der übergebenen Variable
+				   $this->SendDebug("type", $vtype, 0);
+				   
+				$data = $dataArray[3]; 		//Daten der übergebenen Variable
+				   $this->SendDebug("data", $data, 0);
 
-			   switch ($type) {
+			   switch ($value1) {
 					case "KAL":
 					case "DEBUG":
 					case "ECHO":
@@ -200,6 +197,7 @@ class AudioMaxServer extends IPSModule {
 					$type = "OWDID";
 				}
 			*/
+			break;
 		}
 
 	/*
