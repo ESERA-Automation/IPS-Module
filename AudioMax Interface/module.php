@@ -153,23 +153,49 @@ class AudioMaxServer extends IPSModule {
 		*/   
 		   
 		switch ($head) {
-			case "KAL":	
-			    $this->SendDebug("type", $type, 0);	  			//Wert für KAL-Meldung 
-			    
-				$variablenID = 0;
-				$variablenID = $this->RegisterVariableboolean($head,"Heartbeat AudioMax-Server","",100);
-			   	   $this->SendDebug("ID", $variablenID , 0);
-				if ($variablenID !== 0) {
-					SetValue($variablenID, $type);
-				}
+			case "EVT":	
+		       $this->SendDebug("type", $type, 0);			   	
+			   $this->SendDebug("data", $data, 0);
+			   
+				switch ($type) {
+					case "KAL":		
+					break;			
 				
-			break;
-			
+				$variableType = $this->GetVariableType($type);
+				$variablenID = 0;
+
+				//Erstellen der Variablen
+				switch ($variableType){
+					case 1:
+					    if ($type == "KAL"){
+						$variablenID = $this->RegisterVariableboolean($head,"Heartbeat AudioMax-Server","",100);
+						}
+						break;
+					case 2:
+						//$variablenID = $this->RegisterVariableboolean($type, $type);
+						if ($type == "PWR"){
+							$variablenID = $this->RegisterVariableboolean($type,"AudioMax Power","~Switch",1);
+						}
+						break;
+					case 3:
+						$variablenID = $this->RegisterVariableString($type, $type);
+						break;
+
+					default:
+						$this->SendDebug("RegisterVariable", "Unbekannter Variablentyp", 0);
+				}
+				//Wert setzen
+				if ($variablenID !== 0) {
+					SetValue($variablenID, $data);
+				}							
+			    return;	
+
+				
 			case "SYS": 	   
 		       $this->SendDebug("type", $type, 0);			   	
 			   $this->SendDebug("data", $data, 0);
 			   
-				switch ($value1) {
+				switch ($type) {
 					case "KAL":
 					case "PWR":
 					case "DEBUG":
