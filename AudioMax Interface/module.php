@@ -160,8 +160,9 @@ class AudioMaxServer extends IPSModule {
 				$variablenID = $this->RegisterVariableboolean($head,"Heartbeat AudioMax-Server","",100);
 			   	   $this->SendDebug("ID", $variablenID , 0);
 				if ($variablenID !== 0) {
-					SetValue($variablenID, type);
+					SetValue($variablenID, $type);
 				}
+				
 			return;
 			
 			case "SYS": 	   
@@ -225,7 +226,6 @@ class AudioMaxServer extends IPSModule {
 		}
 
 	}
-	
 	
 	
 	//KAL Senden
