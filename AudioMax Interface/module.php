@@ -163,7 +163,7 @@ class AudioMaxServer extends IPSModule {
 				switch ($value1) {
 					case "KAL":
 					case "PWR":
-					      $variablenID = $this->RegisterVariableboolean($type, "AudioMax Power","~Switch",0);
+					      $variablenID = $this->RegisterVariableboolean("AudioMax Power","","~Switch",0);
 						  if ($variablenID !== 0) {
 							 SetValue($variablenID, $data);
 							}
@@ -289,12 +289,12 @@ class AudioMaxServer extends IPSModule {
 		switch($Type){
 			//Integer
 			case "KAL":
-			case "PWR":
+			//case "PWR":
 			case "DEBUG":
 			case "ECHO":
 			case "PUSHBUTTON":
 			case "AUTOSTART":
-				return 2;
+				return 1;
 
 			//String
 			case "HW":
