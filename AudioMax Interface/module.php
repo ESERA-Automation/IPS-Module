@@ -139,10 +139,10 @@ class AudioMaxServer extends IPSModule {
 		
 		//SYS Variablen
 		$type = $dataArray[1]; 		//Daten der übergebenen Variable
-		   $this->SendDebug("type", $type, 0);
+		   //$this->SendDebug("type", $type, 0);
 				   
-		$data = $dataArray[3]; 		//Daten der übergebenen Variable
-		   $this->SendDebug("data", $data, 0);
+		$data = $dataArray[2]; 		//Daten der übergebenen Variable
+		   //$this->SendDebug("data", $data, 0);
 		
 		
 		//AUDIO Variablen
