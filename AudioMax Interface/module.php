@@ -331,6 +331,7 @@ class AudioMaxServer extends IPSModule {
 			case "AUTOSTART":
 			case "HW":
 			case "SW":
+			case "FW":
 				return 1;
 
 			//Boolean
