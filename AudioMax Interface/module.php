@@ -213,16 +213,6 @@ class AudioMaxServer extends IPSModule {
 
 		}
 
-	
-
-
-		//Wenn Time dann automatisch Zeit korrigieren
-		if ($type == "TIME") {
-			$this->FixTime($value);
-		}
-*/
-
-
 	}
 	
 	
