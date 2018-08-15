@@ -183,11 +183,11 @@ class AudioMaxServer extends IPSModule {
 				//Erstellen der Variablen
 				switch ($variableType){
 					case 1:
-						$variablenID = $this->RegisterVariableInteger($head, $head);
+						$variablenID = $this->RegisterVariableInteger($type, $type);
 						break;
 
 					case 3:
-						$variablenID = $this->RegisterVariableString($head, $head);
+						$variablenID = $this->RegisterVariableString($type, $type);
 						break;
 
 					default:
