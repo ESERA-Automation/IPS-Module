@@ -138,21 +138,14 @@ class AudioMaxServer extends IPSModule {
 		   $this->SendDebug("head", $head, 0);
 		
 		//SYS Variablen
-		$type = $dataArray[1]; 		//Daten der übergebenen Variable
-		   //$this->SendDebug("type", $type, 0);
-				   
-		$data = $dataArray[2]; 		//Daten der übergebenen Variable
-		   //$this->SendDebug("data", $data, 0);
-		
+		$type = $dataArray[1]; 		//Daten der übergebenen Variable		   
+		$data = $dataArray[2]; 		//Daten der übergebenen Variable	
 		
 		//AUDIO Variablen
 		$RoomNumber = $dataArray[1]; 		//Daten der übergebenen Variable
-		    //       this->SendDebug("roomnumber", $RoomNumber, 0);
 		$dataType = $dataArray[2]; 		//Daten der übergebenen Variable
-		    //       $this->SendDebug("datatype", $dataType, 0);
 		$value = $dataArray[3]; 		//Daten der übergebenen Variable
-		    //        $this->SendDebug("value", $value, 0);
-		
+
 				   
 		/*
 		$type = SubStr($head, 1, 3);			//vorher 2,3
@@ -161,24 +154,52 @@ class AudioMaxServer extends IPSModule {
 		   
 		switch ($head) {
 			case "KAL":	
-				break;
+			break;
 			
 			case "SYS": 	   
 		       $this->SendDebug("type", $type, 0);			   	
 			   $this->SendDebug("data", $data, 0);
 			   
-			   switch ($value1) {
+				switch ($value1) {
 					case "KAL":
 					case "DEBUG":
 					case "ECHO":
 					case "PUSHBUTTON":
 					case "AUTOSTART":			
+					$variableType = 1;
+					break;
+					
 					case "FW":
 					case "HW":
+					$variableType = 3;
 					break;
-						
-			   }
+				}
+				
+				$variableType = $this->GetVariableType($type);
+				$variablenID = 0;
 
+				//Erstellen der Variablen
+				switch ($variableType){
+					case 1:
+						$variablenID = $this->RegisterVariableInteger($head, $head);
+						break;
+
+					case 3:
+						$variablenID = $this->RegisterVariableString($head, $head);
+						break;
+
+					default:
+						$this->SendDebug("RegisterVariable", "Unbekannter Variablentyp", 0);
+				}			
+
+				//Wert setzen
+				if ($variablenID !== 0) {
+					SetValue($variablenID, $data);
+				}	
+				
+				
+			    return;	
+				
 			
 			case "AUDIO":						
 		           $this->SendDebug("roomnumber", $RoomNumber, 0);
@@ -192,28 +213,8 @@ class AudioMaxServer extends IPSModule {
 
 		}
 
-	/*
-		$variableType = $this->GetVariableType($type);
-		$variablenID = 0;
+	
 
-		//Erstellen der Variablen
-		switch ($variableType){
-			case 1:
-				$variablenID = $this->RegisterVariableInteger($head, $head);
-				break;
-
-			case 3:
-				$variablenID = $this->RegisterVariableString($head, $head);
-				break;
-
-			default:
-				$this->SendDebug("RegisterVariable", "Unbekannter Variablentyp", 0);
-		}
-
-		//Wert setzen
-		if ($variablenID !== 0) {
-			SetValue($variablenID, $value);
-		}
 
 		//Wenn Time dann automatisch Zeit korrigieren
 		if ($type == "TIME") {
