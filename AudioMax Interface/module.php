@@ -167,6 +167,7 @@ class AudioMaxServer extends IPSModule {
 						  if ($variablenID !== 0) {
 							 SetValue($variablenID, $data);
 							}
+					break;	
 					case "DEBUG":
 					case "ECHO":
 					case "PUSHBUTTON":
