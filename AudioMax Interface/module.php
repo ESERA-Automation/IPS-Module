@@ -166,7 +166,7 @@ class AudioMaxServer extends IPSModule {
 					case "FW":
 					case "HW":
 					break;
-					
+						
 			   }
 
 			
@@ -194,7 +194,7 @@ class AudioMaxServer extends IPSModule {
 				$this->SendDataToChildren(json_encode(Array("DataID" => "{6B6E9D9E-4541-48CD-9F01-EFE52ACB2530}", "DeviceType" => "AUDIO", "RoomNumber" => $RoomNumber, "DataType" => $dataType, "Value" => $value)));
 				return;
 
-			*/	
+			/*	
 			default:
 				if(SubStr($head, 18, 1) == '_' || StrLen($head) == 18) {
 					$type = "OWDID";
@@ -202,6 +202,7 @@ class AudioMaxServer extends IPSModule {
 			*/
 		}
 
+	/*
 		$variableType = $this->GetVariableType($type);
 		$variablenID = 0;
 
@@ -228,8 +229,13 @@ class AudioMaxServer extends IPSModule {
 		if ($type == "TIME") {
 			$this->FixTime($value);
 		}
+*/
+
 
 	}
+	
+	
+	
 	//KAL Senden
 	public function SendKeepAliveHeartbeat() {
 		$this->Send("SET,KAL|1");
