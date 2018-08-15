@@ -142,7 +142,7 @@ class AudioMaxServer extends IPSModule {
 		   $this->SendDebug("data", $data, 0);
 		
 		$type = SubStr($head, 1, 3);			//vorher 2,3
-           $this->SendDebug("$type", $type, 0);
+           $this->SendDebug("type", $type, 0);
 		   
 		   
 		switch ($type) {
