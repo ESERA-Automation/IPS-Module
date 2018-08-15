@@ -163,7 +163,7 @@ class AudioMaxServer extends IPSModule {
 					SetValue($variablenID, $type);
 				}
 				
-			return;
+			break;
 			
 			case "SYS": 	   
 		       $this->SendDebug("type", $type, 0);			   	
