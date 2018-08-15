@@ -138,9 +138,13 @@ class AudioMaxServer extends IPSModule {
 		   $this->SendDebug("head", $head, 0);
 		$value = $dataArray[1]; 		//Daten der übergebenen Variable
 		   $this->SendDebug("value", $value, 0);
+		$data = $dataArray[2]; 		//Daten der übergebenen Variable
+		   $this->SendDebug("data", $data, 0);
 		
-		$type = SubStr($head, 0, 3);			//vorher 2,3
-
+		$type = SubStr($head, 1, 3);			//vorher 2,3
+           $this->SendDebug("$type", $type, 0);
+		   
+		   
 		switch ($type) {
 			case "KAL":
 			case "DEBUG":
@@ -169,7 +173,7 @@ class AudioMaxServer extends IPSModule {
 				break;
 */
 			case "AUDIO":
-				$headArray = explode("_", $head);
+				$headArray = explode(",", $head);
 				$RoomNumber = intval(substr($headArray[1], 3));
 				if (sizeof($headArray) >= 3){
 					$dataType = intval($headArray[2]);
