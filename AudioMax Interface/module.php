@@ -167,17 +167,17 @@ class AudioMaxServer extends IPSModule {
 					case "ECHO":
 					case "PUSHBUTTON":
 					case "AUTOSTART":			
-					$variableType = 1;
+					//$variableType = 1;
 					break;
 					
 					case "SW":
 					case "HW":
 					case "FW":
-					$variableType = 3;
+					//$variableType = 3;
 					break;
 				}
 				
-				//$variableType = $this->GetVariableType($type);
+				$variableType = $this->GetVariableType($type);
 				$variablenID = 0;
 
 				//Erstellen der Variablen
