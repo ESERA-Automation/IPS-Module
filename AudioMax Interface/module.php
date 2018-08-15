@@ -137,23 +137,23 @@ class AudioMaxServer extends IPSModule {
 		$head = $dataArray[0]; 			//Name der übergebenen Variable
 		   $this->SendDebug("head", $head, 0);
 		
-		//if ($head== "SYS"){
+		//SYS Variablen
 		$type = $dataArray[1]; 		//Daten der übergebenen Variable
-		   $this->SendDebug("type", $vtype, 0);
+		   $this->SendDebug("type", $type, 0);
 				   
 		$data = $dataArray[3]; 		//Daten der übergebenen Variable
 		   $this->SendDebug("data", $data, 0);
-		//}
-	/*    
-		if ($head== "AUDIO"){
+		
+		
+		//AUDIO Variablen
 		$RoomNumber = $dataArray[1]; 		//Daten der übergebenen Variable
-		           this->SendDebug("roomnumber", $RoomNumber, 0);
+		    //       this->SendDebug("roomnumber", $RoomNumber, 0);
 		$dataType = $dataArray[2]; 		//Daten der übergebenen Variable
-		           $this->SendDebug("datatype", $dataType, 0);
+		    //       $this->SendDebug("datatype", $dataType, 0);
 		$value = $dataArray[3]; 		//Daten der übergebenen Variable
-		           $this->SendDebug("value", $value, 0);
-		}
-*/				   
+		    //        $this->SendDebug("value", $value, 0);
+		
+				   
 		/*
 		$type = SubStr($head, 1, 3);			//vorher 2,3
            $this->SendDebug("type", $type, 0);
@@ -164,6 +164,9 @@ class AudioMaxServer extends IPSModule {
 				break;
 			
 			case "SYS": 	   
+		       $this->SendDebug("type", $type, 0);			   	
+			   $this->SendDebug("data", $data, 0);
+			   
 			   switch ($value1) {
 					case "KAL":
 					case "DEBUG":
@@ -178,6 +181,10 @@ class AudioMaxServer extends IPSModule {
 
 			
 			case "AUDIO":						
+		           $this->SendDebug("roomnumber", $RoomNumber, 0);
+		           $this->SendDebug("datatype", $dataType, 0);
+		           $this->SendDebug("value", $value, 0);				
+				
 				//geändert 10.08.2017 andrge (hinweis von ch. schrader)		
 				$this->SendDebug("SendToDevice", json_encode(Array("DataID" => "{6B6E9D9E-4541-48CD-9F01-EFE52ACB2530}", "DeviceType" => "AUDIO", "RoomNumber" => $RoomNumber, "DataType" => $dataType, "Value" => $value)), 0);
 				$this->SendDataToChildren(json_encode(Array("DataID" => "{6B6E9D9E-4541-48CD-9F01-EFE52ACB2530}", "DeviceType" => "AUDIO", "RoomNumber" => $RoomNumber, "DataType" => $dataType, "Value" => $value)));
