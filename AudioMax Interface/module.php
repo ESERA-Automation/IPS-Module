@@ -281,6 +281,14 @@ class AudioMaxServer extends IPSModule {
 	public function GetSysAMPwr() {
 		$this->Send("GET,SYS,PWR");
 	}
+	//System Firmware abfragen
+	public function GetSysAMFW() {
+		$this->Send("GET,SYS,FW");
+	}
+	//System Hardware abfragen
+	public function GetSysAMHW() {
+		$this->Send("GET,SYS,HW");
+	}
 		
 	//SET Funktionen
 	//--------------------------------------------
