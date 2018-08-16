@@ -16,29 +16,32 @@ class AudioMaxSystem extends IPSModule {
 
 		
 		for($i = 1; $i <= 2; $i++){
-    			$this->RegisterVariableinteger("volume".$i, "Volume".$i, "ESERA.AMVolume");			
+    			$this->RegisterVariableinteger("volume".$i, "Volume ".$i, "ESERA.AMVolume");			
     			$this->EnableAction("volume".$i);
 				
-				$this->RegisterVariableinteger("gain".$i, "Gain".$i, "ESERA.AMGain");
+				$this->RegisterVariableinteger("gain".$i, "Gain ".$i, "ESERA.AMGain");
     			$this->EnableAction("gain".$i);
 				
-				$this->RegisterVariableinteger("bass".$i, "Bass".$i, "ESERA.AMTone");
+				$this->RegisterVariableinteger("bass".$i, "Bass ".$i, "ESERA.AMTone");
     			$this->EnableAction("bass".$i);
 				
-				$this->RegisterVariableinteger("mid".$i, "Middle".$i, "ESERA.AMTone");
+				$this->RegisterVariableinteger("mid".$i, "Middle ".$i, "ESERA.AMTone");
     			$this->EnableAction("mid".$i);
 				
-				$this->RegisterVariableinteger("treble".$i, "Treble".$i, "ESERA.AMTone");
+				$this->RegisterVariableinteger("treble".$i, "Treble ".$i, "ESERA.AMTone");
     			$this->EnableAction("treble".$i);
 
-				$this->RegisterVariableinteger("balance".$i, "Balance".$i, "ESERA.AMBalance");
+				$this->RegisterVariableinteger("balance".$i, "Balance ".$i, "ESERA.AMBalance");
     			$this->EnableAction("balance".$i);		
 							
-    			$this->RegisterVariableBoolean("ampout".$i, "Amplifier_on-off".$i, "~Switch");
+    			$this->RegisterVariableBoolean("ampout".$i, "Amplifier on/off ".$i, "~Switch");
     			$this->EnableAction("ampout".$i);
 
-    			$this->RegisterVariableBoolean("mute".$i, "Mute-Output".$i, "~Switch");
-    			$this->EnableAction("mute".$i);				
+    			$this->RegisterVariableBoolean("mute".$i, "Mute Output ".$i, "");
+    			$this->EnableAction("mute".$i);	
+
+    			$this->RegisterVariableBoolean("input".$i, "Input ".$i, "~Switch");
+    			$this->EnableAction("input".$i);				
     		}
 
         $this->ConnectParent("{C73DD44F-BF0D-4180-A0F1-D296F68024B2}"); 			//AudioMax Interface
@@ -72,15 +75,44 @@ class AudioMaxSystem extends IPSModule {
 		$this->SendDebug("Audio Type", $Type, 0);
 		$this->SendDebug("Audio Value", $Value, 0);
 		
-		/*
-				if ($data->DeviceNumber == 0){
-					$value = $data->Value;
-					SetValue($this->GetIDForIdent("SYS0"), $value);
-				}
-        */    
-		
+  		
 		if ($Type == "VOL"){
-				
+			SetValue($this->GetIDForIdent("volume".$Number), $Value);
+			$this->SendDebug(("volume".$Number), $Value,0);
+			}	
+		if ($Type == "BAS"){
+			SetValue($this->GetIDForIdent("bass".$Number), $Value);
+			$this->SendDebug(("bass".$Number), $Value,0);
+			}
+		if ($Type == "MID"){
+			SetValue($this->GetIDForIdent("mid".$Number), $Value);
+			$this->SendDebug(("mid".$Number), $Value,0);
+			}
+		if ($Type == "TRE"){
+			SetValue($this->GetIDForIdent("trebble".$Number), $Value);
+			$this->SendDebug(("trebble".$Number), $Value,0);
+			}
+		if ($Type == "BAL"){
+			SetValue($this->GetIDForIdent("balance".$Number), $Value);
+			$this->SendDebug(("balance".$Number), $Value,0);
+			}
+		if ($Type == "GAI"){
+			SetValue($this->GetIDForIdent("gain".$Number), $Value);
+			$this->SendDebug(("gain".$Number), $Value,0);
+			}
+		if ($Type == "AMP"){
+			SetValue($this->GetIDForIdent("ampout".$Number), $Value);
+			$this->SendDebug(("ampout".$Number), $Value,0);
+			}
+		if ($Type == "AMP"){
+			SetValue($this->GetIDForIdent("mute".$Number), $Value);
+			$this->SendDebug(("mute".$Number), $Value,0);
+			}
+		if ($Type == "INP"){
+			SetValue($this->GetIDForIdent("input".$Number), $Value);
+			$this->SendDebug(("input".$Number), $Value,0);
+			}
+			
 				if ($Number == 1){
 				  SetValue($this->GetIDForIdent("volume2"), $Value);
 				  SetValue($this->GetIDForIdent("volume".$Number), $Value);
