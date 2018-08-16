@@ -4,6 +4,7 @@ class AudioMaxServer extends IPSModule {
 
 	public function Create(){
 		//Never delete this line!
+		
 		parent::Create();
  		//These lines are parsed on Symcon Startup or Instance creation
 		//You cannot use variables here. Just static values.
@@ -267,8 +268,8 @@ class AudioMaxServer extends IPSModule {
 		           $this->SendDebug("value", $value, 0);				
 				
 				//geändert 10.08.2017 andrge (hinweis von ch. schrader)		
-				//$this->SendDebug("SendToDevice", json_encode(Array("DataID" => "{6B6E9D9E-4541-48CD-9F01-EFE52ACB2530}", "DeviceType" => "AUDIO", "RoomNumber" => $RoomNumber, "DataType" => $dataType, "Value" => $value)), 0);
-				//$this->SendDataToChildren(json_encode(Array("DataID" => "{6B6E9D9E-4541-48CD-9F01-EFE52ACB2530}", "DeviceType" => "AUDIO", "RoomNumber" => $RoomNumber, "DataType" => $dataType, "Value" => $value)));
+				$this->SendDebug("SendToDevice", json_encode(Array("DataID" => "{6B6E9D9E-4541-48CD-9F01-EFE52ACB2530}", "DeviceType" => "AUDIO", "RoomNumber" => $RoomNumber, "DataType" => $dataType, "Value" => $value)), 0);
+				$this->SendDataToChildren(json_encode(Array("DataID" => "{6B6E9D9E-4541-48CD-9F01-EFE52ACB2530}", "DeviceType" => "AUDIO", "RoomNumber" => $RoomNumber, "DataType" => $dataType, "Value" => $value)));
 				return;
 
 		}
