@@ -16,28 +16,28 @@ class AudioMaxSystem extends IPSModule {
 
 		
 		for($i = 1; $i <= 2; $i++){
-    			$this->RegisterVariableinteger("volume".$i, "Volume ".$i, "ESERA.AMVolume");			
+    			$this->RegisterVariableinteger("volume".$i, "Volume".$i, "ESERA.AMVolume");			
     			$this->EnableAction("volume".$i);
 				
-				$this->RegisterVariableinteger("gain".$i, "Gain ".$i, "ESERA.AMGain");
+				$this->RegisterVariableinteger("gain".$i, "Gain".$i, "ESERA.AMGain");
     			$this->EnableAction("gain".$i);
 				
-				$this->RegisterVariableinteger("bass".$i, "Bass ".$i, "ESERA.AMTone");
+				$this->RegisterVariableinteger("bass".$i, "Bass".$i, "ESERA.AMTone");
     			$this->EnableAction("bass".$i);
 				
-				$this->RegisterVariableinteger("mid".$i, "Middle ".$i, "ESERA.AMTone");
+				$this->RegisterVariableinteger("mid".$i, "Middle".$i, "ESERA.AMTone");
     			$this->EnableAction("mid".$i);
 				
-				$this->RegisterVariableinteger("treble".$i, "Treble ".$i, "ESERA.AMTone");
+				$this->RegisterVariableinteger("treble".$i, "Treble".$i, "ESERA.AMTone");
     			$this->EnableAction("treble".$i);
 
-				$this->RegisterVariableinteger("balance".$i, "Balance ".$i, "ESERA.AMBalance");
+				$this->RegisterVariableinteger("balance".$i, "Balance".$i, "ESERA.AMBalance");
     			$this->EnableAction("balance".$i);		
 							
-    			$this->RegisterVariableBoolean("ampout".$i, "Amplifier_on-off ".$i, "~Switch");
+    			$this->RegisterVariableBoolean("ampout".$i, "Amplifier_on-off".$i, "~Switch");
     			$this->EnableAction("ampout".$i);
 
-    			$this->RegisterVariableBoolean("mute".$i, "Mute-Output ".$i, "~Switch");
+    			$this->RegisterVariableBoolean("mute".$i, "Mute-Output".$i, "~Switch");
     			$this->EnableAction("mute".$i);				
     		}
 
@@ -63,9 +63,9 @@ class AudioMaxSystem extends IPSModule {
         $data = json_decode($JSONString);
         $this->SendDebug("AudioMaxSystem", "| Room Number:" . $data->RoomNumber . "| Audio Type:" . $data->AudioType . "| Audio Value:" . $data->AudioValue, 0);
         
-		$Number = $data->RoomNumber; 		//Daten der übergebenen Variable
-		$Type = $data->AudioType; 		//Daten der übergebenen Variable
-		$Value = $data->AudioValue;
+		$Number = intval($data->RoomNumber, 10); 		//Daten der übergebenen Variable
+		$Type = intval($data->AudioType,10); 		//Daten der übergebenen Variable
+		$Value = intval($data->AudioValue,10);
 				
 	    //$this->SendDebug("Room Number", $Number, 0);
 		//$this->SendDebug("Audio Type", $Type, 0);
@@ -79,9 +79,12 @@ class AudioMaxSystem extends IPSModule {
         */    
 		
 		if ($Type == "VOL"){
-            SetValue($this->GetIDForIdent("Volume 1"), $Value);
-			SetValue($this->GetIDForIdent(("Treble ".$Number)), $Value);
-			$this->SendDebug(("Volume: ". $Number), $Value,0);
+				SetValue($this->GetIDForIdent("volume".$i), $value);
+			}
+			//SetValue($this->GetIDForIdent("volume".$i), $Value);
+			//SetValue($this->GetIDForIdent(("treble".$Number)), $Value);
+			
+			$this->SendDebug(("volume".$i), $Value,0);
             }
 /*
 		if ($data->DeviceNumber == 2){
@@ -95,25 +98,30 @@ class AudioMaxSystem extends IPSModule {
 		*/
 		
     }
-/*
-    public function RequestAction($Ident, $Value) {
-  		switch($Ident) {
-  			case "Output1":
-  			case "Output2":
 
+	public function RequestAction($Ident, $Number, $Value) {
+		switch($Ident) {
+			case "vol":
+			case "gain":
+			case "bass":
+			case "mid":
+			case "trebble":
+			case "balance":
+			case "ampout":
+			case "mute":
+				$this->SetAudioAM($Number, $Ident, $Value);
+				
+				break;
+			default:
+				throw new Exception("Invalid ident");
+		}
+	}
+	
 
-  				$this->SetSysOutput(SubStr($Ident, 6, 1), $Value);
-  				break;
-  			default:
-  				throw new Exception("Invalid ident");
-  		}
+    public function SetAudioAM(int $RoomNumber, string $AudioType , int $AudioValue) {
+  		$this->Send("SET,AUDIO,". $RoomNumber .",". $AudioType . ",". $AudioValue ."");
   	}
 
-    public function SetSysOutput(int $OutputNumber, int $Value) {
-  		$OutputNumber = $OutputNumber;
-  		$this->Send("SET,SYS,OUT,". $OutputNumber .",". $Value ."");
-  	}
-*/
 
     private function CreateVariableProfile($ProfileName, $ProfileType, $Suffix, $MinValue, $MaxValue, $StepSize, $Digits, $Icon) {
 		    if (!IPS_VariableProfileExists($ProfileName)) {
