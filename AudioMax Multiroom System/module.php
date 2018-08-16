@@ -37,10 +37,10 @@ class AudioMaxSystem extends IPSModule {
     			$this->RegisterVariableBoolean("ampout".$i, "Amplifier on/off ".$i, "~Switch");
     			$this->EnableAction("ampout".$i);
 
-    			$this->RegisterVariableBoolean("mute".$i, "Mute Output ".$i, "");
+    			$this->RegisterVariableBoolean("mute".$i, "Mute Output ".$i, "~Switch");
     			$this->EnableAction("mute".$i);	
 
-    			$this->RegisterVariableBoolean("input".$i, "Input ".$i, "~Switch");
+    			$this->RegisterVariableInteger("input".$i, "Input ".$i, "");
     			$this->EnableAction("input".$i);				
     		}
 
