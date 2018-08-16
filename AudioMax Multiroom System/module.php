@@ -118,9 +118,10 @@ class AudioMaxSystem extends IPSModule {
 	}
 */	
 
-    public function SetAudioAM(int $RoomNumber, int $AudioType , int $AudioValue) {
-  		$this->Send("SET,AUDIO,". $RoomNumber .",". $AudioType . ",". $AudioValue ."");
+    public function SetAudioSettingAM(int $Number, int $Type , int $Value) {
+  		$this->Send("SET,AUDIO,". $Number .",". $Type . ",". $Value ."");
   	}
+	
 
 
     private function CreateVariableProfile($ProfileName, $ProfileType, $Suffix, $MinValue, $MaxValue, $StepSize, $Digits, $Icon) {
