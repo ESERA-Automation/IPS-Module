@@ -140,7 +140,7 @@ class AudioMaxSystem extends IPSModule {
 			case "gain":
 			case "bass":
 			case "mid":
-			case "trebble":
+			case "treble":
 			case "balance":
 			case "ampout":
 			case "mute":
@@ -152,6 +152,7 @@ class AudioMaxSystem extends IPSModule {
 		}
 	}
 */	
+
 
     public function SetAudioSettingAM(int $Number, int $Type , int $Value) {
   		$this->Send("SET,AUDIO,". $Number .",". $Type . ",". $Value ."");
