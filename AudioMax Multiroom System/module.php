@@ -98,8 +98,8 @@ class AudioMaxSystem extends IPSModule {
 		*/
 		
     }
-
-	public function RequestAction($Ident, $Number, $Value) {
+/*
+	public function RequestAction($Ident, $Value) {
 		switch($Ident) {
 			case "vol":
 			case "gain":
@@ -116,7 +116,7 @@ class AudioMaxSystem extends IPSModule {
 				throw new Exception("Invalid ident");
 		}
 	}
-	
+*/	
 
     public function SetAudioAM(int $RoomNumber, string $AudioType , int $AudioValue) {
   		$this->Send("SET,AUDIO,". $RoomNumber .",". $AudioType . ",". $AudioValue ."");
