@@ -1,12 +1,12 @@
 {
 	"id": "{C73DD44F-BF0D-4180-A0F1-D296F68024B2}",
-	"name": "AudioMaxServer",
+	"name": "AudioMaxInterface",
 	"type": 2,
 	"vendor": "ESERA-Automation",
 	"aliases": 
 	[
-		"50001 AudioMax Mooltiroom System",
-		"AudioMax Mooltiroom System"
+		"50001 AudioMax Mooltiroom Interface",
+		"AudioMax Mooltiroom Interface"
 	],
 	"parentRequirements": ["{79827379-F36E-4ADA-8A95-5F8D1DC92FA9}"],
 	"childRequirements": ["{E3BB8703-6388-48DA-AA85-8852CDEE152D}", "{6B6E9D9E-4541-48CD-9F01-EFE52ACB2530}"],

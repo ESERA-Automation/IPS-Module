@@ -10,45 +10,6 @@ class AudioMaxServer extends IPSModule {
 		//You cannot use variables here. Just static values.
 		
 
-		/*
-		$this->CreateVariableProfile("ESERA.AMVolume",1," dB",40,0,1,2,"");
-		$this->CreateVariableProfile("ESERA.AM_Gain",1," dB",0,15,1,2,"");
-	    $this->CreateVariableProfile("ESERA.AM_Tone",1," dB",0,15,1,2,"");
-		$this->CreateVariableProfile("ESERA.AM_Balance",1," dB",0,15,1,2,"");
-		$this->CreateVariableProfile("ESERA.AM_Mute",3,"",0,1,0,0,"~Switch");
-		
-		$this->CreateVariableProfile("ESERA.Luftguete", 1, " ppm", 400, 1800, 1, 2, "");
-		
-		for($i = 1; $i <= 2; $i++){
-    			$this->RegisterVariableinteger("volume".$i, "Volume".$i, "ESERA.AM_Volume");			
-    			$this->EnableAction("ampOut".$i);
-				
-				$this->RegisterVariableinteger("gain".$i, "Gain".$i, "ESERA.AM_Gain");
-    			$this->EnableAction("gain".$i);
-				
-				$this->RegisterVariableinteger("bass".$i, "Bass".$i, "ESERA.AM_Tone");
-    			$this->EnableAction("bass".$i);
-				
-				$this->RegisterVariableinteger("mid".$i, "Middle".$i, "ESERA.AM_Tone");
-    			$this->EnableAction("mid".$i);
-				
-				$this->RegisterVariableinteger("treble".$i, "Treble".$i, "ESERA.AM_Tone");
-    			$this->EnableAction("treble".$i);
-
-				$this->RegisterVariableinteger("balance".$i, "Balance".$i, "ESERA.AM_Balance");
-    			$this->EnableAction("balance".$i);		
-							
-    			$this->RegisterVariableBoolean("ampOut".$i, "Amplifier on-off".$i, "~Switch");
-    			$this->EnableAction("ampOut".$i);
-
-    			$this->RegisterVariableBoolean("mute".$i, "Mute Output".$i, "ESERA.AM_Mute");
-    			$this->EnableAction("mute".$i);				
-    		}
-
-		$this->RegisterVariableboolean($type,"AudioMax Power","~Switch",1);
-        $this->EnableAction("pwr".$i);
-		*/
-
 		$this->RegisterPropertyInteger("ConnectionType", 10);
 		$this->RegisterPropertyString("DataOutputType", "AUDIO");
 		$this->RegisterPropertyInteger("AudioMaxID", 1);
@@ -58,10 +19,7 @@ class AudioMaxServer extends IPSModule {
 		$this->RegisterPropertyInteger("ReceiveKeepAliveInterval", 0);
 
 		$this->RegisterTimer("KeepAliveHeartbeatTimer", 0, 'ESERA_SendKeepAliveHeartbeat($_IPS[\'TARGET\']);');
-		$this->RegisterTimer("SysInfoRequestTimer", 86400 * 1000, 'ESERA_GetSysInfo($_IPS[\'TARGET\']);');
-		
-		$this->CreateVariableProfile("ESERA.Luftguete", 1, " ppm", 400, 1800, 1, 2, "");
-		
+		$this->RegisterTimer("SysInfoRequestTimer", 86400 * 1000, 'ESERA_GetSysInfo($_IPS[\'TARGET\']);');		
 	}
 	public function Destroy(){
 		//Never delete this line!
