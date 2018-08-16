@@ -64,7 +64,8 @@ class AudioMaxSystem extends IPSModule {
         $this->SendDebug("AudioMaxSystem", "| Room Number:" . $data->RoomNumber . "| Audio Type:" . $data->AudioType . "| Audio Value:" . $data->AudioValue, 0);
         
 		$Number = intval($data->RoomNumber, 10); 		//Daten der übergebenen Variable
-		$Type = strval($data->AudioType,10); 		//Daten der übergebenen Variable
+		//$Type = strval($data->AudioType,10); 		//Daten der übergebenen Variable
+		$Type = $data->AudioType;
 		$Value = intval($data->AudioValue,10);
 				
 	    $this->SendDebug("Room Number", $Number, 0);
