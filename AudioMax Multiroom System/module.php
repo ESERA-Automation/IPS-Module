@@ -139,10 +139,18 @@ class AudioMaxSystem extends IPSModule {
 		
 		switch($Ident) {
 			case "volume1":
-				$this->SetAudioSettingAM($Number, "VOL", $Value);
+			case "volume2":
+				$Type = "VOL";
+				$this->SetAudioSettingAM($Number, $Type, $Value);
+				break;
 			case "gain1":
+			
 			case "bass1":
-				$this->SetAudioSettingAM($Number, "BAS", $Value);
+			case "bass2":
+				$Type = "BAS";
+				$this->SetAudioSettingAM($Number, $Type, $Value);
+				//$this->SendDebug(("input".$Number),("|Type:" .$Type), ","("Value".$Value), $Value,0);
+				break;
 			case "mid1":
 			case "treble1":
 			case "balance1":
