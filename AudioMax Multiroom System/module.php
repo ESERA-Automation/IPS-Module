@@ -12,7 +12,7 @@ class AudioMaxSystem extends IPSModule {
 		$this->CreateVariableProfile("ESERA.AMGain",1," dB",0,15,1,2,"Intensity");
 	    $this->CreateVariableProfile("ESERA.AMTone",1," dB",0,15,1,2,"Intensity");
 		$this->CreateVariableProfile("ESERA.AMBalance",1," dB",0,15,1,2,"Intensity");
-		$this->CreateVariableProfile("ESERA.AMMute",3,"",0,1,0,0,"Power");
+		//$this->CreateVariableProfile("ESERA.AMMute",3,"",0,1,0,0,"Power");
 
 		
 		for($i = 1; $i <= 2; $i++){
@@ -37,7 +37,7 @@ class AudioMaxSystem extends IPSModule {
     			$this->RegisterVariableBoolean("ampout".$i, "Amplifier_on-off ".$i, "~Switch");
     			$this->EnableAction("ampout".$i);
 
-    			$this->RegisterVariableBoolean("mute".$i, "Mute-Output ".$i, "ESERA.AMMute");
+    			$this->RegisterVariableBoolean("mute".$i, "Mute-Output ".$i, "~Switch");
     			$this->EnableAction("mute".$i);				
     		}
 
@@ -122,6 +122,7 @@ class AudioMaxSystem extends IPSModule {
 			       IPS_SetVariableProfileValues($ProfileName, $MinValue, $MaxValue, $StepSize);
 			       IPS_SetVariableProfileDigits($ProfileName, $Digits);
 			       IPS_SetVariableProfileIcon($ProfileName, $Icon);
+				   
 		    }
 	  }
 

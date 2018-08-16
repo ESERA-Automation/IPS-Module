@@ -119,8 +119,6 @@ class AudioMaxInterface extends IPSModule {
 	}
 	
 	private function AnalyseData($DataString) {
-		$dataArray[3]= 0; 
-		$dataArray[2]= 0;
 		$dataArray = explode(",", $DataString);
 
 		$head = $dataArray[0]; 			//Name der übergebenen Variable
