@@ -123,18 +123,14 @@ class AudioMaxInterface extends IPSModule {
 
 		$head = $dataArray[0]; 			//Name der übergebenen Variable
 		   $this->SendDebug("head", $head, 0);
-		
-		//SYS Variablen
-		$type = $dataArray[1]; 		//Daten der übergebenen Variable		   
-		$data = $dataArray[2]; 		//Daten der übergebenen Variable	
-		
-		//AUDIO Variablen
-		$RoomNumber = $dataArray[1]; 		//Daten der übergebenen Variable
-		$AudioType = $dataArray[2]; 		//Daten der übergebenen Variable
-		$AudioValue = $dataArray[3]; 		//Daten der übergebenen Variable
 				    
 		switch ($head) {
 		case "EVT":	
+			$dataArray = explode(",", $DataString);
+			//SYS Variablen
+			$type = $dataArray[1]; 		//Daten der übergebenen Variable		   
+			$data = $dataArray[2]; 		//Daten der übergebenen Variable	
+
 		   $this->SendDebug("type", $type, 0);			   	
 		   $this->SendDebug("data", $data, 0);
 		   
@@ -173,8 +169,14 @@ class AudioMaxInterface extends IPSModule {
 
 				
 		case "SYS": 	   
-		   $this->SendDebug("type", $type, 0);			   	
-		   $this->SendDebug("data", $data, 0);
+			$dataArray = explode(",", $DataString);
+			
+			//SYS Variablen
+			$type = $dataArray[1]; 		//Daten der übergebenen Variable		   
+			$data = $dataArray[2]; 		//Daten der übergebenen Variable	
+
+		    $this->SendDebug("type", $type, 0);			   	
+		    $this->SendDebug("data", $data, 0);
 		   
 			switch ($type) {
 			case "KAL":
@@ -221,9 +223,16 @@ class AudioMaxInterface extends IPSModule {
 				
 			
 		case "AUDIO":						
-		   $this->SendDebug("Room Number", $RoomNumber, 0);
-		   $this->SendDebug("Audio Type", $AudioType, 0);
-		   $this->SendDebug("Audio Value", $AudioValue, 0);				
+		    $dataArray = explode(",", $DataString);
+		   
+			//AUDIO Variablen
+			$RoomNumber = $dataArray[1]; 		//Daten der übergebenen Variable
+			$AudioType = $dataArray[2]; 		//Daten der übergebenen Variable
+			$AudioValue = $dataArray[3]; 		//Daten der übergebenen Variable
+	   
+		    $this->SendDebug("Room Number", $RoomNumber, 0);
+		    $this->SendDebug("Audio Type", $AudioType, 0);
+		    $this->SendDebug("Audio Value", $AudioValue, 0);				
 			
 			//geändert 10.08.2017 andrge (hinweis von ch. schrader)		
 			$this->SendDebug("SendToDevice", json_encode(Array("DataID" => "{6B6E9D9E-4541-48CD-9F01-EFE52ACB2530}", "DeviceType" => "AUDIO", "RoomNumber" => $RoomNumber, "AudioType" => $AudioType, "AudioValue" => $AudioValue)), 0);

@@ -77,15 +77,11 @@ class AudioMaxSystem extends IPSModule {
 					$value = $data->Value;
 					SetValue($this->GetIDForIdent("SYS0"), $value);
 				}
-        */
-		
-		
-        
-		
+        */    
 		
 		if ($Type == "Vol"){
-            SetValue($this->GetIDForIdent("volume".$Number), $Value);
-			$this->SendDebug("Volume ". $Number, $Value,0);
+            SetValue($this->GetIDForIdent("volume ".$Number), $Value);
+			$this->SendDebug("Volume: ". $Number, $Value,0);
             }
 /*
 		if ($data->DeviceNumber == 2){
