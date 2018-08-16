@@ -1,5 +1,5 @@
 <?
-class AudioMaxServer extends IPSModule {
+class AudioMaxInterface extends IPSModule {
 //class EseraOneWireController extends IPSModule {
 
 	public function Create(){
