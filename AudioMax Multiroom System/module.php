@@ -8,10 +8,10 @@ class AudioMaxSystem extends IPSModule {
         //These lines are parsed on Symcon Startup or Instance creation
         //You cannot use variables here. Just static values.
         //$this->RegisterPropertyInteger("SYS", 0);
-		$this->CreateVariableProfile("ESERA.AMVolume",1,"%",40,0,1,2,"Intensity");
-		$this->CreateVariableProfile("ESERA.AMGain",1,"%",0,15,1,2,"Intensity");
-	    $this->CreateVariableProfile("ESERA.AMTone",1,"%",0,15,1,2,"Intensity");
-		$this->CreateVariableProfile("ESERA.AMBalance",1,"%",0,15,1,2,"Intensity");
+		$this->CreateVariableProfile("ESERA.AMVolume",1,"%",0,40,1,0,"Intensity");
+		$this->CreateVariableProfile("ESERA.AMGain",1,"%",0,15,1,0,"Intensity");
+	    $this->CreateVariableProfile("ESERA.AMTone",1,"%",0,15,1,0,"Intensity");
+		$this->CreateVariableProfile("ESERA.AMBalance",1,"%",0,15,1,0,"Intensity");
 		//$this->CreateVariableProfile("ESERA.AMMute",3,"",0,1,0,0,"Power");
 
 		
@@ -135,12 +135,18 @@ class AudioMaxSystem extends IPSModule {
     }
 
 	public function RequestAction($Ident, $Value) {
-		$Number = 1;
+		//$Number = 1;
 		
 		switch($Ident) {
-			case "volume1":
+			case "volume1":							//$Number = 1;
 			case "volume2":
+			case "volume3":
+			case "volume4":
+			case "volume5":
+			case "volume6":
 				$Type = "VOL";
+				$Number = SubStr($Ident, 6, 1);
+				$this->SendDebug(("vol ".$Number), $Value,0);
 				$this->SetAudioSettingAM($Number, $Type, $Value);
 				break;
 			case "gain1":
