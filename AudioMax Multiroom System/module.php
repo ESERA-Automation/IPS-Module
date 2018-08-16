@@ -105,7 +105,7 @@ class AudioMaxSystem extends IPSModule {
 			SetValue($this->GetIDForIdent("ampout".$Number), $Value);
 			$this->SendDebug(("ampout".$Number), $Value,0);
 			}
-		if ($Type == "AMP"){
+		if ($Type == "MUT"){
 			SetValue($this->GetIDForIdent("mute".$Number), $Value);
 			$this->SendDebug(("mute".$Number), $Value,0);
 			}
@@ -192,7 +192,8 @@ class AudioMaxSystem extends IPSModule {
 			case "treble6":
 				$Type = "TRE";
 				$Number = SubStr($Ident, 6, 1);
-				break;				
+				break;
+				
 			case "balance1":
 			case "balance2":
 			case "balance3":
@@ -201,7 +202,8 @@ class AudioMaxSystem extends IPSModule {
 			case "balance6":
 				$Type = "BAL";
 				$Number = SubStr($Ident, 5, 1);
-				break;				
+				break;
+				
 			case "ampout1":
 			case "ampout2":
 			case "ampout3":
@@ -210,7 +212,8 @@ class AudioMaxSystem extends IPSModule {
 			case "ampout6":
 				$Type = "AMP";
 				$Number = SubStr($Ident, 6, 1);
-				break;		
+				break;
+				
 			case "mute1":
 			case "mute2":
 			case "mute3":
