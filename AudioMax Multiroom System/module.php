@@ -67,9 +67,9 @@ class AudioMaxSystem extends IPSModule {
 		$Type = $data->AudioType; 		//Daten der übergebenen Variable
 		$Value = $data->AudioValue;
 				
-	    $this->SendDebug("Room Number", $Number, 0);
-		$this->SendDebug("Audio Type", $Type, 0);
-		$this->SendDebug("Audio Value", $Value, 0);
+	    //$this->SendDebug("Room Number", $Number, 0);
+		//$this->SendDebug("Audio Type", $Type, 0);
+		//$this->SendDebug("Audio Value", $Value, 0);
 		
 		/*
 				if ($data->DeviceNumber == 0){
