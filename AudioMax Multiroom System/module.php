@@ -119,7 +119,7 @@ class AudioMaxSystem extends IPSModule {
 				  $this->SendDebug(("volume".$Number), $Value,0);
 				}
 				
-        }
+        
 /*
 		if ($data->DeviceNumber == 2){
            if ($data->DataPoint == 1){
