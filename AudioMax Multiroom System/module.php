@@ -70,7 +70,7 @@ class AudioMaxSystem extends IPSModule {
 		
 	    $this->SendDebug("Room Number", $Number, 0);
 		$this->SendDebug("Audio Type", $Type, 0);
-		$this->SendDebug("Audio Value", $data->AudioValue, 0);
+		$this->SendDebug("Audio Value", $Value, 0);
 		
 		/*
 				if ($data->DeviceNumber == 0){
@@ -83,9 +83,9 @@ class AudioMaxSystem extends IPSModule {
         
 		
 		
-		if ($dataType == "Vol"){
-            SetValue($this->GetIDForIdent("volume".$dataNumber), AudioValue);
-
+		if ($Type == "Vol"){
+            SetValue($this->GetIDForIdent("volume".$Number), $Value);
+			$this->SendDebug("Volume ". $Number, $Value,0);
             }
 /*
 		if ($data->DeviceNumber == 2){
