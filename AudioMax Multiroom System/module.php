@@ -67,9 +67,9 @@ class AudioMaxSystem extends IPSModule {
 		$Type = intval($data->AudioType,10); 		//Daten der übergebenen Variable
 		$Value = intval($data->AudioValue,10);
 				
-	    //$this->SendDebug("Room Number", $Number, 0);
-		//$this->SendDebug("Audio Type", $Type, 0);
-		//$this->SendDebug("Audio Value", $Value, 0);
+	    $this->SendDebug("Room Number", $Number, 0);
+		$this->SendDebug("Audio Type", $Type, 0);
+		$this->SendDebug("Audio Value", $Value, 0);
 		
 		/*
 				if ($data->DeviceNumber == 0){
@@ -79,7 +79,7 @@ class AudioMaxSystem extends IPSModule {
         */    
 		
 		if ($Type == "VOL"){
-				SetValue($this->GetIDForIdent("volume1"), $value);
+				SetValue($this->GetIDForIdent("volume1"), $Value);
 			
 			//SetValue($this->GetIDForIdent("volume".$i), $Value);
 			//SetValue($this->GetIDForIdent(("treble".$Number)), $Value);
