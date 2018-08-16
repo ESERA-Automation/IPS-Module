@@ -5,8 +5,8 @@
 	"vendor": "ESERA-Automation",
 	"aliases": 
 	[
-		"50001 AudioMax Mooltiroom Interface",
-		"AudioMax Mooltiroom Interface"
+		"50001 AudioMax Interface",
+		"AudioMax Interface"
 	],
 	"parentRequirements": ["{79827379-F36E-4ADA-8A95-5F8D1DC92FA9}"],
 	"childRequirements": ["{E3BB8703-6388-48DA-AA85-8852CDEE152D}", "{6B6E9D9E-4541-48CD-9F01-EFE52ACB2530}"],

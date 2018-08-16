@@ -133,104 +133,104 @@ class AudioMaxInterface extends IPSModule {
 		//AUDIO Variablen
 		$RoomNumber = $dataArray[1]; 		//Daten der übergebenen Variable
 		$dataType = $dataArray[2]; 		//Daten der übergebenen Variable
-		$value = $dataArray[3]; 		//Daten der übergebenen Variable
+		$datavalue = $dataArray[3]; 		//Daten der übergebenen Variable
 				    
 		switch ($head) {
-			case "EVT":	
-		       $this->SendDebug("type", $type, 0);			   	
-			   $this->SendDebug("data", $data, 0);
-			   
-				switch ($type) {
-					case "KAL":		
-					break;			
-				}
-				$variableType = $this->GetVariableType($type);
-				$variablenID = 0;
+		case "EVT":	
+		   $this->SendDebug("type", $type, 0);			   	
+		   $this->SendDebug("data", $data, 0);
+		   
+			switch ($type) {
+			case "KAL":		
+				break;			
+			}
+			$variableType = $this->GetVariableType($type);
+			$variablenID = 0;
 
-				//Erstellen der Variablen
-				switch ($variableType){
-					case 1:
-					    if ($type == "KAL"){
-						$variablenID = $this->RegisterVariableboolean($head,"Heartbeat AudioMax-Server","",100);
-						}
-						break;
-					case 2:
-						//$variablenID = $this->RegisterVariableboolean($type, $type);
-						if ($type == "PWR"){
-							$variablenID = $this->RegisterVariableboolean($type,"AudioMax Power","~Switch",1);
-						}
-						break;
-					case 3:
-						$variablenID = $this->RegisterVariableString($type, $type);
-						break;
+			//Erstellen der Variablen
+			switch ($variableType){
+			case 1:
+					if ($type == "KAL"){
+					$variablenID = $this->RegisterVariableboolean($head,"Heartbeat AudioMax-Server","",100);
+					}
+					break;
+			case 2:
+					//$variablenID = $this->RegisterVariableboolean($type, $type);
+					if ($type == "PWR"){
+						$variablenID = $this->RegisterVariableboolean($type,"AudioMax Power","~Switch",1);
+					}
+					break;
+			case 3:
+					$variablenID = $this->RegisterVariableString($type, $type);
+					break;
 
-					default:
-						$this->SendDebug("RegisterVariable", "Unbekannter Variablentyp", 0);
-				}
-				//Wert setzen
-				if ($variablenID !== 0) {
-					SetValue($variablenID, $data);
-				}							
-			    return;	
+			default:
+					$this->SendDebug("RegisterVariable", "Unbekannter Variablentyp", 0);
+			}
+			//Wert setzen
+			if ($variablenID !== 0) {
+				SetValue($variablenID, $data);
+			}							
+			return;	
 
 				
-			case "SYS": 	   
-		       $this->SendDebug("type", $type, 0);			   	
-			   $this->SendDebug("data", $data, 0);
-			   
-				switch ($type) {
-					case "KAL":
-					case "PWR":
-					case "DEBUG":
-					case "ECHO":
-					case "PUSHBUTTON":
-					case "AUTOSTART":			
-					break;
-					
-					case "SW":
-					case "HW":
-					case "FW":
-					break;
+		case "SYS": 	   
+		   $this->SendDebug("type", $type, 0);			   	
+		   $this->SendDebug("data", $data, 0);
+		   
+			switch ($type) {
+			case "KAL":
+			case "PWR":
+			case "DEBUG":
+			case "ECHO":
+			case "PUSHBUTTON":
+			case "AUTOSTART":			
+			break;
+			
+			case "SW":
+			case "HW":
+			case "FW":
+			break;
+			}
+			
+			$variableType = $this->GetVariableType($type);
+			$variablenID = 0;
+
+			//Erstellen der Variablen
+			switch ($variableType){
+			case 1:
+				$variablenID = $this->RegisterVariableInteger($type, $type);
+				break;
+			case 2:
+				//$variablenID = $this->RegisterVariableboolean($type, $type);
+				if ($type == "PWR"){
+					$variablenID = $this->RegisterVariableboolean($type,"AudioMax Power","~Switch",1);
 				}
-				
-				$variableType = $this->GetVariableType($type);
-				$variablenID = 0;
+				break;
+			case 3:
+				$variablenID = $this->RegisterVariableString($type, $type);
+				break;
 
-				//Erstellen der Variablen
-				switch ($variableType){
-					case 1:
-						$variablenID = $this->RegisterVariableInteger($type, $type);
-						break;
-					case 2:
-						//$variablenID = $this->RegisterVariableboolean($type, $type);
-						if ($type == "PWR"){
-							$variablenID = $this->RegisterVariableboolean($type,"AudioMax Power","~Switch",1);
-						}
-						break;
-					case 3:
-						$variablenID = $this->RegisterVariableString($type, $type);
-						break;
+			default:
+					$this->SendDebug("RegisterVariable", "Unbekannter Variablentyp", 0);
+			}			
 
-					default:
-						$this->SendDebug("RegisterVariable", "Unbekannter Variablentyp", 0);
-				}			
-
-				//Wert setzen
-				if ($variablenID !== 0) {
-					SetValue($variablenID, $data);
-				}							
-			    return;	
+			//Wert setzen
+			if ($variablenID !== 0) {
+				SetValue($variablenID, $data);
+			}							
+			return;	
 				
 			
-			case "AUDIO":						
-		           $this->SendDebug("roomnumber", $RoomNumber, 0);
-		           $this->SendDebug("datatype", $dataType, 0);
-		           $this->SendDebug("value", $value, 0);				
-				
-				//geändert 10.08.2017 andrge (hinweis von ch. schrader)		
-				$this->SendDebug("SendToDevice", json_encode(Array("DataID" => "{E3BB8703-6388-48DA-AA85-8852CDEE152D}", "DeviceType" => "AUDIO", "RoomNumber" => $RoomNumber, "DataType" => $dataType, "Value" => $value)), 0);
-				$this->SendDataToChildren(json_encode(Array("DataID" => "{E3BB8703-6388-48DA-AA85-8852CDEE152D}", "DeviceType" => "AUDIO", "RoomNumber" => $RoomNumber, "DataType" => $dataType, "Value" => $value)));
-				return;
+		case "AUDIO":						
+		   $this->SendDebug("roomnumber", $RoomNumber, 0);
+		   $this->SendDebug("datatype", $dataType, 0);
+		   $this->SendDebug("value", $datavalue, 0);				
+			
+			//geändert 10.08.2017 andrge (hinweis von ch. schrader)		
+			$this->SendDebug("SendToDevice", json_encode(Array("DataID" => "{E3BB8703-6388-48DA-AA85-8852CDEE152D}", "DeviceType" => "AUDIO", "RoomNumber" => $RoomNumber, "DataType" => $dataType, "Value" => $datavalue)), 0);
+			$this->SendDataToChildren(json_encode(Array("DataID" => "{E3BB8703-6388-48DA-AA85-8852CDEE152D}", "DeviceType" => "AUDIO", "RoomNumber" => $RoomNumber, "DataType" => $dataType, "Value" => $datavalue)));
+			return;
 
 		}
 
