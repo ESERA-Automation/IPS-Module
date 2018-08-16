@@ -61,7 +61,7 @@ class AudioMaxSystem extends IPSModule {
     public function ReceiveData($JSONString) {
 
         $data = json_decode($JSONString);
-        $this->SendDebug("AudioMaxSystem", "DeviceType" => "AUDIO", "RoomNumber" => $RoomNumber, "DataType" => $dataType, "Value" => $value)), 0);
+        $this->SendDebug("AudioMaxSystem", "DeviceType" => "AUDIO", ",RoomNumber" => $RoomNumber, ",DataType" => $dataType, ",Value" => $value)), 0);
 
 	    $this->SendDebug("roomnumber", $RoomNumber, 0);
 		$this->SendDebug("datatype", $dataType, 0);
