@@ -61,7 +61,7 @@ class AudioMaxSystem extends IPSModule {
     public function ReceiveData($JSONString) {
 
         $data = json_decode($JSONString);
-        $this->SendDebug("AudioMaxSystem", "| Room Number:" . $data->RoomNumber . "| Audio Type:" . $data->AudioType . "| Audio Value:" . $data->AudioValue, 0);
+        //$this->SendDebug("AudioMaxSystem", "| Room Number:" . $data->RoomNumber . "| Audio Type:" . $data->AudioType . "| Audio Value:" . $data->AudioValue, 0);
         
 		$Number = $data->RoomNumber; 		//Daten der übergebenen Variable
 		$Type = $data->AudioType; 		//Daten der übergebenen Variable
@@ -79,7 +79,7 @@ class AudioMaxSystem extends IPSModule {
         */    
 		
 		if ($Type == "VOL"){
-            SetValue($this->GetIDForIdent("Volume ".$Number), $Value);
+            SetValue($this->GetIDForIdent("Volume .$Number"), $Value);
 			$this->SendDebug("Volume: ". $Number, $Value,0);
             }
 /*
