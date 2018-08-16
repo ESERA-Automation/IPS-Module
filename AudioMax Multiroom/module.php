@@ -5,9 +5,45 @@ class AudioMaxServer extends IPSModule {
 	public function Create(){
 		//Never delete this line!
 		parent::Create();
-
-		//These lines are parsed on Symcon Startup or Instance creation
+ 		//These lines are parsed on Symcon Startup or Instance creation
 		//You cannot use variables here. Just static values.
+		
+		$this->CreateVariableProfileVolume("ESERA:Volume",1," dB",40,0,1,2,"%");
+		$this->CreateVariableProfileGain("ESERA:Gain",1," dB",0,15,1,2,"%");
+	    $this->CreateVariableProfileTone("ESERA:Tone",1," dB",0,15,1,2,"%");
+		$this->CreateVariableProfileBalance("ESERA:Balance",1," dB",0,15,1,2,"%");
+		$this->CreateVariableProfileMute(("ESERA:Mute",3,"",0,1,0,0,"");
+		
+		//for($i = 1; $i <= 2; $i++){
+    			$this->RegisterVariableinteger("volume".$i, "Volume".$i, "ESERA.Volume");			
+    			$this->EnableAction("ampOut".$i);
+				
+				$this->RegisterVariableinteger("gain".$i, "Gain".$i, "ESERA.Gain");
+    			$this->EnableAction("gain".$i);
+				
+				$this->RegisterVariableinteger("bass".$i, "Bass".$i, "ESERA.Tone");
+    			$this->EnableAction("bass".$i);
+				
+				$this->RegisterVariableinteger("mid".$i, "Middle".$i, "ESERA.Tone");
+    			$this->EnableAction("mid".$i);
+				
+				$this->RegisterVariableinteger("treble".$i, "Treble".$i, "ESERA.Tone");
+    			$this->EnableAction("treble".$i);
+
+				$this->RegisterVariableinteger("balance".$i, "Balance".$i, "Balance");
+    			$this->EnableAction("balance".$i);		
+							
+    			$this->RegisterVariableBoolean("ampOut".$i, "Amplifier on-off".$i, "~Switch");
+    			$this->EnableAction("ampOut".$i);
+
+    			$this->RegisterVariableBoolean("mute".$i, "Mute Output".$i, "Mute");
+    			$this->EnableAction("mute".$i);				
+    	//	}
+
+		$this->RegisterVariableboolean($type,"AudioMax Power","~Switch",1);
+        $this->EnableAction("pwr".$i);
+		
+
 		$this->RegisterPropertyInteger("ConnectionType", 10);
 		$this->RegisterPropertyString("DataOutputType", "AUDIO");
 		$this->RegisterPropertyInteger("AudioMaxID", 1);
@@ -48,11 +84,8 @@ class AudioMaxServer extends IPSModule {
 	public function ForwardData($JSONString){
 
 		$data = json_decode($JSONString);
-
 		$this->SendDebug("FWD", $data->Command, 0);
-
 		$this->SendDataToParent(json_encode(Array("DataID" => "{79827379-F36E-4ADA-8A95-5F8D1DC92FA9}", "Buffer" => $data->Command .chr(13))));
-
 	}
 
 	public function ConfigureDevice(){
@@ -68,7 +101,8 @@ class AudioMaxServer extends IPSModule {
 			}
 			$this->Send("SET,SYS,KALSEND,1");
 			//$this->Send("SET,SYS,KALSENDTIME,$KeepAliveInterval");
-		} else {
+		} 
+		else {
 			$this->Send("SET,SYS,KALSEND,0");
 		}
 
@@ -84,25 +118,14 @@ class AudioMaxServer extends IPSModule {
 			$this->SetTimerInterval("KeepAliveHeartbeatTimer", $KeepAliveInterval * 1000);
 			$this->Send("SET,SYS,KALREC,1");
 			//$this->Send("SET,SYS,KALRECTIME,$KeepAliveInterval");
-		} else {
+		} 
+		else {
 			$this->Send("SET,SYS,KALREC,0");
 			$this->SetTimerInterval("KeepAliveHeartbeatTimer", 0);
 		}
-
-		//Datenausgabe konfigurieren
-		/*switch($this->ReadPropertyString("DataOutputType")) {
-			case 'OWD':
-				$this->Send("SET,OWB,OWDID,0");
-				break;
-
-			case 'ID':
-				$this->Send("SET,OWB,OWDID,1");
-				break;
-		}
-
-		$this->SaveToSRAM();
-*/
 	}
+	
+	
 	public function ReceiveData($JSONString) {
 
 		$data = json_decode($JSONString);
@@ -128,7 +151,6 @@ class AudioMaxServer extends IPSModule {
 		//Übriggebliebene Daten auf den Buffer schreiben
 		$this->SetBuffer("DataBuffer", $bufferData);
 		$this->SendDebug("BufferOut", $bufferData, 0);
-
 	}
 	
 	private function AnalyseData($DataString) {
@@ -145,13 +167,7 @@ class AudioMaxServer extends IPSModule {
 		$RoomNumber = $dataArray[1]; 		//Daten der übergebenen Variable
 		$dataType = $dataArray[2]; 		//Daten der übergebenen Variable
 		$value = $dataArray[3]; 		//Daten der übergebenen Variable
-
-				   
-		/*
-		$type = SubStr($head, 1, 3);			//vorher 2,3
-           $this->SendDebug("type", $type, 0);
-		*/   
-		   
+				    
 		switch ($head) {
 			case "EVT":	
 		       $this->SendDebug("type", $type, 0);			   	
@@ -245,8 +261,8 @@ class AudioMaxServer extends IPSModule {
 		           $this->SendDebug("value", $value, 0);				
 				
 				//geändert 10.08.2017 andrge (hinweis von ch. schrader)		
-				$this->SendDebug("SendToDevice", json_encode(Array("DataID" => "{6B6E9D9E-4541-48CD-9F01-EFE52ACB2530}", "DeviceType" => "AUDIO", "RoomNumber" => $RoomNumber, "DataType" => $dataType, "Value" => $value)), 0);
-				$this->SendDataToChildren(json_encode(Array("DataID" => "{6B6E9D9E-4541-48CD-9F01-EFE52ACB2530}", "DeviceType" => "AUDIO", "RoomNumber" => $RoomNumber, "DataType" => $dataType, "Value" => $value)));
+				//$this->SendDebug("SendToDevice", json_encode(Array("DataID" => "{6B6E9D9E-4541-48CD-9F01-EFE52ACB2530}", "DeviceType" => "AUDIO", "RoomNumber" => $RoomNumber, "DataType" => $dataType, "Value" => $value)), 0);
+				//$this->SendDataToChildren(json_encode(Array("DataID" => "{6B6E9D9E-4541-48CD-9F01-EFE52ACB2530}", "DeviceType" => "AUDIO", "RoomNumber" => $RoomNumber, "DataType" => $dataType, "Value" => $value)));
 				return;
 
 		}
