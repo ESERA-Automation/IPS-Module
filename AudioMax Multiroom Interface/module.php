@@ -130,8 +130,8 @@ class AudioMaxInterface extends IPSModule {
 		
 		//AUDIO Variablen
 		$RoomNumber = $dataArray[1]; 		//Daten der übergebenen Variable
-		$dataType = $dataArray[2]; 		//Daten der übergebenen Variable
-		$datavalue = $dataArray[3]; 		//Daten der übergebenen Variable
+		$AudioType = $dataArray[2]; 		//Daten der übergebenen Variable
+		$AudioValue = $dataArray[3]; 		//Daten der übergebenen Variable
 				    
 		switch ($head) {
 		case "EVT":	
@@ -221,13 +221,13 @@ class AudioMaxInterface extends IPSModule {
 				
 			
 		case "AUDIO":						
-		   $this->SendDebug("roomnumber", $RoomNumber, 0);
-		   $this->SendDebug("datatype", $dataType, 0);
-		   $this->SendDebug("value", $datavalue, 0);				
+		   $this->SendDebug("Room Number", $RoomNumber, 0);
+		   $this->SendDebug("Audio Type", $AudioType, 0);
+		   $this->SendDebug("Audio Value", $AudioValue, 0);				
 			
 			//geändert 10.08.2017 andrge (hinweis von ch. schrader)		
-			$this->SendDebug("SendToDevice", json_encode(Array("DataID" => "{6B6E9D9E-4541-48CD-9F01-EFE52ACB2530}", "DeviceType" => "AUDIO", "RoomNumber" => $RoomNumber, "DataType" => $dataType, "Value" => $datavalue)), 0);
-			$this->SendDataToChildren(json_encode(Array("DataID" => "{6B6E9D9E-4541-48CD-9F01-EFE52ACB2530}", "DeviceType" => "AUDIO", "RoomNumber" => $RoomNumber, "DataType" => $dataType, "Value" => $datavalue)));
+			$this->SendDebug("SendToDevice", json_encode(Array("DataID" => "{6B6E9D9E-4541-48CD-9F01-EFE52ACB2530}", "DeviceType" => "AUDIO", "RoomNumber" => $RoomNumber, "AudioType" => $AudioType, "AudioValue" => $AudioValue)), 0);
+			$this->SendDataToChildren(json_encode(Array("DataID" => "{6B6E9D9E-4541-48CD-9F01-EFE52ACB2530}", "DeviceType" => "AUDIO", "RoomNumber" => $RoomNumber, "AudioType" => $AudioType, "AudioValue" => $AudioValue)));
 					
 			return;
 
