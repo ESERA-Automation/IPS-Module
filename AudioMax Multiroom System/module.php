@@ -12,7 +12,7 @@ class AudioMaxSystem extends IPSModule {
 		$this->CreateVariableProfile("ESERA.AMGain",1,"%",0,15,1,0,"Intensity");
 	    $this->CreateVariableProfile("ESERA.AMTone",1,"%",0,15,1,0,"Intensity");
 		$this->CreateVariableProfile("ESERA.AMBalance",1,"%",0,15,1,0,"Intensity");
-		//$this->CreateVariableProfile("ESERA.AMMute",3,"",0,1,0,0,"Power");
+		$this->CreateVariableProfile("ESERA.AMInput",1,"",1,4,1,0,"");
 
 		
 		for($i = 1; $i <= 2; $i++){
@@ -40,11 +40,12 @@ class AudioMaxSystem extends IPSModule {
     			$this->RegisterVariableBoolean("mute".$i, "Mute Output ".$i, "~Switch");			
     			$this->EnableAction("mute".$i);	
 
-    			$this->RegisterVariableInteger("input".$i, "Input ".$i, "");
+    			$this->RegisterVariableInteger("input".$i, "Input ".$i, "ESERA.AMInput");
     			$this->EnableAction("input".$i);				
     		}
 
         $this->ConnectParent("{C73DD44F-BF0D-4180-A0F1-D296F68024B2}"); 			//AudioMax Interface
+		
     }
     public function Destroy(){
         //Never delete this line!
@@ -220,6 +221,7 @@ class AudioMaxSystem extends IPSModule {
 				$Number = SubStr($Ident, 4, 1);
 				break;
 		}
+		
 		$this->SendDebug(($Type ." ". $Number), $Value,0);
 		$this->SetAudioSettingAM($Number, $Type, $Value);
 	}
