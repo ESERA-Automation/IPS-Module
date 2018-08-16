@@ -145,30 +145,85 @@ class AudioMaxSystem extends IPSModule {
 			case "volume5":
 			case "volume6":
 				$Type = "VOL";
-				$Number = SubStr($Ident, 6, 1);
-				$this->SendDebug(("vol ".$Number), $Value,0);
-				$this->SetAudioSettingAM($Number, $Type, $Value);
-				break;
+				//$Number = SubStr($Ident, 6, 1);
+				//$this->SendDebug(("vol ".$Number), $Value,0);
+				//$this->SetAudioSettingAM($Number, $Type, $Value);
+				break;				
 			case "gain1":
-			
+			case "gain2":
+			case "gain3":
+			case "gain4":
+			case "gain5":
+			case "gain6":
+				$Type = "GAI";
+				break;
+			case "input1":
+			case "input2":
+			case "input3":
+			case "input4":
+			case "input5":
+			case "input6":
+				$Type = "INP";
+				break;				
 			case "bass1":
 			case "bass2":
+			case "bass3":
+			case "bass4":
+			case "bass5":
+			case "bass6":
 				$Type = "BAS";
-				$this->SetAudioSettingAM($Number, $Type, $Value);
-				//$this->SendDebug(("input".$Number),("|Type:" .$Type), ","("Value".$Value), $Value,0);
-				break;
+				break;			
 			case "mid1":
+			case "mid2":
+			case "mid3":
+			case "mid4":
+			case "mid5":
+			case "mid6":
+				$Type = "GAI";
+				break;				
 			case "treble1":
+			case "treble2":
+			case "treble3":
+			case "treble4":
+			case "treble5":
+			case "treble6":
+				$Type = "GAI";
+				break;				
 			case "balance1":
+			case "balance2":
+			case "balance3":
+			case "balance4":
+			case "balance5":
+			case "balance6":
+				$Type = "GAI";
+				break;				
 			case "ampout1":
-				$this->SetAudioSettingAM($Number, "AMP", $Value);
+			case "ampout2":
+			case "ampout3":
+			case "ampout4":
+			case "ampout5":
+			case "ampout6":
+				$Type = "AMP";
+				break;			
 			case "mute1":
-				$this->SetAudioSettingAM($Number, "mute", $Value);
-				
+			case "mute2":
+			case "mute3":
+			case "mute4":
+			case "mute5":
+			case "mute6":
+				$Type = "MUT";
 				break;
-			default:
-				throw new Exception("Invalid ident");
+				
+				//$Number = SubStr($Ident, 6, 1);
+				//$this->SendDebug(("vol ".$Number), $Value,0);
+				//$this->SetAudioSettingAM($Number, $Type, $Value);	
+			//default:
+			//	throw new Exception("Invalid ident");
 		}
+		
+		$Number = SubStr($Ident, 6, 1);
+		$this->SendDebug(("vol ".$Number), $Value,0);
+		$this->SetAudioSettingAM($Number, $Type, $Value);
 	}
 
 
