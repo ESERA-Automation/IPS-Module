@@ -17,7 +17,7 @@ class AudioMaxSystem extends IPSModule {
 		
 		for($i = 1; $i <= 2; $i++){
     			$this->RegisterVariableinteger("volume".$i, "Volume ".$i, "ESERA.AMVolume");			
-    			$this->EnableAction("ampOut".$i);
+    			$this->EnableAction("volume".$i);
 				
 				$this->RegisterVariableinteger("gain".$i, "Gain ".$i, "ESERA.AMGain");
     			$this->EnableAction("gain".$i);
@@ -34,8 +34,8 @@ class AudioMaxSystem extends IPSModule {
 				$this->RegisterVariableinteger("balance".$i, "Balance ".$i, "ESERA.AMBalance");
     			$this->EnableAction("balance".$i);		
 							
-    			$this->RegisterVariableBoolean("ampOut".$i, "Amplifier_on-off ".$i, "~Switch");
-    			$this->EnableAction("ampOut".$i);
+    			$this->RegisterVariableBoolean("ampout".$i, "Amplifier_on-off ".$i, "~Switch");
+    			$this->EnableAction("ampout".$i);
 
     			$this->RegisterVariableBoolean("mute".$i, "Mute-Output ".$i, "ESERA.AMMute");
     			$this->EnableAction("mute".$i);				
@@ -61,12 +61,12 @@ class AudioMaxSystem extends IPSModule {
     public function ReceiveData($JSONString) {
 
         $data = json_decode($JSONString);
-        $this->SendDebug("AudioMaxSystem", "| RoomNumber:" . $data->$RoomNumber . "| DataType:" . $data-> $dataType . "| Value:" . $data-> $value, 0);
+        $this->SendDebug("AudioMaxSystem", "| RoomNumber:" . $data->$RoomNumber . "| DataType:" . $data-> $dataType . "| Value:" . $data-> $datavalue, 0);
 
 
 	    $this->SendDebug("roomnumber", $RoomNumber, 0);
 		$this->SendDebug("datatype", $dataType, 0);
-		$this->SendDebug("value", $value, 0);
+		$this->SendDebug("datavalue", $datavalue, 0);
 		
 		/*
 				if ($data->DeviceNumber == 0){
@@ -75,14 +75,15 @@ class AudioMaxSystem extends IPSModule {
 				}
         */
 		
-		/*
+		
         
 		
 		
-		if ($dataType == "Volume"){
-            SetValue($this->GetIDForIdent("Volume".$RoomNumber), ($value >> ($i-1)) & 0x01);
-            }
+		if ($dataType == "Vol"){
+            SetValue($this->GetIDForIdent("volume".$RoomNumber), $datavalue >> $RoomNumber);
 
+            }
+/*
 		if ($data->DeviceNumber == 2){
            if ($data->DataPoint == 1){
              $value = intval($data->Value, 10);
