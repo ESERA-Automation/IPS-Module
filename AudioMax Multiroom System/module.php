@@ -8,36 +8,36 @@ class AudioMaxSystem extends IPSModule {
         //These lines are parsed on Symcon Startup or Instance creation
         //You cannot use variables here. Just static values.
         //$this->RegisterPropertyInteger("SYS", 0);
-		$this->CreateVariableProfile("ESERA.AM Volume",1," dB",40,0,1,2,"%");
-		$this->CreateVariableProfile("ESERA.AM Gain",1," dB",0,15,1,2,"%");
-	    $this->CreateVariableProfile("ESERA.AM Tone",1," dB",0,15,1,2,"%");
+		$this->CreateVariableProfile("ESERA.AMVolume",1," dB",40,0,1,2,"%");
+		$this->CreateVariableProfile("ESERA.AMGain",1," dB",0,15,1,2,"%");
+	    $this->CreateVariableProfile("ESERA.AMTone",1," dB",0,15,1,2,"%");
 		$this->CreateVariableProfile("ESERA.AM Balance",1," dB",0,15,1,2,"%");
 		$this->CreateVariableProfile("ESERA.AM Mute",3,"",0,1,0,0,"");
 
 		
 		for($i = 1; $i <= 2; $i++){
-    			$this->RegisterVariableinteger("volume".$i, "Volume".$i, "ESERA.AM Volume");			
+    			$this->RegisterVariableinteger("volume".$i, "Volume ".$i, "ESERA.AMVolume");			
     			$this->EnableAction("ampOut".$i);
 				
-				$this->RegisterVariableinteger("gain".$i, "Gain".$i, "ESERA.AM Gain");
+				$this->RegisterVariableinteger("gain".$i, "Gain ".$i, "ESERA.AMGain");
     			$this->EnableAction("gain".$i);
 				
-				$this->RegisterVariableinteger("bass".$i, "Bass".$i, "ESERA.AM Tone");
+				$this->RegisterVariableinteger("bass".$i, "Bass ".$i, "ESERA.AMTone");
     			$this->EnableAction("bass".$i);
 				
-				$this->RegisterVariableinteger("mid".$i, "Middle".$i, "ESERA.AM Tone");
+				$this->RegisterVariableinteger("mid".$i, "Middle ".$i, "ESERA.AMTone");
     			$this->EnableAction("mid".$i);
 				
-				$this->RegisterVariableinteger("treble".$i, "Treble".$i, "ESERA.AM Tone");
+				$this->RegisterVariableinteger("treble".$i, "Treble ".$i, "ESERA.AMTone");
     			$this->EnableAction("treble".$i);
 
-				$this->RegisterVariableinteger("balance".$i, "Balance".$i, "ESERA.AM Balance");
+				$this->RegisterVariableinteger("balance".$i, "Balance ".$i, "ESERA.AMBalance");
     			$this->EnableAction("balance".$i);		
 							
-    			$this->RegisterVariableBoolean("ampOut".$i, "Amplifier on-off".$i, "~Switch");
+    			$this->RegisterVariableBoolean("ampOut".$i, "Amplifier_on-off ".$i, "~Switch");
     			$this->EnableAction("ampOut".$i);
 
-    			$this->RegisterVariableBoolean("mute".$i, "Mute Output".$i, "ESERA.AM Mute");
+    			$this->RegisterVariableBoolean("mute".$i, "Mute-Output ".$i, "ESERA.AMMute");
     			$this->EnableAction("mute".$i);				
     		}
 
