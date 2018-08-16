@@ -8,6 +8,7 @@ class AudioMaxServer extends IPSModule {
  		//These lines are parsed on Symcon Startup or Instance creation
 		//You cannot use variables here. Just static values.
 		
+		/*
 		$this->CreateVariableProfile("ESERA.AM_Volume",1," dB",40,0,1,2,"%");
 		$this->CreateVariableProfile("ESERA.AM_Gain",1," dB",0,15,1,2,"%");
 	    $this->CreateVariableProfile("ESERA.AM_Tone",1," dB",0,15,1,2,"%");
@@ -42,7 +43,7 @@ class AudioMaxServer extends IPSModule {
 
 		$this->RegisterVariableboolean($type,"AudioMax Power","~Switch",1);
         $this->EnableAction("pwr".$i);
-		
+		*/
 
 		$this->RegisterPropertyInteger("ConnectionType", 10);
 		$this->RegisterPropertyString("DataOutputType", "AUDIO");
