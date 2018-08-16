@@ -13,7 +13,7 @@ class AudioMaxServer extends IPSModule {
 	    $this->CreateVariableProfileTone("ESERA:Tone",1," dB",0,15,1,2,"%");
 		$this->CreateVariableProfileBalance("ESERA:Balance",1," dB",0,15,1,2,"%");
 		$this->CreateVariableProfileMute(("ESERA:Mute",3,"",0,1,0,0,"");
-		
+		/*
 		for($i = 1; $i <= 2; $i++){
     			$this->RegisterVariableinteger("volume".$i, "Volume".$i, "ESERA.Volume");			
     			$this->EnableAction("ampOut".$i);
@@ -39,7 +39,7 @@ class AudioMaxServer extends IPSModule {
     			$this->RegisterVariableBoolean("mute".$i, "Mute Output".$i, "Mute");
     			$this->EnableAction("mute".$i);				
     		}
-
+*/
 		$this->RegisterVariableboolean($type,"AudioMax Power","~Switch",1);
         $this->EnableAction("pwr".$i);
 		
