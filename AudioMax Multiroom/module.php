@@ -8,9 +8,9 @@ class AudioMaxServer extends IPSModule {
  		//These lines are parsed on Symcon Startup or Instance creation
 		//You cannot use variables here. Just static values.
 		
-		$this->CreateVariableProfile("ESERA.AMVolume", 1, " dB", 0, 40, 1, 2, "");
-		//$this->CreateVariableProfile("ESERA.AMVolume",1," dB",40,0,1,2,"");
+
 		/*
+		$this->CreateVariableProfile("ESERA.AMVolume",1," dB",40,0,1,2,"");
 		$this->CreateVariableProfile("ESERA.AM_Gain",1," dB",0,15,1,2,"");
 	    $this->CreateVariableProfile("ESERA.AM_Tone",1," dB",0,15,1,2,"");
 		$this->CreateVariableProfile("ESERA.AM_Balance",1," dB",0,15,1,2,"");
@@ -58,7 +58,9 @@ class AudioMaxServer extends IPSModule {
 
 		$this->RegisterTimer("KeepAliveHeartbeatTimer", 0, 'ESERA_SendKeepAliveHeartbeat($_IPS[\'TARGET\']);');
 		$this->RegisterTimer("SysInfoRequestTimer", 86400 * 1000, 'ESERA_GetSysInfo($_IPS[\'TARGET\']);');
-
+		
+		$this->CreateVariableProfile("ESERA.Luftguete", 1, " ppm", 400, 1800, 1, 2, "");
+		
 	}
 	public function Destroy(){
 		//Never delete this line!
