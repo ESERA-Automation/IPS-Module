@@ -8,10 +8,10 @@ class AudioMaxSystem extends IPSModule {
         //These lines are parsed on Symcon Startup or Instance creation
         //You cannot use variables here. Just static values.
         //$this->RegisterPropertyInteger("SYS", 0);
-		$this->CreateVariableProfile("ESERA.AMVolume",1," dB",40,0,1,2,"%");
-		$this->CreateVariableProfile("ESERA.AMGain",1," dB",0,15,1,2,"%");
-	    $this->CreateVariableProfile("ESERA.AMTone",1," dB",0,15,1,2,"%");
-		$this->CreateVariableProfile("ESERA.AMBalance",1," dB",0,15,1,2,"Intensity");
+		$this->CreateVariableProfile("ESERA.AMVolume",1,"%",40,0,1,2,"Intensity");
+		$this->CreateVariableProfile("ESERA.AMGain",1,"%",0,15,1,2,"Intensity");
+	    $this->CreateVariableProfile("ESERA.AMTone",1,"%",0,15,1,2,"Intensity");
+		$this->CreateVariableProfile("ESERA.AMBalance",1,"%",0,15,1,2,"Intensity");
 		//$this->CreateVariableProfile("ESERA.AMMute",3,"",0,1,0,0,"Power");
 
 		
@@ -37,7 +37,7 @@ class AudioMaxSystem extends IPSModule {
     			$this->RegisterVariableBoolean("ampout".$i, "Amplifier on/off ".$i, "~Switch");
     			$this->EnableAction("ampout".$i);
 
-    			$this->RegisterVariableBoolean("mute".$i, "Mute Output ".$i, "~Switch");
+    			$this->RegisterVariableBoolean("mute".$i, "Mute Output ".$i, "~Switch");			
     			$this->EnableAction("mute".$i);	
 
     			$this->RegisterVariableInteger("input".$i, "Input ".$i, "");
@@ -133,25 +133,30 @@ class AudioMaxSystem extends IPSModule {
 		*/
 		
     }
-/*
+
 	public function RequestAction($Ident, $Value) {
+		$Number = 1;
+		
 		switch($Ident) {
-			case "vol":
-			case "gain":
-			case "bass":
-			case "mid":
-			case "treble":
-			case "balance":
-			case "ampout":
-			case "mute":
-				$this->SetAudioAM($Number, $Ident, $Value);
+			case "volume1":
+				$this->SetAudioSettingAM($Number, "VOL", $Value);
+			case "gain1":
+			case "bass1":
+				$this->SetAudioSettingAM($Number, "BAS", $Value);
+			case "mid1":
+			case "treble1":
+			case "balance1":
+			case "ampout1":
+				$this->SetAudioSettingAM($Number, "AMP", $Value);
+			case "mute1":
+				$this->SetAudioSettingAM($Number, "mute", $Value);
 				
 				break;
 			default:
 				throw new Exception("Invalid ident");
 		}
 	}
-*/	
+
 
 
     public function SetAudioSettingAM(int $Number, int $Type , int $Value) {
