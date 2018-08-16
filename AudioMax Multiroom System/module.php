@@ -89,8 +89,8 @@ class AudioMaxSystem extends IPSModule {
 			$this->SendDebug(("mid".$Number), $Value,0);
 			}
 		if ($Type == "TRE"){
-			SetValue($this->GetIDForIdent("trebble".$Number), $Value);
-			$this->SendDebug(("trebble".$Number), $Value,0);
+			SetValue($this->GetIDForIdent("treble".$Number), $Value);
+			$this->SendDebug(("treble".$Number), $Value,0);
 			}
 		if ($Type == "BAL"){
 			SetValue($this->GetIDForIdent("balance".$Number), $Value);
