@@ -118,7 +118,7 @@ class AudioMaxSystem extends IPSModule {
 	}
 */	
 
-    public function SetAudioAM(int $RoomNumber, string $AudioType , int $AudioValue) {
+    public function SetAudioAM(int $RoomNumber, int $AudioType , int $AudioValue) {
   		$this->Send("SET,AUDIO,". $RoomNumber .",". $AudioType . ",". $AudioValue ."");
   	}
 
