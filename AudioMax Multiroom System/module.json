@@ -1,9 +1,9 @@
 {
- "id": "{F566210E-8CFA-466D-86AC-AC884350262A}",
+"id": "{F566210E-8CFA-466D-86AC-AC884350262A}",
   "name": "AudioMaxSystem",
   "type": 3,
   "vendor": "ESERA-Automation",
-  "aliases": "AudioMax";,
+  "aliases":
   [
     "50001 AudioMax System, Input-Output",
 	"AudioMax System, Input-Output"
