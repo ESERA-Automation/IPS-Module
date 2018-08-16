@@ -146,7 +146,6 @@ class AudioMaxSystem extends IPSModule {
 			case "volume6":
 				$Type = "VOL";
 				$Number = SubStr($Ident, 6, 1);
-				//$this->SetAudioSettingAM($Number, $Type, $Value);
 				break;				
 			case "gain1":
 			case "gain2":
@@ -156,7 +155,6 @@ class AudioMaxSystem extends IPSModule {
 			case "gain6":
 				$Type = "GAI";
 				$Number = SubStr($Ident, 4, 1);
-				//$this->SetAudioSettingAM($Number, $Type, $Value);
 				break;
 			case "input1":
 			case "input2":
@@ -166,7 +164,6 @@ class AudioMaxSystem extends IPSModule {
 			case "input6":
 				$Type = "INP";
 				$Number = SubStr($Ident, 5, 1);
-				//$this->SetAudioSettingAM($Number, $Type, $Value);
 				break;				
 			case "bass1":
 			case "bass2":
@@ -183,7 +180,7 @@ class AudioMaxSystem extends IPSModule {
 			case "mid4":
 			case "mid5":
 			case "mid6":
-				$Type = "GAI";
+				$Type = "MID";
 				$Number = SubStr($Ident, 3, 1);
 				break;				
 			case "treble1":
@@ -192,7 +189,7 @@ class AudioMaxSystem extends IPSModule {
 			case "treble4":
 			case "treble5":
 			case "treble6":
-				$Type = "GAI";
+				$Type = "TRE";
 				$Number = SubStr($Ident, 6, 1);
 				break;				
 			case "balance1":
@@ -201,7 +198,7 @@ class AudioMaxSystem extends IPSModule {
 			case "balance4":
 			case "balance5":
 			case "balance6":
-				$Type = "GAI";
+				$Type = "BAL";
 				$Number = SubStr($Ident, 5, 1);
 				break;				
 			case "ampout1":
@@ -222,15 +219,8 @@ class AudioMaxSystem extends IPSModule {
 				$Type = "MUT";
 				$Number = SubStr($Ident, 4, 1);
 				break;
-				
-				//$Number = SubStr($Ident, 6, 1);
-				//$this->SendDebug(("vol ".$Number), $Value,0);
-				//$this->SetAudioSettingAM($Number, $Type, $Value);	
-			//default:
-			//	throw new Exception("Invalid ident");
 		}
-
-		$this->SendDebug(($Type . $Number), $Value,0);
+		$this->SendDebug(($Type ." ". $Number), $Value,0);
 		$this->SetAudioSettingAM($Number, $Type, $Value);
 	}
 
