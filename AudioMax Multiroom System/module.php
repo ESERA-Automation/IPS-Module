@@ -34,8 +34,8 @@ class AudioMaxSystem extends IPSModule {
 				$this->RegisterVariableinteger("balance".$i, "Balance ".$i, "ESERA.AMBalance");
     			$this->EnableAction("balance".$i);		
 							
-    			$this->RegisterVariableBoolean("ampout".$i, "Amplifier on/off ".$i, "~Switch");
-    			$this->EnableAction("ampout".$i);
+    			$this->RegisterVariableBoolean("amp".$i, "Amplifier on/off ".$i, "~Switch");
+    			$this->EnableAction("amp".$i);
 
     			$this->RegisterVariableBoolean("mute".$i, "Mute Output ".$i, "~Switch");			
     			$this->EnableAction("mute".$i);	
@@ -80,7 +80,15 @@ class AudioMaxSystem extends IPSModule {
 		if ($Type == "VOL"){
 			SetValue($this->GetIDForIdent("volume".$Number), $Value);
 			$this->SendDebug(("volume".$Number), $Value,0);
-			}	
+			}
+		if ($Type == "INP"){
+			SetValue($this->GetIDForIdent("input".$Number), $Value);
+			$this->SendDebug(("input".$Number), $Value,0);
+			}
+		if ($Type == "GAI"){
+			SetValue($this->GetIDForIdent("gain".$Number), $Value);
+			$this->SendDebug(("gain".$Number), $Value,0);
+			}			
 		if ($Type == "BAS"){
 			SetValue($this->GetIDForIdent("bass".$Number), $Value);
 			$this->SendDebug(("bass".$Number), $Value,0);
@@ -97,30 +105,15 @@ class AudioMaxSystem extends IPSModule {
 			SetValue($this->GetIDForIdent("balance".$Number), $Value);
 			$this->SendDebug(("balance".$Number), $Value,0);
 			}
-		if ($Type == "GAI"){
-			SetValue($this->GetIDForIdent("gain".$Number), $Value);
-			$this->SendDebug(("gain".$Number), $Value,0);
-			}
 		if ($Type == "AMP"){
-			SetValue($this->GetIDForIdent("ampout".$Number), $Value);
-			$this->SendDebug(("ampout".$Number), $Value,0);
+			SetValue($this->GetIDForIdent("amp".$Number), $Value);
+			$this->SendDebug(("amp".$Number), $Value,0);
 			}
 		if ($Type == "MUT"){
 			SetValue($this->GetIDForIdent("mute".$Number), $Value);
 			$this->SendDebug(("mute".$Number), $Value,0);
 			}
-		if ($Type == "INP"){
-			SetValue($this->GetIDForIdent("input".$Number), $Value);
-			$this->SendDebug(("input".$Number), $Value,0);
-			}
-	/*
-				if ($Number == 1){
-				  SetValue($this->GetIDForIdent("volume2"), $Value);
-				  SetValue($this->GetIDForIdent("volume".$Number), $Value);
-				  $this->SendDebug(("volume".$Number), $Value,0);
-				}
-	*/
-				
+	
         
 /*
 		if ($data->DeviceNumber == 2){
@@ -202,14 +195,14 @@ class AudioMaxSystem extends IPSModule {
 				$Type = "BAL";
 				$Number = SubStr($Ident, 7, 1);
 				break;				
-			case "ampout1":
-			case "ampout2":
-			case "ampout3":
-			case "ampout4":
-			case "ampout5":
-			case "ampout6":
+			case "amp1":
+			case "amp2":
+			case "amp3":
+			case "amp4":
+			case "amp5":
+			case "amp6":
 				$Type = "AMP";
-				$Number = SubStr($Ident, 6, 1);
+				$Number = SubStr($Ident, 3, 1);
 				break;				
 			case "mute1":
 			case "mute2":
