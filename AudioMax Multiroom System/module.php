@@ -25,47 +25,47 @@ class AudioMaxSystem extends IPSModule {
     			
 				$this->RegisterVariableinteger("volume".$i, "Volume ".$i, "ESERA.AMVolume");			
     			$this->EnableAction("volume".$i);
-				$this->SetPosition("volume".$i, $position);
+				//$this->SetPosition("volume".$i, $position);
 				
 				$this->RegisterVariableinteger("gain".$i, "Gain ".$i, "ESERA.AMGain");
     			$this->EnableAction("gain".$i);
 					$position = $position + 1;
-				$this->SetPosition("gain".$i, $position);
+				//$this->SetPosition("gain".$i, $position);
 				
 				$this->RegisterVariableinteger("bass".$i, "Bass ".$i, "ESERA.AMTone");
     			$this->EnableAction("bass".$i);
 					$position = $position + 1;
-				$this->IPS_SetPosition("bass".$i, $position);
+				//$this->IPS_SetPosition("bass".$i, $position);
 				
 				$this->RegisterVariableinteger("mid".$i, "Middle ".$i, "ESERA.AMTone");
     			$this->EnableAction("mid".$i);
 					$position = $position + 1;
-				$this->SetPosition("mid".$i, $position);			
+				//$this->SetPosition("mid".$i, $position);			
 				
 				$this->RegisterVariableinteger("treble".$i, "Treble ".$i, "ESERA.AMTone");
     			$this->EnableAction("treble".$i);
 					$position = $position + 1;
-				$this->IPS_SetPosition("treble".$i, $position);
+				//$this->IPS_SetPosition("treble".$i, $position);
 
 				$this->RegisterVariableinteger("balance".$i, "Balance ".$i, "ESERA.AMBalance");
     			$this->EnableAction("balance".$i);
 					$position = $position + 1;
-				$this->IPS_SetPosition("balance".$i, $position);				
+				//$this->IPS_SetPosition("balance".$i, $position);				
 							
     			$this->RegisterVariableBoolean("amp".$i, "Amplifier ".$i, "~Switch");
     			$this->EnableAction("amp".$i);
 					$position = $position + 1;
-				$this->IPS_SetPosition("amp".$i, $position);
+				//$this->IPS_SetPosition("amp".$i, $position);
 
     			$this->RegisterVariableBoolean("mute".$i, "Mute Output ".$i, "~Switch");			
     			$this->EnableAction("mute".$i);	
 					$position = $position + 1;
-				$this->IPS_SetPosition("mute".$i, $position);
+				//$this->IPS_SetPosition("mute".$i, $position);
 
     			$this->RegisterVariableInteger("input".$i, "Input ".$i, "ESERA.AMInput");
     			$this->EnableAction("input".$i);
 					$position = $position + 1;
-				$this->IPS_SetPosition("input".$i, $position);				
+				//$this->IPS_SetPosition("input".$i, $position);				
     		}
 
         $this->ConnectParent("{C73DD44F-BF0D-4180-A0F1-D296F68024B2}"); 			//AudioMax Interface
