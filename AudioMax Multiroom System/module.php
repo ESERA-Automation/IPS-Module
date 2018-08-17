@@ -251,8 +251,6 @@ class AudioMaxSystem extends IPSModule {
 	//private function CreateVariableProfile($ProfileName, $ProfileType, $Suffix, $MinValue, $MaxValue, $StepSize, $Digits, $Icon,$Wert,$Name,$Color) {
     private function CreateVariableAssociation($ProfileName, $Wert, $Name, $Icon , $color) {
 				IPS_SetVariableProfileAssociation($ProfileName, $Wert, $Name, $Icon , $color);
-				   
-		    }
 	  }
 
     private function Send($Command) {
