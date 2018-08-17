@@ -4,15 +4,16 @@ class AudioMaxSystem extends IPSModule {
     public function Create(){
         //Never delete this line!
         parent::Create();
-
+       
         //These lines are parsed on Symcon Startup or Instance creation
         //You cannot use variables here. Just static values.
-		$this->CreateVariableProfile("ESERA.AMVolume",1,"%",0,40,1,0,"Intensity");
+		//CreateVariableProfile($ProfileName, $ProfileType, $Suffix, $MinValue, $MaxValue, $StepSize, $Digits, $Icon,$Wert,$Name,$Color)
+		$this->CreateVariableProfile("ESERA.AMVolume",1,"%",0,40,1,0,"Intensity",);
 		$this->CreateVariableProfile("ESERA.AMGain",1,"%",0,15,1,0,"Intensity");
 	    $this->CreateVariableProfile("ESERA.AMTone",1,"%",0,15,1,0,"Intensity");
 		$this->CreateVariableProfile("ESERA.AMBalance",1,"%",0,15,1,0,"Intensity");
 		$this->CreateVariableProfile("ESERA.AMInput",1,"",1,4,1,0,"");
-		$this->CreateVariableProfile("ESERA.AMMute",0,"",0,1,1,0,"Power");
+		//$this->CreateVariableProfile("ESERA.AMMute",0,"",0,1,1,0,"Power");
 
 		
 		for($i = 1; $i <= 2; $i++){
@@ -34,10 +35,10 @@ class AudioMaxSystem extends IPSModule {
 				$this->RegisterVariableinteger("balance".$i, "Balance ".$i, "ESERA.AMBalance");
     			$this->EnableAction("balance".$i);		
 							
-    			$this->RegisterVariableBoolean("amp".$i, "Amplifier on/off ".$i, "ESERA.AMMute");
+    			$this->RegisterVariableBoolean("amp".$i, "Amplifier on/off ".$i, "~switch");
     			$this->EnableAction("amp".$i);
 
-    			$this->RegisterVariableBoolean("mute".$i, "Mute Output ".$i, "ESERA.AMMute");			
+    			$this->RegisterVariableBoolean("mute".$i, "Mute Output ".$i, "~switch");			
     			$this->EnableAction("mute".$i);	
 
     			$this->RegisterVariableInteger("input".$i, "Input ".$i, "ESERA.AMInput");
@@ -227,6 +228,7 @@ class AudioMaxSystem extends IPSModule {
 	
 
 
+    //private function CreateVariableProfile($ProfileName, $ProfileType, $Suffix, $MinValue, $MaxValue, $StepSize, $Digits, $Icon,$Wert,$Name,$Color) {
     private function CreateVariableProfile($ProfileName, $ProfileType, $Suffix, $MinValue, $MaxValue, $StepSize, $Digits, $Icon) {
 		    if (!IPS_VariableProfileExists($ProfileName)) {
 			       IPS_CreateVariableProfile($ProfileName, $ProfileType);
@@ -234,6 +236,7 @@ class AudioMaxSystem extends IPSModule {
 			       IPS_SetVariableProfileValues($ProfileName, $MinValue, $MaxValue, $StepSize);
 			       IPS_SetVariableProfileDigits($ProfileName, $Digits);
 			       IPS_SetVariableProfileIcon($ProfileName, $Icon);
+				   //IPS_SetVariableProfileAssociation($ProfileName, $Wert,$Name,$Icon ,$color);
 				   
 		    }
 	  }
