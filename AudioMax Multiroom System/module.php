@@ -80,39 +80,39 @@ class AudioMaxSystem extends IPSModule {
   		
 		if ($Type == "VOL"){
 			SetValue($this->GetIDForIdent("volume".$Number), $Value);
-			$this->SendDebug(("volume".$Number), $Value,0);
+			$this->SendDebug(("volume ".$Number), $Value,0);
 			}
 		if ($Type == "INP"){
 			SetValue($this->GetIDForIdent("input".$Number), $Value);
-			$this->SendDebug(("input".$Number), $Value,0);
+			$this->SendDebug(("input ".$Number), $Value,0);
 			}
 		if ($Type == "GAI"){
 			SetValue($this->GetIDForIdent("gain".$Number), $Value);
-			$this->SendDebug(("gain".$Number), $Value,0);
+			$this->SendDebug(("gain ".$Number), $Value,0);
 			}			
 		if ($Type == "BAS"){
 			SetValue($this->GetIDForIdent("bass".$Number), $Value);
-			$this->SendDebug(("bass".$Number), $Value,0);
+			$this->SendDebug(("bass ".$Number), $Value,0);
 			}
 		if ($Type == "MID"){
 			SetValue($this->GetIDForIdent("mid".$Number), $Value);
-			$this->SendDebug(("mid".$Number), $Value,0);
+			$this->SendDebug(("mid ".$Number), $Value,0);
 			}
 		if ($Type == "TRE"){
 			SetValue($this->GetIDForIdent("treble".$Number), $Value);
-			$this->SendDebug(("treble".$Number), $Value,0);
+			$this->SendDebug(("treble ".$Number), $Value,0);
 			}
 		if ($Type == "BAL"){
 			SetValue($this->GetIDForIdent("balance".$Number), $Value);
-			$this->SendDebug(("balance".$Number), $Value,0);
+			$this->SendDebug(("balance ".$Number), $Value,0);
 			}
 		if ($Type == "AMP"){
 			SetValue($this->GetIDForIdent("amp".$Number), $Value);
-			$this->SendDebug(("amp".$Number), $Value,0);
+			$this->SendDebug(("amp ".$Number), $Value,0);
 			}
 		if ($Type == "MUT"){
 			SetValue($this->GetIDForIdent("mute".$Number), $Value);
-			$this->SendDebug(("mute".$Number), $Value,0);
+			$this->SendDebug(("mute ".$Number), $Value,0);
 			}
 	
         
@@ -216,7 +216,7 @@ class AudioMaxSystem extends IPSModule {
 				break;
 		}
 		
-		$this->SendDebug(($Type ." ". $Number), $Value,0);
+		$this->SendDebug(("send: ".$Type ." ". $Number), $Value,0);
 		$this->SetAudioSettingAM($Number, $Type, $Value);
 	}
 
