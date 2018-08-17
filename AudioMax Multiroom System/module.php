@@ -7,12 +7,12 @@ class AudioMaxSystem extends IPSModule {
 
         //These lines are parsed on Symcon Startup or Instance creation
         //You cannot use variables here. Just static values.
-        //$this->RegisterPropertyInteger("SYS", 0);
 		$this->CreateVariableProfile("ESERA.AMVolume",1,"%",0,40,1,0,"Intensity");
 		$this->CreateVariableProfile("ESERA.AMGain",1,"%",0,15,1,0,"Intensity");
 	    $this->CreateVariableProfile("ESERA.AMTone",1,"%",0,15,1,0,"Intensity");
 		$this->CreateVariableProfile("ESERA.AMBalance",1,"%",0,15,1,0,"Intensity");
 		$this->CreateVariableProfile("ESERA.AMInput",1,"",1,4,1,0,"");
+		$this->CreateVariableProfile("ESERA.AMMute",3,"",0,1,1,0,"Power");
 
 		
 		for($i = 1; $i <= 2; $i++){
@@ -34,10 +34,10 @@ class AudioMaxSystem extends IPSModule {
 				$this->RegisterVariableinteger("balance".$i, "Balance ".$i, "ESERA.AMBalance");
     			$this->EnableAction("balance".$i);		
 							
-    			$this->RegisterVariableBoolean("amp".$i, "Amplifier on/off ".$i, "~Switch");
+    			$this->RegisterVariableBoolean("amp".$i, "Amplifier on/off ".$i, "ESERA.AMMute");
     			$this->EnableAction("amp".$i);
 
-    			$this->RegisterVariableBoolean("mute".$i, "Mute Output ".$i, "~Switch");			
+    			$this->RegisterVariableBoolean("mute".$i, "Mute Output ".$i, "ESERA.AMMute");			
     			$this->EnableAction("mute".$i);	
 
     			$this->RegisterVariableInteger("input".$i, "Input ".$i, "ESERA.AMInput");
