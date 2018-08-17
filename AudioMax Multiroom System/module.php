@@ -224,7 +224,7 @@ class AudioMaxSystem extends IPSModule {
 
     public function SetAudioSettingAM(int $Number, int $Type , int $Value) {
   		$this->Send("SET,AUDIO,". $Number .",". $Type . ",". $Value ."");
-		$this->SendDebug(("DBG: send: ". $Number. " ". $Type . " ". $Value.), $Value,0);
+		$this->SendDebug(("DBG: send ". $Number. " " . $Type . " " . $Value), $Value,0);
   	}
 	
 
