@@ -73,9 +73,9 @@ class AudioMaxSystem extends IPSModule {
 		$Type = $data->AudioType;
 		$Value = intval($data->AudioValue,10);
 				
-	    $this->SendDebug("Room Number", $Number, 0);
-		$this->SendDebug("Audio Type", $Type, 0);
-		$this->SendDebug("Audio Value", $Value, 0);
+	    $this->SendDebug("DGB Receive| Room Number", $Number, 0);
+		$this->SendDebug("DGB Receive| Audio Type", $Type, 0);
+		$this->SendDebug("DGB Receive| Audio Value", $Value, 0);
 		
   		
 		if ($Type == "VOL"){
@@ -216,7 +216,7 @@ class AudioMaxSystem extends IPSModule {
 				break;
 		}
 		
-		$this->SendDebug(("send: ".$Type ." ". $Number), $Value,0);
+		$this->SendDebug(("DBG: send: ".$Type ." ". $Number), $Value,0);
 		$this->SetAudioSettingAM($Number, $Type, $Value);
 	}
 
@@ -224,6 +224,7 @@ class AudioMaxSystem extends IPSModule {
 
     public function SetAudioSettingAM(int $Number, int $Type , int $Value) {
   		$this->Send("SET,AUDIO,". $Number .",". $Type . ",". $Value ."");
+		$this->SendDebug(("DBG: send: ". $Number. " ". $Type . " ". $Value.), $Value,0);
   	}
 	
 
