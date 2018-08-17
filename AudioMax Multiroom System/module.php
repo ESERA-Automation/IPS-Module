@@ -25,12 +25,12 @@ class AudioMaxSystem extends IPSModule {
     			
 				$this->RegisterVariableinteger("volume".$i, "Volume ".$i, "ESERA.AMVolume");			
     			$this->EnableAction("volume".$i);
-				$this->IPS_SetPosition(("volume".$i), $position);
+				$this->SetPosition("volume".$i, $position);
 				
 				$this->RegisterVariableinteger("gain".$i, "Gain ".$i, "ESERA.AMGain");
     			$this->EnableAction("gain".$i);
 					$position = $position + 1;
-				$this->IPS_SetPosition(("gain".$i), $position);
+				$this->SetPosition("gain".$i, $position);
 				
 				$this->RegisterVariableinteger("bass".$i, "Bass ".$i, "ESERA.AMTone");
     			$this->EnableAction("bass".$i);
@@ -40,7 +40,7 @@ class AudioMaxSystem extends IPSModule {
 				$this->RegisterVariableinteger("mid".$i, "Middle ".$i, "ESERA.AMTone");
     			$this->EnableAction("mid".$i);
 					$position = $position + 1;
-				$this->IPS_SetPosition("mid".$i, $position);			
+				$this->SetPosition("mid".$i, $position);			
 				
 				$this->RegisterVariableinteger("treble".$i, "Treble ".$i, "ESERA.AMTone");
     			$this->EnableAction("treble".$i);
