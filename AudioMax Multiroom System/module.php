@@ -35,10 +35,10 @@ class AudioMaxSystem extends IPSModule {
 				$this->RegisterVariableinteger("balance".$i, "Balance ".$i, "ESERA.AMBalance");
     			$this->EnableAction("balance".$i);		
 							
-    			$this->RegisterVariableBoolean("amp".$i, "Amplifier on/off ".$i, "~switch");
+    			$this->RegisterVariableBoolean("amp".$i, "Amplifier on/off ".$i, "~Switch");
     			$this->EnableAction("amp".$i);
 
-    			$this->RegisterVariableBoolean("mute".$i, "Mute Output ".$i, "~switch");			
+    			$this->RegisterVariableBoolean("mute".$i, "Mute Output ".$i, "~Switch");			
     			$this->EnableAction("mute".$i);	
 
     			$this->RegisterVariableInteger("input".$i, "Input ".$i, "ESERA.AMInput");
