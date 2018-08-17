@@ -20,7 +20,7 @@ class AudioMaxSystem extends IPSModule {
 		$this->CreateVariableAssociation("ESERA.AMInput", 3, "Input 3", "Light" , 0x00FF00);
 		$this->CreateVariableAssociation("ESERA.AMInput", 4, "Input 4", "Light" , 0x00FF00);
 		
-		$position = 1
+		$position = 1;
 		for($i = 1; $i <= 6; $i++){
     			
 				$this->RegisterVariableinteger("volume".$i, "Volume ".$i, "ESERA.AMVolume");			
