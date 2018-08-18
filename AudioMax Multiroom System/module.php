@@ -270,15 +270,26 @@ class AudioMaxSystem extends IPSModule {
 
 	public function SetConnectionAMSerial(int $Value) {
 			SetValue($this->GetIDForIdent("connection"), $Value);
-			//$variableId  = IPS_GetObjectIDByName('connection', $this->instanceId);
-			//SetValue($variableId, $value);
 
-			//$this->LogInf('Set AudioMax Connection Status to '.($value ? 'Connection Active' : 'Connection Inactiv'));
-
-			$comPortId = GetValue(IPS_GetObjectIDByName('AudioMaxInterface', $this->instanceId));
-			COMPort_SetOpen($comPortId, $value);
-			IPS_ApplyChanges($comPortId);
+			//$comPortId = GetValue(IPS_GetObjectIDByName('AudioMaxInterface', $this->instanceId));
+			/*
+			switch($this->ReadPropertyInteger("ConnectionType")) {
+			case 10:
+				$this->ForceParent("{6DC3D946-0D31-450F-A8C6-C42DB8D7D4F1}"); //SerialPort				
+				break;			
 			
+			case 20:
+				$this->ForceParent("{3CFF0FD9-E306-41DB-9B5A-9D06D38576C3}"); //ClientSocket
+				break;
+
+			default:
+				throw new Exception("Invalid ConnectionType for Parent");
+				break;
+			}
+			*/
+			
+			COMPort_SetOpen(json_encode(Array("DataID" => "{6DC3D946-0D31-450F-A8C6-C42DB8D7D4F1}", $value);	// SerialPort
+			IPS_ApplyChanges(json_encode(Array("DataID" => "{6DC3D946-0D31-450F-A8C6-C42DB8D7D4F1}");
 			/*
 			if ($value) {
 				$this->SendData(AM_TYP_SET, AM_CMD_KEEPALIVE, null, null, '0');
