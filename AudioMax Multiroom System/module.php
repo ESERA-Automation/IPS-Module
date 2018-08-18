@@ -274,10 +274,11 @@ class AudioMaxSystem extends IPSModule {
 			//SetValue($variableId, $value);
 
 			//$this->LogInf('Set AudioMax Connection Status to '.($value ? 'Connection Active' : 'Connection Inactiv'));
-
+/*
 			$comPortId = GetValue(IPS_GetObjectIDByName('AudioMaxInterface', $this->instanceId));
 			COMPort_SetOpen($comPortId, $value);
 			IPS_ApplyChanges($comPortId);
+			*/
 			/*
 			if ($value) {
 				$this->SendData(AM_TYP_SET, AM_CMD_KEEPALIVE, null, null, '0');
