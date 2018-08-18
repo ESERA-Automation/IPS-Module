@@ -274,7 +274,7 @@ class AudioMaxSystem extends IPSModule {
 			$comPortId = ($this->GetIDForIdent(json_encode(Array("DataID" => "{6DC3D946-0D31-450F-A8C6-C42DB8D7D4F1}"))));
 			$this->SendDebug(("DBG: comport: ". $comPortId), $Value,0);
 			
-			$Watt = $this->SendDataToParent(json_encode(Array("DataID" => "{6DC3D946-0D31-450F-A8C6-C42DB8D7D4F1}", "Function" => 3, "Address" => $Address , "Quantity" => 2, "Data" => "")));
+			//$Watt = $this->SendDataToParent(json_encode(Array("DataID" => "{6DC3D946-0D31-450F-A8C6-C42DB8D7D4F1}", "Function" => 3, "Address" => $Address , "Quantity" => 2, "Data" => "")));
 			/*
 			switch($this->ReadPropertyInteger("ConnectionType")) {
 			case 10:
