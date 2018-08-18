@@ -31,31 +31,31 @@ class AudioMaxSystem extends IPSModule {
 		$position = 1;
 		for($i = 1; $i <= 6; $i++){
     			
-				$this->RegisterVariableinteger("volume".$i, "Volume ".$i, "ESERA.AMVolume");			
+				$this->RegisterVariableinteger("volume".$i, "Volume ".$i, "ESERA.AudioMaxVolume");			
     			$this->EnableAction("volume".$i);
 				//$this->SetPosition("volume".$i, $position);
 				
-				$this->RegisterVariableinteger("gain".$i, "Gain ".$i, "ESERA.AMGain");
+				$this->RegisterVariableinteger("gain".$i, "Gain ".$i, "ESERA.AudioMaxGain");
     			$this->EnableAction("gain".$i);
 					$position = $position + 1;
 				//$this->SetPosition("gain".$i, $position);
 				
-				$this->RegisterVariableinteger("bass".$i, "Bass ".$i, "ESERA.AMTone");
+				$this->RegisterVariableinteger("bass".$i, "Bass ".$i, "ESERA.AudioMaxTone");
     			$this->EnableAction("bass".$i);
 					$position = $position + 1;
 				//$this->IPS_SetPosition("bass".$i, $position);
 				
-				$this->RegisterVariableinteger("mid".$i, "Middle ".$i, "ESERA.AMTone");
+				$this->RegisterVariableinteger("mid".$i, "Middle ".$i, "ESERA.AudioMaxTone");
     			$this->EnableAction("mid".$i);
 					$position = $position + 1;
 				//$this->SetPosition("mid".$i, $position);			
 				
-				$this->RegisterVariableinteger("treble".$i, "Treble ".$i, "ESERA.AMTone");
+				$this->RegisterVariableinteger("treble".$i, "Treble ".$i, "ESERA.AudioMaxTone");
     			$this->EnableAction("treble".$i);
 					$position = $position + 1;
 				//$this->IPS_SetPosition("treble".$i, $position);
 
-				$this->RegisterVariableinteger("balance".$i, "Balance ".$i, "ESERA.AMBalance");
+				$this->RegisterVariableinteger("balance".$i, "Balance ".$i, "ESERA.AudioMaxBalance");
     			$this->EnableAction("balance".$i);
 					$position = $position + 1;
 				//$this->IPS_SetPosition("balance".$i, $position);				
@@ -70,7 +70,7 @@ class AudioMaxSystem extends IPSModule {
 					$position = $position + 1;
 				//$this->IPS_SetPosition("mute".$i, $position);
 
-    			$this->RegisterVariableInteger("input".$i, "Input ".$i, "ESERA.AMInput");
+    			$this->RegisterVariableInteger("input".$i, "Input ".$i, "ESERA.AudioMaxInput");
     			$this->EnableAction("input".$i);
 					$position = $position + 1;
 				//$this->IPS_SetPosition("input".$i, $position);				
