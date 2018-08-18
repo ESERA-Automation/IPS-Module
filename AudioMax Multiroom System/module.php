@@ -8,18 +8,26 @@ class AudioMaxSystem extends IPSModule {
         //These lines are parsed on Symcon Startup or Instance creation
         //You cannot use variables here. Just static values.
 		//CreateVariableProfile($ProfileName, $ProfileType, $Suffix, $MinValue, $MaxValue, $StepSize, $Digits, $Icon,$Wert,$Name,$Color)
-		$this->CreateVariableProfile("ESERA.AMVolume",1,"%",0,40,1,0,"Intensity");
-		$this->CreateVariableProfile("ESERA.AMGain",1,"%",0,15,1,0,"Intensity");
-	    $this->CreateVariableProfile("ESERA.AMTone",1,"%",0,15,1,0,"Intensity");
-		$this->CreateVariableProfile("ESERA.AMBalance",1,"%",0,15,1,0,"Intensity");
-		$this->CreateVariableProfile("ESERA.AMInput",1,"",1,4,1,0,"");	
-		$this->CreateVariableProfile("ESERA.AMMute",0,"",0,1,1,0,"Power");
+		$this->CreateVariableProfile("ESERA.AudioMaxVolume",1,"%",0,40,1,0,"Intensity");
+		$this->CreateVariableProfile("ESERA.AudioMaxGain",1,"%",0,15,1,0,"Intensity");
+	    $this->CreateVariableProfile("ESERA.AudioMaxTone",1,"%",0,15,1,0,"Intensity");
+		$this->CreateVariableProfile("ESERA.AudioMaxBalance",1,"%",0,15,1,0,"Intensity");
+		$this->CreateVariableProfile("ESERA.AudioMaxInput",1,"",1,4,1,0,"");	
+		$this->CreateVariableProfile("ESERA.AudioMaxMute",0,"",0,1,1,0,"Power");
+		$this->CreateVariableProfile("ESERA.AudioMaxConnection",0,"",0,1,1,0,"Power");
 		
-		$this->CreateVariableAssociation("ESERA.AMInput", 1, "Input 1", "Light" , 0x00FF00);
-		$this->CreateVariableAssociation("ESERA.AMInput", 2, "Input 2", "Light" , 0x00FF00);
-		$this->CreateVariableAssociation("ESERA.AMInput", 3, "Input 3", "Light" , 0x00FF00);
-		$this->CreateVariableAssociation("ESERA.AMInput", 4, "Input 4", "Light" , 0x00FF00);
 		
+		$this->CreateVariableAssociation("ESERA.AudioMaxInput", 1, "Input 1", "Light" , 0x00FF00);
+		$this->CreateVariableAssociation("ESERA.AudioMaxInput", 2, "Input 2", "Light" , 0x00FF00);
+		$this->CreateVariableAssociation("ESERA.AudioMaxInput", 3, "Input 3", "Light" , 0x00FF00);
+		$this->CreateVariableAssociation("ESERA.AudioMaxInput", 4, "Input 4", "Light" , 0x00FF00);
+		
+		$this->CreateVariableAssociation("ESERA.AudioMaxConnection", 0, "Connection Open", "LockOpen" , 0xAA0000);
+		$this->CreateVariableAssociation("ESERA.AudioMaxConnection", 1, "Connection Active", "LockClosed" , 0x00FF00);
+		
+		$this->RegisterVariableBoolean("connection", "Serial Port", "ESERA.AudioMaxConnection");			
+    	$this->EnableAction("connection");	
+				
 		$position = 1;
 		for($i = 1; $i <= 6; $i++){
     			
@@ -237,10 +245,18 @@ class AudioMaxSystem extends IPSModule {
 				$Type = "MUT";
 				$Number = SubStr($Ident, 4, 1);
 				break;
+				
+			$this->SendDebug(("DBG: send: ".$Type ." ". $Number), $Value,0);
+		    $this->SetAudioSettingAM($Number, $Type, $Value);
+			return;
+			
+			case "connection":
+			$this->SetConnectionAM($value)
+			$this->SendDebug(("DBG: connection: ".$Value), $Value,0);
 		}
 		
-		$this->SendDebug(("DBG: send: ".$Type ." ". $Number), $Value,0);
-		$this->SetAudioSettingAM($Number, $Type, $Value);
+		//$this->SendDebug(("DBG: send: ".$Type ." ". $Number), $Value,0);
+		//$this->SetAudioSettingAM($Number, $Type, $Value);
 	}
 
 
@@ -251,6 +267,23 @@ class AudioMaxSystem extends IPSModule {
   	}
 	
 
+	public function SetConnectionAM($value) {
+			SetValue($this->GetIDForIdent("connection"), $value);
+			//$variableId  = IPS_GetObjectIDByName('connection', $this->instanceId);
+			//SetValue($variableId, $value);
+
+			//$this->LogInf('Set AudioMax Connection Status to '.($value ? 'Connection Active' : 'Connection Inactiv'));
+
+			$comPortId = GetValue(IPS_GetObjectIDByName('AudioMaxInterface', $this->instanceId));
+			COMPort_SetOpen($comPortId, $value);
+			IPS_ApplyChanges($comPortId);
+			/*
+			if ($value) {
+				$this->SendData(AM_TYP_SET, AM_CMD_KEEPALIVE, null, null, '0');
+			}
+			*/
+		}
+
 
     //private function CreateVariableProfile($ProfileName, $ProfileType, $Suffix, $MinValue, $MaxValue, $StepSize, $Digits, $Icon,$Wert,$Name,$Color) {
     private function CreateVariableProfile($ProfileName, $ProfileType, $Suffix, $MinValue, $MaxValue, $StepSize, $Digits, $Icon) {
@@ -259,9 +292,7 @@ class AudioMaxSystem extends IPSModule {
 			       IPS_SetVariableProfileText($ProfileName, "", $Suffix);
 			       IPS_SetVariableProfileValues($ProfileName, $MinValue, $MaxValue, $StepSize);
 			       IPS_SetVariableProfileDigits($ProfileName, $Digits);
-			       IPS_SetVariableProfileIcon($ProfileName, $Icon);
-				   //IPS_SetVariableProfileAssociation($ProfileName, $Wert,$Name,$Icon ,$color);
-				   
+			       IPS_SetVariableProfileIcon($ProfileName, $Icon);				   
 		    }
 	  }
 	  

@@ -8,7 +8,6 @@ class AudioMaxInterface extends IPSModule {
 		parent::Create();
  		//These lines are parsed on Symcon Startup or Instance creation
 		//You cannot use variables here. Just static values.
-		
 
 		$this->RegisterPropertyInteger("ConnectionType", 10);
 		$this->RegisterPropertyString("DataOutputType", "AUDIO");
@@ -21,11 +20,13 @@ class AudioMaxInterface extends IPSModule {
 		$this->RegisterTimer("KeepAliveHeartbeatTimer", 0, 'ESERA_SendKeepAliveHeartbeat($_IPS[\'TARGET\']);');
 		$this->RegisterTimer("SysInfoRequestTimer", 86400 * 1000, 'ESERA_GetSysInfo($_IPS[\'TARGET\']);');		
 	}
+	
 	public function Destroy(){
 		//Never delete this line!
 		parent::Destroy();
 
 	}
+	
 	public function ApplyChanges(){
 		//Never delete this line!
 		parent::ApplyChanges();
@@ -46,6 +47,9 @@ class AudioMaxInterface extends IPSModule {
 		}
 
 	}
+	
+	
+	
 	public function ForwardData($JSONString){
 
 		$data = json_decode($JSONString);
@@ -64,13 +68,15 @@ class AudioMaxInterface extends IPSModule {
 			} else if ($KeepAliveInterval > 240) {
 				$KeepAliveInterval = 240;
 			}
-			$this->Send("SET,SYS,KALSEND,1");
-			//$this->Send("SET,SYS,KALSENDTIME,$KeepAliveInterval");
+			$this->Send("SET,SYS,KAL,1");
+			$this->SendDebug("SET,SYS,KAL,1", 0);
+
 		} 
 		else {
-			$this->Send("SET,SYS,KALSEND,0");
+			$this->Send("SET,SYS,KAL,0");
+			$this->SendDebug("SET,SYS,KAL,0", 0);
 		}
-
+/*
 		//ReceiveKeepAlive ein-/ausschalten
 		if ($this->ReadPropertyBoolean("ReceiveKeepAlive")) {
 			$KeepAliveInterval = $this->ReadPropertyInteger("ReceiveKeepAliveInterval");
@@ -81,13 +87,15 @@ class AudioMaxInterface extends IPSModule {
 				$KeepAliveInterval = 240;
 			}
 			$this->SetTimerInterval("KeepAliveHeartbeatTimer", $KeepAliveInterval * 1000);
-			$this->Send("SET,SYS,KALREC,1");
+			$this->Send("SET,SYS,KAL,1");
 			//$this->Send("SET,SYS,KALRECTIME,$KeepAliveInterval");
 		} 
 		else {
-			$this->Send("SET,SYS,KALREC,0");
+			$this->Send("SET,SYS,KAL,0");
 			$this->SetTimerInterval("KeepAliveHeartbeatTimer", 0);
 		}
+		*/
+		
 	}
 	
 	
@@ -244,7 +252,7 @@ class AudioMaxInterface extends IPSModule {
 
 	}
 	
-	
+
 	//KAL Senden
 	public function SendKeepAliveHeartbeat() {
 		$this->Send("SET,KAL|1");
