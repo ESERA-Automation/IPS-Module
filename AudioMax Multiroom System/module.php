@@ -292,8 +292,8 @@ class AudioMaxSystem extends IPSModule {
 			}
 			*/
 			
-			//COMPort_SetOpen(json_encode(Array("DataID" => "{6DC3D946-0D31-450F-A8C6-C42DB8D7D4F1}"))), $value);	// SerialPort
-			//IPS_ApplyChanges(json_encode(Array("DataID" => "{6DC3D946-0D31-450F-A8C6-C42DB8D7D4F1}")));
+			COMPort_SetOpen($comPortId, $value);	// SerialPort
+			IPS_ApplyChanges($comPortId);
 			
 			/*
 			if ($value) {
