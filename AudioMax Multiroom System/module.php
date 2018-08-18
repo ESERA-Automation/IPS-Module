@@ -271,7 +271,9 @@ class AudioMaxSystem extends IPSModule {
 	public function SetConnectionAMSerial(int $Value) {
 			SetValue($this->GetIDForIdent("connection"), $Value);
 
-			//$comPortId = GetValue(IPS_GetObjectIDByName('AudioMaxInterface', $this->instanceId));
+			$comPortId = GetValue(json_encode(Array("DataID" => "{6DC3D946-0D31-450F-A8C6-C42DB8D7D4F1}")));
+			$this->SendDebug(("DBG: comport: ". $comPortId), $Value,0);
+			
 			/*
 			switch($this->ReadPropertyInteger("ConnectionType")) {
 			case 10:
@@ -288,8 +290,9 @@ class AudioMaxSystem extends IPSModule {
 			}
 			*/
 			
-			COMPort_SetOpen(json_encode(Array("DataID" => "{6DC3D946-0D31-450F-A8C6-C42DB8D7D4F1}", $value);	// SerialPort
-			IPS_ApplyChanges(json_encode(Array("DataID" => "{6DC3D946-0D31-450F-A8C6-C42DB8D7D4F1}");
+			//COMPort_SetOpen(json_encode(Array("DataID" => "{6DC3D946-0D31-450F-A8C6-C42DB8D7D4F1}"))), $value);	// SerialPort
+			//IPS_ApplyChanges(json_encode(Array("DataID" => "{6DC3D946-0D31-450F-A8C6-C42DB8D7D4F1}")));
+			
 			/*
 			if ($value) {
 				$this->SendData(AM_TYP_SET, AM_CMD_KEEPALIVE, null, null, '0');
