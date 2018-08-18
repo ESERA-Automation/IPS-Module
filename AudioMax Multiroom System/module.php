@@ -251,7 +251,7 @@ class AudioMaxSystem extends IPSModule {
 			    return;
 			
 			case "connection":
-			    $this->SetConnectionAM($value);
+			    $this->SetConnectionAMSerial($Value);
 			    $this->SendDebug(("DBG: connection: ". $value), $Value,0);
 				return;
 		}
@@ -268,17 +268,17 @@ class AudioMaxSystem extends IPSModule {
   	}
 	
 
-	public function SetConnectionAM($value) {
-			SetValue($this->GetIDForIdent("connection"), $value);
+	public function SetConnectionAMSerial(int $Value) {
+			SetValue($this->GetIDForIdent("connection"), $Value);
 			//$variableId  = IPS_GetObjectIDByName('connection', $this->instanceId);
 			//SetValue($variableId, $value);
 
 			//$this->LogInf('Set AudioMax Connection Status to '.($value ? 'Connection Active' : 'Connection Inactiv'));
-/*
+
 			$comPortId = GetValue(IPS_GetObjectIDByName('AudioMaxInterface', $this->instanceId));
 			COMPort_SetOpen($comPortId, $value);
 			IPS_ApplyChanges($comPortId);
-			*/
+			
 			/*
 			if ($value) {
 				$this->SendData(AM_TYP_SET, AM_CMD_KEEPALIVE, null, null, '0');
