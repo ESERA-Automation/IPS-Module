@@ -292,7 +292,7 @@ class AudioMaxSystem extends IPSModule {
 			}
 			*/
 			
-			COMPort_SetOpen($comPortId, $value);	// SerialPort
+			COMPort_SetOpen($comPortId, $Value);	// SerialPort
 			IPS_ApplyChanges($comPortId);
 			
 			/*
