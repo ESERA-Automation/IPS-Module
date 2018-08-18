@@ -246,13 +246,14 @@ class AudioMaxSystem extends IPSModule {
 				$Number = SubStr($Ident, 4, 1);
 				break;
 				
-			$this->SendDebug(("DBG: send: ".$Type ." ". $Number), $Value,0);
-		    $this->SetAudioSettingAM($Number, $Type, $Value);
-			return;
+			    $this->SendDebug(("DBG: send: ".$Type ." ". $Number), $Value,0);
+		        $this->SetAudioSettingAM($Number, $Type, $Value);
+			    return;
 			
 			case "connection":
-			$this->SetConnectionAM($value)
-			$this->SendDebug(("DBG: connection: ".$Value), $Value,0);
+			    $this->SetConnectionAM($value);
+			    $this->SendDebug(("DBG: connection: ". $value), $Value,0);
+				return;
 		}
 		
 		//$this->SendDebug(("DBG: send: ".$Type ." ". $Number), $Value,0);
