@@ -251,7 +251,7 @@ class AudioMaxSystem extends IPSModule {
 			    return;
 			
 			case "connection":
-			    $this->SetConnectionAMSerial($Value);
+			    $this->SetConnectionAM($Value);
 			    $this->SendDebug(("DBG: connection: ". $Value), $Value,0);
 				return;
 		}
@@ -268,18 +268,20 @@ class AudioMaxSystem extends IPSModule {
   	}
 	
 
-	public function SetConnectionAMSerial(int $Value) {
+	public function SetConnectionAM(int $Value) {
 			SetValue($this->GetIDForIdent("connection"), $Value);
 
-			//$comPortId = ($this->GetIDForIdent(json_encode(Array("DataID" => "{6DC3D946-0D31-450F-A8C6-C42DB8D7D4F1}"))));
-			$comPortId = ("{6DC3D946-0D31-450F-A8C6-C42DB8D7D4F1}");
+			//$comPortId = ($this->GetIDForIdent(serialport));
+			
+			//$comPortId = ("{6DC3D946-0D31-450F-A8C6-C42DB8D7D4F1}");
 			$this->SendDebug(("DBG: comport: ". $comPortId), $Value,0);
 			
-			//$Watt = $this->SendDataToParent(json_encode(Array("DataID" => "{6DC3D946-0D31-450F-A8C6-C42DB8D7D4F1}", "Function" => 3, "Address" => $Address , "Quantity" => 2, "Data" => "")));
-			/*
+
 			switch($this->ReadPropertyInteger("ConnectionType")) {
 			case 10:
-				$this->ForceParent("{6DC3D946-0D31-450F-A8C6-C42DB8D7D4F1}"); //SerialPort				
+				$this->SendDebug(("DBG: serial port: "), $Value,0);
+				//COMPort_SetOpen($comPortId, $Value);	// SerialPort
+			    //IPS_ApplyChanges($comPortId);				
 				break;			
 			
 			case 20:
@@ -290,10 +292,9 @@ class AudioMaxSystem extends IPSModule {
 				throw new Exception("Invalid ConnectionType for Parent");
 				break;
 			}
-			*/
+
 			
-			COMPort_SetOpen($comPortId, $Value);	// SerialPort
-			IPS_ApplyChanges($comPortId);
+
 			
 			/*
 			if ($value) {

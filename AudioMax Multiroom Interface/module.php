@@ -16,7 +16,8 @@ class AudioMaxInterface extends IPSModule {
 		$this->RegisterPropertyInteger("SendKeepAliveInterval", 60);
 		$this->RegisterPropertyBoolean("ReceiveKeepAlive", false);
 		$this->RegisterPropertyInteger("ReceiveKeepAliveInterval", 0);
-
+        $this->RegisterPropertyString("serialport", "{6DC3D946-0D31-450F-A8C6-C42DB8D7D4F1}"); // SerialPort
+		
 		$this->RegisterTimer("KeepAliveHeartbeatTimer", 0, 'ESERA_SendKeepAliveHeartbeat($_IPS[\'TARGET\']);');
 		$this->RegisterTimer("SysInfoRequestTimer", 86400 * 1000, 'ESERA_GetSysInfo($_IPS[\'TARGET\']);');		
 	}
@@ -352,7 +353,8 @@ class AudioMaxInterface extends IPSModule {
 		//Vordefiniertes Setup der seriellen Schnittstelle
 		if ($this->ReadPropertyInteger("ConnectionType") == 10) {
 			return "{\"BaudRate\": \"19200\", \"StopBits\": \"1\", \"DataBits\": \"8\", \"Parity\": \"None\"}";
-		} else if ($this->ReadPropertyInteger("ConnectionType") == 20) {
+		} 
+		else if ($this->ReadPropertyInteger("ConnectionType") == 20) {
 			return "{\"Port\": \"5000\"}";
 		} else {
 			return "";
