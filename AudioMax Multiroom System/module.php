@@ -4,72 +4,74 @@ class AudioMaxSystem extends IPSModule {
     public function Create(){
         //Never delete this line!
         parent::Create();
-       
+
         //These lines are parsed on Symcon Startup or Instance creation
         //You cannot use variables here. Just static values.
-		//CreateVariableProfile($ProfileName, $ProfileType, $Suffix, $MinValue, $MaxValue, $StepSize, $Digits, $Icon,$Wert,$Name,$Color)
-		$this->CreateVariableProfile("ESERA.AMVolume",1,"%",0,40,1,0,"Intensity");
-		$this->CreateVariableProfile("ESERA.AMGain",1,"%",0,15,1,0,"Intensity");
-	    $this->CreateVariableProfile("ESERA.AMTone",1,"%",0,15,1,0,"Intensity");
-		$this->CreateVariableProfile("ESERA.AMBalance",1,"%",0,15,1,0,"Intensity");
-		$this->CreateVariableProfile("ESERA.AMInput",1,"",1,4,1,0,"");	
-		$this->CreateVariableProfile("ESERA.AMMute",0,"",0,1,1,0,"Power");
-		
-		$this->CreateVariableAssociation("ESERA.AMInput", 1, "Input 1", "Light" , 0x00FF00);
-		$this->CreateVariableAssociation("ESERA.AMInput", 2, "Input 2", "Light" , 0x00FF00);
-		$this->CreateVariableAssociation("ESERA.AMInput", 3, "Input 3", "Light" , 0x00FF00);
-		$this->CreateVariableAssociation("ESERA.AMInput", 4, "Input 4", "Light" , 0x00FF00);
-		
-		$position = 1;
-		for($i = 1; $i <= 6; $i++){
-    			
-				$this->RegisterVariableinteger("volume".$i, "Volume ".$i, "ESERA.AMVolume");			
-    			$this->EnableAction("volume".$i);
-				//$this->SetPosition("volume".$i, $position);
-				
-				$this->RegisterVariableinteger("gain".$i, "Gain ".$i, "ESERA.AMGain");
-    			$this->EnableAction("gain".$i);
-					$position = $position + 1;
-				//$this->SetPosition("gain".$i, $position);
-				
-				$this->RegisterVariableinteger("bass".$i, "Bass ".$i, "ESERA.AMTone");
-    			$this->EnableAction("bass".$i);
-					$position = $position + 1;
-				//$this->IPS_SetPosition("bass".$i, $position);
-				
-				$this->RegisterVariableinteger("mid".$i, "Middle ".$i, "ESERA.AMTone");
-    			$this->EnableAction("mid".$i);
-					$position = $position + 1;
-				//$this->SetPosition("mid".$i, $position);			
-				
-				$this->RegisterVariableinteger("treble".$i, "Treble ".$i, "ESERA.AMTone");
-    			$this->EnableAction("treble".$i);
-					$position = $position + 1;
-				//$this->IPS_SetPosition("treble".$i, $position);
+    		//CreateVariableProfile($ProfileName, $ProfileType, $Suffix, $MinValue, $MaxValue, $StepSize, $Digits, $Icon,$Wert,$Name,$Color)
+    		$this->CreateVariableProfile("ESERA.AMVolume",1,"%",0,40,1,0,"Intensity");
+    		$this->CreateVariableProfile("ESERA.AMGain",1,"%",0,15,1,0,"Intensity");
+    	  $this->CreateVariableProfile("ESERA.AMTone",1,"%",0,15,1,0,"Intensity");
+    		$this->CreateVariableProfile("ESERA.AMBalance",1,"%",0,15,1,0,"Intensity");
+    		$this->CreateVariableProfile("ESERA.AMInput",1,"",1,4,1,0,"");
+    		$this->CreateVariableProfile("ESERA.AMMute",0,"",0,1,1,0,"Power");
 
-				$this->RegisterVariableinteger("balance".$i, "Balance ".$i, "ESERA.AMBalance");
-    			$this->EnableAction("balance".$i);
-					$position = $position + 1;
-				//$this->IPS_SetPosition("balance".$i, $position);				
-							
-    			$this->RegisterVariableBoolean("amp".$i, "Amplifier ".$i, "~Switch");
-    			$this->EnableAction("amp".$i);
-					$position = $position + 1;
-				//$this->IPS_SetPosition("amp".$i, $position);
+    		$this->CreateVariableAssociation("ESERA.AMInput", 1, "Input 1", "Light" , 0x00FF00);
+    		$this->CreateVariableAssociation("ESERA.AMInput", 2, "Input 2", "Light" , 0x00FF00);
+    		$this->CreateVariableAssociation("ESERA.AMInput", 3, "Input 3", "Light" , 0x00FF00);
+    		$this->CreateVariableAssociation("ESERA.AMInput", 4, "Input 4", "Light" , 0x00FF00);
 
-    			$this->RegisterVariableBoolean("mute".$i, "Mute Output ".$i, "~Switch");			
-    			$this->EnableAction("mute".$i);	
-					$position = $position + 1;
-				//$this->IPS_SetPosition("mute".$i, $position);
+    		$position = 1;
 
-    			$this->RegisterVariableInteger("input".$i, "Input ".$i, "ESERA.AMInput");
-    			$this->EnableAction("input".$i);
-					$position = $position + 1;
-				//$this->IPS_SetPosition("input".$i, $position);				
-    		}
+    		for($i = 1; $i <= 6; $i++){
 
-        $this->ConnectParent("{C73DD44F-BF0D-4180-A0F1-D296F68024B2}"); 			//AudioMax Interface
-		
+    				$this->RegisterVariableinteger("volume".$i, "Volume ".$i, "ESERA.AMVolume");
+        			$this->EnableAction("volume".$i);
+              //$this->IPS_SetPosition(47381, $position);
+            //$this->SetPosition("volume".$i, $position);
+
+    				$this->RegisterVariableinteger("gain".$i, "Gain ".$i, "ESERA.AMGain");
+        			$this->EnableAction("gain".$i);
+    					$position = $position + 1;
+    				//$this->SetPosition("gain".$i, $position);
+
+    				$this->RegisterVariableinteger("bass".$i, "Bass ".$i, "ESERA.AMTone");
+        			$this->EnableAction("bass".$i);
+    					$position = $position + 1;
+    				//$this->IPS_SetPosition("bass".$i, $position);
+
+    				$this->RegisterVariableinteger("mid".$i, "Middle ".$i, "ESERA.AMTone");
+        			$this->EnableAction("mid".$i);
+    					$position = $position + 1;
+    				//$this->SetPosition("mid".$i, $position);
+
+    				$this->RegisterVariableinteger("treble".$i, "Treble ".$i, "ESERA.AMTone");
+        			$this->EnableAction("treble".$i);
+    					$position = $position + 1;
+    				//$this->IPS_SetPosition("treble".$i, $position);
+
+    				$this->RegisterVariableinteger("balance".$i, "Balance ".$i, "ESERA.AMBalance");
+        			$this->EnableAction("balance".$i);
+    					$position = $position + 1;
+    				//$this->IPS_SetPosition("balance".$i, $position);
+
+        			$this->RegisterVariableBoolean("amp".$i, "Amplifier ".$i, "~Switch");
+        			$this->EnableAction("amp".$i);
+    					$position = $position + 1;
+    				//$this->IPS_SetPosition("amp".$i, $position);
+
+        			$this->RegisterVariableBoolean("mute".$i, "Mute Output ".$i, "~Switch");
+        			$this->EnableAction("mute".$i);
+    					$position = $position + 1;
+    				//$this->IPS_SetPosition("mute".$i, $position);
+
+        			$this->RegisterVariableInteger("input".$i, "Input ".$i, "ESERA.AMInput");
+        			$this->EnableAction("input".$i);
+    					$position = $position + 1;
+    				//$this->IPS_SetPosition("input".$i, $position);
+        		}
+
+            $this->ConnectParent("{C73DD44F-BF0D-4180-A0F1-D296F68024B2}"); 			//AudioMax Interface
+
     }
     public function Destroy(){
         //Never delete this line!
@@ -77,30 +79,30 @@ class AudioMaxSystem extends IPSModule {
 
     }
 
-	
+
 	public function ApplyChanges(){
      //Never delete this line!
      parent::ApplyChanges();
 
      $this->SetReceiveDataFilter(".*\"DeviceType\":\"AUDIO\".*");
 	}
-	
-	
+
+
     public function ReceiveData($JSONString) {
 
         $data = json_decode($JSONString);
         $this->SendDebug("AudioMaxSystem", "| Room Number:" . $data->RoomNumber . "| Audio Type:" . $data->AudioType . "| Audio Value:" . $data->AudioValue, 0);
-        
+
 		$Number = intval($data->RoomNumber, 10); 		//Daten der übergebenen Variable
 		//$Type = strval($data->AudioType,10); 		//Daten der übergebenen Variable
 		$Type = $data->AudioType;
 		$Value = intval($data->AudioValue,10);
-				
+
 	    $this->SendDebug("DGB Rec| Room Number:", $Number, 0);
 		$this->SendDebug("DGB Rec| Audio Type:", $Type, 0);
 		$this->SendDebug("DGB Rec| Audio Value:", $Value, 0);
-		
-  		
+
+
 		if ($Type == "VOL"){
 			SetValue($this->GetIDForIdent("volume".$Number), $Value);
 			$this->SendDebug(("volume ".$Number), $Value,0);
@@ -112,7 +114,7 @@ class AudioMaxSystem extends IPSModule {
 		if ($Type == "GAI"){
 			SetValue($this->GetIDForIdent("gain".$Number), $Value);
 			$this->SendDebug(("gain ".$Number), $Value,0);
-			}			
+			}
 		if ($Type == "BAS"){
 			SetValue($this->GetIDForIdent("bass".$Number), $Value);
 			$this->SendDebug(("bass ".$Number), $Value,0);
@@ -137,8 +139,8 @@ class AudioMaxSystem extends IPSModule {
 			SetValue($this->GetIDForIdent("mute".$Number), $Value);
 			$this->SendDebug(("mute ".$Number), $Value,0);
 			}
-	
-        
+
+
 /*
 		if ($data->DeviceNumber == 2){
            if ($data->DataPoint == 1){
@@ -149,12 +151,12 @@ class AudioMaxSystem extends IPSModule {
            }
 		}
 		*/
-		
+
     }
 
 	public function RequestAction($Ident, $Value) {
 		//$Number = 1;
-		
+
 		switch($Ident) {
 			case "volume1":							//$Number = 1;
 			case "volume2":
@@ -164,7 +166,7 @@ class AudioMaxSystem extends IPSModule {
 			case "volume6":
 				$Type = "VOL";
 				$Number = SubStr($Ident, 6, 1);
-				break;				
+				break;
 			case "gain1":
 			case "gain2":
 			case "gain3":
@@ -182,7 +184,7 @@ class AudioMaxSystem extends IPSModule {
 			case "input6":
 				$Type = "INP";
 				$Number = SubStr($Ident, 5, 1);
-				break;				
+				break;
 			case "bass1":
 			case "bass2":
 			case "bass3":
@@ -191,7 +193,7 @@ class AudioMaxSystem extends IPSModule {
 			case "bass6":
 				$Type = "BAS";
 				$Number = SubStr($Ident, 4, 1);
-				break;			
+				break;
 			case "mid1":
 			case "mid2":
 			case "mid3":
@@ -200,7 +202,7 @@ class AudioMaxSystem extends IPSModule {
 			case "mid6":
 				$Type = "MID";
 				$Number = SubStr($Ident, 3, 1);
-				break;				
+				break;
 			case "treble1":
 			case "treble2":
 			case "treble3":
@@ -209,7 +211,7 @@ class AudioMaxSystem extends IPSModule {
 			case "treble6":
 				$Type = "TRE";
 				$Number = SubStr($Ident, 6, 1);
-				break;				
+				break;
 			case "balance1":
 			case "balance2":
 			case "balance3":
@@ -218,7 +220,7 @@ class AudioMaxSystem extends IPSModule {
 			case "balance6":
 				$Type = "BAL";
 				$Number = SubStr($Ident, 7, 1);
-				break;				
+				break;
 			case "amp1":
 			case "amp2":
 			case "amp3":
@@ -227,7 +229,7 @@ class AudioMaxSystem extends IPSModule {
 			case "amp6":
 				$Type = "AMP";
 				$Number = SubStr($Ident, 3, 1);
-				break;				
+				break;
 			case "mute1":
 			case "mute2":
 			case "mute3":
@@ -238,7 +240,7 @@ class AudioMaxSystem extends IPSModule {
 				$Number = SubStr($Ident, 4, 1);
 				break;
 		}
-		
+
 		$this->SendDebug(("DBG: send: ".$Type ." ". $Number), $Value,0);
 		$this->SetAudioSettingAM($Number, $Type, $Value);
 	}
@@ -247,9 +249,9 @@ class AudioMaxSystem extends IPSModule {
 
     public function SetAudioSettingAM(int $Number, int $Type , int $Value) {
   		$this->Send("SET,AUDIO,". $Number .",". $Type . ",". $Value ."");
-		$this->SendDebug(("DBG: send: ". $Number. "," . $Type . "," . $Value), $Value,0);
+		  $this->SendDebug(("DBG: send: ". $Number. "," . $Type . "," . $Value), $Value,0);
   	}
-	
+
 
 
     //private function CreateVariableProfile($ProfileName, $ProfileType, $Suffix, $MinValue, $MaxValue, $StepSize, $Digits, $Icon,$Wert,$Name,$Color) {
@@ -261,11 +263,11 @@ class AudioMaxSystem extends IPSModule {
 			       IPS_SetVariableProfileDigits($ProfileName, $Digits);
 			       IPS_SetVariableProfileIcon($ProfileName, $Icon);
 				   //IPS_SetVariableProfileAssociation($ProfileName, $Wert,$Name,$Icon ,$color);
-				   
+
 		    }
 	  }
-	  
-	
+
+
 	//private function CreateVariableProfile($ProfileName, $ProfileType, $Suffix, $MinValue, $MaxValue, $StepSize, $Digits, $Icon,$Wert,$Name,$Color) {
     private function CreateVariableAssociation($ProfileName, $Wert, $Name, $Icon , $color) {
 				IPS_SetVariableProfileAssociation($ProfileName, $Wert, $Name, $Icon , $color);
