@@ -7,6 +7,7 @@ class AudioMaxSystem extends IPSModule {
 
         //These lines are parsed on Symcon Startup or Instance creation
         //You cannot use variables here. Just static values.
+
     		//CreateVariableProfile($ProfileName, $ProfileType, $Suffix, $MinValue, $MaxValue, $StepSize, $Digits, $Icon,$Wert,$Name,$Color)
     		$this->CreateVariableProfile("ESERA.AMVolume",1,"%",0,40,1,0,"Intensity");
     		$this->CreateVariableProfile("ESERA.AMGain",1,"%",0,15,1,0,"Intensity");
@@ -71,6 +72,78 @@ class AudioMaxSystem extends IPSModule {
         		}
 
             $this->ConnectParent("{C73DD44F-BF0D-4180-A0F1-D296F68024B2}"); 			//AudioMax Interface
+
+		//CreateVariableProfile($ProfileName, $ProfileType, $Suffix, $MinValue, $MaxValue, $StepSize, $Digits, $Icon,$Wert,$Name,$Color)
+		$this->CreateVariableProfile("ESERA.AudioMaxVolume",1,"%",0,40,1,0,"Intensity");
+		$this->CreateVariableProfile("ESERA.AudioMaxGain",1,"%",0,15,1,0,"Intensity");
+	    $this->CreateVariableProfile("ESERA.AudioMaxTone",1,"%",0,15,1,0,"Intensity");
+		$this->CreateVariableProfile("ESERA.AudioMaxBalance",1,"%",0,15,1,0,"Intensity");
+		$this->CreateVariableProfile("ESERA.AudioMaxInput",1,"",1,4,1,0,"");	
+		$this->CreateVariableProfile("ESERA.AudioMaxMute",0,"",0,1,1,0,"Power");
+		$this->CreateVariableProfile("ESERA.AudioMaxConnection",0,"",0,1,1,0,"Power");
+		
+		
+		$this->CreateVariableAssociation("ESERA.AudioMaxInput", 1, "Input 1", "Light" , 0x00FF00);
+		$this->CreateVariableAssociation("ESERA.AudioMaxInput", 2, "Input 2", "Light" , 0x00FF00);
+		$this->CreateVariableAssociation("ESERA.AudioMaxInput", 3, "Input 3", "Light" , 0x00FF00);
+		$this->CreateVariableAssociation("ESERA.AudioMaxInput", 4, "Input 4", "Light" , 0x00FF00);
+		
+		$this->CreateVariableAssociation("ESERA.AudioMaxConnection", 0, "Connection Open", "LockOpen" , 0xAA0000);
+		$this->CreateVariableAssociation("ESERA.AudioMaxConnection", 1, "Connection Active", "LockClosed" , 0x00FF00);
+		
+		$this->RegisterVariableBoolean("connection", "Serial Port", "ESERA.AudioMaxConnection");			
+    	$this->EnableAction("connection");	
+				
+		$position = 1;
+		for($i = 1; $i <= 6; $i++){
+    			
+				$this->RegisterVariableinteger("volume".$i, "Volume ".$i, "ESERA.AudioMaxVolume");			
+    			$this->EnableAction("volume".$i);
+				//$this->SetPosition("volume".$i, $position);
+				
+				$this->RegisterVariableinteger("gain".$i, "Gain ".$i, "ESERA.AudioMaxGain");
+    			$this->EnableAction("gain".$i);
+					$position = $position + 1;
+				//$this->SetPosition("gain".$i, $position);
+				
+				$this->RegisterVariableinteger("bass".$i, "Bass ".$i, "ESERA.AudioMaxTone");
+    			$this->EnableAction("bass".$i);
+					$position = $position + 1;
+				//$this->IPS_SetPosition("bass".$i, $position);
+				
+				$this->RegisterVariableinteger("mid".$i, "Middle ".$i, "ESERA.AudioMaxTone");
+    			$this->EnableAction("mid".$i);
+					$position = $position + 1;
+				//$this->SetPosition("mid".$i, $position);			
+				
+				$this->RegisterVariableinteger("treble".$i, "Treble ".$i, "ESERA.AudioMaxTone");
+    			$this->EnableAction("treble".$i);
+					$position = $position + 1;
+				//$this->IPS_SetPosition("treble".$i, $position);
+
+				$this->RegisterVariableinteger("balance".$i, "Balance ".$i, "ESERA.AudioMaxBalance");
+    			$this->EnableAction("balance".$i);
+					$position = $position + 1;
+				//$this->IPS_SetPosition("balance".$i, $position);				
+							
+    			$this->RegisterVariableBoolean("amp".$i, "Amplifier ".$i, "~Switch");
+    			$this->EnableAction("amp".$i);
+					$position = $position + 1;
+				//$this->IPS_SetPosition("amp".$i, $position);
+
+    			$this->RegisterVariableBoolean("mute".$i, "Mute Output ".$i, "~Switch");			
+    			$this->EnableAction("mute".$i);	
+					$position = $position + 1;
+				//$this->IPS_SetPosition("mute".$i, $position);
+
+    			$this->RegisterVariableInteger("input".$i, "Input ".$i, "ESERA.AudioMaxInput");
+    			$this->EnableAction("input".$i);
+					$position = $position + 1;
+				//$this->IPS_SetPosition("input".$i, $position);				
+    		}
+
+        $this->ConnectParent("{C73DD44F-BF0D-4180-A0F1-D296F68024B2}"); 			//AudioMax Interface
+		
 
     }
     public function Destroy(){
@@ -239,10 +312,24 @@ class AudioMaxSystem extends IPSModule {
 				$Type = "MUT";
 				$Number = SubStr($Ident, 4, 1);
 				break;
+				
+			    $this->SendDebug(("DBG: send: ".$Type ." ". $Number), $Value,0);
+		        $this->SetAudioSettingAM($Number, $Type, $Value);
+			    return;
+			
+			case "connection":
+			    $this->SetConnectionAM($Value);
+			    $this->SendDebug(("DBG: connection: ". $Value), $Value,0);
+				return;
 		}
+
 
 		$this->SendDebug(("DBG: send: ".$Type ." ". $Number), $Value,0);
 		$this->SetAudioSettingAM($Number, $Type, $Value);
+		
+		//$this->SendDebug(("DBG: send: ".$Type ." ". $Number), $Value,0);
+		//$this->SetAudioSettingAM($Number, $Type, $Value);
+
 	}
 
 
@@ -252,6 +339,41 @@ class AudioMaxSystem extends IPSModule {
 		  $this->SendDebug(("DBG: send: ". $Number. "," . $Type . "," . $Value), $Value,0);
   	}
 
+
+	public function SetConnectionAM(int $Value) {
+			SetValue($this->GetIDForIdent("connection"), $Value);
+
+			/*$comPortId = ($this->GetIDForIdent(serialport));
+			
+			//$comPortId = ("{6DC3D946-0D31-450F-A8C6-C42DB8D7D4F1}");
+			//$this->SendDebug(("DBG: comport: ". $comPortId), $Value,0);
+			
+
+			switch($this->ReadPropertyInteger("ConnectionType")) {
+			case 10:
+				$this->SendDebug(("DBG: serial port: "), $Value,0);
+				//COMPort_SetOpen($comPortId, $Value);	// SerialPort
+			    //IPS_ApplyChanges($comPortId);				
+				break;			
+			
+			case 20:
+				$this->ForceParent("{3CFF0FD9-E306-41DB-9B5A-9D06D38576C3}"); //ClientSocket
+				break;
+
+			default:
+				throw new Exception("Invalid ConnectionType for Parent");
+				break;
+			}
+*/
+			
+
+			
+			/*
+			if ($value) {
+				$this->SendData(AM_TYP_SET, AM_CMD_KEEPALIVE, null, null, '0');
+			}
+			*/
+		}
 
 
     //private function CreateVariableProfile($ProfileName, $ProfileType, $Suffix, $MinValue, $MaxValue, $StepSize, $Digits, $Icon,$Wert,$Name,$Color) {
@@ -263,6 +385,9 @@ class AudioMaxSystem extends IPSModule {
 			       IPS_SetVariableProfileDigits($ProfileName, $Digits);
 			       IPS_SetVariableProfileIcon($ProfileName, $Icon);
 				   //IPS_SetVariableProfileAssociation($ProfileName, $Wert,$Name,$Icon ,$color);
+
+
+			       IPS_SetVariableProfileIcon($ProfileName, $Icon);				   
 
 		    }
 	  }
