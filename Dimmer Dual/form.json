@@ -1,0 +1,16 @@
+{
+  "elements":
+  [
+	{ "type": "NumberSpinner", "name": "OWDID", "caption": "OWD" },
+	{ "type": "Label", "label": "Fügen Sie hier die OWD-Nummer aus der 1-Wire Controller / 1-Wire Gateway OWD-Übersicht ein." },
+	{ "type": "Label", "label": "" },
+    { "type": "Label", "label": "" },	
+	{ "type": "Label", "label": "Eine Beschreibung der Einbindung des ESERA Systems in IP-Symcon finden Sie unter www.esera.de, kompatible Steuerungen, IP-Symcon." },
+	{ "type": "Label", "label": "Nachfolgend ein Link zur Modul Dokumentation, ESERA Website und Support Videos." },
+	
+	{ "type": "Button", "label": "Modul Dokumentation", "onClick": "echo 'https://github.com/ESERA-Automation/IPS-Module/tree/master/Dimmer%20Dual/'" },
+	{ "type": "Button", "label": "ESERA Webside", "onClick": "echo 'https://www.esera.de/'" },
+	{ "type": "Button", "label": "ESERA Support Videos", "onClick": "echo 'https://www.esera.de/service-support/how-to-support-videos/'" }
+
+  ]
+}

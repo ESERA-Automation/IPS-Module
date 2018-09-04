@@ -1,5 +1,5 @@
 # ESERA Binärausgang Dual
-Das Modul bindet den Binärausgang Dual von ESERA-Automation ein. Es werden automatisch Variablen angelegt und eingelesen.
+Das Modul bindet das Dual Digital Out Standrad 11218 von ESERA-Automation ein. Es werden automatisch Variablen angelegt und eingelesen.
 
 ### Inhaltverzeichnis
 

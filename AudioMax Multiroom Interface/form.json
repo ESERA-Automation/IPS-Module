@@ -1,0 +1,29 @@
+{
+  "elements":
+  [
+	{ "type": "Label", "label": "Connection" },
+	{ "type": "Select", "name": "ConnectionType", "caption": "Type of connection",
+		"options": [
+			{ "label": "Serial", "value": 10 },
+			{ "label": "TCP/IP", "value": 20 }
+		]
+	},
+	
+	{ "type": "CheckBox", "name": "SendKeepAlive", "caption": "Send KeepAlive" },
+	{ "type": "IntervalBox", "name": "SendKeepAliveInterval", "caption": "Seconds" },
+	{ "type": "CheckBox", "name": "ReceiveKeepAlive", "caption": "Receive KeepAlive" },
+	{ "type": "IntervalBox", "name": "ReceiveKeepAliveInterval", "caption": "Seconds" },
+	
+	{ "type": "Label", "label": "" },	
+	{ "type": "Label", "label": "Eine Beschreibung der Einbindung des ESERA Systems in IP-Symcon finden Sie unter www.esera.de, kompatible Steuerungen, IP-Symcon." },
+	{ "type": "Label", "label": "Nachfolgend ein Link zur Modul Dokumentation, ESERA Website und Support Videos." },
+	
+	{ "type": "Button", "label": "Modul Dokumentation", "onClick": "echo 'https://github.com/ESERA-Automation/IPS-Module/tree/master/Station%20200%20Interface/'" },
+	{ "type": "Button", "label": "ESERA Webside", "onClick": "echo 'https://www.esera.de/'" },
+	{ "type": "Button", "label": "ESERA Support Videos", "onClick": "echo 'https://www.esera.de/service-support/how-to-support-videos/'" }
+  ],
+  "actions":
+  [
+	{ "type": "Button", "label": "Configure device", "onClick": "ESERA_ConfigureDevice($id);" }
+  ]
+}

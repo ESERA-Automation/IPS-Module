@@ -10,14 +10,16 @@
                 { "label": "Windsensor Pro 200, 4 Imp./Umdr.", "value": 4 },
         ]},
 		
-    //{ "type": "Button", "label": "Reset Windspeed max.", "onClick": "EWM_CallFloat($id, 3.14);" },
+	{ "type": "Button", "label": "Reset Windspeed", "onClick": "ESERA_CallSPEED($id, 0);" },
+	{ "type": "Button", "label": "Reset Windspeed Average", "onClick": "ESERA_CallAVERAGE($id, 0);" },
 	{ "type": "Button", "label": "Reset Windspeed max.", "onClick": "ESERA_CallFloat($id, 0);" },
 	
 	{ "type": "Label", "label": "Eine Beschreibung der Einbindung des ESERA Systems in IP-Symcon finden Sie unter www.esera.de, kompatible Steuerungen, IP-Symcon." },
-	{ "type": "Label", "label": "Nachfolgend ein Link zur ESERA Website und How To Videos." },
+	{ "type": "Label", "label": "Nachfolgend ein Link zur Modul Dokumentation, ESERA Website und Support Videos." },
 	
-	{ "type": "Button", "label": "ESERA Webside", "onClick": "echo 'https://www.esera.de/kompatible-steuerungen-zentralen/ip-symcon-integration/'" },
-	{ "type": "Button", "label": "How To Videos", "onClick": "echo 'https://www.esera.de/service-support/how-to-support-videos/'" } 
+	{ "type": "Button", "label": "Modul Dokumentation", "onClick": "echo 'https://github.com/ESERA-Automation/IPS-Module/tree/master/Zubehoer%20Windmesser/'" },
+	{ "type": "Button", "label": "ESERA Webside", "onClick": "echo 'https://www.esera.de/'" },
+	{ "type": "Button", "label": "ESERA Support Videos", "onClick": "echo 'https://www.esera.de/service-support/how-to-support-videos/'" } 
 	
   ],
  /* 
@@ -25,9 +27,6 @@
   [  
     { "type": "Button", "label": "Test Float", "onClick": "EWM_CallFloat($id, 3.14);" }
 	
-	//{ "type": "Button", "label": "Reset Windspeed", "onClick": "EWM_ResetWindspeed($id , 0);" }
-	//{ "type": "Button", "label": "Reset Windspeed", "onClick": "EWM_CallFloat($id, 0);" }
-	//{ "type": "Button", "label": "Test Float", "onClick": "FT_CallFloat($id, 3.14);" },
   ]
   */
 }

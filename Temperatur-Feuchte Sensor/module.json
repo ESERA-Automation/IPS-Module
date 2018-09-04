@@ -9,7 +9,8 @@
     "11102 Temperature Humidity Sensor",
     "11113 Temperature Humidity Sensor",
     "11120 Temperature Humidity Sensor",
-	"11160 Temperature Humidity Sensor"
+	"11150 Temperature Humidity Sensor Pro",
+	"11160 Temperature Humidity Sensor Pro"
   ],
   "parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
   "childRequirements": [],

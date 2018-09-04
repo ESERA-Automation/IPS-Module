@@ -71,6 +71,8 @@ class EseraShutter1Fach extends IPSModule {
       $this->Send("SET,OWD,SHT,". $this->ReadPropertyInteger("OWDID") .",". $Value ."");
 
     }
+	
+
 
     private function Send($Command) {
 

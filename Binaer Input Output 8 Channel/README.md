@@ -64,4 +64,10 @@ Es werden keine zusätzlichen Profile hinzugefügt
 Schaltet einen Ausgang An/Aus.
 Die Funktion liefert keinerlei Rückgabewert.  
 Beispiel:  
-`ESERA_SetDigitalOutput(12345, 1, 1);`  
+`ESERA_SetDigitalOutput(12345, 1, 1);`
+
+`boolean ESERA_SetDigitalOutputPort(integer $InstanzID, integer $Value);`  
+Schaltet alle Ausgänge mit einem Befehl An/Aus.
+Die Funktion liefert keinerlei Rückgabewert.  
+Beispiel:  
+`ESERA_SetDigitalOutputH(12345, 1);`  
