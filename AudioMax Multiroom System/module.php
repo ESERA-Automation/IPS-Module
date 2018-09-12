@@ -91,7 +91,7 @@ class AudioMaxSystem extends IPSModule {
 		$this->CreateVariableAssociation("ESERA.AMConnection", 0, "Connection Open", "LockOpen" , 0xAA0000);
 		$this->CreateVariableAssociation("ESERA.AMConnection", 1, "Connection Active", "LockClosed" , 0x00FF00);
 		
-		$this->RegisterVariableBoolean("connection", "Serial Port", "ESERA.AudioMaxConnection");			
+		$this->RegisterVariableBoolean("connection", "Serial Port", "ESERA.AMConnection");			
     	$this->EnableAction("connection");	
 				
 		$position = 1;
