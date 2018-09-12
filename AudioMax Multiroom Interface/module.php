@@ -367,22 +367,7 @@ class AudioMaxInterface extends IPSModule {
 				return false;
 		}
 	}
-/*	
-	//private function CreateVariableProfile($ProfileName, $ProfileType, $Suffix, $MinValue, $MaxValue, $StepSize, $Digits, $Icon,$Wert,$Name,$Color) {
-    private function CreateVariableProfile($ProfileName, $ProfileType, $Suffix, $MinValue, $MaxValue, $StepSize, $Digits, $Icon) {
-		    if (!IPS_VariableProfileExists($ProfileName)) {
-			       IPS_CreateVariableProfile($ProfileName, $ProfileType);
-			       IPS_SetVariableProfileText($ProfileName, "", $Suffix);
-			       IPS_SetVariableProfileValues($ProfileName, $MinValue, $MaxValue, $StepSize);
-			       IPS_SetVariableProfileDigits($ProfileName, $Digits);
-			       IPS_SetVariableProfileIcon($ProfileName, $Icon);
-				   //IPS_SetVariableProfileAssociation($ProfileName, $Wert,$Name,$Icon ,$color);
-			       IPS_SetVariableProfileIcon($ProfileName, $Icon);				   
-
-		    }
-	}
-*/	  
-	  
+	
 	public function GetConfigurationForParent() {
 
 		//Vordefiniertes Setup der seriellen Schnittstelle
@@ -396,6 +381,7 @@ class AudioMaxInterface extends IPSModule {
 		}
 
 	}
+	
 	private function Send($Command) {
 
 		//Zur I/O Instanz senden
