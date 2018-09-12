@@ -294,23 +294,23 @@ class AudioMaxInterface extends IPSModule {
 	//--------------------------------------------
 	//System Debug Mode setzen
 	public function SetSysAMDebug(int $Value) {
-		$this->Send("SET,SYS,DEBUG".$Value);
+		$this->Send("SET,SYS,DEBUG,".$Value);
 	}
 	//System Echo Mode setzen
 	public function SetSysAMEcho(int $Value) {
-		$this->Send("SET,SYS,ECHO".$Value);
+		$this->Send("SET,SYS,ECHO,".$Value);
 	}
 	//System Pushbuttom Mode setzen
 	public function SetSysAMPushbutton(int $Value) {
-		$this->Send("SET,SYS,PUSHBUTTON".$Value);
+		$this->Send("SET,SYS,PUSHBUTTON,".$Value);
 	}
 	//System Autostart Mode setzen
 	public function SetSysAMAutostart(int $Value) {
-		$this->Send("SET,SYS,AUTOSTART".$Value);
+		$this->Send("SET,SYS,AUTOSTART,".$Value);
 	}
 	//System Power Status setzen
 	public function SetSysAMPwr(int $Value) {
-		$this->Send("SET,SYS,PWR".$Value);
+		$this->Send("SET,SYS,PWR,".$Value);
 	}
 	//System KAL Mode setzen
 	public function SetSysAMKal(int $Value) {
