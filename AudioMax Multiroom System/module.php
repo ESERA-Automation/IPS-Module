@@ -339,11 +339,11 @@ class AudioMaxSystem extends IPSModule {
 		  $this->SendDebug(("DBG: send: ". $Number. "," . $Type . "," . $Value), $Value,0);
   	}
 
-
+/*
 	public function SetConnectionAM(int $Value) {
 			SetValue($this->GetIDForIdent("connection"), $Value);
 
-			/*$comPortId = ($this->GetIDForIdent(serialport));
+			//$comPortId = ($this->GetIDForIdent(serialport));
 			
 			//$comPortId = ("{6DC3D946-0D31-450F-A8C6-C42DB8D7D4F1}");
 			//$this->SendDebug(("DBG: comport: ". $comPortId), $Value,0);
