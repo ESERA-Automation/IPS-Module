@@ -20,7 +20,7 @@ class AudioMaxInterface extends IPSModule {
 		
 		$this->CreateVariableProfile("ESERA.AMPower",0,"",0,1,1,0,"Power");
 		
-		$this->RegisterVariableBoolean("power".$i, "Power AudioMax System", "ESERA.AMPower");
+		$this->RegisterVariableBoolean("power", "Power AudioMax System", "ESERA.AMPower");
         $this->EnableAction("power".$i);
 		
 		$this->RegisterTimer("KeepAliveHeartbeatTimer", 0, 'ESERA_SendKeepAliveHeartbeat($_IPS[\'TARGET\']);');
