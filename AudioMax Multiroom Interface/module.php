@@ -324,7 +324,7 @@ class AudioMaxInterface extends IPSModule {
 	}
 
 	
-/*	
+	
 	public function RequestAction($Ident, $Value) {
 
 		switch($Ident): 
@@ -335,7 +335,7 @@ class AudioMaxInterface extends IPSModule {
 				break				
 		return;	
 	}		
-*/			
+			
 			
 			
 	//Liefert den Typ der Variable abhängig von der empfangenen Daten
@@ -376,7 +376,8 @@ class AudioMaxInterface extends IPSModule {
 		} 
 		else if ($this->ReadPropertyInteger("ConnectionType") == 20) {
 			return "{\"Port\": \"5000\"}";
-		} else {
+		} 
+		else {
 			return "";
 		}
 
