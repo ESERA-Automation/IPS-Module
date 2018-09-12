@@ -324,7 +324,7 @@ class AudioMaxInterface extends IPSModule {
 	}
 
 	
-	/*
+	
 	public function RequestAction($Ident, $Value) {
 
 		switch($Ident): 
@@ -335,7 +335,7 @@ class AudioMaxInterface extends IPSModule {
 				break				
 		//return;	
 	}		
-*/			
+			
 			
 			
 	//Liefert den Typ der Variable abhängig von der empfangenen Daten
