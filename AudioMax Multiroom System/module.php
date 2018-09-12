@@ -25,8 +25,8 @@ class AudioMaxSystem extends IPSModule {
 		$this->CreateVariableAssociation("ESERA.AudioMaxConnection", 0, "Connection Open", "LockOpen" , 0xAA0000);
 		$this->CreateVariableAssociation("ESERA.AudioMaxConnection", 1, "Connection Active", "LockClosed" , 0x00FF00);
 		
-		$this->RegisterVariableBoolean("connection", "Serial Port", "ESERA.AudioMaxConnection");			
-    	$this->EnableAction("connection");	
+		//$this->RegisterVariableBoolean("connection", "Serial Port", "ESERA.AudioMaxConnection");			
+    	//$this->EnableAction("connection");	
 				
 		$position = 1;
 		for($i = 1; $i <= 6; $i++){
@@ -37,42 +37,42 @@ class AudioMaxSystem extends IPSModule {
 				
 				$this->RegisterVariableinteger("gain".$i, "Gain ".$i, "ESERA.AudioMaxGain");
     			$this->EnableAction("gain".$i);
-					$position = $position + 1;
+				//	$position = $position + 1;
 				//$this->SetPosition("gain".$i, $position);
 				
 				$this->RegisterVariableinteger("bass".$i, "Bass ".$i, "ESERA.AudioMaxTone");
     			$this->EnableAction("bass".$i);
-					$position = $position + 1;
+				//	$position = $position + 1;
 				//$this->IPS_SetPosition("bass".$i, $position);
 				
 				$this->RegisterVariableinteger("mid".$i, "Middle ".$i, "ESERA.AudioMaxTone");
     			$this->EnableAction("mid".$i);
-					$position = $position + 1;
+				//	$position = $position + 1;
 				//$this->SetPosition("mid".$i, $position);			
 				
 				$this->RegisterVariableinteger("treble".$i, "Treble ".$i, "ESERA.AudioMaxTone");
     			$this->EnableAction("treble".$i);
-					$position = $position + 1;
+				//	$position = $position + 1;
 				//$this->IPS_SetPosition("treble".$i, $position);
 
 				$this->RegisterVariableinteger("balance".$i, "Balance ".$i, "ESERA.AudioMaxBalance");
     			$this->EnableAction("balance".$i);
-					$position = $position + 1;
+				//	$position = $position + 1;
 				//$this->IPS_SetPosition("balance".$i, $position);				
 							
     			$this->RegisterVariableBoolean("amp".$i, "Amplifier ".$i, "~Switch");
     			$this->EnableAction("amp".$i);
-					$position = $position + 1;
+				//	$position = $position + 1;
 				//$this->IPS_SetPosition("amp".$i, $position);
 
     			$this->RegisterVariableBoolean("mute".$i, "Mute Output ".$i, "~Switch");			
     			$this->EnableAction("mute".$i);	
-					$position = $position + 1;
+				//	$position = $position + 1;
 				//$this->IPS_SetPosition("mute".$i, $position);
 
     			$this->RegisterVariableInteger("input".$i, "Input ".$i, "ESERA.AudioMaxInput");
     			$this->EnableAction("input".$i);
-					$position = $position + 1;
+				//	$position = $position + 1;
 				//$this->IPS_SetPosition("input".$i, $position);				
     		}
 
@@ -267,7 +267,7 @@ class AudioMaxSystem extends IPSModule {
 		$this->SendDebug(("DBG: send: ". $Number. "," . $Type . "," . $Value), $Value,0);
   	}
 	
-
+/*
 	public function SetConnectionAM(int $Value) {
 			SetValue($this->GetIDForIdent("connection"), $Value);
 
@@ -292,8 +292,8 @@ class AudioMaxSystem extends IPSModule {
 				throw new Exception("Invalid ConnectionType for Parent");
 				break;
 			}
-*/
-			
+
+*/			
 
 			
 			/*
