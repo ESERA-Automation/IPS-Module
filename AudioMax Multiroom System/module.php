@@ -267,11 +267,12 @@ class AudioMaxSystem extends IPSModule {
 		$this->SendDebug(("DBG: send: ". $Number. "," . $Type . "," . $Value), $Value,0);
   	}
 	
-/*
+
 	public function SetConnectionAM(int $Value) {
 			SetValue($this->GetIDForIdent("connection"), $Value);
 
-			/*$comPortId = ($this->GetIDForIdent(serialport));
+			/*
+			//$comPortId = ($this->GetIDForIdent(serialport));
 			
 			//$comPortId = ("{6DC3D946-0D31-450F-A8C6-C42DB8D7D4F1}");
 			//$this->SendDebug(("DBG: comport: ". $comPortId), $Value,0);
@@ -292,16 +293,9 @@ class AudioMaxSystem extends IPSModule {
 				throw new Exception("Invalid ConnectionType for Parent");
 				break;
 			}
-
-*/			
-
-			
-			/*
-			if ($value) {
-				$this->SendData(AM_TYP_SET, AM_CMD_KEEPALIVE, null, null, '0');
-			}
 			*/
-		}
+
+	}
 
 
     //private function CreateVariableProfile($ProfileName, $ProfileType, $Suffix, $MinValue, $MaxValue, $StepSize, $Digits, $Icon,$Wert,$Name,$Color) {
