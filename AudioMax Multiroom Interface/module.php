@@ -329,8 +329,8 @@ class AudioMaxInterface extends IPSModule {
 
 		switch($Ident): 
 			case "power":
-				$this->SendDebug(("DBG: send: "ESERA.AMPower" ".$Ident), $Value,0);
-				SetValue($this->GetIDForIdent("ESERA.AMPower"), $data);
+				$this->SendDebug(("DBG: send: power" .$Ident), $Value,0);
+				SetValue($this->GetIDForIdent("power"), $data);
 				$this->Send("SET,SYS,PWR,".$Value);
 				break				
 		return;	
