@@ -15,18 +15,18 @@ class AudioMaxSystem extends IPSModule {
     		$this->CreateVariableProfile("ESERA.AMBalance",1,"%",0,15,1,0,"Intensity");
     		$this->CreateVariableProfile("ESERA.AMInput",1,"",1,4,1,0,"");
     		$this->CreateVariableProfile("ESERA.AMMute",0,"",0,1,1,0,"Power");
-	    	$this->CreateVariableProfile("ESERA.AMConnection",0,"",0,1,1,0,"Power");
+	    	//$this->CreateVariableProfile("ESERA.AMConnection",0,"",0,1,1,0,"Power");
 
-		    $this->RegisterVariableBoolean("connection", "Serial Port", "ESERA.AMConnection");			
-    	    $this->EnableAction("connection");	
+		    //$this->RegisterVariableBoolean("connection", "Serial Port", "ESERA.AMConnection");			
+    	    //$this->EnableAction("connection");	
 
     		$this->CreateVariableAssociation("ESERA.AMInput", 1, "Input 1", "Light" , 0x00FF00);
     		$this->CreateVariableAssociation("ESERA.AMInput", 2, "Input 2", "Light" , 0x00FF00);
     		$this->CreateVariableAssociation("ESERA.AMInput", 3, "Input 3", "Light" , 0x00FF00);
     		$this->CreateVariableAssociation("ESERA.AMInput", 4, "Input 4", "Light" , 0x00FF00);
 		    
-			$this->CreateVariableAssociation("ESERA.AMConnection", 0, "Connection Open", "LockOpen" , 0xAA0000);
-		    $this->CreateVariableAssociation("ESERA.AMConnection", 1, "Connection Active", "LockClosed" , 0x00FF00);
+			//$this->CreateVariableAssociation("ESERA.AMConnection", 0, "Connection Open", "LockOpen" , 0xAA0000);
+		    //$this->CreateVariableAssociation("ESERA.AMConnection", 1, "Connection Active", "LockClosed" , 0x00FF00);
     		
 			$position = 1;
 

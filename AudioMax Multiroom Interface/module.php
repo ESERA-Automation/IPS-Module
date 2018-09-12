@@ -324,7 +324,7 @@ class AudioMaxInterface extends IPSModule {
 	}
 
 	
-	
+	/*
 	public function RequestAction($Ident, $Value) {
 
 		switch($Ident): 
@@ -333,9 +333,9 @@ class AudioMaxInterface extends IPSModule {
 				SetValue($this->GetIDForIdent("power"), $data);
 				$this->Send("SET,SYS,PWR,".$Value);
 				break				
-		return;	
+		//return;	
 	}		
-			
+*/			
 			
 			
 	//Liefert den Typ der Variable abhängig von der empfangenen Daten
