@@ -20,7 +20,7 @@ class AudioMaxInterface extends IPSModule {
 		
 		//$this->CreateVariableProfile("ESERA.AMPower",0,"",0,1,1,0,"Power");
 		
-		$this->RegisterVariableBoolean("power", "Power AudioMax System", "~switch");
+		$this->RegisterVariableBoolean("power", "Power AudioMax System", "~Switch");
         $this->EnableAction("power");
 		
 		$this->RegisterTimer("KeepAliveHeartbeatTimer", 0, 'ESERA_SendKeepAliveHeartbeat($_IPS[\'TARGET\']);');
@@ -367,8 +367,8 @@ class AudioMaxInterface extends IPSModule {
 				return false;
 		}
 	}
-	
-	    //private function CreateVariableProfile($ProfileName, $ProfileType, $Suffix, $MinValue, $MaxValue, $StepSize, $Digits, $Icon,$Wert,$Name,$Color) {
+/*	
+	//private function CreateVariableProfile($ProfileName, $ProfileType, $Suffix, $MinValue, $MaxValue, $StepSize, $Digits, $Icon,$Wert,$Name,$Color) {
     private function CreateVariableProfile($ProfileName, $ProfileType, $Suffix, $MinValue, $MaxValue, $StepSize, $Digits, $Icon) {
 		    if (!IPS_VariableProfileExists($ProfileName)) {
 			       IPS_CreateVariableProfile($ProfileName, $ProfileType);
@@ -381,7 +381,7 @@ class AudioMaxInterface extends IPSModule {
 
 		    }
 	}
-	  
+*/	  
 	  
 	public function GetConfigurationForParent() {
 
