@@ -28,7 +28,7 @@ class AudioMaxSystem extends IPSModule {
 		//$this->RegisterVariableBoolean("connection", "Serial Port", "ESERA.AudioMaxConnection");			
     	//$this->EnableAction("connection");	
 				
-		$position = 1;
+		//$position = 1;
 		for($i = 1; $i <= 6; $i++){
     			
 				$this->RegisterVariableinteger("volume".$i, "Volume ".$i, "ESERA.AudioMaxVolume");			
