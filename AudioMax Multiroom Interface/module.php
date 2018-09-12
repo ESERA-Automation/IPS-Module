@@ -18,10 +18,10 @@ class AudioMaxInterface extends IPSModule {
 		$this->RegisterPropertyInteger("ReceiveKeepAliveInterval", 0);
         $this->RegisterPropertyString("serialport", "{6DC3D946-0D31-450F-A8C6-C42DB8D7D4F1}"); // SerialPort
 		
-		$this->CreateVariableProfile("ESERA.AMPower",0,"",0,1,1,0,"Power");
+		//$this->CreateVariableProfile("ESERA.AMPower",0,"",0,1,1,0,"Power");
 		
-		$this->RegisterVariableBoolean("power", "Power AudioMax System", "ESERA.AMPower");
-        $this->EnableAction("power".$i);
+		$this->RegisterVariableBoolean("power", "Power AudioMax System", "~switch");
+        $this->EnableAction("power");
 		
 		$this->RegisterTimer("KeepAliveHeartbeatTimer", 0, 'ESERA_SendKeepAliveHeartbeat($_IPS[\'TARGET\']);');
 		$this->RegisterTimer("SysInfoRequestTimer", 86400 * 1000, 'ESERA_GetSysInfo($_IPS[\'TARGET\']);');		
@@ -377,12 +377,10 @@ class AudioMaxInterface extends IPSModule {
 			       IPS_SetVariableProfileDigits($ProfileName, $Digits);
 			       IPS_SetVariableProfileIcon($ProfileName, $Icon);
 				   //IPS_SetVariableProfileAssociation($ProfileName, $Wert,$Name,$Icon ,$color);
-
-
 			       IPS_SetVariableProfileIcon($ProfileName, $Icon);				   
 
 		    }
-	  }
+	}
 	  
 	  
 	public function GetConfigurationForParent() {
