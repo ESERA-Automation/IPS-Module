@@ -137,9 +137,13 @@ class EseraOneWireController extends IPSModule {
 
 		$head = $dataArray[0]; //Name der übergebenen Variable
 		IPS_LogMessage('One Wire Controller', "dataArray[0]: ".$dataArray[0]);
-		$value = $dataArray[1]; //Daten der übergebenen Variable
-		IPS_LogMessage('One Wire Controller', "dataArray[0]: ".$dataArray[1]);
-		$type = SubStr($head, 2, 3);
+		
+		if ($DataString <> "status") {
+    	   //bei Status wird keine 2. Variable übergeben
+		    $value = $dataArray[1]; //Daten der übergebenen Variable
+    		IPS_LogMessage('One Wire Controller', "dataArray[1]: ".$dataArray[1]);
+		}
+    	$type = SubStr($head, 2, 3);
 
 		switch ($type) {
 			case "ART":
