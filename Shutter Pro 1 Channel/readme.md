@@ -19,8 +19,8 @@ Das Modul bindet das Shutter Pro 1-Fach von ESERA-Automation ein. Es werden auto
 
 ### 2. Voraussetzungen
 
-- IP-Symcon ab Version 4.2
-- ESERA-Automation 1-Wire Controller / 1-Wire Gateway / ESERA-Station 200 ab Firmware 1.18_72
+- IP-Symcon ab Version 5.0
+- ESERA-Automation 1-Wire Controller / 1-Wire Gateway / ESERA-Station ab Firmware Version 1.19_54
 
 
 ### 3. Software-Installation

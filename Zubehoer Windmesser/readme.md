@@ -18,9 +18,9 @@ Das Modul stellt auf Basis der Daten des Dual 32 Bit Counters von ESERA-Automati
 
 ### 2. Voraussetzungen
 
-- IP-Symcon ab Version 4.2
-- ESERA-Automation 1-Wire Controller / 1-Wire Gateway
-- Dual 32 Bit Counter Modul
+- IP-Symcon ab Version 5.0
+- ESERA-Automation 1-Wire Controller / 1-Wire Gateway / ESERA-Station ab Firmware Version 1.19_54
+- Dual S0 Counter Modul
 
 ### 3. Software-Installation
 

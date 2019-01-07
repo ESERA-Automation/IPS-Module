@@ -20,7 +20,8 @@ Das Modul bindet das Digital Out 8 Channel von ESERA-Automation ein. Es werden a
 
 ### 2. Voraussetzungen
 
-- IP-Symcon ab Version 4.x
+- IP-Symcon ab Version 5.0
+- ESERA-Automation 1-Wire Controller / 1-Wire Gateway / ESERA-Station ab Firmware Version 1.19_54
 
 ### 3. Software-Installation
 

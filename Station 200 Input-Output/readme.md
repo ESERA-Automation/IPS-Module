@@ -18,8 +18,8 @@ Das Modul bindet die in den 1-Wire Controller 2 von ESERA-Automation integrierte
 
 ### 2. Voraussetzungen
 
-- IP-Symcon ab Version 4.2
-- ESERA-Automation 1-Wire Controller 2
+- IP-Symcon ab Version 5.0
+- ESERA-Automation 1-Wire Controller / 1-Wire Gateway / ESERA-Station ab Firmware Version 1.19_54
 
 ### 3. Software-Installation
 

@@ -1,5 +1,5 @@
 # ESERA Audio Max Multiroom Audio System
-Das Modul bindet den 1-Wire Gateway innerhalb der ESERA-Staion 200 von ESERA-Automation ein. Es werden automatisch Variablen angelegt und eingelesen.
+Das Modul bindet das AudioMax System in IP-Symcon von ESERA-Automation ein. Es werden automatisch Variablen angelegt und eingelesen.
 
 ### Inhaltverzeichnis
 
@@ -13,7 +13,7 @@ Das Modul bindet den 1-Wire Gateway innerhalb der ESERA-Staion 200 von ESERA-Aut
 
 ### 1. Funktionsumfang
 
-* Stellt via TCP/Seriell eine Verbindung zum ESERA Audio Max Multiroom Audio System her.
+* Stellt via USB(Serielle) Verbindung zum ESERA Audio Max Multiroom Audio System her.
 * Konfigurierbarkeit von KeepAlive des Geräts.
 * Abfrage von Systemeinstellungen/-informationen.
 * Auslesen von gesendeten Daten und automatisches Anlegen/Aktualisieren von Variablen.
@@ -21,7 +21,8 @@ Das Modul bindet den 1-Wire Gateway innerhalb der ESERA-Staion 200 von ESERA-Aut
 
 ### 2. Voraussetzungen
 
-- IP-Symcon ab Version 4.x
+- IP-Symcon ab Version 5.0
+- ESERA-Automation 1-Wire Controller / 1-Wire Gateway / ESERA-Station ab Firmware Version 1.19_54
 
 ### 3. Software-Installation
 
