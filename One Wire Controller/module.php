@@ -304,7 +304,7 @@ class EseraOneWireController extends IPSModule {
 			return "{\"BaudRate\": 19200, \"StopBits\": 1, \"DataBits\": 8, \"Parity\": \"None\"}";
 		} else if ($this->ReadPropertyInteger("ConnectionType") == 10) {
 			//return "{\"Port\": \"5000\"}";             //alte Version
-			return "{\"Port\": \5000}";
+			return "{\"Port\": 5000}";
 		} else {
 			return "";
 		}
