@@ -66,10 +66,13 @@ Es werden zusätzliche Variablenprofile für Webfront hinzugefügt
 
 ### 7. PHP-Befehlsreferenz
 `boolean ESERA_SetShutter(integer $InstanzID, integer fix 1, integer $Value);`  
-Fährt einen Rollladen hoch/runter oder stoppt.
+Steuert einen Rollladen Aktor mit der Fahrrichtung hoch/runter oder stoppt.
 Die Funktion liefert keinerlei Rückgabewert.  
-Beispiel:  
-`ESERA_SetShutter(12345,1,1);`  
+
+Beispiel:
+ID = Shutter Modul Nummer, z.B. 12345  
+
+`ESERA_SetShutter(ID,1,1);`  
 Fährt den Rolladen runter.
 
 `ESERA_SetShutter(12345,1,2);`  

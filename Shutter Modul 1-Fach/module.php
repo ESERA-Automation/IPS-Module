@@ -10,7 +10,6 @@ class EseraShutter1Fach extends IPSModule {
         $this->CreateVariableProfileShutter();
 
         $this->RegisterPropertyInteger("OWDID", 1);
-
         $this->RegisterVariableInteger("Shutter", "Shutter", "ESERA.Shutter", 1);
         $this->EnableAction("Shutter");
 

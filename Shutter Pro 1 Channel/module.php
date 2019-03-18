@@ -47,8 +47,9 @@ class EseraShutterPro extends IPSModule {
 	public function RequestAction($Ident, $Value) {
 		switch($Ident) {
 			case "Output":
-			  if ($Value == 0) $Value = 3;
-				$this->SetShutter(SubStr($Ident, 6, 1), $Value);
+			    if ($Value == 0) $Value = 3;
+				//$this->SetShutter(SubStr($Ident, 6, 1), $Value);
+				$this->SetShutter($Ident, $Value);
 				break;
 			default:
 				throw new Exception("Invalid ident");
