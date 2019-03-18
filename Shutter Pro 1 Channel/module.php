@@ -49,7 +49,7 @@ class EseraShutterPro extends IPSModule {
 			case "Output":
 			    if ($Value == 0) $Value = 3;
 				//$this->SetShutter(SubStr($Ident, 6, 1), $Value);
-				$this->SetShutter($Ident, $Value);
+				$this->Send("SET,OWD,SHT,". $this->ReadPropertyInteger("OWDID") .",". $Value ."");
 				break;
 			default:
 				throw new Exception("Invalid ident");
