@@ -301,8 +301,8 @@ class EseraStation200 extends IPSModule {
 
 		//Vordefiniertes Setup der seriellen Schnittstelle
 		if ($this->ReadPropertyInteger("ConnectionType") == 20) {
-			//return "{\"BaudRate\": \"19200\", \"StopBits\": \"1\", \"DataBits\": \"8\", \"Parity\": \"None\"}";             //alte Version
-			return "{\"BaudRate\": 19200, \"StopBits\": 1, \"DataBits\": 8, \"Parity\": \"None\"}";
+			return "{\"BaudRate\": \"19200\", \"StopBits\": \"1\", \"DataBits\": \"8\", \"Parity\": \"None\"}";             //alte Version
+			//return "{\"BaudRate\": 19200, \"StopBits\": 1, \"DataBits\": 8, \"Parity\": \"None\"}";
 		} else if ($this->ReadPropertyInteger("ConnectionType") == 10) {
 			//return "{\"Port\": \"5000\"}";             //alte Version
 			return "{\"Port\": 5000}";
