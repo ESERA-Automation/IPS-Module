@@ -1,6 +1,6 @@
 <?
+//Station Interface neu 4-2019
 class EseraStation200 extends IPSModule {
-//class EseraOneWireController extends IPSModule {
 
 	public function Create(){
 		//Never delete this line!
@@ -8,7 +8,7 @@ class EseraStation200 extends IPSModule {
 
 		//These lines are parsed on Symcon Startup or Instance creation
 		//You cannot use variables here. Just static values.
-		$this->RegisterPropertyInteger("ConnectionType", 10);
+		$this->RegisterPropertyInteger("ConnectionType", 20);
 		$this->RegisterPropertyString("DataOutputType", "OWD");
 		$this->RegisterPropertyInteger("ControllerID", 1);
 		$this->RegisterPropertyBoolean("SendKeepAlive", false);
@@ -32,11 +32,11 @@ class EseraStation200 extends IPSModule {
 		//Set Parent
 		switch($this->ReadPropertyInteger("ConnectionType")) {
 			case 10:
-				$this->ForceParent("{6DC3D946-0D31-450F-A8C6-C42DB8D7D4F1}"); //SerialPort				
-				break;			
-			
-			case 20:
 				$this->ForceParent("{3CFF0FD9-E306-41DB-9B5A-9D06D38576C3}"); //ClientSocket
+				break;
+
+			case 20:
+				$this->ForceParent("{6DC3D946-0D31-450F-A8C6-C42DB8D7D4F1}"); //SerialPort
 				break;
 
 			default:
@@ -301,8 +301,8 @@ class EseraStation200 extends IPSModule {
 
 		//Vordefiniertes Setup der seriellen Schnittstelle
 		if ($this->ReadPropertyInteger("ConnectionType") == 20) {
-			return "{\"BaudRate\": \"19200\", \"StopBits\": \"1\", \"DataBits\": \"8\", \"Parity\": \"None\"}";             //alte Version
-			//return "{\"BaudRate\": 19200, \"StopBits\": 1, \"DataBits\": 8, \"Parity\": \"None\"}";
+			//return "{\"BaudRate\": \"19200\", \"StopBits\": \"1\", \"DataBits\": \"8\", \"Parity\": \"None\"}";             //alte Version
+			return "{\"BaudRate\": 19200, \"StopBits\": 1, \"DataBits\": 8, \"Parity\": \"None\"}";							  // Änderung 12-2018
 		} else if ($this->ReadPropertyInteger("ConnectionType") == 10) {
 			//return "{\"Port\": \"5000\"}";             //alte Version
 			return "{\"Port\": 5000}";

@@ -1,5 +1,5 @@
 # ESERA-Station 200 mit integriertem 1-Wire Gateway
-Das Modul bindet den 1-Wire Gateway innerhalb der ESERA-Staion 200 von ESERA-Automation ein. Es werden automatisch Variablen angelegt und eingelesen.
+Das Modul bindet das 1-Wire Gateway innerhalb der ESERA-Staion 200 von ESERA-Automation ein. Es werden automatisch Variablen angelegt und eingelesen.
 
 ### Inhaltverzeichnis
 
@@ -25,6 +25,7 @@ Das Modul bindet den 1-Wire Gateway innerhalb der ESERA-Staion 200 von ESERA-Aut
 
 - IP-Symcon ab Version 5.0
 - ESERA-Automation 1-Wire Controller / 1-Wire Gateway / ESERA-Station ab Firmware Version 1.19_54
+  Aktuelle Firmwareversionen finden Sie innerhalb des Config Tool 3. Das Config Tool 3 finden Sie hier: http://controller.eservice-online.de/download/configtool_download.php
 
 ### 3. Software-Installation
 
