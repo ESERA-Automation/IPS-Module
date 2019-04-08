@@ -25,6 +25,7 @@
 	{ "type": "Label", "label": "Nachfolgend ein Link zur Modul Dokumentation, ESERA Website und Support Videos." },
 	
 	{ "type": "Button", "label": "Modul Dokumentation", "onClick": "echo 'https://github.com/ESERA-Automation/IPS-Module/tree/master/One%20Wire%20Controller/'" },
+	{ "type": "Button", "label": "Config Tool 3 Download", "onClick": "echo 'http://controller.eservice-online.de/download/configtool_download.php'" },
 	{ "type": "Button", "label": "ESERA Webside", "onClick": "echo 'https://www.esera.de/'" },
 	{ "type": "Button", "label": "ESERA Support Videos", "onClick": "echo 'https://www.esera.de/service-support/how-to-support-videos/'" }
   ],

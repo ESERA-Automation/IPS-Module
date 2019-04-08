@@ -66,4 +66,9 @@ Setzt die digitalen Ausgänge aktiv oder inaktiv.
 Die Funktion liefert keinerlei Rückgabewert.  
 Beispiel:  
 `ESERA_SetSysOutput(12345,1,1);`  
-  
+
+`boolean ESERA_SetSysAnalogOutput(integer $InstanzID, int $Value);`  
+Setzt den analogen Ausgang. Spannung mit 100 multiplizieren, also 850 für 8,5 V.
+Die Funktion liefert keinerlei Rückgabewert.  
+Beispiel:  
+`ESERA_SetSysAnalogOutput(12345,850);`  
