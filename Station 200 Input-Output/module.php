@@ -17,7 +17,7 @@ class EseraStation200IO extends IPSModule {
     			$this->EnableAction("Output".$i);
     		}
 
-        $this->ConnectParent("{EDE0EBAA-4197-4D62-9037-3B1C88E40A5C}"); //1Wire Controller
+        $this->ConnectParent("{EDE0EBAA-4197-4D62-9037-3B1C88E40A5C}"); 				//1Wire Gateway
     }
     public function Destroy(){
         //Never delete this line!

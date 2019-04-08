@@ -1,5 +1,9 @@
-# 1-Wire Controller 2 - Ein- und Ausgänge
-Das Modul bindet die in den 1-Wire Controller 2 von ESERA-Automation integrierten Ein- und Ausgänge ein. Es werden automatisch Variablen angelegt und eingelesen.
+# ESERA-Station 200 mit integriertem 1-Wire Gateway
+Das Modul bindet das 1-Wire Gateway innerhalb der ESERA-Staion 200 von ESERA-Automation ein. Es werden automatisch Variablen angelegt und eingelesen.
+
+
+# ESERA-Station 200 mit 1-Wire Gateway, Ein- und Ausgänge
+Das Modul bindet die in das 1-Wire Gateway der ESERA Station mit desen Ein- und Ausgänge in IP-Symcon ein. Es werden automatisch Variablen angelegt und eingelesen.
 
 ### Inhaltverzeichnis
 
@@ -13,13 +17,14 @@ Das Modul bindet die in den 1-Wire Controller 2 von ESERA-Automation integrierte
 
 ### 1. Funktionsumfang
 
-* Stellt eine Verbindung zu die in den  1-Wire Controller 2 integrierten Ein- und Ausgänge her.
+* Stellt eine Verbindung zu die in den  1-Wire Gateway der ESERA Station integrierten Ein- und Ausgänge her.
 * Automatische Aktualisierung der Werte
 
 ### 2. Voraussetzungen
 
 - IP-Symcon ab Version 5.0
 - ESERA-Automation 1-Wire Controller / 1-Wire Gateway / ESERA-Station ab Firmware Version 1.19_54
+  Aktuelle Firmwareversionen finden Sie innerhalb des Config Tool 3. Das Config Tool 3 finden Sie hier: http://controller.eservice-online.de/download/configtool_download.php
 
 ### 3. Software-Installation
 
@@ -28,7 +33,7 @@ Das Modul bindet die in den 1-Wire Controller 2 von ESERA-Automation integrierte
 
 ### 4. Einrichten der Instanzen in IP-Symcon
 
-- Unter "Instanz hinzufügen" ist das '1-Wire Controller 2 Ein- und Ausgaenge'-Modul unter dem Hersteller 'ESERA-Automation' aufgeführt.  
+- Unter "Instanz hinzufügen" ist das '1-Wire Gateway Ein- und Ausgaenge'-Modul unter dem Hersteller 'ESERA-Automation' aufgeführt.  
 
 __Konfigurationsseite__:
 
@@ -61,9 +66,4 @@ Setzt die digitalen Ausgänge aktiv oder inaktiv.
 Die Funktion liefert keinerlei Rückgabewert.  
 Beispiel:  
 `ESERA_SetSysOutput(12345,1,1);`  
-
-`boolean ESERA_SetSysAnalogOutput(integer $InstanzID, int $Value);`  
-Setzt den analogen Ausgang. Spannung mit 100 multiplizieren, also 850 für 8,5 V.
-Die Funktion liefert keinerlei Rückgabewert.  
-Beispiel:  
-`ESERA_SetSysAnalogOutput(12345,850);`  
+  
