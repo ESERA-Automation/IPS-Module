@@ -1,0 +1,17 @@
+{
+  "id": "{5410B0EC-812D-4EA6-9D5F-C5D6138DBBD7}",
+  "name": "EseraOneWireController2SYS",
+  "type": 3,
+  "vendor": "ESERA-Automation",
+  "aliases":
+  [
+    "1-Wire Controller 2 DIN, DOUT + ANALOG",
+	"1-Wire Gateway 20 2 DIN, DOUT + ANALOG",
+    "11340 Controller 2 DIN, DOUT + ANALOG",
+	"11337 Gateway 20 DIN, DOUT + ANALOG"
+  ],
+  "parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
+  "childRequirements": [],
+  "implemented": ["{6B6E9D9E-4541-48CD-9F01-EFE52ACB2530}"],
+  "prefix": "ESERA"
+}

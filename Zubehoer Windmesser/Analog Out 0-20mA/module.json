@@ -1,0 +1,15 @@
+{
+  "id": "{2CC2645A-2284-4F76-9E1E-F104863158B0}",
+  "name": "EseraAnalogOut020mA",
+  "type": 3,
+  "vendor": "ESERA-Automation",
+  "aliases":
+  [
+    "Analog Output 0-20mA",
+    "11219 Analog Output 0-20mA"
+  ],
+  "parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
+  "childRequirements": [],
+  "implemented": ["{E3BB8703-6388-48DA-AA85-8852CDEE152D}"],
+  "prefix": "ESERA"
+}

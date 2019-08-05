@@ -1,0 +1,16 @@
+{
+  "id": "{F566210E-8CFA-466D-86AC-AC884350262A}",
+  "name": "EseraStation200IO",
+  "type": 3,
+  "vendor": "ESERA-Automation",
+  "aliases":
+  [
+    "ESERA Station 200 DIN, DOUT",
+	"19200 Station 200 DIN, DOUT"
+
+  ],
+  "parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
+  "childRequirements": [],
+  "implemented": ["{6B6E9D9E-4541-48CD-9F01-EFE52ACB2530}"],
+  "prefix": "ESERA"
+}

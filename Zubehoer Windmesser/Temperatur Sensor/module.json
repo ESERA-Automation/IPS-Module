@@ -1,0 +1,28 @@
+{
+  "id": "{18E93442-276F-4234-A266-78EEF3C0C6DC}",
+  "name": "EseraTemperatur",
+  "type": 3,
+  "vendor": "ESERA-Automation",
+  "aliases":
+  [
+    "1-Wire Temperature Sensor",
+    "11133 Temperature Sensor AP ",
+    "11100 Temperature Sensor AP ",
+    "11131 Temperature Sensor UP ",
+    "11130 Temperature Sensor UP ",
+	"11148 Temperature Sensor AP ",
+    "11107 Temperature Sensor Cable",
+    "11105 Temperature Sensor Pro Cable",
+    "11139 Temperature Sensor Cable",
+    "11137 Temperature Sensor Pro Cable",
+    "11106 Temperature Sensor Pro Cable",
+    "11119 Temperature Sensor Cable",
+    "DS 18B20 Temperature Sensor",
+    "DS 18S20 Temperature Sensor",
+    "DS 1820 Temperature Sensor"	
+  ],
+  "parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
+  "childRequirements": [],
+  "implemented": ["{E3BB8703-6388-48DA-AA85-8852CDEE152D}"],
+  "prefix": "ESERA"
+}

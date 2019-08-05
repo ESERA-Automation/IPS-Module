@@ -1,0 +1,12 @@
+{
+	"translations": {
+		"de": { 
+			"Connection": "Verbindung",
+			"Type of connection": "Verbindungstyp",
+			"Type of dataoutput": "Datenausgabetyp",
+			"Serial": "Seriell",
+			"Seconds": "Sekunden",
+			"Configure device": "Gerät konfigurieren"
+		}
+	}
+}

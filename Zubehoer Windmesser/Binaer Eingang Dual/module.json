@@ -1,0 +1,16 @@
+{
+  "id": "{80E39D15-6EEE-4838-ACCC-AB62A50F7E93}",
+  "name": "EseraBinaerEingangDual",
+  "type": 3,
+  "vendor": "ESERA-Automation",
+  "aliases":
+  [
+    "Binär Dual Input, DIN",
+    "11214 Dual Binär Input, DIN",
+	"11217 Dual Binär Input, DIN"
+  ],
+  "parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
+  "childRequirements": [],
+  "implemented": ["{E3BB8703-6388-48DA-AA85-8852CDEE152D}"],
+  "prefix": "ESERA"
+}

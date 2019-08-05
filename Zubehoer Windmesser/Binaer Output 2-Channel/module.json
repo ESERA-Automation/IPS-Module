@@ -1,0 +1,16 @@
+{
+  "id": "{A8850010-7345-4C45-954D-F0E0E790492C}",
+  "name": "EseraBinaerAusgangDual",
+  "type": 3,
+  "vendor": "ESERA-Automation",
+  "aliases":
+  [
+    "Dual Binaer Output, DOUT",
+    "11218 Dual Binaer Output, DOUT",
+	"DS 2413 Digital Output, DOUT"
+  ],
+  "parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
+  "childRequirements": [],
+  "implemented": ["{E3BB8703-6388-48DA-AA85-8852CDEE152D}"],
+  "prefix": "ESERA"
+}

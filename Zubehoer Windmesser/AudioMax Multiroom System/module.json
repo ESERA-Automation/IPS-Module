@@ -1,0 +1,15 @@
+{
+"id": "{F3008344-9C01-4E48-9B47-CEC362B0919D}",
+  "name": "AudioMaxSystem",
+  "type": 3,
+  "vendor": "ESERA-Automation",
+  "aliases":
+  [
+    "50001 AudioMax System, Input-Output",
+	"AudioMax System, Input-Output"
+  ],
+  "parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
+  "childRequirements": [],
+  "implemented": ["{6B6E9D9E-4541-48CD-9F01-EFE52ACB2530}"],
+  "prefix": "ESERA"
+}

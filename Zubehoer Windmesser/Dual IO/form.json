@@ -1,0 +1,19 @@
+{
+  "elements":
+  [
+    { "type": "NumberSpinner", "name": "OWDID", "caption": "OWD" },
+	{ "type": "Label", "caption": "Fügen Sie hier die OWD-Nummer aus der 1-Wire Controller / 1-Wire Gateway OWD-Übersicht ein." },
+	{ "type": "Label", "caption": "" },
+	{ "type": "Label", "caption": "Die Zuordung zum passenden 1-Wire Controller / 1-Wire Gateway nehmen Sie in der 'Instanzkonfiguration', ganz oben, unter 'Gateway Ändern' vor." },
+	{ "type": "Label", "caption": "" },	
+	{ "type": "Label", "caption": "" },	
+	{ "type": "Label", "caption": "Eine Beschreibung der Einbindung des ESERA Systems in IP-Symcon finden Sie unter www.esera.de, Service & Support, kompatible Steuerungen, IP-Symcon." },
+	{ "type": "Label", "caption": "Nachfolgend ein Link zur Modul Dokumentation, ESERA Website und Support Videos." }
+  ],
+   "actions":
+  [ 	
+	{ "type": "Button", "caption": "Modul Dokumentation", "onClick": "echo 'https://github.com/ESERA-Automation/IPS-Module/tree/master/Dual%20IO';" },
+	{ "type": "Button", "caption": "ESERA Webside", "onClick": "echo 'https://www.esera.de/';" },
+	{ "type": "Button", "caption": "ESERA Support Videos", "onClick": "echo 'https://www.esera.de/service-support/support-videos/';" }
+  ]
+}

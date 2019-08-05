@@ -1,0 +1,14 @@
+{
+  "id": "{31B913AC-C481-4A0B-9A23-438D2B7A1A9F}",
+  "name": "EseraWindmesser",
+  "type": 3,
+  "vendor": "ESERA-Automation",
+  "aliases":
+  [
+	"Zubehoer Windsensor Auswertung"
+  ],
+  "parentRequirements": [],
+  "childRequirements": [],
+  "implemented": [],
+  "prefix": "ESERA"
+}

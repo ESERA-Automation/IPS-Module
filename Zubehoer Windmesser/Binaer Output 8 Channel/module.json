@@ -1,0 +1,16 @@
+{
+	"id": "{bd8c2933-aaef-418c-87d6-dd1fa591b90f}",
+	"name": "EseraDigitalOut8Channel",
+	"type": 3,
+	"vendor": "ESERA-Automation",
+	"aliases": 
+	[
+		"8-Channel Binaer Output, DOUT",
+		"11229 8x8A 8-Channel Binaer Output, DOUT",
+		"DS 2408 8-Channel Binaer Output, DOUT"
+	],
+	"parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
+	"childRequirements": [],
+	"implemented": ["{E3BB8703-6388-48DA-AA85-8852CDEE152D}"],
+	"prefix": "ESERA"
+}

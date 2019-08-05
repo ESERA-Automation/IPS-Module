@@ -1,0 +1,14 @@
+{
+  "id": "{B31BBEE5-53F6-4FBD-8FC2-72889C04A623}",
+  "name": "EseraStromzaehler",
+  "type": 3,
+  "vendor": "ESERA-Automation",
+  "aliases":
+  [
+	"Zubehoer Stromzähler Auswertung"
+  ],
+  "parentRequirements": [],
+  "childRequirements": [],
+  "implemented": [],
+  "prefix": "ESERA"
+}

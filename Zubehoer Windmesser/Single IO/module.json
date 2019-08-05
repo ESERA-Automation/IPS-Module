@@ -1,0 +1,15 @@
+{
+  "id": "{8D097B6F-0E60-485F-A6E3-8D92E7C93A1B}",
+  "name": "SingleIO",
+  "type": 3,
+  "vendor": "ESERA-Automation",
+  "aliases":
+  [
+    "Single IO",
+	"DS 2405 I/O"
+  ],
+  "parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
+  "childRequirements": [],
+  "implemented": ["{E3BB8703-6388-48DA-AA85-8852CDEE152D}"],
+  "prefix": "ESERA"
+}

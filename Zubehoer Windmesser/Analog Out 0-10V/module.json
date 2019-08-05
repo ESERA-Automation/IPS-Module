@@ -1,0 +1,15 @@
+{
+  "id": "{C945D59F-6EB3-4343-B9C8-04C7A3CC839F}",
+  "name": "EseraAnalogOut010V",
+  "type": 3,
+  "vendor": "ESERA-Automation",
+  "aliases":
+  [
+    "Analog Output 0-10V",
+    "11208 Analog Output 0-10V"
+  ],
+  "parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
+  "childRequirements": [],
+  "implemented": ["{E3BB8703-6388-48DA-AA85-8852CDEE152D}"],
+  "prefix": "ESERA"
+}

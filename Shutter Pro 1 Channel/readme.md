@@ -19,8 +19,8 @@ Das Modul bindet das Shutter Pro 1-Fach von ESERA-Automation ein. Es werden auto
 
 ### 2. Voraussetzungen
 
-- IP-Symcon ab Version 5.0
-- ESERA-Automation 1-Wire Controller / 1-Wire Gateway / ESERA-Station ab Firmware Version 1.19_54
+- IP-Symcon ab Version 4.2
+- ESERA-Automation 1-Wire Controller / 1-Wire Gateway / ESERA-Station 200 ab Firmware 1.18_72
 
 
 ### 3. Software-Installation
@@ -66,13 +66,10 @@ Es werden zusätzliche Variablenprofile für Webfront hinzugefügt
 
 ### 7. PHP-Befehlsreferenz
 `boolean ESERA_SetShutter(integer $InstanzID, integer fix 1, integer $Value);`  
-Steuert einen Rollladen Aktor mit der Fahrrichtung hoch/runter oder stoppt.
+Fährt einen Rollladen hoch/runter oder stoppt.
 Die Funktion liefert keinerlei Rückgabewert.  
-
-Beispiel:
-ID = Shutter Modul Nummer, z.B. 12345  
-
-`ESERA_SetShutter(ID,1,1);`  
+Beispiel:  
+`ESERA_SetShutter(12345,1,1);`  
 Fährt den Rolladen runter.
 
 `ESERA_SetShutter(12345,1,2);`  

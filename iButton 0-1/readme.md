@@ -19,8 +19,8 @@ Das Modul bindet den iButton von ESERA-Automation ein. Es werden automatisch Var
 
 ### 2. Voraussetzungen
 
-- IP-Symcon ab Version 5.0
-- ESERA-Automation 1-Wire Controller / 1-Wire Gateway / ESERA-Station ab Firmware Version 1.19_54
+- IP-Symcon ab Version 4.2
+- ESERA-Automation 1-Wire Controller / 1-Wire Gateway
 
 ### 3. Software-Installation
 
@@ -45,7 +45,7 @@ Die Statusvariablen werden automatisch angelegt. Das Löschen einzelner kann zu 
 
 Es wird automatisch der übermittelte Wert angezeigt.
 - 0 / 1 des iButtons
-(Abhängig von der Konfiguration des 1-Wire Controllers / 1-Wire Gateways), ab Firmware Version 1.19_54
+(Abhängig von der Konfiguration des 1-Wire Controllers / 1-Wire Gateways)
 
 __Unterstützte Datenpakete__
 

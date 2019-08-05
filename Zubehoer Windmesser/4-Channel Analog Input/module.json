@@ -1,0 +1,16 @@
+{
+  "id": "{1d5f1e13-d29d-42a9-b310-17d2ebd945d6}",
+  "name": "EseraAnalogIn4Channel",
+  "type": 3,
+  "vendor": "ESERA-Automation",
+  "aliases":
+  [
+    "4-Channel Analog Input, AIN",
+	"DS 2450 4-Channel Analog Input, AIN",
+    "11230 4-Channel Analog Input, AIN"
+  ],
+  "parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
+  "childRequirements": [],
+  "implemented": ["{E3BB8703-6388-48DA-AA85-8852CDEE152D}"],
+  "prefix": "ESERA"
+}

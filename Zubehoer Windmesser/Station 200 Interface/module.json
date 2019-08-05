@@ -1,0 +1,14 @@
+{
+	"id": "{EDE0EBAA-4197-4D62-9037-3B1C88E40A5C}",
+	"name": "EseraStation200",
+	"type": 2,
+	"vendor": "ESERA-Automation",
+	"aliases":
+	[
+		"19200 Station 200 Interface"	
+	],
+	"parentRequirements": ["{79827379-F36E-4ADA-8A95-5F8D1DC92FA9}"],
+	"childRequirements": ["{E3BB8703-6388-48DA-AA85-8852CDEE152D}", "{6B6E9D9E-4541-48CD-9F01-EFE52ACB2530}"],
+	"implemented": ["{018EF6B5-AB94-40C6-AA53-46943E824ACF}", "{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
+	"prefix": "ESERA"
+}

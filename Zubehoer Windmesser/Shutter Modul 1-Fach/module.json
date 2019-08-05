@@ -1,0 +1,14 @@
+{
+  "id": "{866D7D88-BC80-476C-A0BE-70DD83F00B17}",
+  "name": "EseraShutter1Fach",
+  "type": 3,
+  "vendor": "ESERA-Automation",
+  "aliases":
+  [
+    "11209 Shutter 1-Channel"
+  ],
+  "parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
+  "childRequirements": [],
+  "implemented": ["{E3BB8703-6388-48DA-AA85-8852CDEE152D}"],
+  "prefix": "ESERA"
+}

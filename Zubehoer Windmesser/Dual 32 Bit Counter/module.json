@@ -1,0 +1,16 @@
+{
+  "id": "{F1108600-23A0-44B6-A006-44222C35F4BC}",
+  "name": "EseraDual32BitCounter",
+  "type": 3,
+  "vendor": "ESERA-Automation",
+  "aliases":
+  [
+    "Dual S0 Counter 32 Bit",
+    "11211 Dual S0-Counter 32 Bit",
+	"DS 2423 Dual S0-Counter 32 Bit"
+  ],
+  "parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
+  "childRequirements": [],
+  "implemented": ["{E3BB8703-6388-48DA-AA85-8852CDEE152D}"],
+  "prefix": "ESERA"
+}

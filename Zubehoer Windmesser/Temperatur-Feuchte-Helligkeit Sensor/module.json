@@ -1,0 +1,18 @@
+{
+  "id": "{41D1AB58-098A-4BE9-BF53-CA87D9DDA4E4}",
+  "name": "EseraTemperaturFeuchteHelligkeit",
+  "type": 3,
+  "vendor": "ESERA-Automation",
+  "aliases":
+  [
+    "Temperature Humidity Brightness Sensor",
+    "11121 Temperature Humidity Brightness Sensor UP",
+    "11132 Temperature Humidity Brightness Sensor UP",
+    "11134 Temperature Humidity Brightness Sensor AP",
+    "11135 Temperature Humidity Brightness Sensor Outdoor"
+  ],
+  "parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
+  "childRequirements": [],
+  "implemented": ["{E3BB8703-6388-48DA-AA85-8852CDEE152D}"],
+  "prefix": "ESERA"
+}

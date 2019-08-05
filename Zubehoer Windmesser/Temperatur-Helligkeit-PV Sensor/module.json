@@ -1,0 +1,15 @@
+{
+  "id": "{CB7BF734-5D30-419C-96CB-C02FA18FD5B2}",
+  "name": "EseraTemperaturHelligkeitPV",
+  "type": 3,
+  "vendor": "ESERA-Automation",
+  "aliases":
+  [
+    "Solar Temperature Brightness Sensor",
+    "11112 Solar Brightness Temperature Sensor Outdoor"
+  ],
+  "parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
+  "childRequirements": [],
+  "implemented": ["{E3BB8703-6388-48DA-AA85-8852CDEE152D}"],
+  "prefix": "ESERA"
+}

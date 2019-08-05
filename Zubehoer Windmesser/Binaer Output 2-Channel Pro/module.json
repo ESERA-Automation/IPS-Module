@@ -1,0 +1,15 @@
+{
+	"id": "{A5416C4D-6EE8-46BA-9120-9EC461F22762}",
+	"name": "EseraDigitalOutIn2Channel",
+	"type": 3,
+	"vendor": "ESERA-Automation",
+	"aliases": 
+	[
+		"Dual Binaer Output Pro + Manual Input",
+		"11233 Pro Dual Binaer Output + Manual Input"		
+	],
+	"parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
+	"childRequirements": [],
+	"implemented": ["{E3BB8703-6388-48DA-AA85-8852CDEE152D}"],
+	"prefix": "ESERA"
+}
