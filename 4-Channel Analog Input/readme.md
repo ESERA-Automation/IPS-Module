@@ -13,7 +13,7 @@ Das Modul bindet den 4-Channel Analog Input von ESERA-Automation ein. Es werden 
 
 ### 1. Funktionsumfang
 
-* Stellt via ESERA-Automation 1-Wire Controller / 1-Wire Gateway Verbindung zum 4-Channel Analog Input her.
+* Das Modul stellt eine Datenverbindung zwischen ESERA 1-Wire Controller / 1-Wire Gateway und dem 1-Wire Gerät her.
 * OWDID einstellbar
 * Automatische Aktualisierung der Werte
 
@@ -43,7 +43,8 @@ Die Statusvariablen werden automatisch angelegt. Das Löschen einzelner kann zu 
 
 ##### Statusvariablen
 
-Es werden automatisch alle übermittelten Werte angelegt.
+Es werden automatisch für alle übermittelten Werte passende Variablen angelegt.
+Hier konkret: 
 - Analogwert 1
 - Analogwert 2
 - Analogwert 3

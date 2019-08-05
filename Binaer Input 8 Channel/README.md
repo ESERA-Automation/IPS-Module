@@ -13,9 +13,9 @@ Das Modul bindet das Digital Input 8 Channel von ESERA-Automation ein. Es werden
 
 ### 1. Funktionsumfang
 
-* Stellt via ESERA-Automation 1-Wire Controller / 1-Wire Gateway Verbindung zum Gerät her.
-* Einstellbarkeit der OWDID
-* Automatische Aktualisierung der Eingänge
+* Das Modul stellt eine Datenverbindung zwischen ESERA 1-Wire Controller / 1-Wire Gateway und dem 1-Wire Gerät her.
+* Die OWDID ist einstellbar
+* Die Variablenwerte werden automatische Aktualisiert
 
 ### 2. Voraussetzungen
 
@@ -42,7 +42,8 @@ Die Statusvariablen/Kategorien werden automatisch angelegt. Das Löschen einzeln
 
 ##### Statusvariablen
 
-Es werden automatisch alle 8 Eingänge eingerichtet.
+Für alle übermittelten Werte werden passende Variablen angelegt.
+Es werden automatisch alle 8 Eingänge als Variablen eingerichtet.
 
 __Unterstützte Datenpakete__
 

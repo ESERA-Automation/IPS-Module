@@ -13,9 +13,10 @@ Das Modul bindet das Shutter Pro 1-Fach von ESERA-Automation ein. Es werden auto
 
 ### 1. Funktionsumfang
 
-* Stellt via ESERA-Automation 1-Wire Controller / 1-Wire Gateway / ESERA-Station Verbindung zum Shutter Pro 1-Fach her.
-* OWDID einstellbar
-* Automatische Aktualisierung der Werte für Output- und Input Status
+* Das Modul stellt eine Datenverbindung zwischen ESERA 1-Wire Controller / 1-Wire Gateway und dem 1-Wire Gerät her.
+* Die OWDID ist einstellbar
+* Die Variablenwerte werden automatische Aktualisiert
+* Steuern der Ausgänge / des Ausgangs des 1-Wire Gerät
 
 ### 2. Voraussetzungen
 
@@ -44,10 +45,11 @@ Die Statusvariablen werden automatisch angelegt. Das Löschen einzelner kann zu 
 
 ##### Statusvariablen
 
-Es werden automatisch alle übermittelten Werte für Output- und Input Status angelegt.
+Es werden automatisch für alle übermittelten Werte passende Variablen angelegt.
+Hier konkret: 
 - Down
 - Up
-- Stop
+- Stopp
 - Standby
 
 __Unterstützte Datenpakete__
@@ -77,3 +79,7 @@ Fährt den Rolladen hoch.
 
 `ESERA_SetShutter(12345,1,3);`  
 Stoppt den Rolladen.
+
+Um mehrere Shutter Module mit einem Befehl steuern zu können, gibt es das Modul "Zubehör OWD Group Command". Über diese Modul kann ein Gruppenbefehl an einen 1-Wire Controller geschickt werden. 
+Der 1-Wire Controller steuert dann die in der Gruppe hinterlegten Shutter Module mit dem Befehl an.
+Mehr unter dem Modul "Zubehör OWD Group Command"

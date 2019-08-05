@@ -1,8 +1,10 @@
 {
   "elements":
   [
-    { "type": "Label", "caption": "Hier ist nicht zu Konfigurieren." },
 	{ "type": "Label", "caption": "Modul verbindet sich automatisch mit dem AudioMax Interface" },	
+	{ "type": "Label", "caption": "" },
+	{ "type": "Label", "caption": "Die Zuordung zum passenden AudioMax Server nehmen Sie in der 'Instanzkonfiguration', ganz oben, unter 'Gateway Ändern' vor." },
+	{ "type": "Label", "caption": "" },	
 	{ "type": "Label", "caption": "" },	
 	{ "type": "Label", "caption": "Eine Beschreibung der Einbindung des ESERA Systems in IP-Symcon finden Sie unter www.esera.de, Service & Support, kompatible Steuerungen, IP-Symcon." },
 	{ "type": "Label", "caption": "Nachfolgend ein Link zur Modul Dokumentation, ESERA Website und Support Videos." }

@@ -9,8 +9,8 @@ class EseraDual32BitCounter extends IPSModule {
         //You cannot use variables here. Just static values.
         $this->RegisterPropertyInteger("OWDID", 1);
 
-        $this->RegisterVariableInteger("ZaehlerA", "Counter A", "", 1);
-        $this->RegisterVariableInteger("ZaehlerB", "Counter B", "", 1);
+        $this->RegisterVariableInteger("ZaehlerA", "Counter 1", "", 1);
+        $this->RegisterVariableInteger("ZaehlerB", "Counter 2", "", 1);
         
         $this->ConnectParent("{FCABCDA7-3A57-657D-95FD-9324738A77B9}"); //1Wire Controller
     }

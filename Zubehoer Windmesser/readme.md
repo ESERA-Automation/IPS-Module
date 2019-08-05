@@ -1,53 +1,72 @@
-# ESERA-Automation
+# ESERA Windmesser
+Das Modul stellt auf Basis der Daten des Dual 32 Bit Counters von ESERA-Automation einen Windmesser bereit. Es werden automatisch Variablen angelegt und eingelesen.
 
-Folgende Module für IP-Symcon beinhaltet das ESERA-Automation Repository:
+### Inhaltverzeichnis
 
-- __1-Wire Controller / 1-Wire Gateway__ ([Dokumentation](OneWireController))  
+1. [Funktionsumfang](#1-funktionsumfang)
+2. [Voraussetzungen](#2-voraussetzungen)
+3. [Software-Installation](#3-software-installation)
+4. [Einrichten der Instanzen in IP-Symcon](#4-einrichten-der-instanzen-in-ip-symcon)
+5. [Statusvariablen und Profile](#5-statusvariablen-und-profile)
+6. [WebFront](#6-webfront)
+7. [PHP-Befehlsreferenz](#7-php-befehlsreferenz)
 
-- __1-Wire Controller 2 Ein- und Ausgaenge__ ([Dokumentation](1-Wire%20Controller%202%20Ein-%20und%20Ausgaenge))  
+### 1. Funktionsumfang
 
-- __1-Wire Hub__ ([Dokumentation](1-Wire%20Hub))
+* Stellt via ESERA-Automation 1-Wire Controller / 1-Wire Gateway und Dual 32 Bit Counter einen Windmesser bereit.
+* Automatische Aktualisierung der Werte
 
-- __3-Channel Analog Input__ ([Dokumentation](3-Channel%20Analog%20Input))  
+### 2. Voraussetzungen
 
-- __4-Channel Analog Input__ ([Dokumentation](4-Channel%20Analog%20Input))  
+- IP-Symcon ab Version 4.2
+- ESERA-Automation 1-Wire Controller / 1-Wire Gateway
+- Dual 32 Bit Counter Modul
 
-- __Analog Out 0-10V__ ([Dokumentation](Analog%20Out%200-10V))  
+### 3. Software-Installation
 
-- __Analog Out 0-20mA__ ([Dokumentation](Analog%20Out%200-20mA))  
+Über das Modul-Control folgende URL hinzufügen:
+`git://github.com/ESERA-Automation/IPS-Module.git`  
 
-- __Binaer Eingang Dual__ ([Dokumentation](Binaer%20Eingang%20Dual))
+### 4. Einrichten der Instanzen in IP-Symcon
 
-- __Binaer Out 2-Channel__ ([Dokumentation](Binaer%20Out%202-Channel))  
+- Unter "Instanz hinzufügen" ist das 'Windmesser'-Modul unter dem Hersteller 'ESERA-Automation' aufgeführt.  
 
-- __Digital Input 8 Channel__ ([Dokumentation](DigitalInput8Channel))  
+__Konfigurationsseite__:
 
-- __Digital Out 8 Channel__ ([Dokumentation](DigitalOut8Channel))  
+Name | Beschreibung
+---- | ---------------------------------
+Counter | Auswahl der Variable des Zählers vom Dual 32 Bit Counter Modul
+Impulse | Impulse pro Umdrehung
 
-- __Dual 32 Bit Counter__ ([Dokumentation](Dual%2032%20Bit%20Counter))
+### 5. Statusvariablen und Profile
 
-- __Dual IO__ ([Dokumentation](Dual%20IO))
+Die Statusvariablen werden automatisch angelegt. Das Löschen einzelner kann zu Fehlfunktionen führen.
 
-- __iButton__ ([Dokumentation](iButton))
+##### Statusvariablen
 
-- __PWM Out__ ([Dokumentation](PWM%20Out))
+Es werden automatisch folgende Variablen angelegt.
+- Counter
+- Wind km/h
+- Wind m/s
 
-- __Shutter Modul 1-Fach__ ([Dokumentation](Shutter%20Modul%201-Fach))
+__Unterstützte Datenpakete__
 
-- __Shutter Pro 1 Channel__ ([Dokumentation](Shutter%20Pro%201%20Channel))
+Typ       | Variablentyp
+--------- | -------------
+Counter | Integer
+Wind km/h | Float
+Wind m/s | Float
 
-- __Single IO__ ([Dokumentation](Single%20IO))
+##### Profile:
 
-- __SmartBattMonitor__ ([Dokumentation](SmartBattMonitor))
+Es werden keine zusätzlichen Profile hinzugefügt
 
-- __Temperatur Sensor__ ([Dokumentation](Temperatur%20Sensor))
+### 6. WebFront
 
-- __Temperatur-Feuchte Sensor__ ([Dokumentation](Temperatur-Feuchte%20Sensor))
+Über das WebFront und die mobilen Apps werden die Variablen angezeigt. Es ist keine weitere Steuerung oder gesonderte Darstellung integriert.
 
-- __Temperatur-Feuchte-Helligkeit Sensor__ ([Dokumentation](Temperatur-Feuchte-Helligkeit%20Sensor))
-
-- __Temperatur-Feuchte-Luftgüte Sensor__ ([Dokumentation](Temperatur-Feuchte-Luftguete%20Sensor))
-
-- __Temperatur-Helligkeit Sensor__ ([Dokumentation](Temperatur-Helligkeit%20Sensor))
-
-- __Temperatur-Helligkeit-PV Sensor__ ([Dokumentation](Temperatur-Helligkeit-PV%20Sensor))
+### 7. PHP-Befehlsreferenz
+```php
+ESERA_RefreshCounter(integer $InstanceID)
+```
+Die Funktion dienen nur dem internen Gebrauch und sollten nicht manuell ausgeführt werden.

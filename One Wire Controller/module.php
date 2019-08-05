@@ -10,10 +10,10 @@ class EseraOneWireController extends IPSModule {
 		$this->RegisterPropertyInteger("ConnectionType", 10);
 		$this->RegisterPropertyString("DataOutputType", "OWD");
 		$this->RegisterPropertyInteger("ControllerID", 1);
-		$this->RegisterPropertyBoolean("SendKeepAlive", false);
+		$this->RegisterPropertyBoolean("SendKeepAlive", true);
 		$this->RegisterPropertyInteger("SendKeepAliveInterval", 60);
 		$this->RegisterPropertyBoolean("ReceiveKeepAlive", false);
-		$this->RegisterPropertyInteger("ReceiveKeepAliveInterval", 0);
+		$this->RegisterPropertyInteger("ReceiveKeepAliveInterval", 60);
 
 		$this->RegisterTimer("KeepAliveHeartbeatTimer", 0, 'ESERA_SendKeepAliveHeartbeat($_IPS[\'TARGET\']);');
 		$this->RegisterTimer("SysInfoRequestTimer", 86400 * 1000, 'ESERA_GetSysInfo($_IPS[\'TARGET\']);');

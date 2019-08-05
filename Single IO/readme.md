@@ -13,9 +13,10 @@ Das Modul bindet den SingleIO von ESERA-Automation ein. Es werden automatisch Va
 
 ### 1. Funktionsumfang
 
-* Stellt via ESERA-Automation 1-Wire Controller / 1-Wire Gateway Verbindung zum SingleIO her.
-* OWDID einstellbar
-* Automatische Aktualisierung der Werte
+* Das Modul stellt eine Datenverbindung zwischen ESERA 1-Wire Controller / 1-Wire Gateway und dem 1-Wire Gerät her.
+* Die OWDID ist einstellbar
+* Die Variablenwerte werden automatische Aktualisiert
+* Steuern der Ausgänge / des Ausgangs des 1-Wire Gerät
 
 ### 2. Voraussetzungen
 
@@ -43,7 +44,8 @@ Die Statusvariablen werden automatisch angelegt. Das Löschen einzelner kann zu 
 
 ##### Statusvariablen
 
-Es werden automatisch alle übermittelten Werte angelegt.
+Für alle übermittelten Werte werden passende Variablen angelegt.
+Es wird automatisch die Variable für die Eingang eingerichtet.
 - Eingang
 
 __Unterstützte Datenpakete__

@@ -13,9 +13,10 @@ Das Modul bindet das Dual Digital Out Standrad 11218 von ESERA-Automation ein. E
 
 ### 1. Funktionsumfang
 
-* Stellt via ESERA-Automation 1-Wire Controller / 1-Wire Gateway Verbindung zum Binärausgang Dual her.
-* OWDID einstellbar
-* Automatische Aktualisierung der Werte
+* Das Modul stellt eine Datenverbindung zwischen ESERA 1-Wire Controller / 1-Wire Gateway und dem 1-Wire Gerät her.
+* Die OWDID ist einstellbar
+* Die Variablenwerte werden automatische Aktualisiert
+* Steuern der Ausgänge / des Ausgangs des 1-Wire Gerät
 
 ### 2. Voraussetzungen
 
@@ -43,7 +44,8 @@ Die Statusvariablen werden automatisch angelegt. Das Löschen einzelner kann zu 
 
 ##### Statusvariablen
 
-Es werden automatisch alle übermittelten Werte angelegt.
+Es werden automatisch für alle übermittelten Werte passende Variablen angelegt.
+Hier konkret: 
 - Ausgang 1
 - Ausgang 2
 

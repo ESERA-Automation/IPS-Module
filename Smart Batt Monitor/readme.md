@@ -13,9 +13,9 @@ Das Modul bindet den SmartBattMonitor von ESERA-Automation ein. Es werden automa
 
 ### 1. Funktionsumfang
 
-* Stellt via ESERA-Automation 1-Wire Controller / 1-Wire Gateway Verbindung zum SmartBattMonitor her.
-* OWDID einstellbar
-* Automatische Aktualisierung der Werte
+* Das Modul stellt eine Datenverbindung zwischen ESERA 1-Wire Controller / 1-Wire Gateway und dem 1-Wire Gerät her.
+* Die OWDID ist einstellbar
+* Die Variablenwerte werden automatische Aktualisiert
 
 ### 2. Voraussetzungen
 
@@ -43,10 +43,11 @@ Die Statusvariablen werden automatisch angelegt. Das Löschen einzelner kann zu 
 
 ##### Statusvariablen
 
-Es werden automatisch alle übermittelten Werte angelegt.
+Es werden automatisch für alle übermittelten Werte passende Variablen angelegt.
+Hier konkret:
 - Temperatur
-- Spannung VAD
-- Spannung VCC
+- Spannung VAD 
+- Spannung VCC (Betriebsspannung des Sensors, normalerweise liegt der Wert bei ca. 5V
 - Current Sens
 
 __Unterstützte Datenpakete__
