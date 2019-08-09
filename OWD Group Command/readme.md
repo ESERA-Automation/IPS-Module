@@ -68,6 +68,7 @@ Es werden keine Variablen oder Profile angelegt
  Beispiel:  
  `ESERA_SetGroupShtOut(12345,10,1);`	=> Gruppe 10 und Laufrichtung Down (1)
 
+ 
  Neu ab 1-Wire Controller/1-Wire Gateway Firmware 1.20_25
  Es kann nun zu dem Gruppenbefehl zusätzlich eine Laufzeit für die 1-Wire Shutter Pro übergeben werden 
  Wichtig, dieser Befehl funktioniert nur bei 1-Wire Shutter Pro, Art. Nr. 11231 ab Kaufdatum 5/2019.

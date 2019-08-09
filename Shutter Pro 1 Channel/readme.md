@@ -69,6 +69,7 @@ Es werden zusätzliche Variablenprofile für Webfront hinzugefügt
 ### 7. PHP-Befehlsreferenz 
 Fährt einen Rollladenmotor eines 1-Wire Shutter Pro Modules nach oben, unten oder stoppt.
 Die Funktion liefert keinerlei Rückgabewert.  
+
 Befehl: 
  `ESERA_SetShutter(integer $InstanzID, integer fix 1, integer $Value);`
  
@@ -89,6 +90,7 @@ Value für Shutter: 1=Down, 2=Up, 3=Stopp
 Duration: 250ms, 500ms, 750ms oder 1-60 Sekunden
  
 Die Funktion liefert keinerlei Rückgabewert.  
+
 Befehl: 
  `ESERA_SetShutterDuration(integer $InstanzID, integer $Value, integer $Duration);`
  
