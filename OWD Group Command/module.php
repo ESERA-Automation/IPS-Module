@@ -53,15 +53,15 @@ class OWDGroupCommand extends IPSModule {
   	}
 
 	
+	//Gruppenbefehle für Shutter Module
+	public function SetGroupShtOut(int $Number, int $Value) {
+		$this->Send("SET,OWD,GRP,SHT,". $Number .",". $Value ."" );
+	}
+
     //Gruppenbefehle mit Laufzeit für Shutter Module
 	public function SetGroupShtOutDuration(int $Number, int $Value, int $Duration)  {
 		$this->Send("SET,OWD,GRP,SHT,". $Number .",". $Value .",". $Duration ."" );
 	}
-	
-    // Steuerung per IPS Befehl der Laufrichtung mit Laufzeitübergabe	
-    public function SetShutterDuration(int $Value, int $Duration) {
-      $this->Send("SET,OWD,SHT,". $this->ReadPropertyInteger("OWDID") .",". $Value .",". $Duration ."");
-    }
 	
 	
 
