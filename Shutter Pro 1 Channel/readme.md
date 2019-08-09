@@ -66,19 +66,35 @@ Es werden zusätzliche Variablenprofile für Webfront hinzugefügt
 
 Über das WebFront und die mobilen Apps werden die Variablen angezeigt. Es ist keine weitere Steuerung oder gesonderte Darstellung integriert.
 
-### 7. PHP-Befehlsreferenz
-`boolean ESERA_SetShutter(integer $InstanzID, integer fix 1, integer $Value);`  
-Fährt einen Rollladen hoch/runter oder stoppt.
+### 7. PHP-Befehlsreferenz 
+Fährt einen Rollladenmotor eines 1-Wire Shutter Pro Modules nach oben, unten oder stoppt.
 Die Funktion liefert keinerlei Rückgabewert.  
+Befehl: 
+ `ESERA_SetShutter(integer $InstanzID, integer fix 1, integer $Value);`
+ 
+Beispiele:  
+ `ESERA_SetShutter(12345,1,1);`  => OWD 1 fährt den Rolladen nach unten
+
+ `ESERA_SetShutter(12345,1,2);`  => OWD 1 fährt den Rolladen nach oben
+
+ `ESERA_SetShutter(12345,1,3);`  => OWD 1 stoppt den Motor
+
+ 
+Neu ab 1-Wire Controller/1-Wire Gateway Firmware 1.20_25 (5/2019)
+Es kann nun zu dem Shutter Befehl zusätzlich eine Laufzeit für die 1-Wire Shutter Pro übergeben werden 
+Wichtig, dieser Befehl funktioniert nur bei 1-Wire Shutter Pro, Art. Nr. 11231 ab Kaufdatum 5/2019.
+ 
+Es muss nur die OWD Nummer ($Gruppe), der Steuerbefehl ($Value) und die Dauer ($Duration) gesendet werden.
+Value für Shutter: 1=Down, 2=Up, 3=Stopp
+Duration: 250ms, 500ms, 750ms oder 1-60 Sekunden
+ 
+Die Funktion liefert keinerlei Rückgabewert.  
+Befehl: 
+ `ESERA_SetShutterDuration(integer $InstanzID, integer $Value, integer $Duration);`
+ 
 Beispiel:  
-`ESERA_SetShutter(12345,1,1);`  
-Fährt den Rolladen runter.
-
-`ESERA_SetShutter(12345,1,2);`  
-Fährt den Rolladen hoch.
-
-`ESERA_SetShutter(12345,1,3);`  
-Stoppt den Rolladen.
+ `ESERA_SetGroupShtOutDuration(12345,10,1,20);`		=> Gruppe 10, Laufrichtung Down (1) und 20 Sekunden Dauer 
+ 
 
 Um mehrere Shutter Module mit einem Befehl steuern zu können, gibt es das Modul "Zubehör OWD Group Command". Über diese Modul kann ein Gruppenbefehl an einen 1-Wire Controller geschickt werden. 
 Der 1-Wire Controller steuert dann die in der Gruppe hinterlegten Shutter Module mit dem Befehl an.

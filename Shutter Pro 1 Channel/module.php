@@ -47,9 +47,17 @@ class EseraShutterPro extends IPSModule {
       $this->SetShutter($Value);
     }
 
+	// Steuerung per IPS Befehl der Laufrichtung mit Laufzeitübergabe
     public function SetShutter(int $Value) {
       $this->Send("SET,OWD,SHT,". $this->ReadPropertyInteger("OWDID") .",". $Value ."");
     }
+	
+    // Steuerung per IPS Befehl der Laufrichtung mit Laufzeitübergabe	
+    public function SetShutterDuration(int $Value, int $Duration) {
+      $this->Send("SET,OWD,SHT,". $this->ReadPropertyInteger("OWDID") .",". $Value .",". $Duration ."");
+    }
+	
+	
 
 	private function Send($Command) {
 		//Daten zum 1-Wire Controller Instanz senden

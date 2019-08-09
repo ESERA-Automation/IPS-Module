@@ -30,8 +30,7 @@ class OWDGroupCommand extends IPSModule {
 	
     public function ReceiveData($JSONString) {
 
-        $data = json_decode($JSONString);
-		
+        $data = json_decode($JSONString);	
 		// Datenverarbeitung und schreiben der Werte in die Statusvariablen
         //SetValue($this->GetIDForIdent("Grp"), $data->Buffer);
         //$this->SendDebug("OWDGroupCommand", "GRPNumber:" . $data->Number . " | Function:" . $data->DataPoint . " | Value: " . $data->Value, 0);
@@ -50,15 +49,21 @@ class OWDGroupCommand extends IPSModule {
             break;
         default:
             throw new Exception("Invalid Ident");
-    }	
+		}	
   	}
 
-	//Gruppenbefehle
-	public function SetGroupShtOut(int $Number, int $Value) {
-		$this->Send("SET,OWD,GRP,SHT,". $Number .",". $Value ."" );
-		//$this->SendDebug("GruppenNumber:" . $Number . "|SHT |Value: ". $Value);
-
+	
+    //Gruppenbefehle mit Laufzeit für Shutter Module
+	public function SetGroupShtOutDuration(int $Number, int $Value, int $Duration)  {
+		$this->Send("SET,OWD,GRP,SHT,". $Number .",". $Value .",". $Duration ."" );
 	}
+	
+    // Steuerung per IPS Befehl der Laufrichtung mit Laufzeitübergabe	
+    public function SetShutterDuration(int $Value, int $Duration) {
+      $this->Send("SET,OWD,SHT,". $this->ReadPropertyInteger("OWDID") .",". $Value .",". $Duration ."");
+    }
+	
+	
 
     private function CreateVariableProfile($ProfileName, $ProfileType, $Suffix, $MinValue, $MaxValue, $StepSize, $Digits, $Icon) {
 		    if (!IPS_VariableProfileExists($ProfileName)) {
