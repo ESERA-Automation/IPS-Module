@@ -13,9 +13,9 @@ Das Modul bindet den iButton von ESERA-Automation ein. Es werden automatisch Var
 
 ### 1. Funktionsumfang
 
-* Stellt via ESERA-Automation 1-Wire Controller / 1-Wire Gateway Verbindung zum iButton her.
-* OWDID einstellbar
-* Automatische Aktualisierung des Statuswert
+* Das Modul stellt eine Datenverbindung zwischen ESERA 1-Wire Controller / 1-Wire Gateway und dem 1-Wire Gerät her.
+* Die OWDID ist einstellbar
+* Die Variablenwerte werden automatische Aktualisiert
 
 ### 2. Voraussetzungen
 
@@ -43,9 +43,11 @@ Die Statusvariablen werden automatisch angelegt. Das Löschen einzelner kann zu 
 
 ##### Statusvariablen
 
-Es wird automatisch der übermittelte Wert angezeigt.
+Für alle übermittelten Werte werden passende Variablen angelegt.
+Es wird automatisch eine Variable für den I-Button eingerichtet.
 - 0 / 1 des iButtons
-(Abhängig von der Konfiguration des 1-Wire Controllers / 1-Wire Gateways)
+(Abhängig von der Konfiguration des 1-Wire Controllers / 1-Wire Gateways). Zur Unterstützung eines schnellen lesens der IButton Schlüsseln empfehlen wir die Funktionserweiterung "Fast-Modus". Details hierzu finden Sie auf der ESERA Webseite unter:
+https://www.esera.de/produkte/software/softwareerweiterungen-controller-1-2/464/ibutton/rfid-fast-mode-funktionserweiterung-fuer-1-wire-controller/1-wire-gateway 
 
 __Unterstützte Datenpakete__
 

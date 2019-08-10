@@ -56,12 +56,31 @@ Es werden keine Variablen oder Profile angelegt
 
 
 ### 7. PHP-Befehlsreferenz
-`boolean ESERA_SetGroupShtOut(integer $InstanzID, int $Gruppe, int $Value);`  
+ Mit dem Gruppenbefehl kann eine Gruppe von 1-Wire Shutter Module gesteuert werden. Voraussetzung ist, dass die 1-Wire Shutter Pro vorher 
+ in dem 1-Wire Controller einer Gruppe zugeordnet wurden. Details hierzu entnehmen Sie bitte dem Programmierhandbuch, dass Sie u.A. innerhalb des Config Tool finden.
+ 
+ Befehl: 
+ ESERA_SetGroupShtOut(integer $InstanzID, int $Gruppe, int $Value);`  
+ Als InstanzID müssen Sie die ID der "Zubehoer OWD Group Command" Instanz verwenden. 
  Es muss nur die Gruppenadresse ($Gruppe) und Steuerbefehl ($Value) gesendet werden.
  Value für Shutter: 1=Down, 2=Up, 3=Stopp
  
-Beispiel:  
-`ESERA_SetGroupShtOut(12345,10,1);`
+ Beispiel:  
+ `ESERA_SetGroupShtOut(12345,10,1);`	=> Gruppe 10 und Laufrichtung Down (1)
+
+ 
+ Neu ab 1-Wire Controller/1-Wire Gateway Firmware 1.20_25
+ Es kann nun zu dem Gruppenbefehl zusätzlich eine Laufzeit für die 1-Wire Shutter Pro übergeben werden 
+ Wichtig, dieser Befehl funktioniert nur bei 1-Wire Shutter Pro, Art. Nr. 11231 ab Kaufdatum 5/2019.
+ 
+ Es muss nur die Gruppenadresse ($Gruppe), der Steuerbefehl ($Value) und die Dauer ($Duration) gesendet werden.
+ Value für Shutter: 1=Down, 2=Up, 3=Stopp
+ Duration: 250ms, 500ms, 750ms oder 1-60 Sekunden
+ 
+ Beispiel:  
+ `ESERA_SetGroupShtOutDuration(12345,10,1,20);`		=> Gruppe 10, Laufrichtung Down (1) und 20 Sekunden Dauer 
+ 
+
 
 
 

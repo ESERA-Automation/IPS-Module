@@ -13,9 +13,9 @@ Das Modul bindet den 3-Channel Analog Input von ESERA-Automation ein. Es werden 
 
 ### 1. Funktionsumfang
 
-* Stellt via ESERA-Automation 1-Wire Controller / 1-Wire Gateway Verbindung zum 3-Channel Analog Input her.
-* OWDID einstellbar
-* Automatische Aktualisierung der Werte
+* Das Modul stellt eine Datenverbindung zwischen ESERA 1-Wire Controller / 1-Wire Gateway und dem 1-Wire Gerät her.
+* Die OWDID ist einstellbar
+* Die Variablenwerte werden automatische Aktualisiert
 
 ### 2. Voraussetzungen
 
@@ -24,7 +24,7 @@ Das Modul bindet den 3-Channel Analog Input von ESERA-Automation ein. Es werden 
 
 ### 3. Software-Installation
 
-Über das Modul-Control folgende URL hinzufügen:
+Über das Modul-Control wird folgende folgende URL hinzufügen:
 `git://github.com/ESERA-Automation/IPS-Module.git`  
 
 ### 4. Einrichten der Instanzen in IP-Symcon
@@ -43,7 +43,8 @@ Die Statusvariablen werden automatisch angelegt. Das Löschen einzelner kann zu 
 
 ##### Statusvariablen
 
-Es werden automatisch alle übermittelten Werte angelegt.
+Es werden automatisch für alle übermittelten Werte passende Variablen angelegt.
+Hier konkret: 
 - Analogwert 1
 - Analogwert 2
 - Analogwert 3

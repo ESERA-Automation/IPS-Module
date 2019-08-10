@@ -10,10 +10,10 @@ class EseraOneWireController extends IPSModule {
 		$this->RegisterPropertyInteger("ConnectionType", 10);
 		$this->RegisterPropertyString("DataOutputType", "OWD");
 		$this->RegisterPropertyInteger("ControllerID", 1);
-		$this->RegisterPropertyBoolean("SendKeepAlive", false);
+		$this->RegisterPropertyBoolean("SendKeepAlive", true);
 		$this->RegisterPropertyInteger("SendKeepAliveInterval", 60);
 		$this->RegisterPropertyBoolean("ReceiveKeepAlive", false);
-		$this->RegisterPropertyInteger("ReceiveKeepAliveInterval", 0);
+		$this->RegisterPropertyInteger("ReceiveKeepAliveInterval", 60);
 
 		$this->RegisterTimer("KeepAliveHeartbeatTimer", 0, 'ESERA_SendKeepAliveHeartbeat($_IPS[\'TARGET\']);');
 		$this->RegisterTimer("SysInfoRequestTimer", 86400 * 1000, 'ESERA_GetSysInfo($_IPS[\'TARGET\']);');
@@ -312,9 +312,11 @@ class EseraOneWireController extends IPSModule {
 
 		//Vordefiniertes Setup der seriellen Schnittstelle
 		if ($this->ReadPropertyInteger("ConnectionType") == 20) {
-			return "{\"BaudRate\": \"19200\", \"StopBits\": \"1\", \"DataBits\": \"8\", \"Parity\": \"None\"}";
+			//return "{\"BaudRate\": \"19200\", \"StopBits\": \"1\", \"DataBits\": \"8\", \"Parity\": \"None\"}";             //alte Version
+			return "{\"BaudRate\": 19200, \"StopBits\": 1, \"DataBits\": 8, \"Parity\": \"None\"}";
 		} else if ($this->ReadPropertyInteger("ConnectionType") == 10) {
-			return "{\"Port\": \"5000\"}";
+			//return "{\"Port\": \"5000\"}";             //alte Version
+			return "{\"Port\": 5000}";
 		} else {
 			return "";
 		}

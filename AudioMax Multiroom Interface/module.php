@@ -18,6 +18,11 @@ class AudioMaxInterface extends IPSModule {
 		$this->RegisterPropertyInteger("ReceiveKeepAliveInterval", 0);
         $this->RegisterPropertyString("serialport", "{6DC3D946-0D31-450F-A8C6-C42DB8D7D4F1}"); // SerialPort
 		
+		//$this->CreateVariableProfile("ESERA.AMPower",0,"",0,1,1,0,"Power");
+		
+		$this->RegisterVariableBoolean("power", "Power AudioMax System", "~Switch");
+        $this->EnableAction("power");
+		
 		$this->RegisterTimer("KeepAliveHeartbeatTimer", 0, 'ESERA_SendKeepAliveHeartbeat($_IPS[\'TARGET\']);');
 		$this->RegisterTimer("SysInfoRequestTimer", 86400 * 1000, 'ESERA_GetSysInfo($_IPS[\'TARGET\']);');		
 	}
@@ -256,7 +261,7 @@ class AudioMaxInterface extends IPSModule {
 
 	//KAL Senden
 	public function SendKeepAliveHeartbeat() {
-		$this->Send("SET,KAL|1");
+		$this->Send("SET,KAL,1");
 	}
 	
 	//GET Funktionen
@@ -294,23 +299,23 @@ class AudioMaxInterface extends IPSModule {
 	//--------------------------------------------
 	//System Debug Mode setzen
 	public function SetSysAMDebug(int $Value) {
-		$this->Send("SET,SYS,DEBUG".$Value);
+		$this->Send("SET,SYS,DEBUG,".$Value);
 	}
 	//System Echo Mode setzen
 	public function SetSysAMEcho(int $Value) {
-		$this->Send("SET,SYS,ECHO".$Value);
+		$this->Send("SET,SYS,ECHO,".$Value);
 	}
 	//System Pushbuttom Mode setzen
 	public function SetSysAMPushbutton(int $Value) {
-		$this->Send("SET,SYS,PUSHBUTTON".$Value);
+		$this->Send("SET,SYS,PUSHBUTTON,".$Value);
 	}
 	//System Autostart Mode setzen
 	public function SetSysAMAutostart(int $Value) {
-		$this->Send("SET,SYS,AUTOSTART".$Value);
+		$this->Send("SET,SYS,AUTOSTART,".$Value);
 	}
 	//System Power Status setzen
 	public function SetSysAMPwr(int $Value) {
-		$this->Send("SET,SYS,PWR".$Value);
+		$this->Send("SET,SYS,PWR,".$Value);
 	}
 	//System KAL Mode setzen
 	public function SetSysAMKal(int $Value) {
@@ -319,6 +324,20 @@ class AudioMaxInterface extends IPSModule {
 	}
 
 	
+
+	public function RequestAction($Ident, $Value) {
+
+		switch($Ident){
+			case "power":
+				$this->SendDebug(("DBG: send: power" .$Ident), $Value,0);
+				SetValue($this->GetIDForIdent("power"), $Value);
+				$this->Send("SET,SYS,PWR,".$Value);
+				break;
+		}				
+	}		
+			
+			
+			
 	//Liefert den Typ der Variable abhängig von der empfangenen Daten
 	private function GetVariableType($Type) {
 
@@ -348,6 +367,7 @@ class AudioMaxInterface extends IPSModule {
 				return false;
 		}
 	}
+	
 	public function GetConfigurationForParent() {
 
 		//Vordefiniertes Setup der seriellen Schnittstelle
@@ -356,11 +376,13 @@ class AudioMaxInterface extends IPSModule {
 		} 
 		else if ($this->ReadPropertyInteger("ConnectionType") == 20) {
 			return "{\"Port\": \"5000\"}";
-		} else {
+		} 
+		else {
 			return "";
 		}
 
 	}
+	
 	private function Send($Command) {
 
 		//Zur I/O Instanz senden

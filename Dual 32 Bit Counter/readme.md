@@ -13,9 +13,9 @@ Das Modul bindet den Dual 32 Bit Counter von ESERA-Automation ein. Es werden aut
 
 ### 1. Funktionsumfang
 
-* Stellt via ESERA-Automation 1-Wire Controller / 1-Wire Gateway Verbindung zum Dual 32 Bit Counter her.
-* OWDID einstellbar
-* Automatische Aktualisierung der Werte
+* Das Modul stellt eine Datenverbindung zwischen ESERA 1-Wire Controller / 1-Wire Gateway und dem 1-Wire Gerät her.
+* Die OWDID ist einstellbar
+* Die Variablenwerte werden automatische Aktualisiert
 
 ### 2. Voraussetzungen
 
@@ -43,9 +43,10 @@ Die Statusvariablen werden automatisch angelegt. Das Löschen einzelner kann zu 
 
 ##### Statusvariablen
 
-Es werden automatisch alle übermittelten Werte angelegt.
-- Zähler A
-- Zähler B
+Für alle übermittelten Werte werden passende Variablen angelegt.
+Es werden automatisch Variablen für die beiden Zähler eingerichtet.
+- Zähler 1
+- Zähler 2
 
 __Unterstützte Datenpakete__
 

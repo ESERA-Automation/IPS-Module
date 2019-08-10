@@ -21,13 +21,11 @@ class EseraShutterPro extends IPSModule {
 		//Never delete this line!
 		parent::ApplyChanges();
 		//Apply filter
-		//$this->SetReceiveDataFilter(".*\"DeviceNumber\":". $this->ReadPropertyInteger("OWDID") .".*");
 		$this->SetReceiveDataFilter(".*\"DeviceNumber\":". $this->ReadPropertyInteger("OWDID") .",.*");
 	}
 	
 	public function ReceiveData($JSONString) {
 		$data = json_decode($JSONString);
-		//$this->SendDebug("ESERA-SHTPro", $data->DeviceNumber . " | " . $data->DataPoint . " | " . $data->Value, 0);
 		$this->SendDebug("ESERA-SHTPro", $data->DataPoint . " | " . $data->Value, 0);
 		if ($this->ReadPropertyInteger("OWDID") == $data->DeviceNumber) {
 			if ($data->DataPoint == 1) {
@@ -44,23 +42,25 @@ class EseraShutterPro extends IPSModule {
 			}
 		}
 	}
-	public function RequestAction($Ident, $Value) {
-		switch($Ident) {
-			case "Output":
-			  if ($Value == 0) $Value = 3;
-				$this->SetShutter(SubStr($Ident, 6, 1), $Value);
-				break;
-			default:
-				throw new Exception("Invalid ident");
-		}
-	}
-	public function SetShutter(int $OutputNumber, int $Value) {
-		$OutputNumber = $OutputNumber - 1;
-		$this->Send("SET,OWD,SHT,". $this->ReadPropertyInteger("OWDID") .",". $Value ."");
-	}
 	
+	public function RequestAction($Ident, $Value) {
+      $this->SetShutter($Value);
+    }
+
+	// Steuerung per IPS Befehl der Laufrichtung mit Laufzeitübergabe
+    public function SetShutter(int $Value) {
+      $this->Send("SET,OWD,SHT,". $this->ReadPropertyInteger("OWDID") .",". $Value ."");
+    }
+	
+    // Steuerung per IPS Befehl der Laufrichtung mit Laufzeitübergabe	
+    public function SetShutterDuration(int $Value, int $Duration) {
+      $this->Send("SET,OWD,SHT,". $this->ReadPropertyInteger("OWDID") .",". $Value .",". $Duration ."");
+    }
+	
+	
+
 	private function Send($Command) {
-		//Zur 1Wire Coontroller Instanz senden
+		//Daten zum 1-Wire Controller Instanz senden
 		return $this->SendDataToParent(json_encode(Array("DataID" => "{EA53E045-B4EF-4035-B0CD-699B8731F193}", "Command" => $Command . chr(13))));
 	}
 	private function CreateVariableProfileShutterPro() {

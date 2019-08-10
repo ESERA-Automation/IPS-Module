@@ -13,9 +13,9 @@ Das Modul bindet den Temperatur-Helligkeit Sensor von ESERA-Automation ein. Es w
 
 ### 1. Funktionsumfang
 
-* Stellt via ESERA-Automation 1-Wire Controller / 1-Wire Gateway Verbindung zum Temperatur-Helligkeit Sensor her.
-* OWDID einstellbar
-* Automatische Aktualisierung der Werte
+* Das Modul stellt eine Datenverbindung zwischen ESERA 1-Wire Controller / 1-Wire Gateway und dem 1-Wire Gerät her.
+* Die OWDID ist einstellbar
+* Die Variablenwerte werden automatische Aktualisiert
 
 ### 2. Voraussetzungen
 
@@ -43,9 +43,10 @@ Die Statusvariablen werden automatisch angelegt. Das Löschen einzelner kann zu 
 
 ##### Statusvariablen
 
-Es werden automatisch alle übermittelten Werte angelegt.
+s werden automatisch für alle übermittelten Werte passende Variablen angelegt.
+Hier konkret:
 - Temperatur
-- Spannung
+- Spannung (Betriebsspannung des Sensors, normalerweise liegt der Wert bei ca. 5V
 - Helligkeit
 
 __Unterstützte Datenpakete__
