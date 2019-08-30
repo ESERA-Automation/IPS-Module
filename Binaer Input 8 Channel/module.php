@@ -34,14 +34,22 @@ class EseraDigitalInput8Channel extends IPSModule {
 	public function ReceiveData($JSONString) {
 
 		$data = json_decode($JSONString);
-		$this->SendDebug("ESERA-DI8C", $data->Value, 0);
-
+		//$this->SendDebug("ESERA-DI8C", $data->Value, 0);
+		$this->SendDebug("ESERA-DI8C", "OWDID: ".$data->DeviceNumber." Datapoint: ".$data->DataPoint." Value: ".$data->Value, 0);
+		
 		if ($this->ReadPropertyInteger("OWDID") == $data->DeviceNumber) {
 			if ($data->DataPoint == 1) {
-				$value = intval($data->Value, 10);
-				for ($i = 1; $i <= 8; $i++){
-					SetValue($this->GetIDForIdent("Input".$i), ($value >> ($i-1)) & 0x01);
-				}
+			    IPS_LogMessage('ESERA-DI8C', "DeviceNumber: ".$data->DeviceNumber." ,DataPoint: ".$data->DataPoint." ,Value: ".$data->Value);
+                $value = intval($data->Value, 10);
+                if (($value<>0)&&($value>=128)){ //Abfangen des Fehler mit Auslesen von 00000000
+    				for ($i = 1; $i <= 8; $i++){
+    					SetValue($this->GetIDForIdent("Input".$i), ($value >> ($i-1)) & 0x01);
+    				}
+			    }
+			    else{
+			        IPS_LogMessage('ESERA-DI8C', "Uebertragungsfehler erkannt. DeviceNumber: ".$data->DeviceNumber." ,DataPoint: ".$data->DataPoint." ,Value: ".$data->Value);
+			        $this->SendDebug("ESERA-DI8C", "Übertragungsfehler erkannt", 0);
+			    }
 			}
 		}
 	}
