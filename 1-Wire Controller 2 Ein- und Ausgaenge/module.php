@@ -1,4 +1,4 @@
-<?
+<?php
 class EseraOneWireController2SYS extends IPSModule {
 
     public function Create(){
@@ -21,7 +21,7 @@ class EseraOneWireController2SYS extends IPSModule {
     			$this->EnableAction("Output".$i);
     		}
 
-        $this->ConnectParent("{FCABCDA7-3A57-657D-95FD-9324738A77B9}"); //1Wire Controller
+        $this->ConnectParent("{FCABCDA7-3A57-657D-95FD-9324738A77B9}");     //1-Wire Controller
     }
     public function Destroy(){
         //Never delete this line!
@@ -109,8 +109,8 @@ class EseraOneWireController2SYS extends IPSModule {
 	  }
 
     private function Send($Command) {
-
-      //Zur 1Wire Controller Instanz senden
+ 
+        //zur 1-Wire Controller Instanz senden
     	return $this->SendDataToParent(json_encode(Array("DataID" => "{EA53E045-B4EF-4035-B0CD-699B8731F193}", "Command" => $Command . chr(13))));
 
     }
