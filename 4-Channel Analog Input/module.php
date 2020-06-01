@@ -1,4 +1,4 @@
-<?
+<?php
 class EseraAnalogIn4Channel extends IPSModule {
 
     public function Create(){

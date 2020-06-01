@@ -1,4 +1,4 @@
-<?
+<?php
 class AudioMaxSystem extends IPSModule {
 
     public function Create(){

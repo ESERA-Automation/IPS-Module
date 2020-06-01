@@ -1,4 +1,4 @@
-<?
+<?php
 class EseraStation200IO extends IPSModule {
 
     public function Create(){

@@ -1,4 +1,4 @@
-<?
+<?php
 class Esera1WireHub extends IPSModule {
 
     public function Create(){

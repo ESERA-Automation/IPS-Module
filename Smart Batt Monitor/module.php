@@ -1,4 +1,4 @@
-<?
+<?php
 class EseraSmartBattMonitor extends IPSModule {
 
     public function Create(){

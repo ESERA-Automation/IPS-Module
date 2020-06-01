@@ -1,4 +1,4 @@
-<?
+<?php
 class EseraLuftguete extends IPSModule {
 
     public function Create(){

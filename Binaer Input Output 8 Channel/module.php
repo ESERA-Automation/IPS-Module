@@ -1,4 +1,4 @@
-<?
+<?php
 class EseraDigitalOutIn8Channel extends IPSModule {
 
 	public function Create(){

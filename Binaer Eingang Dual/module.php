@@ -1,4 +1,4 @@
-<?
+<?php
 class EseraBinaerEingangDual extends IPSModule {
 
     public function Create(){

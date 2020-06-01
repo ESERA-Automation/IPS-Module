@@ -1,4 +1,4 @@
-<?
+<?php
 class AudioMaxInterface extends IPSModule {
 //class EseraOneWireController extends IPSModule {
 

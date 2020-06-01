@@ -1,4 +1,4 @@
-<?
+<?php
 class EseraDual32BitCounter extends IPSModule {
 
     public function Create(){

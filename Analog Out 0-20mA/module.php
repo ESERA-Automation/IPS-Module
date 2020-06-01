@@ -1,4 +1,4 @@
-<?
+<?php
 class EseraAnalogOut020mA extends IPSModule {
 
     public function Create(){

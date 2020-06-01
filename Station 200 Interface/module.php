@@ -1,4 +1,4 @@
-<?
+<?php
 class EseraStation200 extends IPSModule {
 //class EseraOneWireController extends IPSModule {
 

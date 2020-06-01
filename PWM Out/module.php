@@ -1,4 +1,4 @@
-<?
+<?php
 class EseraPWMOut extends IPSModule {
 
     public function Create(){

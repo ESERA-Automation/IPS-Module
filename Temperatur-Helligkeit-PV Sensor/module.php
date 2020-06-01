@@ -1,4 +1,4 @@
-<?
+<?php
 class EseraTemperaturHelligkeitPV extends IPSModule {
 
     public function Create(){

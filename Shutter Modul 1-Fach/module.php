@@ -1,4 +1,4 @@
-<?
+<?php
 class EseraShutter1Fach extends IPSModule {
 
     public function Create(){

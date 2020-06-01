@@ -1,4 +1,4 @@
-<?
+<?php
 class EseraShutterPro extends IPSModule {
 
 	public function Create(){

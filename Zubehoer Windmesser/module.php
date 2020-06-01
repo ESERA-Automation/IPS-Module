@@ -1,4 +1,4 @@
-<?
+<?php
 class EseraWindmesser extends IPSModule {
 	
     public function Create(){

@@ -6,7 +6,9 @@
 	"aliases":
 	[
 		"11319 Controller 1 Interface",
+		"11381 ECO 1 Interface",
 		"11340 Controller 2 Interface",
+		"11382 ECO 2 Interface",
 		"11324 Gateway 10 Interface",
 		"11336 Gateway 11 Interface",
 		"11337 Gateway 20 Interface"		

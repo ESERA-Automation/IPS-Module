@@ -1,4 +1,4 @@
-<?
+<?php
 class EseraDualIO extends IPSModule {
 
     public function Create(){

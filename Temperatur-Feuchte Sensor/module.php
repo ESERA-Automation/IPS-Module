@@ -1,4 +1,4 @@
-<?
+<?php
 class EseraTemperaturFeuchte extends IPSModule {
 
     public function Create(){

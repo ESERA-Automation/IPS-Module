@@ -1,4 +1,4 @@
-<?
+<?php
 class SingleIO extends IPSModule {
 
     public function Create(){

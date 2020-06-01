@@ -1,4 +1,4 @@
-<?
+<?php
 class EseraStromzaehler extends IPSModule {
     public function Create(){
         //Never delete this line!

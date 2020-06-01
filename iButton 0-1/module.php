@@ -1,4 +1,4 @@
-<?
+<?php
 class EseraiButton01 extends IPSModule {
 
     public function Create(){

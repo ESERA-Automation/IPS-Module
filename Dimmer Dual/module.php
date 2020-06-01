@@ -1,4 +1,4 @@
-<?
+<?php
 class EseraDualDimmer extends IPSModule {
 
 	public function Create(){
