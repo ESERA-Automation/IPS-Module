@@ -81,27 +81,7 @@ class AudioMaxInterface extends IPSModule {
 		else {
 			$this->Send("SET,SYS,KAL,0");
 			$this->SendDebug("SET,SYS,KAL,0", 0);
-		}
-/*
-		//ReceiveKeepAlive ein-/ausschalten
-		if ($this->ReadPropertyBoolean("ReceiveKeepAlive")) {
-			$KeepAliveInterval = $this->ReadPropertyInteger("ReceiveKeepAliveInterval");
-			//Checken ob der Intervallwert zwischen 60-240 liegt
-			if ($KeepAliveInterval < 60) {
-				$KeepAliveInterval = 60;
-			} else if ($KeepAliveInterval > 240) {
-				$KeepAliveInterval = 240;
-			}
-			$this->SetTimerInterval("KeepAliveHeartbeatTimer", $KeepAliveInterval * 1000);
-			$this->Send("SET,SYS,KAL,1");
-			//$this->Send("SET,SYS,KALRECTIME,$KeepAliveInterval");
-		} 
-		else {
-			$this->Send("SET,SYS,KAL,0");
-			$this->SetTimerInterval("KeepAliveHeartbeatTimer", 0);
-		}
-		*/
-		
+		}		
 	}
 	
 	
