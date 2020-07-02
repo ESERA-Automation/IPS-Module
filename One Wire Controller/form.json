@@ -28,7 +28,7 @@
   [
 	{ "type": "Button", "caption": "Configure device", "onClick": "ESERA_ConfigureDevice($id);" },
 	{ "type": "Button", "caption": "Modul Dokumentation", "onClick": "echo 'https://github.com/ESERA-Automation/IPS-Module/tree/master/One%20Wire%20Controller/';" },
-	{ "type": "Button", "caption": "ESERA Webside", "onClick": "echo 'https://www.esera.de/';" },
+	{ "type": "Button", "caption": "ESERA Website", "onClick": "echo 'https://www.esera.de/';" },
 	{ "type": "Button", "caption": "ESERA Support Videos", "onClick": "echo 'https://www.esera.de/service-support/support-videos/';" }
   ]
 }
