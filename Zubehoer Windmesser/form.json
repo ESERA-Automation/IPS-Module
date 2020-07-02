@@ -18,7 +18,7 @@
    "actions":
   [ 	
 	{ "type": "Button", "caption": "Modul Dokumentation", "onClick": "echo 'https://github.com/ESERA-Automation/IPS-Module/tree/master/Zubehoer%20Windmesser/';" },
-	{ "type": "Button", "caption": "ESERA Webside", "onClick": "echo 'https://www.esera.de/';" },
+	{ "type": "Button", "caption": "ESERA Website", "onClick": "echo 'https://www.esera.de/';" },
 	{ "type": "Button", "caption": "ESERA Support Videos", "onClick": "echo 'https://www.esera.de/service-support/support-videos/';" }
   ]
 }
