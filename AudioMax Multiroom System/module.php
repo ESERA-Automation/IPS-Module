@@ -265,7 +265,12 @@ class AudioMaxSystem extends IPSModule {
 
 
 
-    public function SetAudioSettingAM(int $Number, string $Type , int $Value) {
+    /*
+      Bugfix:
+      13.10.2020 Simon Nitzsche
+      $Type was expecting int, while we are given the parameter as text
+    */
+    public function SetAudioSettingAM(int $Number, string $Type , int $Value) { // 13.10.2020 Simon Nitzsche change int $Type to string $Type
   		$this->Send("SET,AUDIO,". $Number .",". $Type . ",". $Value ."");
 		$this->SendDebug(("DBG: send: ". $Number. "," . $Type . "," . $Value), $Value,0);
   	}
