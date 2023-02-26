@@ -2,7 +2,7 @@
   "id": "{2CC2645A-2284-4F76-9E1E-F104863158B0}",
   "name": "EseraAnalogOut020mA",
   "type": 3,
-  "vendor": "ESERA-Automation",
+  "vendor": "ESERA GmbH",
   "aliases":
   [
     "Analog Output 0-20mA",

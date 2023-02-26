@@ -1,5 +1,5 @@
 # 1-Wire Controller / 1-Wire Gateway Modul
-Das Modul bindet den 1-Wire Controller / 1-Wire Gateway von ESERA-Automation ein. Es werden automatisch Variablen angelegt und eingelesen.
+Das Modul bindet den 1-Wire Controller / 1-Wire Gateway von ESERA GmbH ein. Es werden automatisch Variablen angelegt und eingelesen.
 
 ### Inhaltverzeichnis
 
@@ -13,7 +13,7 @@ Das Modul bindet den 1-Wire Controller / 1-Wire Gateway von ESERA-Automation ein
 
 ### 1. Funktionsumfang
 
-* Stellt via TCP/Seriell eine Verbindung zum ESERA-Automation 1-Wire Controller / 1-Wire Gateway her.
+* Stellt via TCP/Seriell eine Verbindung zum ESERA GmbH 1-Wire Controller / 1-Wire Gateway der EC und ECO Serien her.
 * Konfigurierbarkeit von KeepAlive des Geräts.
 * Abfrage von Systemeinstellungen/-informationen.
 * Speichern von gefundenen 1-Wire Bauteilen und Konfiguration.
@@ -71,6 +71,7 @@ COUNT     | Integer
 DS2408INV | Integer
 ERR       | Integer
 OWDID     | Integer
+MCU       | Integer
 EVT       | String
 HW        | String
 SERNO     | String

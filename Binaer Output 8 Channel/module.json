@@ -2,7 +2,7 @@
 	"id": "{BD8C2933-AAEF-418C-87D6-DD1FA591B90F}",
 	"name": "EseraDigitalOut8Channel",
 	"type": 3,
-	"vendor": "ESERA-Automation",
+	"vendor": "ESERA GmbH",
 	"aliases":
 	[
 		"8-Channel Binaer Output, DOUT",

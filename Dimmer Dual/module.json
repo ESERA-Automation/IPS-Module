@@ -2,9 +2,10 @@
 	"id": "{DB40A1DD-9C95-4B12-8856-245C30C87F51}",
 	"name": "EseraDualDimmer",
 	"type": 3,
-	"vendor": "ESERA-Automation",
+	"vendor": "ESERA GmbH",
 	"aliases":
 	[
+		"Dual Dimmer 1",
 		"11221 Dual Dimmer 1"
 	],
 	"parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],

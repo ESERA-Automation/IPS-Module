@@ -279,6 +279,7 @@ class EseraOneWireController extends IPSModule {
 			case "DS2408INV":
 			case "ERR":
 			case "OWDID":
+			case "MCU":
 				return 1;
 
 			//String

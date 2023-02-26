@@ -2,7 +2,7 @@
   "id": "{1D5F1E13-D29D-42A9-B310-17D2EBD945D6}",
   "name": "EseraAnalogIn4Channel",
   "type": 3,
-  "vendor": "ESERA-Automation",
+  "vendor": "ESERA GmbH",
   "aliases":
   [
     "4-Channel Analog Input, AIN",

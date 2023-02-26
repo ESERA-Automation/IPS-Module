@@ -2,7 +2,7 @@
   "id": "{E12D745B-1A04-4D2D-A970-E873E027748F}",
   "name": "EseraPWMOut",
   "type": 3,
-  "vendor": "ESERA-Automation",
+  "vendor": "ESERA GmbH",
   "aliases":
   [
     "PWM Outut",

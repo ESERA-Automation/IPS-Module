@@ -1,0 +1,24 @@
+{
+  "elements":
+  [
+    { "type": "Label", "caption": "General Settings" },
+    { "type": "SelectVariable", "name": "CounterID", "caption": "Select OWD Counter" },
+    { "type": "Select", "name": "Impulses", "caption": "Type / Impulses",
+    "options": [
+        { "caption": "Windsensor Pro 100, 1 Imp./Umdr.", "value": 2 },
+        { "caption": "Windsensor Pro 200, 4 Imp./Umdr.", "value": 4 }
+        ]
+	},
+	{ "type": "Button", "caption": "Reset Windspeed", "onClick": "ESERA_CallSPEED($id, 0);" },
+	{ "type": "Button", "caption": "Reset Windspeed Average", "onClick": "ESERA_CallAVERAGE($id, 0);" },
+	{ "type": "Button", "caption": "Reset Windspeed max.", "onClick": "ESERA_CallFloat($id, 0);" },
+	{ "type": "Label", "caption": "Eine Beschreibung der Einbindung des ESERA Systems in IP-Symcon finden Sie unter www.esera.de, Service & Support, kompatible Steuerungen, IP-Symcon." },
+	{ "type": "Label", "caption": "Nachfolgend ein Link zur Modul Dokumentation, ESERA Website und Support Videos." }
+  ],
+   "actions":
+  [ 	
+	{ "type": "Button", "caption": "Modul Dokumentation", "onClick": "echo 'https://github.com/ESERA-Automation/IPS-Module/tree/master/Zubehoer%20Windmesser/';" },
+	{ "type": "Button", "caption": "ESERA Website", "onClick": "echo 'https://www.esera.de/';" },
+	{ "type": "Button", "caption": "ESERA Support Videos", "onClick": "echo 'https://www.esera.de/service-support/support-videos/';" }
+  ]
+}

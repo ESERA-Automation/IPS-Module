@@ -1,0 +1,25 @@
+{
+  "elements":
+  [
+    { "type": "Label", "caption": "General Settings" },
+    { "type": "SelectVariable", "name": "CounterID", "caption": "Counter" },
+    { "type": "Select", "name": "Impulses", "caption": "Impules / kWh",
+            "options": [
+                { "caption": "250", "value": 250 },
+                { "caption": "500", "value": 500 },
+                { "caption": "800", "value": 800 },
+                { "caption": "1000", "value": 1000 },
+                { "caption": "2000", "value": 2000 }
+        ]},
+    { "type": "NumberSpinner", "name": "AnnualLimit", "caption": "Annual Limit" },
+    { "type": "NumberSpinner", "name": "LimitActive", "caption": "Limit active" },
+	{ "type": "Label", "caption": "Eine Beschreibung der Einbindung des ESERA Systems in IP-Symcon finden Sie unter www.esera.de, Service & Support, kompatible Steuerungen, IP-Symcon." },
+	{ "type": "Label", "caption": "Nachfolgend ein Link zur Modul Dokumentation, ESERA Website und Support Videos." }
+  ],
+   "actions":
+  [ 	
+	{ "type": "Button", "caption": "Modul Dokumentation", "onClick": "echo 'https://github.com/ESERA-Automation/IPS-Module/tree/master/Zubehoer%20Stromzaehler/';" },
+	{ "type": "Button", "caption": "ESERA Website", "onClick": "echo 'https://www.esera.de/';" },
+	{ "type": "Button", "caption": "ESERA Support Videos", "onClick": "echo 'https://www.esera.de/service-support/support-videos/';" }
+  ]
+}

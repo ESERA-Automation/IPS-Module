@@ -1,13 +1,13 @@
 {
-  "id": "{F1108600-23A0-44B6-A006-44222C35F4BC}",
-  "name": "EseraDual32BitCounter",
+  "id": "{AD83C3C9-F883-4785-9636-06A01A79A64C}",
+  "name": "EseraTemperaturHelligkeit",
   "type": 3,
   "vendor": "ESERA GmbH",
   "aliases":
   [
-    "Dual S0 Counter 32 Bit",
-    "11211 Dual S0-Counter 32 Bit",
-	"DS 2423 Dual S0-Counter 32 Bit"
+    "Temperature Brightness Sensor",
+    "11129 Temperature Brightness Sensor AP",
+    "11111 Temperature Brightness Sensor AP"
   ],
   "parentRequirements": ["{EA53E045-B4EF-4035-B0CD-699B8731F193}"],
   "childRequirements": [],

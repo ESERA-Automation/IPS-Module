@@ -2,13 +2,20 @@
 	"id": "{FCABCDA7-3A57-657D-95FD-9324738A77B9}",
 	"name": "EseraOneWireController",
 	"type": 2,
-	"vendor": "ESERA-Automation",
+	"vendor": "ESERA GmbH",
 	"aliases":
 	[
+		"11319 EC 1, vormals Controller 1 Interface",
 		"11319 Controller 1 Interface",
-		"11381 ECO 1 Interface",
+		"11340 EC 2, vormals Controller 2 Interface",
 		"11340 Controller 2 Interface",
-		"11382 ECO 2 Interface",
+		"11601 ECO 10 Interface",
+		"11604 ECO 100 Interface",
+		"11607 ECO 501 Interface",	
+		"11605 ECO 608 Interface",
+		"11610 ECO 1000 Interface",
+		"11613 ECO 1206 Interface",
+		"11614 ECO 1207 Interface",
 		"11324 Gateway 10 Interface",
 		"11336 Gateway 11 Interface",
 		"11337 Gateway 20 Interface"		

@@ -2,7 +2,7 @@
   "id": "{C945D59F-6EB3-4343-B9C8-04C7A3CC839F}",
   "name": "EseraAnalogOut010V",
   "type": 3,
-  "vendor": "ESERA-Automation",
+  "vendor": "ESERA GmbH",
   "aliases":
   [
     "Analog Output 0-10V",
