@@ -173,7 +173,7 @@ class EseraOneWireController extends IPSModule {
 					$dataPoint = intval($headArray[2]);
 				}
 				else{
-					$dataPoint = 0;
+					$dataPoint = 1;
 				}
 				
 				$this->SendDebug("SendToDevice", json_encode(Array("DataID" => "{E3BB8703-6388-48DA-AA85-8852CDEE152D}", "DeviceNumber" => $deviceNumber, "DataPoint" => $dataPoint, "Value" => $value)), 0);
@@ -187,7 +187,7 @@ class EseraOneWireController extends IPSModule {
 					$dataPoint = intval($headArray[2]);
 				}
 				else{
-					$dataPoint = 0;
+					$dataPoint = 1;
 				}
 				
 				//geändert 10.08.2017 andrge (hinweis von ch. schrader)
