@@ -132,11 +132,18 @@ class EseraOneWireController extends IPSModule {
 	}
 	private function AnalyseData($DataString) {
 
+	    IPS_LogMessage('One Wire Controller', "DataString: ".$DataString);
 		$dataArray = explode("|", $DataString);
 
 		$head = $dataArray[0]; //Name der übergebenen Variable
-		$value = $dataArray[1]; //Daten der übergebenen Variable
-		$type = SubStr($head, 2, 3);
+		IPS_LogMessage('One Wire Controller', "dataArray[0]: ".$dataArray[0]);
+		
+		if ($DataString <> "status") {
+    	   //bei Status wird keine 2. Variable übergeben
+		    $value = $dataArray[1]; //Daten der übergebenen Variable
+    		IPS_LogMessage('One Wire Controller', "dataArray[1]: ".$dataArray[1]);
+		}
+    	$type = SubStr($head, 2, 3);
 
 		switch ($type) {
 			case "ART":
@@ -146,7 +153,8 @@ class EseraOneWireController extends IPSModule {
 			case "COU":
 				$type = SubStr($head, 2, 5);
 				break;
-
+			
+			case "FOR":
 			case "CON":
 				$type = SubStr($head, 2, 6);
 				break;
@@ -156,6 +164,7 @@ class EseraOneWireController extends IPSModule {
 				$type = SubStr($head, 2, 2);
 				break;
 
+			case "POL":
 			case "DAT":
 			case "TIM":
 				$type = SubStr($head, 2, 4);
@@ -178,6 +187,7 @@ class EseraOneWireController extends IPSModule {
 				
 				$this->SendDebug("SendToDevice", json_encode(Array("DataID" => "{E3BB8703-6388-48DA-AA85-8852CDEE152D}", "DeviceNumber" => $deviceNumber, "DataPoint" => $dataPoint, "Value" => $value)), 0);
 				$this->SendDataToChildren(json_encode(Array("DataID" => "{E3BB8703-6388-48DA-AA85-8852CDEE152D}", "DeviceNumber" => $deviceNumber, "DataPoint" => $dataPoint, "Value" => $value)));
+				IPS_LogMessage('One Wire Controller', "DeviceNumber: ".$deviceNumber." ,DataPoint: ".$dataPoint." ,Value: ".$value);
 				return;
 
 			case "SYS":
@@ -277,6 +287,8 @@ class EseraOneWireController extends IPSModule {
 			case "DEBUG":
 			case "COUNT":
 			case "DS2408INV":
+			case "POLL":
+			case "FORMAT":
 			case "ERR":
 			case "OWDID":
 			case "MCU":

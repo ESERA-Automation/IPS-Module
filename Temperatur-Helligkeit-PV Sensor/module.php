@@ -13,6 +13,7 @@ class EseraTemperaturHelligkeitPV extends IPSModule {
 		$this->CreateVariableProfile("ESERA.Spannung10V", 2, " V", 0, 10, 0.1, 2, "");
 
         $this->RegisterPropertyInteger("OWDID", 1);
+        //$this->RegisterPropertyInteger("OWDFORMAT", 1);	    
 
         $this->RegisterVariableFloat("Temperatur", "Temperatur", "ESERA.Temperatur", 1);
         $this->RegisterVariableFloat("Spannung", "Spannung", "ESERA.Spannung10V", 2);
@@ -41,7 +42,23 @@ class EseraTemperaturHelligkeitPV extends IPSModule {
 
         if ($this->ReadPropertyInteger("OWDID") == $data->DeviceNumber) {
             if ($data->DataPoint == 1) {
-                $value = $data->Value / 100;
+		//Format der Temperaturen im 1-Wire Ethernetcontroller auslesen
+		$ParentID = (IPS_GetInstance($this->InstanceID)['ConnectionID']);  
+		$FORMAT=GetValueInteger(IPS_GetObjectIDByIdent("1_FORMAT", $ParentID));
+		$this->SendDebug("ESERA-Temperatur-Helligkeit-PV", "1_FORMAT:".$FORMAT, 0);
+		switch ($FORMAT){
+			case 0:
+				$value = $data->Value;
+				break;
+
+			case 1:
+			 	$value = $data->Value / 10;
+				break;
+				
+			case 2:
+			 	$value = $data->Value / 100;
+				break;
+		 }
                 SetValue($this->GetIDForIdent("Temperatur"), $value);
             }
 
@@ -70,5 +87,12 @@ class EseraTemperaturHelligkeitPV extends IPSModule {
 			       IPS_SetVariableProfileIcon($ProfileName, $Icon);
 		    }
 	  }
+	//ParentID ermitteln
+	public function GetParentID() {
+		$ParentID = (IPS_GetInstance($this->InstanceID)['ConnectionID']);  
+		$FORMAT=GetValueInteger(IPS_GetObjectIDByIdent("1_FORMAT", $ParentID));
+        $this->SendDebug("ESERA-Temperatur-Helligkeit-PV", "ParentID:".$ParentID, 0);
+        $this->SendDebug("ESERA-Temperatur-Helligkeit-PV", "1_FORMAT:".$FORMAT, 0);
+	}
 }
 ?>
