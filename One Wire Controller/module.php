@@ -50,7 +50,7 @@ class EseraOneWireController extends IPSModule {
 
 		$this->SendDebug("FWD", $data->Command, 0);
 
-		$this->SendDataToParent(json_encode(Array("DataID" => "{79827379-F36E-4ADA-8A95-5F8D1DC92FA9}", "Buffer" => $data->Command .chr(13))));
+		$this->SendDataToParent(json_encode(Array("DataID" => "{79827379-F36E-4ADA-8A95-5F8D1DC92FA9}", "Buffer" => $data->Command ."\r\n")));
 
 	}
 
@@ -103,39 +103,41 @@ class EseraOneWireController extends IPSModule {
 
 	}
 	public function ReceiveData($JSONString) {
-
 		$data = json_decode($JSONString);
 
-		//Kontrollieren ob Buffer leer ist.
-		$bufferData = $this->GetBuffer("DataBuffer");
-		$bufferData .= $data->Buffer;
+		// Bestehenden Buffer laden
+		$bufferData = $this->GetBuffer("DataBuffer") . $data->Buffer;
 
 		$this->SendDebug("BufferIn", $bufferData, 0);
 
-		$bufferParts = explode("\r\n", $bufferData);
+		// Einheitliche Zeilentrenner sicherstellen
+		$normalized = str_replace(["\r\n", "\r"], "\n", $bufferData);
 
-		//Letzten Eintrag nicht auswerten, da dieser nicht vollständig ist.
-		if(sizeof($bufferParts) > 1) {
-			for($i=0; $i<sizeof($bufferParts)-1; $i++) {
-				$this->SendDebug("Data", $bufferParts[$i], 0);
-				$this->AnalyseData($bufferParts[$i]);
-			}
+		// In Zeilen aufteilen
+		$lines = explode("\n", $normalized);
+
+		// Letzte Zeile ist evtl. unvollständig → bleibt im Buffer
+		$lastFragment = array_pop($lines);
+
+		// Jede vollständige Zeile verarbeiten
+		foreach ($lines as $line) {
+			if ($line === "") continue;  // leere Zeilen ignorieren
+
+			$this->SendDebug("Data", $line, 0);
+			$this->AnalyseData($line);
 		}
 
-		$bufferData = $bufferParts[sizeof($bufferParts)-1];
+		// Unvollständige Zeile zurück in Buffer schreiben
+		$this->SetBuffer("DataBuffer", $lastFragment);
 
-		//Übriggebliebene Daten auf den Buffer schreiben
-		$this->SetBuffer("DataBuffer", $bufferData);
-
-		$this->SendDebug("BufferOut", $bufferData, 0);
-
+		$this->SendDebug("BufferOut", $lastFragment, 0);
 	}
 	private function AnalyseData($DataString) {
 
 		$dataArray = explode("|", $DataString);
 
-		$head = $dataArray[0]; //Name der übergebenen Variable
-		$value = $dataArray[1]; //Daten der übergebenen Variable
+		$head = $dataArray[0] ?? ''; //Name der übergebenen Variable
+		$value = $dataArray[1] ?? ''; //Daten der übergebenen Variable
 		$type = SubStr($head, 2, 3);
 
 		switch ($type) {
