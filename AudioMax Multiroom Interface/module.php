@@ -60,7 +60,7 @@ class AudioMaxInterface extends IPSModule {
 
 		$data = json_decode($JSONString);
 		$this->SendDebug("FWD", $data->Command, 0);
-		$this->SendDataToParent(json_encode(Array("DataID" => "{79827379-F36E-4ADA-8A95-5F8D1DC92FA9}", "Buffer" => $data->Command .chr(13))));
+		$this->SendDataToParent(json_encode(Array("DataID" => "{79827379-F36E-4ADA-8A95-5F8D1DC92FA9}", "Buffer" => $data->Command ."\r\n")));
 	}
 
 	public function ConfigureDevice(){
@@ -115,15 +115,15 @@ class AudioMaxInterface extends IPSModule {
 	private function AnalyseData($DataString) {
 		$dataArray = explode(",", $DataString);
 
-		$head = $dataArray[0]; 			//Name der übergebenen Variable
+		$head = $dataArray[0] ?? ''; 			//Name der übergebenen Variable
 		   $this->SendDebug("head", $head, 0);
 				    
 		switch ($head) {
 		case "EVT":	
 			$dataArray = explode(",", $DataString);
 			//SYS Variablen
-			$type = $dataArray[1]; 		//Daten der übergebenen Variable		   
-			$data = $dataArray[2]; 		//Daten der übergebenen Variable	
+			$type = $dataArray[1] ?? ''; 		//Daten der übergebenen Variable		   
+			$data = $dataArray[2] ?? ''; 		//Daten der übergebenen Variable	
 
 		   $this->SendDebug("type", $type, 0);			   	
 		   $this->SendDebug("data", $data, 0);
@@ -166,8 +166,8 @@ class AudioMaxInterface extends IPSModule {
 			$dataArray = explode(",", $DataString);
 			
 			//SYS Variablen
-			$type = $dataArray[1]; 		//Daten der übergebenen Variable		   
-			$data = $dataArray[2]; 		//Daten der übergebenen Variable	
+			$type = $dataArray[1] ?? ''; 		//Daten der übergebenen Variable		   
+			$data = $dataArray[2] ?? ''; 		//Daten der übergebenen Variable	
 
 		    $this->SendDebug("type", $type, 0);			   	
 		    $this->SendDebug("data", $data, 0);
@@ -220,9 +220,9 @@ class AudioMaxInterface extends IPSModule {
 		    $dataArray = explode(",", $DataString);
 		   
 			//AUDIO Variablen
-			$RoomNumber = $dataArray[1]; 		//Daten der übergebenen Variable
-			$AudioType = $dataArray[2]; 		//Daten der übergebenen Variable
-			$AudioValue = $dataArray[3]; 		//Daten der übergebenen Variable
+			$RoomNumber = $dataArray[1] ?? ''; 		//Daten der übergebenen Variable
+			$AudioType = $dataArray[2] ?? ''; 		//Daten der übergebenen Variable
+			$AudioValue = $dataArray[3] ?? ''; 		//Daten der übergebenen Variable
 	   
 		    $this->SendDebug("Room Number", $RoomNumber, 0);
 		    $this->SendDebug("Audio Type", $AudioType, 0);
