@@ -38,7 +38,7 @@ class EseraAnalogOut020mA extends IPSModule {
         $this->SendDebug("ESERA-Analog-Out-0-20mA", "DataPoint:" . $data->DataPoint . " | Value: " . $data->Value, 0);
 
         if ($this->ReadPropertyInteger("OWDID") == $data->DeviceNumber) {
-            if ($data->DataPoint == 0) {
+            if ($data->DataPoint == 1) {
                 $value = $data->Value / 100;
                 SetValue($this->GetIDForIdent("AnalogOut"), $value);
             }
