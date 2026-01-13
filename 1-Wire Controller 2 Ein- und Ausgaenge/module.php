@@ -17,9 +17,9 @@ class EseraOneWireController2SYS extends IPSModule {
         }
 
         for($i = 1; $i <= 5; $i++){
-    			$this->RegisterVariableBoolean("Output".$i, "Output".$i, "~Switch");
-    			$this->EnableAction("Output".$i);
-    		}
+			$this->RegisterVariableBoolean("Output".$i, "Output".$i, "~Switch");
+			$this->EnableAction("Output".$i);
+		}
 
         $this->ConnectParent("{FCABCDA7-3A57-657D-95FD-9324738A77B9}");     //1-Wire Controller
     }
@@ -30,11 +30,24 @@ class EseraOneWireController2SYS extends IPSModule {
     }
 
 	
-	public function ApplyChanges(){
-     //Never delete this line!
-     parent::ApplyChanges();
+	public function ApplyChanges() {
+		//Never delete this line!
+		parent::ApplyChanges();
 
-     $this->SetReceiveDataFilter(".*\"DeviceType\":\"SYS\".*");
+		if (!@$this->GetIDForIdent("AnalogOut")) { $this->RegisterVariableFloat("AnalogOut", "Analog Out", "ESERA.Spannung10V"); }
+
+		for($i = 1; $i <= 4; $i++){
+		  	if (!@$this->GetIDForIdent("Input".$i)) { $this->RegisterVariableBoolean("Input".$i, "Input".$i, "~Switch"); }
+        }
+
+		for($i = 1; $i <= 5; $i++) {
+			if (!@$this->GetIDForIdent("Output".$i)) {
+				$this->RegisterVariableBoolean("Output".$i, "Output".$i, "~Switch");
+				$this->EnableAction("Output".$i);
+			}
+		}
+
+		$this->SetReceiveDataFilter(".*\"DeviceType\":\"SYS\".*");
 	}
 	
 	

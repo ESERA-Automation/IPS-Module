@@ -37,6 +37,9 @@ class AudioMaxInterface extends IPSModule {
 		//Never delete this line!
 		parent::ApplyChanges();
 
+		// Variables
+		if (!@$this->GetIDForIdent("power")) $this->RegisterVariableBoolean("power", "Power AudioMax System", "~Switch");
+
 		//Set Parent
 		switch($this->ReadPropertyInteger("ConnectionType")) {
 			case 10:
@@ -139,13 +142,13 @@ class AudioMaxInterface extends IPSModule {
 			switch ($variableType){
 			case 1:
 					if ($type == "KAL"){
-					$variablenID = $this->RegisterVariableboolean($head,"Heartbeat AudioMax-Server","",100);
+					$variablenID = $this->RegisterVariableBoolean($head,"Heartbeat AudioMax-Server","",100);
 					}
 					break;
 			case 2:
-					//$variablenID = $this->RegisterVariableboolean($type, $type);
+					//$variablenID = $this->RegisterVariableBoolean($type, $type);
 					if ($type == "PWR"){
-						$variablenID = $this->RegisterVariableboolean($type,"AudioMax Power","~Switch",1);
+						$variablenID = $this->RegisterVariableBoolean($type,"AudioMax Power","~Switch",1);
 					}
 					break;
 			case 3:
@@ -198,7 +201,7 @@ class AudioMaxInterface extends IPSModule {
 			case 2:
 				//$variablenID = $this->RegisterVariableboolean($type, $type);
 				if ($type == "PWR"){
-					$variablenID = $this->RegisterVariableboolean($type,"AudioMax Power","~Switch",1);
+					$variablenID = $this->RegisterVariableBoolean($type,"AudioMax Power","~Switch",1);
 				}
 				break;
 			case 3:

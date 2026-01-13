@@ -18,9 +18,17 @@ class SingleIO extends IPSModule {
         parent::Destroy();
 
     }
-    public function ApplyChanges(){
+    public function ApplyChanges() {
         //Never delete this line!
         parent::ApplyChanges();
+
+		// Variables
+		if (!@$this->GetIDForIdent("Eingang")) $this->RegisterVariableFloat("Eingang", "Eingang", "", 1);
+		
+		if (!@$this->GetIDForIdent("Output")) {
+			$this->RegisterVariableInteger("Output", "Output", "ESERA.ShutterPro");
+			$this->EnableAction("Output");
+		}
 
         //Apply filter
         $this->SetReceiveDataFilter(".*\"DeviceNumber\":". $this->ReadPropertyInteger("OWDID") .",.*");

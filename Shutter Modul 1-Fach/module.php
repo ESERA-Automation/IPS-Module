@@ -21,9 +21,15 @@ class EseraShutter1Fach extends IPSModule {
         parent::Destroy();
 
     }
-    public function ApplyChanges(){
+    public function ApplyChanges() {
         //Never delete this line!
         parent::ApplyChanges();
+
+		// Variables
+		if (!@$this->GetIDForIdent("Shutter")) {
+			$this->RegisterVariableInteger("Shutter", "Shutter", "ESERA.Shutter", 1);
+			$this->EnableAction("Shutter");
+		}
 
         //Apply filter
         $this->SetReceiveDataFilter(".*\"DeviceNumber\":". $this->ReadPropertyInteger("OWDID") .",.*");

@@ -20,6 +20,15 @@ class EseraShutterPro extends IPSModule {
 	public function ApplyChanges(){
 		//Never delete this line!
 		parent::ApplyChanges();
+
+		// Variables
+		if (!@$this->GetIDForIdent("Input")) $this->RegisterVariableInteger("Input", "Input", "ESERA.ShutterPro");
+		
+		if (!@$this->GetIDForIdent("Output")) {
+			$this->RegisterVariableInteger("Output", "Output", "ESERA.ShutterPro");
+			$this->EnableAction("Output");
+		}
+
 		//Apply filter
 		$this->SetReceiveDataFilter(".*\"DeviceNumber\":". $this->ReadPropertyInteger("OWDID") .",.*");
 	}

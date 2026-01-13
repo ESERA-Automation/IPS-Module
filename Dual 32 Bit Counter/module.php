@@ -23,6 +23,10 @@ class EseraDual32BitCounter extends IPSModule {
         //Never delete this line!
         parent::ApplyChanges();
 
+		// Variables
+		if (!@$this->GetIDForIdent("ZaehlerA")) $this->RegisterVariableInteger("ZaehlerA", "Counter 1", "", 1);
+		if (!@$this->GetIDForIdent("ZaehlerB")) $this->RegisterVariableInteger("ZaehlerB", "Counter 2", "", 1);
+
         //Apply filter
         $this->SetReceiveDataFilter(".*\"DeviceNumber\":". $this->ReadPropertyInteger("OWDID") .",.*");
 

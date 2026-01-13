@@ -21,9 +21,19 @@ class EseraBinaerAusgangDual extends IPSModule {
         parent::Destroy();
 
     }
-    public function ApplyChanges(){
+    public function ApplyChanges() {
         //Never delete this line!
         parent::ApplyChanges();
+
+		// Variables
+		if (!@$this->GetIDForIdent("Ausgang1")) {
+			$this->RegisterVariableBoolean("Ausgang1", "Ausgang 1", "~Switch", 1);
+        	$this->EnableAction("Ausgang1");
+		}
+		if (!@$this->GetIDForIdent("Ausgang2")) {
+			$this->RegisterVariableBoolean("Ausgang2", "Ausgang 2", "~Switch", 1);
+			$this->EnableAction("Ausgang2");
+		}
 
         //Apply filter
         $this->SetReceiveDataFilter(".*\"DeviceNumber\":". $this->ReadPropertyInteger("OWDID") .",.*");

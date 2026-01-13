@@ -21,9 +21,13 @@ class EseraBinaerEingangDual extends IPSModule {
         parent::Destroy();
 
     }
-    public function ApplyChanges(){
+    public function ApplyChanges() {
         //Never delete this line!
         parent::ApplyChanges();
+
+		// Variables
+		if (!@$this->GetIDForIdent("InputA")) $this->RegisterVariableBoolean("InputA", "Input A", "~Switch");
+		if (!@$this->GetIDForIdent("InputB")) $this->RegisterVariableBoolean("InputB", "Input B", "~Switch");
 
         //Apply filter
         $this->SetReceiveDataFilter(".*\"DeviceNumber\":". $this->ReadPropertyInteger("OWDID") .",.*");

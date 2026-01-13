@@ -30,7 +30,13 @@ class EseraTemperaturHelligkeitPV extends IPSModule {
         //Never delete this line!
         parent::ApplyChanges();
 
-        //Apply filter
+		// Variables
+		if (!@$this->GetIDForIdent("Temperatur")) $this->RegisterVariableFloat("Temperatur", "Temperatur", "ESERA.Temperatur", 1);
+        if (!@$this->GetIDForIdent("Spannung")) $this->RegisterVariableFloat("Spannung", "Spannung", "ESERA.Spannung10V", 2);
+        if (!@$this->GetIDForIdent("Helligkeit")) $this->RegisterVariableFloat("Helligkeit", "Helligkeit", "ESERA.Helligkeit", 3);
+        if (!@$this->GetIDForIdent("Einstrahlung")) $this->RegisterVariableFloat("Einstrahlung", "Einstrahlung", "ESERA.PV", 4);
+
+		//Apply filter
         $this->SetReceiveDataFilter(".*\"DeviceNumber\":". $this->ReadPropertyInteger("OWDID") .",.*");
 
     }

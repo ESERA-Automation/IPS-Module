@@ -28,6 +28,11 @@ class Esera1WireHub extends IPSModule {
         //Never delete this line!
         parent::ApplyChanges();
 
+		if (!@$this->GetIDForIdent("Strom12V")) $this->RegisterVariableFloat("Strom12V", "Strom 12V", "ESERA.Strom1500mA", 1);
+		if (!@$this->GetIDForIdent("Spannung5V")) $this->RegisterVariableFloat("Spannung5V", "Spannung 5V", "ESERA.Spannung15V", 2);
+		if (!@$this->GetIDForIdent("Strom5V")) $this->RegisterVariableFloat("Strom5V", "Strom 5V", "ESERA.Strom1500mA", 3);
+		if (!@$this->GetIDForIdent("Spannung12V")) $this->RegisterVariableFloat("Spannung12V", "Spannung 12V", "ESERA.Spannung15V", 4);
+
         //Apply filter
 		$this->SetReceiveDataFilter(".*\"DeviceNumber\":". $this->ReadPropertyInteger("OWDID") .",.*");
 

@@ -40,6 +40,16 @@ class EseraWindmesser extends IPSModule {
     public function ApplyChanges(){
         //Never delete this line!
         parent::ApplyChanges();
+
+		// Variables
+		if (!@$this->GetIDForIdent("Counter_delta")) $this->RegisterVariableInteger("Counter_delta", "Counter_Delta", "", 1);
+		if (!@$this->GetIDForIdent("Counter_alt")) $this->RegisterVariableInteger("Counter_alt", "Counter_Alt", "", 2);
+        if (!@$this->GetIDForIdent("Wind_kmh")) $this->RegisterVariableFloat("Wind_kmh", "Windspeed km/h", "~WindSpeed.kmh", 10);
+        if (!@$this->GetIDForIdent("Wind_kmh_max")) $this->RegisterVariableFloat("Wind_ms", "Windspeed m/s", "~WindSpeed.ms", 20);
+		if (!@$this->GetIDForIdent("Wind_kmh_max")) $this->RegisterVariableFloat("Wind_kmh_max", "Windspeed km/h max Day", "~WindSpeed.kmh", 40);
+        if (!@$this->GetIDForIdent("Wind_kmh_max_Zeit")) $this->RegisterVariableInteger("Wind_kmh_max_Zeit", "Windspeed km/h max Time", "~UnixTimestamp", 50);
+		if (!@$this->GetIDForIdent("Wind_kmh_slow")) $this->RegisterVariableFloat("Wind_kmh_slow", "Windspeed km/h average", "~WindSpeed.kmh", 30);
+
         $this->SetTimerInterval("Refresh", 30 * 1000);
     }
 	

@@ -29,6 +29,16 @@ class EseraDigitalOutIn2Channel extends IPSModule {
 		//Never delete this line!
 		parent::ApplyChanges();
 
+		// Variables
+		for($i = 1; $i <= 2; $i++) {
+			if (!@$this->GetIDForIdent("Input".$i)) $this->RegisterVariableBoolean("Input".$i, "Input ".$i, "~Switch",1);
+
+			if (!@$this->GetIDForIdent("Output".$i)) {
+				$this->RegisterVariableBoolean("Output".$i, "Output ".$i, "~Switch",1);
+				$this->EnableAction("Output".$i);
+			}
+		}
+
 		//Apply filter
 		$this->SetReceiveDataFilter(".*\"DeviceNumber\":". $this->ReadPropertyInteger("OWDID") .",.*");
 

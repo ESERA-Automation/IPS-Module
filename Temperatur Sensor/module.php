@@ -24,6 +24,9 @@ class EseraTemperatur extends IPSModule {
         //Never delete this line!
         parent::ApplyChanges();
 
+		// Variables
+		if (!@$this->GetIDForIdent("Temperatur")) $this->RegisterVariableFloat("Temperatur", "Temperatur", "ESERA.Temperatur", 1);
+
         //Apply filter
         $this->SetReceiveDataFilter(".*\"DeviceNumber\":". $this->ReadPropertyInteger("OWDID") .",.*");
 
