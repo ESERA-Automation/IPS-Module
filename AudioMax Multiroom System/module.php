@@ -86,15 +86,72 @@ class AudioMaxSystem extends IPSModule {
     }
 
 
-	public function ApplyChanges(){
-     //Never delete this line!
-     parent::ApplyChanges();
+	public function ApplyChanges() {
+		//Never delete this line!
+		parent::ApplyChanges();
 
-     $this->SetReceiveDataFilter(".*\"DeviceType\":\"AUDIO\".*");
+		// Variables
+		for ($i = 1; $i <= 6; $i++) {
+			if (!@$this->GetIDForIdent("volume" . $i)) {
+				$this->RegisterVariableinteger("volume" . $i, "Volume " . $i, "ESERA.AudioMaxVolume");
+				$this->EnableAction("volume" . $i);
+				//$this->SetPosition("volume".$i, $position);
+			}
+			if (!@$this->GetIDForIdent("gain" . $i)) {
+				$this->RegisterVariableinteger("gain" . $i, "Gain " . $i, "ESERA.AudioMaxGain");
+				$this->EnableAction("gain" . $i);
+				//	$position = $position + 1;
+				//$this->SetPosition("gain".$i, $position);
+			}
+			if (!@$this->GetIDForIdent("bass" . $i)) {
+				$this->RegisterVariableinteger("bass" . $i, "Bass " . $i, "ESERA.AudioMaxTone");
+				$this->EnableAction("bass" . $i);
+				//	$position = $position + 1;
+				//$this->IPS_SetPosition("bass".$i, $position);
+			}
+			if (!@$this->GetIDForIdent("mid" . $i)) {
+				$this->RegisterVariableinteger("mid" . $i, "Middle " . $i, "ESERA.AudioMaxTone");
+				$this->EnableAction("mid" . $i);
+				//	$position = $position + 1;
+				//$this->SetPosition("mid".$i, $position);
+			}
+			if (!@$this->GetIDForIdent("treble" . $i)) {
+				$this->RegisterVariableinteger("treble" . $i, "Treble " . $i, "ESERA.AudioMaxTone");
+				$this->EnableAction("treble" . $i);
+				//	$position = $position + 1;
+				//$this->IPS_SetPosition("treble".$i, $position);
+			}
+			if (!@$this->GetIDForIdent("balance" . $i)) {
+				$this->RegisterVariableinteger("balance" . $i, "Balance " . $i, "ESERA.AudioMaxBalance");
+				$this->EnableAction("balance" . $i);
+				//	$position = $position + 1;
+				//$this->IPS_SetPosition("balance".$i, $position);
+			}
+			if (!@$this->GetIDForIdent("amp" . $i)) {
+				$this->RegisterVariableBoolean("amp" . $i, "Amplifier " . $i, "~Switch");
+				$this->EnableAction("amp" . $i);
+				//	$position = $position + 1;
+				//$this->IPS_SetPosition("amp".$i, $position);
+			}
+			if (!@$this->GetIDForIdent("mute" . $i)) {
+				$this->RegisterVariableBoolean("mute" . $i, "Mute Output " . $i, "~Switch");
+				$this->EnableAction("mute" . $i);
+				//	$position = $position + 1;
+				//$this->IPS_SetPosition("mute".$i, $position);
+			}
+			if (!@$this->GetIDForIdent("input" . $i)) {
+				$this->RegisterVariableInteger("input" . $i, "Input " . $i, "ESERA.AudioMaxInput");
+				$this->EnableAction("input" . $i);
+				//	$position = $position + 1;
+				//$this->IPS_SetPosition("input".$i, $position);
+			}
+		}
+
+		$this->SetReceiveDataFilter(".*\"DeviceType\":\"AUDIO\".*");
 	}
 
 
-    public function ReceiveData($JSONString) {
+	public function ReceiveData($JSONString) {
 
         $data = json_decode($JSONString);
         $this->SendDebug("AudioMaxSystem", "| Room Number:" . $data->RoomNumber . "| Audio Type:" . $data->AudioType . "| Audio Value:" . $data->AudioValue, 0);

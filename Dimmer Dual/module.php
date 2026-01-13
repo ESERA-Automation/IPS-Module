@@ -22,12 +22,31 @@ class EseraDualDimmer extends IPSModule {
 		//Never delete this line!
 		parent::Destroy();
 	}
-	public function ApplyChanges(){
+	
+	public function ApplyChanges() {
 		//Never delete this line!
 		parent::ApplyChanges();
+	
+		// Variables
+		if (!@$this->GetIDForIdent("Channel1PushButton")) $this->RegisterVariableBoolean("Channel1PushButton", "Channel 1 Input", "~Switch");
+		if (!@$this->GetIDForIdent("Channel2PushButton")) $this->RegisterVariableBoolean("Channel2PushButton", "Channel 2 Input", "~Switch");
+		if (!@$this->GetIDForIdent("Channel1ModuleButton")) $this->RegisterVariableBoolean("Channel1ModuleButton", "Channel 1 Module Button", "~Switch");
+		if (!@$this->GetIDForIdent("Channel2ModuleButton")) $this->RegisterVariableBoolean("Channel2ModuleButton", "Channel 2 Module Button", "~Switch");
+
+        if (!@$this->GetIDForIdent("Channel1Value")) {
+			$this->RegisterVariableInteger("Channel1Value", "Channel 1 Output", "ESERA.Dimmer1");
+			$this->EnableAction("Channel1Value");
+		}
+		
+		if (!@$this->GetIDForIdent("Channel2Value")) {
+			$this->RegisterVariableInteger("Channel2Value", "Channel 2 Output", "ESERA.Dimmer1");
+			$this->EnableAction("Channel2Value");
+		}
+	
 		//Apply filter
 		$this->SetReceiveDataFilter(".*\"DeviceNumber\":". $this->ReadPropertyInteger("OWDID") .",.*");
 	}
+
 	public function ReceiveData($JSONString) {
 		$data = json_decode($JSONString);
 		$this->SendDebug("ESERA-DualDim", $data->DataPoint . " | " . $data->Value, 0);

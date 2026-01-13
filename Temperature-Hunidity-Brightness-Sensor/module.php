@@ -31,6 +31,13 @@ class EseraTemperaturFeuchteHelligkeit extends IPSModule {
         //Never delete this line!
         parent::ApplyChanges();
 
+		// Variables
+		if (!@$this->GetIDForIdent("Temperatur")) $this->RegisterVariableFloat("Temperatur", "Temperatur", "ESERA.Temperatur_indoor", 1);
+        if (!@$this->GetIDForIdent("Spannung")) $this->RegisterVariableFloat("Spannung", "Spannung", "ESERA.Spannung10V", 2);
+        if (!@$this->GetIDForIdent("Luftfeuchte")) $this->RegisterVariableFloat("Luftfeuchte", "Luftfeuchte", "ESERA.Luftfeuchte", 3);
+        if (!@$this->GetIDForIdent("Taupunkt")) $this->RegisterVariableFloat("Taupunkt", "Taupunkt", "ESERA.Temperatur_indoor", 4);
+        if (!@$this->GetIDForIdent("Helligkeit")) $this->RegisterVariableFloat("Helligkeit", "Helligkeit", "ESERA.Helligkeit", 5);
+
         //Apply filter
         $this->SetReceiveDataFilter(".*\"DeviceNumber\":". $this->ReadPropertyInteger("OWDID") .",.*");
 

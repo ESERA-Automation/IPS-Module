@@ -9,6 +9,7 @@ class EseraStromzaehler extends IPSModule {
         $this->RegisterPropertyInteger("Impulses", 1000);
         $this->RegisterPropertyInteger("AnnualLimit", 1000);
         $this->RegisterPropertyInteger("LimitActive", 100);
+
         $this->RegisterVariableInteger("Counter", "Counter", "", 1);
         $this->RegisterVariableFloat("Leistung", "Leistung", "~Electricity", 2);
         $this->RegisterVariableInteger("TagCounter", "Counter Tag", "", 3);
@@ -24,6 +25,7 @@ class EseraStromzaehler extends IPSModule {
         $this->RegisterVariableInteger("MaxLeistungZeit", "Maximal Tag Zeit", "~UnixTimestamp", 13);
         $this->RegisterVariableBoolean("AnnualLimit", "Jahreslimit", "", 14);
         $this->RegisterVariableBoolean("Betrieb", "Betrieb", "", 15);
+
         $this->RegisterTimer("Refresh", 0, 'ESERA_RefreshCounter($_IPS[\'TARGET\']);');   
         $this->RegisterTimer("DailyReset", 0, 'ESERA_ResetPowerMeterDaily($_IPS[\'TARGET\']);');
         $this->RegisterTimer("MonthlyReset", 0, 'ESERA_ResetPowerMeterMonthly($_IPS[\'TARGET\']);');
@@ -36,6 +38,24 @@ class EseraStromzaehler extends IPSModule {
     public function ApplyChanges(){
         //Never delete this line!
         parent::ApplyChanges();
+
+		// Variables
+		if (!@$this->GetIDForIdent("Counter")) $this->RegisterVariableInteger("Counter", "Counter", "", 1);
+        if (!@$this->GetIDForIdent("Leistung")) $this->RegisterVariableFloat("Leistung", "Leistung", "~Electricity", 2);
+        if (!@$this->GetIDForIdent("TagCounter")) $this->RegisterVariableInteger("TagCounter", "Counter Tag", "", 3);
+        if (!@$this->GetIDForIdent("LeistungTag")) $this->RegisterVariableFloat("LeistungTag", "Leistung Tag", "~Electricity", 4);
+        if (!@$this->GetIDForIdent("LeistungVortag")) $this->RegisterVariableFloat("LeistungVortag", "Leistung Vortag", "~Electricity", 5);
+        if (!@$this->GetIDForIdent("MonatCounter")) $this->RegisterVariableInteger("MonatCounter", "Counter Monat", "", 6);
+        if (!@$this->GetIDForIdent("LeistungMonat")) $this->RegisterVariableFloat("LeistungMonat", "Leistung Monat", "~Electricity", 7);
+        if (!@$this->GetIDForIdent("LeistungVormonat")) $this->RegisterVariableFloat("LeistungVormonat", "Leistung Vormonat", "~Electricity", 8);
+        if (!@$this->GetIDForIdent("JahrCounter")) $this->RegisterVariableInteger("JahrCounter", "Counter Jahr", "", 9);
+        if (!@$this->GetIDForIdent("LeistungJahr")) $this->RegisterVariableFloat("LeistungJahr", "Leistung Jahr", "~Electricity", 10);
+        if (!@$this->GetIDForIdent("LeistungVorjahr")) $this->RegisterVariableFloat("LeistungVorjahr", "Leistung Vorjahr", "~Electricity", 11);
+        if (!@$this->GetIDForIdent("MaxLeistung")) $this->RegisterVariableFloat("MaxLeistung", "Maximal Tag", "~Electricity", 12);
+        if (!@$this->GetIDForIdent("MaxLeistungZeit")) $this->RegisterVariableInteger("MaxLeistungZeit", "Maximal Tag Zeit", "~UnixTimestamp", 13);
+        if (!@$this->GetIDForIdent("AnnualLimit")) $this->RegisterVariableBoolean("AnnualLimit", "Jahreslimit", "", 14);
+        if (!@$this->GetIDForIdent("Betrieb")) $this->RegisterVariableBoolean("Betrieb", "Betrieb", "", 15);
+
         $this->SetTimerInterval("Refresh", 180 * 1000);
         $this->SetDailyTimerInterval();
         $this->SetMonthlyTimerInterval();

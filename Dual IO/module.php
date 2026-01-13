@@ -21,9 +21,15 @@ class EseraDualIO extends IPSModule {
         parent::Destroy();
 
     }
-    public function ApplyChanges(){
+    public function ApplyChanges() {
         //Never delete this line!
         parent::ApplyChanges();
+
+		// Variables
+		if (!@$this->GetIDForIdent("Eingang0")) $this->RegisterVariableInteger("Eingang0", "Eingang 0", "", 1);
+        if (!@$this->GetIDForIdent("Eingang1")) $this->RegisterVariableInteger("Eingang1", "Eingang 1", "", 2);
+        if (!@$this->GetIDForIdent("Status0")) $this->RegisterVariableInteger("Status0", "Status 0", "", 3);
+        if (!@$this->GetIDForIdent("Status1")) $this->RegisterVariableInteger("Status1", "Status 1", "", 4);
 
         //Apply filter
         $this->SetReceiveDataFilter(".*\"DeviceNumber\":". $this->ReadPropertyInteger("OWDID") .",.*");

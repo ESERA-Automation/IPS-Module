@@ -27,6 +27,12 @@ class EseraSmartBattMonitor extends IPSModule {
         //Never delete this line!
         parent::ApplyChanges();
 
+		// Variables
+		if (!@$this->GetIDForIdent("Temperatur"))  $this->RegisterVariableFloat("Temperatur", "Temperatur", "ESERA.Temperatur", 1);
+        if (!@$this->GetIDForIdent("SpannungVCC")) $this->RegisterVariableFloat("SpannungVCC", "Spannung VCC", "", 2);
+        if (!@$this->GetIDForIdent("SpannungVAD")) $this->RegisterVariableFloat("SpannungVAD", "Spannung VAD", "", 3);
+        if (!@$this->GetIDForIdent("CurrentSens")) $this->RegisterVariableFloat("CurrentSens", "Current Sens", "", 3);
+		
         //Apply filter
         $this->SetReceiveDataFilter(".*\"DeviceNumber\":". $this->ReadPropertyInteger("OWDID") .",.*");
 

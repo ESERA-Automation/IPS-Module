@@ -21,14 +21,21 @@ class EseraPWMOut extends IPSModule {
         parent::Destroy();
 
     }
-    public function ApplyChanges(){
-        //Never delete this line!
-        parent::ApplyChanges();
+	
+	public function ApplyChanges() {
+		//Never delete this line!
+		parent::ApplyChanges();
 
-        //Apply filter
-        $this->SetReceiveDataFilter(".*\"DeviceNumber\":". $this->ReadPropertyInteger("OWDID") .",.*");
+		// Variables
+		if (!@$this->GetIDForIdent("PWMOut")) {
+			$this->RegisterVariableInteger("PWMOut", "PWM Out", "ESERA.PWM", 2);
+			$this->EnableAction("PWMOut");
+		}
 
-    }
+		//Apply filter
+		$this->SetReceiveDataFilter(".*\"DeviceNumber\":" . $this->ReadPropertyInteger("OWDID") . ",.*");
+	}
+
     public function ReceiveData($JSONString) {
 
         $data = json_decode($JSONString);

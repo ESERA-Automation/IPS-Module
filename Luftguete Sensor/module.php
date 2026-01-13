@@ -28,6 +28,10 @@ class EseraLuftguete extends IPSModule {
         //Never delete this line!
         parent::ApplyChanges();
 
+		// Variables
+		if (!@$this->GetIDForIdent("Spannung")) $this->RegisterVariableFloat("Spannung", "Spannung", "ESERA.Spannung10V", 2);
+        if (!@$this->GetIDForIdent("Luftguete")) $this->RegisterVariableInteger("Luftguete", "Luftguete", "ESERA.Luftguete", 3);
+
         //Apply filter
 		$this->SetReceiveDataFilter(".*\"DeviceNumber\":". $this->ReadPropertyInteger("OWDID") .",.*");
 

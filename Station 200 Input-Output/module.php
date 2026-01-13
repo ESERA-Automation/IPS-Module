@@ -27,10 +27,22 @@ class EseraStation200IO extends IPSModule {
 
 	
 	public function ApplyChanges(){
-     //Never delete this line!
-     parent::ApplyChanges();
+		//Never delete this line!
+		parent::ApplyChanges();
 
-     $this->SetReceiveDataFilter(".*\"DeviceType\":\"SYS\".*");
+		// Variables
+		for($i = 1; $i <= 2; $i++) {
+        	if (!@$this->GetIDForIdent("Input".$i)) $this->RegisterVariableBoolean("Input".$i, "Input ".$i, "~Switch");
+        }
+
+        for($i = 1; $i <= 2; $i++) {
+			if (!@$this->GetIDForIdent("Output".$i)) {
+				$this->RegisterVariableBoolean("Output".$i, "Output ".$i, "~Switch");
+				$this->EnableAction("Output".$i);
+			}
+		}
+
+		$this->SetReceiveDataFilter(".*\"DeviceType\":\"SYS\".*");
 	}
 	
 	

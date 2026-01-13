@@ -27,6 +27,12 @@ class EseraAnalogIn4Channel extends IPSModule {
         //Never delete this line!
         parent::ApplyChanges();
 
+		// Variables
+		if (!@$this->GetIDForIdent("Spannung1")) $this->RegisterVariableFloat("Spannung1", "Spannung 1", "ESERA.Spannung10V", 1);
+		if (!@$this->GetIDForIdent("Spannung2")) $this->RegisterVariableFloat("Spannung2", "Spannung 2", "ESERA.Spannung10V", 2);
+		if (!@$this->GetIDForIdent("Spannung3")) $this->RegisterVariableFloat("Spannung3", "Spannung 3", "ESERA.Spannung10V", 3);
+		if (!@$this->GetIDForIdent("Spannung4")) $this->RegisterVariableFloat("Spannung4", "Spannung 4", "ESERA.Spannung10V", 4);
+
         //Apply filter
         $this->SetReceiveDataFilter(".*\"DeviceNumber\":". $this->ReadPropertyInteger("OWDID") .",.*");
 

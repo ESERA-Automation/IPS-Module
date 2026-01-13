@@ -25,6 +25,9 @@ class EseraAnalogOut010V extends IPSModule {
         //Never delete this line!
         parent::ApplyChanges();
 
+		// Variables
+		if (!@$this->GetIDForIdent("AnalogOut")) $this->RegisterVariableFloat("AnalogOut", "Analog Out", "ESERA.Spannung10V", 2);
+
         //Apply filter
         $this->SetReceiveDataFilter(".*\"DeviceNumber\":". $this->ReadPropertyInteger("OWDID") .",.*");
 

@@ -22,6 +22,9 @@ class EseraiButton extends IPSModule {
         //Never delete this line!
         parent::ApplyChanges();
 
+		// Variables
+		if (!@$this->GetIDForIdent("iButton")) $this->RegisterVariableString("iButton", "iButton", "", 1);
+
         //Apply filter
         $this->SetReceiveDataFilter(".*\"DeviceNumber\":". $this->ReadPropertyInteger("OWDID") .",.*");
 
