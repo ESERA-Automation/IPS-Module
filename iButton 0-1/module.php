@@ -36,7 +36,7 @@ class EseraiButton01 extends IPSModule {
         $this->SendDebug("EseraiButton", "DataPoint:" . $data->DataPoint . " | Value: " . $data->Value, 0);
 
         if ($this->ReadPropertyInteger("OWDID") == $data->DeviceNumber) {
-            if ($data->DataPoint == 0) {
+            if ($data->DataPoint == 1) {
                 $value = $data->Value;
                 SetValue($this->GetIDForIdent("iButton"), $value);
             }
